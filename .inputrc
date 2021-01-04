@@ -1,0 +1,44 @@
+# \C- CTRL
+# \M- SHIFT 
+# \e  ALT
+
+set completion-ignore-case on
+
+$if Bash
+   # F5 & Co
+   "\e[15~": "logSipad -s rmi ingest \n"
+   "\e[17~": "logSipad -s rest ingest\n"
+   "\e[18~": "logSipad -s rest command\n"
+   "\e[20~": "top -c -u cdppdev\n"
+
+   # Expansion de la ligne de commande
+   "\ee": "\e\C-e"
+
+   # mapping for Ctrl-left-arrow and Ctrl-right-arrow word moving
+   "\e[1;5C": forward-word
+   "\e[5C": forward-word
+   "\e\e[C": forward-word
+   "\e[1;5D": backward-word
+   "\e[5D": backward-word
+   "\e\e[D": backward-word
+
+   # Historique (Ctrl+haut, Ctrl+bas)
+   "\e[1;5A": history-search-backward
+   "\e[1;5B": history-search-forward
+
+   # mailx (<Alt+<lettre Prenom>>)
+   "\ev": "vincent.cephirins@akka.eu "
+   "\en": "nicolas.lormant@akka.eu "
+   "\eh": "hacene.si-hadj-mohand@akka.eu "
+   "\eb": "bertrand.frey@akka.eu "
+
+   # GIT
+   "\eo": "git checkout "
+   "\em": "memoSH git "
+
+$endif
+
+$if Python
+   "\eh": " help()"
+$endif
+

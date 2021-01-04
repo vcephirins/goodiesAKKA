@@ -1,0 +1,93 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : putPackageProxy
+#s*
+#s* ROLE :  Deploie les fichier dans l'espace proxy de la vdlib
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES : 
+#s* SYNOPSIS :  
+#s*
+#s*****************************************************************************
+
+. utils.bash
+
+typeset REP_DEST=${VDLIB_PROXY}/livraison
+typeset LOG=/tmp/vdlib_proxy_$$.log
+
+typeset -l reponse=y
+typeset -i NBfiles=0
+typeset -i vDebug=0
+
+#--- Recuperation des options
+typeset -i vPush=0;
+typeset -i cptOpt=0;
+OPTIND=1
+while getopts dq SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      p) vPush=1;
+         cptOpt=cptOpt+1;
+         ;;
+      *) fEndProc 0 "Syntax : putPackageProxy [-p] <package>";
+         ;;
+   esac
+done
+
+shift $cptOpt
+
+NBfiles=$#
+[[ $NBfiles -eq 0 ]] && fEndProc 0 "Syntax : putPackageProxy [-p] <package>"
+
+vPackage=$1
+
+{
+   [[ ! -r $vPackage ]] && fEndProc 1 "ERROR : FILE ($vPackage) NOT FOUND";
+
+   #Recupere le nom de l'outil
+   vPackageNameVersion=${vPackage##*/}
+   vPackageName=${vPackageNameVersion%_[vV]*}
+
+   # validation que le package est bien declare dans la base
+   read vPackageValidated <<< $(curl -s "${VDLIB_REQUEST}?request=listPackages&P1=${vPackageNameVersion%.tar*}" | head -1 | 
+      awk -F";" '{printf("%s\n", $2);}')
+   if [[ "${vPackageValidated}" != "${vPackageNameVersion%.tar*}" ]]
+   then
+      fEndProc 1  "ERROR : Package '${vPackageNameVersion}' is not declared into VDLIB site (${VDLIB_HOST}/vdlib_www/src/vdlib.php)!";
+   fi
+
+   # Validation de la version du package vis a vis de la mise en conf au SGC
+   vFileRef=$(ls -rt ${VDLIB_PATH}/archives/SGC_vdlib*gz ${VDLIB_PATH}/deepArchives/SGC_vdlib*gz | tail -1)
+   vFileFound=$(find  ${VDLIB_PATH}/archives  ${VDLIB_PATH}/deepArchives ! -newer ${vFileRef} -name ${vPackageNameVersion})
+   vFileFound=$(basename "$vFileFound" 2>/dev/null)
+
+   if [[ "$vFileFound" == "${vPackageNameVersion}" ]]
+   then
+      fEndProc 1  "ERROR : Package '${vPackageNameVersion}' is already posted in freeze VDLIB library SGC conf : You must increment package version !";
+   fi
+
+   fConfirm "Deploy package on proxy => $vPackage" || fEndProc 0
+
+   # Copie du package dans l'espace de livraison
+   cp ${vPackage} ${VDLIB_PROXY}/livraison
+   fError "ERROR : Copie du package '${vPackage}' dans '${VDLIB_PROXY}/livraison' impossible !"
+
+   # Affectation des droits
+   chmod ugo+rw ${VDLIB_PROXY}/livraison/${vPackage} 2>/dev/null
+
+   # Deploiement sur le proxy
+   deployPackageProxy ${vPackage}
+   fError "ERROR : Deploiement du package '${vPackage}' impossible !"
+
+} 2>&1 | tee -a $LOG
+
+grep "ERROR [!:]" $LOG >/dev/null && fEndProc 1
+
+rm $LOG >/dev/null 2>&1
+
+fEndProc 0
+
+
+

@@ -1,0 +1,73 @@
+#!/bin/bash -f
+#
+#set -x
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : deleteLinks
+#s*
+#s* ROLE :  Procedure de suppression des liens de la VDLIB
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+# Chargement des fonctions de base
+. utils.bash
+
+function fSyntax {
+   echo "$0  <-l | -d> <package>";
+   echo " avec : -l Liste des liens qui seront supprimees."
+   echo "        -d Suppression des liens."
+}
+
+# Control args
+NbArgs=$#
+
+if [[ $NbArgs -ne 2 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+typeset -l mode=$1
+typeset package=$2
+
+if [[ $mode != "-d" && $mode != "-l" ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+# Position automatique dans le repertoire de la vdlib
+cd ${VDLIB_PROXY}
+fError "Repertoire '${VDLIB_PROXY}' inaccessible !"
+
+# Parcours des repertoires
+for repert in ${VDLIB_REP}
+do
+   [[ ! -d $repert ]] && continue;
+
+   find $repert -type l -ls | grep packages/$package/$repert/ | while read line
+   do
+      read name pad <<< $( echo ${line#*${repert}/} )
+      lien=${repert}/$name
+
+      if [[ $mode == "-d" ]]
+      then
+         rm -f $lien;
+         fError "Suppression du lien '$lien' en erreur !"
+      else
+         ls $lien
+         fError "Lien '$lien' en erreur !"
+      fi;
+   done
+   fError ""
+
+done
+fError ""
+
+fEndProc  0
+

@@ -1,0 +1,85 @@
+# Fichier .profile personnalise des parties communes
+#
+stty istrip
+stty erase 
+
+module load geany/1.24.1
+
+#Editeur de texte par defaut
+export EDITOR="geany"
+
+# Monitoring du prompt
+# see man bash (PROMPTING)
+# 256 colors
+#for C in {16..255}; do
+#    echo -en "\e[48;5;${C}m$C "
+#done
+#echo -e "\e(B\e[m"
+
+# \E[4#1m 	set background color #1 (0-7) 
+# \E[3#1m 	set text color #1 (0-7) 
+# \E(B\E[m 	reset text attributes 
+#export PS1=$(tput smso;echo '$LOGNAME on \c';echo "`hostname`\c";tput rmso;echo ' $PWD'"\n\r$ ")
+export PS1='\e[7m\u on \h\e[27m: \e[32m$(parseGitBranch)\e(B\e[m \w\n\$ '
+
+set -o emacs
+alias __A=`echo "\020"`
+alias __B=`echo "\016"`
+alias __Z=`echo "\017"` #Shift In : permet d'annuler l'effet du \016 (Shift Out)
+alias __C=`echo "\06"`
+alias __D=`echo "\02"`
+
+# PROXY
+#export HTTP_PROXY="http://CNESNET\cdppexp:N-HwHsoV4@proxy-HTTP2.cnes.fr:8050"
+#export HTTPS_PROXY="http://CNESNET\cdppexp:N-HwHsoV4@proxy-HTTP2.cnes.fr:8050"
+
+# Nouveau Proxy
+export http_proxy="http://CNESNET\cdppexp:N-HwHsoV4@proxy-surf.loc.cnes.fr:8050"
+export https_proxy="${http_proxy}"
+export ftp_proxy="${http_proxy}"
+export no_proxy="10.120.10.3,10.120.10.5,cnes.fr,sis.cnes.fr,gitlab.cnes.fr"
+export HTTP_PROXY="${http_proxy}"
+export HTTPS_PROXY="${https_proxy}"
+
+#unalias
+unalias ls 2>/dev/null
+alias ll='ls -l --color=auto -h'
+TERM=xterm
+
+export ORBIT_PATH="${ARCHCDPP_PATH}/format_natif/orbit"
+
+case ${USER} in
+   cdppexp ) 
+             alias open='stafOpen plasma psvdo123'
+             alias opengf='stafOpen gf_plasma psvdo123'
+             alias opentr='stafOpen transfert cnes01'
+             ;;
+   cdppqual) 
+             alias open='stafOpen sgds psvdo456'
+             alias opengf='stafOpen gf_sgds psvdo123'
+             alias opentr='stafOpen transfert cnes01'
+             ;;
+   archcdpp) 
+             alias open='stafOpen plasma psvdo123'
+             ;;
+   *       ) 
+             alias open='stafOpen sgds psvdo456'
+             alias opengf='stafOpen gf_sgds psvdo123'
+             alias opentr='stafOpen transfert cnes01'
+             ;;
+esac
+
+alias close='stafClose'
+
+#######################################
+# Programmes PYTHON                   #
+#######################################
+# module unload python
+# module load python/3.5.2
+# source ${VDLIB_PROXY}/python3.5/bin/activate
+
+# Calculatrice
+function calc() {
+    awk "BEGIN {print ($*);}"
+}
+

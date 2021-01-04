@@ -1,0 +1,78 @@
+VDLIB ##TAG_VERSION## ##TAG_DATE##
+Dossier descriptif de configuration, fait :
+le : ##TAG_DATE##
+par : AKKA
+
+0.Contexte du projet
+--------------------
+0.1 Sommaire
+------------
+1. Identification de l'article de configuration
+2. Identification de la version
+3. Liste des composants logiciels (liste-reference.txt)
+4. Documentation
+5. Moyens
+6. Modifications (delta-reference.txt)
+
+0.2 Domaine d'application
+-------------------------
+Le logiciel VDLIB est une bibliothèque d'outils a usage multiple
+
+1. Identification de l'Article de Configuration
+------------------------------------------------
+Nom de l'article : VDLIB
+Code OT : 3311
+Criticité : normale
+Confidentialité : non classifié
+Fournisseur : AKKA
+
+2. Identification de la version
+------------------------------
+Date Version : ##TAG_DATE##
+Numéro Version : ##TAG_VERSION##
+Numéro Version de référence : ##TAG_VERSION_PREC##
+Branche version (principale/parallèle) : principale
+Etat Version : Validée
+Justification :
+- mise à niveau bibliothèques et outils
+Nature d'arborescence : Arborescence d'exploitation (scripts, binaires)
+Type de livraison : Complète
+
+3. Liste des composants logiciels
+---------------------------------
+<Voir liste-reference.txt>
+
+4. Documentation
+----------------
+SGDS-ME-3400-1055-SI v1.2 16/05/2016
+
+5. Moyens
+---------
+5.1 Moyens de développement (hors génération)
+---------------------------------------------
+Ordinateur de développement :
+Station de travail ##TAG_LINUX##
+
+Outil 		version 	fournisseur 	rôle & observation
+Linux   	6 		redhat 		système d'exploitation
+
+5.2 Moyens de génération
+------------------------
+Les outils de la VDLIB sont fournis pret au deploiment et a l'usage. Il n'y a pas de génération.
+
+5.3 Moyens d'exploitation
+-------------------------
+nom 		version 	fournisseur 	rôle et observation
+Linux   	6 		redhat 		système d'exploitation
+
+6. Modifications
+----------------
+Résumé des modifications :
+   Mise en configuration des outils de la VDLIB version ##TAG_VERSION##
+
+6.1 Identification des modifications
+------------------------------------
+6.1.1 Fichiers ajoutés/modifiés/supprimés
+-----------------------------------------
+<Voir delta-reference.txt>
+

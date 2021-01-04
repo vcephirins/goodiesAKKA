@@ -1,0 +1,109 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : $0
+#s*
+#s* ROLE :  Copie les annexes des outils dans l'espace de de la vdlib
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES : 
+#s* SYNOPSIS :  
+#s*
+#s*****************************************************************************
+
+. utils.bash
+
+typeset REP_DEST=${VDLIB_PATH}/livraison
+typeset LOG=/tmp/vdlib_$$.log
+#typeset MAIL_DEST="richard.moreno@cnes.fr"
+typeset MAIL_DEST="v.cephirins@akka.eu"
+typeset MAIL_CC="exploitcdpp@akka.eu"
+
+typeset -l reponse=y
+typeset -i NBtransfer=0
+typeset -i vDebug=0
+
+#--- Recuperation des options
+typeset -i quiet=0;
+typeset -i cptOpt=0;
+OPTIND=1
+while getopts q SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      q) quiet=1;
+         cptOpt=cptOpt+1;
+         ;;
+      *) fEndProc 0 "Syntax : putAnnexeTool <tool> <annexe>";
+         ;;
+   esac
+done
+
+shift $cptOpt
+
+[[ $# -lt 2 ]] && fEndProc 0 "Syntax : putAnnexeTool <tool> <annexe>"
+
+vRef=$1
+vAnnexe=$2
+
+fInfoLog $0 $@ > $LOG
+
+{
+   [[ ! -r $vAnnexe ]] && fEndProc 1 "ERROR : FILE ($vAnnexe) NOT FOUND";
+
+   #Recupere le nom du tool
+   vRefNameVersion=$(basename ${vRef})
+   vRefName=$(expr "${vRefNameVersion}" : '\(.*\)_[vV][0-9].*')
+
+   #Recupere le nom de l'annexe
+   vAnnexeName=$(basename ${vAnnexe})
+
+   # validation que le tool est bien declare dans la base
+   read vRefValidated <<< $(curl -s "${VDLIB_REQUEST}?request=listTools&P1=${vRefNameVersion%.tar*}" | head -1 |
+      awk -F";" '{printf("    %s\n", $1);}')
+   if [[ "${vRefValidated}" != "${vRefNameVersion%.tar*}" ]]
+   then
+      fEndProc 1  "ERROR : Tool '${vRefNameVersion}' is not declared into VDLIB site !";
+   fi
+
+   # Validation que l'annexe est bien declaree dans la base
+   read vAnnexeValidated <<< $(curl -s "${VDLIB_REQUEST}?request=getToolAnnexe&P1=${vRefNameVersion%.tar*}&P2=${vAnnexeName}" | 
+      awk -F";" '{printf("    %s\n", $3);}')
+   if [[ "${vAnnexeValidated}" != "${vAnnexeName}" ]]
+   then
+      fEndProc 1  "ERROR : Annexe '${vAnnexeName}' is not declared into VDLIB site for tool '${vRefNameVersion}' !";
+   fi
+
+   # Copie de l'annexe dans le repertoire de livraison
+   cp ${vAnnexe} ${REP_DEST}
+   fError "ERROR : cp ${vAnnexe} ${REP_DEST} !"
+
+   chmod 666 $REP_DEST/$(basename $vAnnexe)
+   fError "ERROR : chmod 666 $REP_DEST/$(basename $vAnnexe) !"
+
+   # Deploiement automatique de l'annexe
+   curl -s "${VDLIB_CMD}?cmd=deployToolAnnexe&P1=${vRefNameVersion%.tar*}&P2=${vAnnexeName}" | 
+      awk 'BEGIN {error = 1;}
+           /^Annexe .* livre$/ {error = 0;}
+           /^=>/ {next;}
+           {print $0;}
+           END { exit error; }'
+   [[ $? -ne 0 ]] && fEndProc 1  "ERROR : problem to delivery annexe !";
+
+} 2>&1 | tee -a $LOG
+
+if [[ $quiet -eq 1 ]]
+then
+   mailx -s "[VDLIB] putAnnexeTool $(basename ${vRef}) $vAnnexe" $MAIL_DEST < $LOG
+else
+   mailx -s "[VDLIB] putAnnexeTool $(basename ${vRef}) $vAnnexe" -c $MAIL_CC $MAIL_DEST < $LOG
+fi
+
+grep -i "ERROR [!:]" $LOG >/dev/null && fEndProc 1
+
+rm $LOG >/dev/null 2>&1
+
+fEndProc 0
+
+
+

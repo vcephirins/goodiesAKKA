@@ -1,0 +1,206 @@
+#!/bin/bash
+###########################################################################
+# HISTORIQUE
+#
+# VERSION : 2.0 Creation
+# AUTEUR  : V. Cephirins
+#
+# FIN-HISTORIQUE
+#
+###########################################################################
+#
+# Calcul et retourne les bornes d'une periode
+#
+###########################################################################
+
+function fct_Usage
+{
+    echo " getPeriod [-d | -x <gap>] date[:[date]] [output format]    # one day or interval or date to 2999-12-31" >&2
+    echo "           [-d | -x <gap>] [[date]:]date [output format]    # one day or interval or 1970-01-01 to date" >&2
+    echo "           [-d | -x <gap>] [[date]:<-/+dd>[-/+mm[-/+yyyy]]  # Add days, months, years to date" >&2
+    echo "    -d      : Duration in days between 2 dates" >&2
+    echo "    -x      : Display dates between period with gap equals year, month or day" >&2
+    echo "    date    : yyyy[mm[dd]] or yyyy[qqq] or yyyy[Snn] or @timestamp" >&2
+    echo "    format  : See output format of date command" >&2
+    echo "    Ex : read vStart vEnd <<< \$(getPeriod 201202)" >&2
+    echo "         getPeriod @1328227200:@1328400000 +%F" >&2
+    echo "         getPeriod -x day 20160125:+6 \"+%F %A\"" >&2
+    echo "         getPeriod -d 2016" >&2
+    echo "         getPeriod 20130115:+10-1+4 +%F" >&2
+    echo "         getPeriod 2008S01 \"+%A %F\"" >&2
+    return 1
+}
+
+#----------------         DECLARATION des VARIABLES GLOBALES    ----------------
+
+#-----------------------------------------------------------------------
+#                     CONTROLE OPTIONS/ARGUMENTS
+#-----------------------------------------------------------------------
+
+#--- Recuperation des options
+typeset -i bDuration=0
+typeset -l vGap=""
+
+OPTIND=1
+while getopts hdx: SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      h | \?) fct_Usage
+         exit 0
+         ;;
+      d) bDuration=1;
+         ;;
+      x) vGap=$OPTARG;
+         case "$vGap" in
+         "year") ;;
+         "month") ;;
+         "day") ;;
+         *) fct_Usage
+            exit 1;
+            ;;
+         esac
+         ;;
+      *) fct_Usage;
+         exit 1;
+         ;;
+   esac
+done
+
+shift $(($OPTIND -1))
+
+#--- Recuperation des parametres obligatoires
+if [[ "$1" == "" ]]
+then
+   # Erreur de syntaxe
+   fct_Usage
+   exit 1
+fi
+
+vCritereDate="$1"
+vFormatDate="${2:-"+%F %T"}"
+
+# Calcul des bornes de la periode
+read vStartDate vStopDate <<< $(echo "${vCritereDate}" | awk '{
+      nb=split($0, dates, ":");
+      startDate=dates[1]
+      stopDate=dates[2]
+
+      # Suppression des caracteres parasites
+      gsub("[^0-9@Ss]", "", startDate);
+      if (match(stopDate, "^[+-]")) gsub("[^0-9+-]", "", stopDate);
+      else gsub("[^0-9@Ss]", "", stopDate);
+
+      if (nb == 1) stopDate=startDate
+      else {
+         if(startDate == "") startDate=19700101
+         if(stopDate == "") stopDate=29991231
+      }
+
+      # Completion des dates de debut et fin si ce ne sont pas des timestamp
+      if (!match(startDate, "@")) {
+         if (length(startDate) == 4) startDate=startDate"0101";
+         else if (length(startDate) == 6) startDate=startDate"01";
+      }
+
+      if (!match(stopDate, "^[-+@]")) {
+         if (length(stopDate) == 4) stopDate=stopDate"1231";
+      }
+
+      print startDate, stopDate;
+   }')
+
+# Cas des timestamps
+[[ "${vStartDate::1}" == "@" ]] && vStartDate=$(date -d "${vStartDate}" "+%Y%m%d")
+[[ "${vStopDate::1}" == "@" ]] && vStopDate=$(date -d "${vStopDate}" "+%Y%m%d")
+
+# Cas d'une date avec semaine
+if [[ "${vStartDate:4:1}" == "S" || "${vStartDate:4:1}" == "s" ]]
+then
+   # Calcul du lundi de la semaine
+   typeset -i vNumSem=10#${vStartDate:5}
+   typeset -i vJourQQQ=$(( ( $vNumSem * 7 ) - 7 ))
+   typeset -i vJourNouvelAn=$(date -d "${vStartDate::4}/01/01" +%u);
+   typeset -i vJourLundi=$(( ( 8 - ${vJourNouvelAn}) % 7 ))
+   vStartDate=$(date -d "${vStartDate::4}/01/01 +${vJourLundi} days +${vJourQQQ} days" +"%Y%m%d")
+fi
+
+if [[ "${vStopDate:4:1}" == "S" || "${vStopDate:4:1}" == "s" ]]
+then
+   # Calcul du dimanche de la semaine
+   typeset -i vNumSem=10#${vStopDate:5}
+   typeset -i vJourQQQ=$(( ( $vNumSem * 7 ) - 7 ))
+   typeset -i vJourNouvelAn=$(date -d "${vStopDate::4}/01/01" +%u);
+   typeset -i vJourDimanche=$(( ( 8 - ${vJourNouvelAn}) % 7 + 6 ))
+   vStopDate=$(date -d "${vStopDate::4}/01/01 +${vJourDimanche} days +${vJourQQQ} days" +"%Y%m%d")
+fi
+
+# Cas d'une addition de date
+if [[ "${vStopDate::1}" == "+" || "${vStopDate::1}" == "-" ]]
+then
+   # Conversion de la date d'ajout
+   read vDateAjout <<< $(echo ${vStopDate} | awk '{
+      nb=split($0, signes, "[^-+]+");
+      nb=split($0, dates, "[-+]");
+
+      printf(" %c%d years %c%d months %c%d days", signes[3], dates[4], signes[2], dates[3], signes[1], dates[2]);
+   }')
+
+   vStopDate=$(date -d "${vStartDate} ${vDateAjout}" +"%Y%m%d")
+fi
+
+# Completion pour la date de fin
+# Pas de completion pour les timestamps
+[[ ${#vStopDate} -eq 6 ]] && vStopDate=$(date -d "${vStopDate}01 next month last day" +"%Y%m%d")
+
+# Conversion des dates quantiemes
+typeset -i vDateQQQ=0;
+[[ ${#vStartDate} -eq 7 ]] && vStartDate=$(vDateQQQ=10#${vStartDate:4}-1; date -d "${vStartDate::4}0101 +${vDateQQQ} days" +%Y%m%d)
+[[ ${#vStopDate} -eq 7 ]] && vStopDate=$(vDateQQQ=10#${vStopDate:4}-1; date -d "${vStopDate::4}0101 +${vDateQQQ} days" +%Y%m%d)
+
+if [[ ${bDuration} -eq 1 ]]
+then
+   # Affichage de la duree entre les 2 dates en jours
+   vStartSec=$(date -d "${vStartDate}" +%s)
+   [[ $? -ne 0 ]] && exit 1
+   vEndSec=$(date -d "${vStopDate}" +%s)
+   [[ $? -ne 0 ]] && exit 1
+   echo $(( ($vEndSec - $vStartSec) / 86400 + 1 ))
+   [[ $? -ne 0 ]] && exit 1
+else
+   vTimeStart="00:00:00";
+    vTimeEnd="23:59:59";
+
+   vDatePrec=$(date -d "${vStartDate} ${vTimeStart}" "${vFormatDate}")
+   [[ $? -ne 0 ]] && exit 1
+   echo ${vDatePrec}
+
+   typeset -i vFlagGap=0;
+   if [[ "$vGap" != "" ]]
+   then
+      read vDateGap <<< $(date -d "${vStartDate} +1 ${vGap}" "+%Y%m%d")
+      read vStopDateGap <<< $(date -d "${vStopDate}" "+%Y%m%d")
+      while [[ $vDateGap -lt $vStopDateGap ]]
+      do
+         vDateDisplay=$(date -d "${vDateGap} ${vTimeStart}" "${vFormatDate}")
+         [[ $? -ne 0 ]] && exit 1
+
+         if [[ "${vDatePrec}" != "${vDateDisplay}" ]]
+         then
+            echo ${vDateDisplay}
+            vDatePrec=${vDateDisplay}
+            vFlagGap=1
+         fi
+         read vDateGap <<< $(date -d "${vDateGap} +1 ${vGap}" "+%Y%m%d")
+      done
+
+   fi
+
+   vDateDisplay=$(date -d "${vStopDate} ${vTimeEnd}" "${vFormatDate}")
+   [[ $? -ne 0 ]] && exit 1
+   if [[ ${vFlagGap} -eq 0 || "${vDatePrec}" != "${vDateDisplay}" ]]
+   then
+      echo ${vDateDisplay}
+   fi
+fi
+
+exit 0

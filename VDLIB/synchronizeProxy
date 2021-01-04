@@ -1,0 +1,163 @@
+#!/bin/bash
+#
+#set -x
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : synchronizeProxy
+#s*
+#s* ROLE :  Supprime du PROXY les packages presents dans la VDLIB
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+# Chargement des fonctions de base
+. utils.bash
+
+function fSyntax {
+   echo "${0##*/}  [-p] [-d] [package]";
+   echo "   [-p]  : Pousse les packages sur la VDLIB";
+   echo "   [-d]  : Supprime les packages";
+   #echo "   [-b]  : Mode batch";
+   echo "   [package]  : Nom du package a synchroniser";
+}
+
+#--- Recuperation des options
+typeset -i delivre=0;
+typeset -i delete=0;
+typeset -i batch=0;
+typeset -i cptOpt=0;
+OPTIND=1
+while getopts pdbh SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      p) delivre=1;
+         cptOpt=cptOpt+1;
+         ;;
+      d) delete=1;
+         cptOpt=cptOpt+1;
+         ;;
+      b) batch=1;
+         batchCmd="-b"
+         cptOpt=cptOpt+1;
+         ;;
+      *) fSyntax
+         fEndProc 999;
+         ;;
+   esac
+done
+
+shift $cptOpt
+
+# Control args
+typeset pattern="$1"
+
+typeset packagePkg=${vRepLivraison}/${package}.tar.gz
+
+mkdir -p /tmp/$USER
+fError "ERROR : Creation du repertoire '/tmp/$USER' impossible!"
+
+# Position automatique dans le repertoire des packages
+cd ${VDLIB_PROXY}/packages
+fError "ERROR : Repertoire '${VDLIB_PROXY}/packages' inaccessible !"
+
+# Liste des packages du PROXY
+for package in $(ls -d *${pattern}* 2>/dev/null)
+do
+
+   echo "=> ${package}"
+
+   # Verifie si le package existe dans la VDLIB
+   if [[ -s ${VDLIB_PATH}/packages/${package} ]]
+   then
+      # Diff des packages
+      diff -qr ${package} ${VDLIB_PATH}/packages/${package}
+      if [[ $? -eq 0 ]]
+      then
+         echo "   ${package} identique a ${VDLIB_PATH}/packages/${package}"
+
+         # Demande suppression du package
+         if [[ ${delete} -eq 1 ]]
+         then
+            deletePackageProxy ${batchCmd} ${package}
+            [[ $? -eq 2 ]] && exit 0
+         fi
+      else
+         echo "   ${package} different de ${VDLIB_PATH}/packages/${package}"
+         # Demande livraison du package en mode interactif
+         if [[ ${delivre} -eq 1 ]]
+         then
+            putPackage ${VDLIB_PROXY}/livraison/${package}.tar.gz
+            [[ $? -eq 2 ]] && exit 0
+         fi
+
+         # Demande suppression du package en mode interactif
+         if [[ ${delete} -eq 1 && ${batch} -eq 0 ]]
+         then
+            deletePackageProxy ${package}
+            [[ $? -eq 2 ]] && exit 0
+         else
+            # Suppression interdite en mode batch
+            echo "   Vous pouvez forcer sa suppression avec la commande : 'deletePackageProxy ${package}'"
+         fi
+      fi
+   else
+      # Verifie si le package existe dans les archives de la VDLIB
+      archive=""
+      [[ -s ${VDLIB_PATH}/archives/${package}.tar.gz ]] && archive=${VDLIB_PATH}/archives
+      [[ -s ${VDLIB_PATH}/deepArchives/${package}.tar.gz ]] && archive=${VDLIB_PATH}/deepArchives
+
+      if [[ "${archive}" == "" ]]
+      then
+         # Verifie si le package a ete livre a la VLDIB
+         livraison=""
+         [[ -s ${VDLIB_PATH}/livraison/${package}.tar.gz ]] && livraison=${VDLIB_PATH}/livraison
+
+         if [[ "${livraison}" == "" ]]
+         then
+            echo "   ${package} uniquement dans PROXY"
+         else
+            # Verifie que c'est le meme package
+            diff ${VDLIB_PROXY}/livraison/${package}.tar.gz ${VDLIB_PATH}/livraison >/dev/null
+            if [[ $? -eq 0 ]]
+            then
+               echo "   ${package} livre a la VDLIB '${livraison}' et en attente de deploiement"
+            else
+               echo "   PROXY ${package} DIFFERENT de celui livre a la VDLIB '${livraison}' et en attente de deploiement"
+            fi
+         fi
+      else
+         echo "   ${package} deja dans '${archive}' mais non deploye"
+      fi
+
+      # Recherche de la version courante
+      printf "   Version courante : "
+      vdlib list ${package%_v[0-9]*} | awk '{printf("%s", $1); }'
+      echo
+
+      # Demande suppression du package en mode interactif
+      if [[ ${delivre} -eq 1 ]]
+      then
+         putPackage ${VDLIB_PROXY}/livraison/${package}.tar.gz
+         [[ $? -eq 2 ]] && exit 0
+      fi
+
+      # Demande suppression du package en mode interactif
+      if [[ ${delete} -eq 1 && ${batch} -eq 0 ]]
+      then
+         deletePackageProxy ${package}
+         [[ $? -eq 2 ]] && exit 0
+      else
+         # Suppression interdite en mode batch
+         echo "   Vous pouvez forcer sa suppression avec la commande : 'deletePackageProxy ${package}'"
+      fi
+
+   fi
+   echo 
+done
+
+fEndProc 0 "Synchronisation terminee"
+

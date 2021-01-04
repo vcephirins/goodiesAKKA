@@ -1,0 +1,177 @@
+['Catalog', 'DataObject', 'OrderedDict', 'Struct', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_debug', 'argparse', 'args', 'deepcopy', 'dt', 'groupDebug', 'json', 'logInit', 'logger', 'logging', 'parser', 'patternEndOfLine', 'patternIgnore', 'patternVariable', 'regex', 'replaceTag', 'searchTag', 'sys']
+[DEBUG] STRUCT
+{
+    "VIKING_V4_DATA": {
+        "NODE_STAF": "/VIKING/V4",
+        "MODEL": "6",
+        "CATALOGUE": "viking",
+        "NODE_ID": "VIKING_V4_DATA",
+        "TRANSFORM": "DELETE_HEADER_VIKING",
+        "PATTERN": "\"V4N_.*\""
+    },
+    "CATALOGUE_demeter": {
+        "NODE_ID": "CATALOGUE_demeter",
+        "XML_NAME": "data_objects_demeter",
+        "NODE_STAF": "/DEMETER/CATALOGUE"
+    },
+    "DMT_N1_1140": {
+        "NODE_STAF": "/DEMETER/DMT_N1_1140",
+        "MODEL": "1",
+        "CATALOGUE": "demeter",
+        "NODE_ID": "DMT_N1_1140",
+        "TRANSFORM": "IDENTITY",
+        "PATTERN": "\"DMT_N1_1140_.*\""
+    },
+    "DMT_N1_1138": {
+        "NODE_STAF": "/DEMETER/DMT_N1_1138",
+        "MODEL": "1",
+        "CATALOGUE": "demeter",
+        "NODE_ID": "DMT_N1_1138",
+        "TRANSFORM": "IDENTITY",
+        "PATTERN": "\"DMT_N1_1138_.*\""
+    },
+    "CATALOGUE_isee3": {
+        "NODE_ID": "CATALOGUE_isee3",
+        "XML_NAME": "data_objects_isee3",
+        "NODE_STAF": "/ISEE3_ICE/CATALOGUE"
+    },
+    "ROOT_GEN_XML": {
+        "NODE_ID": "ROOT_GEN_XML",
+        "NODE_STAF": "/"
+    },
+    "DMT_N1_1131": {
+        "NODE_STAF": "/DEMETER/DMT_N1_1131",
+        "MODEL": "1",
+        "CATALOGUE": "demeter",
+        "NODE_ID": "DMT_N1_1131",
+        "TRANSFORM": "IDENTITY",
+        "PATTERN": "\"DMT_N1_1131_.*\""
+    },
+    "DMT_N1_1130": {
+        "NODE_STAF": "/DEMETER/DMT_N1_1130",
+        "MODEL": "1",
+        "CATALOGUE": "demeter",
+        "NODE_ID": "DMT_N1_1130",
+        "TRANSFORM": "IDENTITY",
+        "PATTERN": "\"DMT_N1_1130_.*\""
+    },
+    "ISEE3_ICE": {
+        "NODE_STAF": "/ISEE3_ICE/SBH",
+        "MODEL": "3",
+        "CATALOGUE": "isee3",
+        "NODE_ID": "ISEE3_ICE",
+        "TRANSFORM": "IDENTITY",
+        "PATTERN": "\"SBH_.*\""
+    },
+    "DMT_N1_1139": {
+        "NODE_STAF": "/DEMETER/DMT_N1_1139",
+        "MODEL": "1",
+        "CATALOGUE": "demeter",
+        "NODE_ID": "DMT_N1_1139",
+        "TRANSFORM": "IDENTITY",
+        "PATTERN": "\"DMT_N1_1139_.*\""
+    },
+    "CATALOGUE_viking": {
+        "NODE_ID": "CATALOGUE_viking",
+        "XML_NAME": "data_objects_viking",
+        "NODE_STAF": "/VIKING/CATALOGUE"
+    },
+    "DMT_N1_1129": {
+        "NODE_STAF": "/DEMETER/DMT_N1_1129",
+        "MODEL": "1",
+        "CATALOGUE": "demeter",
+        "NODE_ID": "DMT_N1_1129",
+        "TRANSFORM": "IDENTITY",
+        "PATTERN": "\"DMT_N1_1129_.*\""
+    },
+    "DMT_N1_1144": {
+        "NODE_STAF": "/DEMETER/DMT_N1_1144",
+        "MODEL": "1",
+        "CATALOGUE": "demeter",
+        "NODE_ID": "DMT_N1_1144",
+        "TRANSFORM": "IDENTITY",
+        "PATTERN": "\"DMT_N1_1144_.*\""
+    }
+}
+{
+    "6": "NODE_ID DOD TD TF SIZE TRANSFORM DSOD SIZE_DSOD ARCH ARCH_PATH ONLINE_PATH ORBIT_NB ",
+    "5": "NODE_ID DOD TD TF SIZE TRANSFORM DSOD SIZE_DSOD ONLINE_PATH ORBIT_NB",
+    "1": "NODE_ID DOD TD TF SIZE TRANSFORM DSOD SIZE_DSOD ARCH ARCH_PATH",
+    "3": "NODE_ID DOD TD TF SIZE TRANSFORM DSOD SIZE_DSOD ARCH ARCH_PATH ONLINE_PATH",
+    "4": "NODE_ID DOD TD TF SIZE TRANSFORM DSOD SIZE_DSOD ARCH ARCH_PATH ORBIT_NB",
+    "2": "NODE_ID DOD TD TF SIZE TRANSFORM DSOD SIZE_DSOD ONLINE_PATH"
+}
+[['1', 'DMT_N1_1138', 'mms1_scm_brst_l2_scb_20151201001933_v2.2.0.cdf', '2015-12-01T00:19:34', '2015-12-01T00:20:14', '5780', 'IDENTITY', 'mms1_scm_brst_l2_scb_20151201001933_v2.2.0.cdf', '5780', 'SGDS', '/MMS/SCM/MMS_1/L2_SCB_BRST'], ['1', 'DMT_N1_1129', 'mms1_scm_brst_l2_scb_20151201005354_v2.2.0.cdf', '2015-12-01T00:53:55', '2015-12-01T00:55:34', '14888', 'IDENTITY', 'mms1_scm_brst_l2_scb_20151201005354_v2.2.0.cdf', '14888', 'SGDS', '/MMS/SCM/MMS_1/L2_SCB_BRST'], ['1', 'DMT_N1_1130', 'mms1_scm_brst_l2_scb_20151201010044_v2.2.0.cdf', '2015-12-01T01:00:45', '2015-12-01T01:05:15', '40772', 'IDENTITY', 'mms1_scm_brst_l2_scb_20151201010044_v2.2.0.cdf', '40772', 'SGDS', '/MMS/SCM/MMS_1/L2_SCB_BRST']]
+{'NODE_STAF': '/DEMETER/DMT_N1_1138', 'MODEL': '1', 'CATALOGUE': 'demeter', 'NODE_ID': 'DMT_N1_1138', 'TRANSFORM': 'IDENTITY', 'PATTERN': '"DMT_N1_1138_.*"'}
+['NODE_ID', 'DOD', 'TD', 'TF', 'SIZE', 'TRANSFORM', 'DSOD', 'SIZE_DSOD', 'ARCH', 'ARCH_PATH']
+[ERROR] Tag is not defined : '${IP_TYPE}' for key 'ipType'
+[ERROR] Tag is not defined : '${DATA_TYPE}' for key 'regardsDataType'
+[ERROR] Tag is not defined : '${DOD_URL}' for key 'url'
+[ERROR] Tag is not defined : '${CHECKSUM}' for key 'checksum'
+[ERROR] Tag is not defined : '${CHECKSUM_ALGO}' for key 'algorithm'
+[ERROR] Tag is not defined : '${MIME_TYPE}' for key 'mime-type'
+[ERROR] at line '1' from catalog 'catal_test'
+[ERROR] Json file is not generated !
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "processing": "DefaultProcessingChain",
+        "session": "cdppSession01"
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "id": "DA_TC_mms1_scm_brst_l2_scb_20151201001933_v2.2.0.cdf",
+            "ipType": "${IP_TYPE}",
+            "geometry": null,
+            "properties": {
+                "contentInformations": [
+                    {
+                        "dataObject": {
+                            "regardsDataType": "${DATA_TYPE}",
+                            "url": "${DOD_URL}",
+                            "checksum": "${CHECKSUM}",
+                            "algorithm": "${CHECKSUM_ALGO}",
+                            "filename": "mms1_scm_brst_l2_scb_20151201001933_v2.2.0.cdf",
+                            "fileSize": "5780"
+                        },
+                        "representationInformation": {
+                            "Syntax": {
+                                "mime-type": "${MIME_TYPE}"
+                            }
+                        }
+                    }
+                ],
+                "pdi": {
+                    "contextInformation": {
+                        "tags": [
+                            "URN:AIP:DATASET:CDPP:67db4ba0-0ba5-40f7-ac6d-fe2fdbf42664:V1"
+                        ]
+                    },
+                    "provenanceInformation": {
+                        "history": [
+                            {
+                                "eventDate": "2018-04-09T08:51:19",
+                                "comment": "SIP creation"
+                            }
+                        ]
+                    },
+                    "accessRightInformation": {
+                        "licence": "CNES",
+                        "data_rights": "secure"
+                    },
+                    "referenceInformation": {
+                        "doi": "102455/120.34SDSS"
+                    },
+                    "fixityInformation": {}
+                },
+                "descriptiveInformation": {
+                    "timePeriod": {
+                        "startDate": "2015-12-01T00:19:34",
+                        "stopDate": "2015-12-01T00:20:14"
+                    }
+                }
+            }
+        }
+    ]
+}

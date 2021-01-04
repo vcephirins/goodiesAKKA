@@ -1,0 +1,85 @@
+#!/bin/bash -f
+#
+#set -x
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : deletePackageProxy
+#s*
+#s* ROLE :  Suppression d'un package et de ses liens de l'espace du PROXY
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+# Chargement des fonctions de base
+. utils.bash
+
+function fSyntax {
+   echo "${0##*/}  <package>";
+}
+
+#--- Recuperation des options
+typeset -i batch=0;
+typeset -i cptOpt=0;
+OPTIND=1
+while getopts b SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      b) batch=1;
+         cptOpt=cptOpt+1;
+         ;;
+      *) fSyntax
+         fEndProc 999;
+         ;;
+   esac
+done
+
+shift $cptOpt
+
+# Control args
+if [[ $# -ne 1 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+typeset package=${1%.tar*}
+typeset packagePkg=${1%.tar*}.tar.gz
+
+# Position automatique dans le repertoire des packages
+cd ${VDLIB_PROXY}/packages
+fError "ERROR : Repertoire '${VDLIB_PROXY}/packages' inaccessible !"
+
+# Verifie l'existence du package
+if [[ ! -d ${package} ]]
+then
+   fEndProc 1 "ERROR : package '${package}' non trouve."
+fi;
+
+# Suppression du package
+if [[ $batch -eq 0 ]]
+then
+   fConfirm "Suppression du package '${package}' ?"
+   C_RET=$?
+   [[ $C_RET -ne 0 ]] && exit $C_RET;
+fi
+
+# Suppression des liens vers ce package
+deleteLinks -d ${package}
+fError "ERROR : Suppression des liens vers le package en erreur !"
+
+echo "=> liens vers le package '${package}' supprimes"
+
+# Suppression du package
+rm -rf ${package} 2>&1 >/dev/null
+fError "ERROR : Suppression impossible !"
+echo "=> package '${package}' supprime"
+
+# Suppression de l'espace de livraison
+rm -rf ${VDLIB_PROXY}/livraison/${package}.tar.gz 2>&1 >/dev/null
+
+fEndProc 0 "Suppression du package '${package}' de l'espace PROXY terminee"
+

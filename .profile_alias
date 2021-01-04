@@ -1,0 +1,7 @@
+alias envVCE=". /home/CDPP/archcdpp/.bin/.profile_VCE"
+alias envNLO=". /home/CDPP/archcdpp/.bin/.profile_NLO"
+alias envABA=". /home/CDPP/archcdpp/.bin/.profile_ABA"
+alias envHSI=". /home/CDPP/archcdpp/.bin/.profile_HSI"
+alias envBFR=". /home/CDPP/archcdpp/.bin/.profile_BFR"
+alias envDHE=". /home/CDPP/archcdpp/.bin/.profile_DHE"
+alias envWDA=". /home/CDPP/archcdpp/.bin/.profile_WDA"

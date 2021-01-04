@@ -1,0 +1,79 @@
+#!/bin/bash -f
+#
+#set -x
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : createLinks
+#s*
+#s* ROLE :  Procedure de creation des liens de la VDLIB
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+# Chargement des fonctions de base
+. utils.bash
+
+function fSyntax {
+   echo "$0  <-l | -c> <outil> [repertoires]";
+   echo " avec : -l Liste des liens qui seront crees."
+   echo "        -c Creation des liens dans les repertoires de publication."
+}
+
+# Control args
+NbArgs=$#
+
+if [[ $NbArgs -le 1 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+typeset -l mode=$1
+shift
+typeset outil=$1
+shift
+typeset listeRep=$*
+
+if [[ $mode != "-c" && $mode != "-l" ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+if [[ "$listeRep" == "" ]]
+then
+   listeRep=${VDLIB_REP}
+fi;
+
+# Position automatique dans le repertoire des packages
+cd ${VDLIB_PROXY}/packages
+fError "Repertoire '${VDLIB_PROXY}/packages' inaccessible !"
+
+# Parcours des repertoires
+for repert in ${listeRep}
+do
+   [[ ! -d $outil/$repert ]] && continue;
+
+    # Liste des fichiers
+    for file in $(ls $outil/$repert)
+    do
+       echo ln -s ../packages/$outil/$repert/$file ../$repert/$file
+       if [[ $mode == "-c" ]]
+       then
+          # Suppression du lien existant
+          rm -f ../$repert/$file 2>&1 >/dev/null
+          # Creation du nouveau lien
+          ln -s ../packages/$outil/$repert/$file ../$repert/$file
+          fError "Creation du lien ../packages/$outil/$repert/$file ../$repert/$file en erreur !"
+       fi 
+    done
+    fError "Boucle sur ../$outil/$repert en erreur !"
+done
+fError ""
+
+fEndProc  0
+

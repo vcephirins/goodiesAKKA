@@ -1,0 +1,171 @@
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "processing": "DefaultProcessingChain",
+        "session": "cdppSession01"
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "id": "mms1_scm_brst_l2_scb_20151201001933_v2.2.0.cdf",
+            "ipType": "TAG_IP_TYPE",
+            "geometry": null,
+            "properties": {
+                "contentInformations": [
+                    {
+                        "dataObject": {
+                            "regardsDataType": "'TAG_DATA_TYPE'",
+                            "url": "TAG_DOD_URL",
+                            "checksum": "TAG_CHECKSUM",
+                            "algorithm": "TAG_CHECKSUM_ALGO",
+                            "filename": "TAG_DOD",
+                            "fileSize": "TAG_SIZE"
+                        },
+                        "representationInformation": {
+                            "Syntax": {
+                                "mime-type": "TAG_MIME_TYPE"
+                            }
+                        }
+                    }
+                ],
+                "pdi": {
+                    "contextInformation": {
+                        "tags": [
+                            "URN:AIP:DATASET:CDPP:67db4ba0-0ba5-40f7-ac6d-fe2fdbf42664:V1"
+                        ]
+                    },
+                    "provenanceInformation": {
+                        "history": [
+                            {
+                                "eventDate": "TAG_CURRENT_DATE",
+                                "comment": "SIP creation"
+                            }
+                        ]
+                    },
+                    "accessRightInformation": {
+                        "licence": "CNES",
+                        "data_rights": "secure"
+                    },
+                    "referenceInformation": {
+                        "doi": "102455/120.34SDSS"
+                    },
+                    "fixityInformation": {}
+                },
+                "descriptiveInformation": {
+                    "timePeriod": {
+                        "startDate": "TAG_TD",
+                        "stopDate": "TAG_TF"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "mms1_scm_brst_l2_scb_20151201005354_v2.2.0.cdf",
+            "ipType": "TAG_IP_TYPE",
+            "geometry": null,
+            "properties": {
+                "contentInformations": [
+                    {
+                        "dataObject": {
+                            "regardsDataType": "'TAG_DATA_TYPE'",
+                            "url": "TAG_DOD_URL",
+                            "checksum": "TAG_CHECKSUM",
+                            "algorithm": "TAG_CHECKSUM_ALGO",
+                            "filename": "TAG_DOD",
+                            "fileSize": "TAG_SIZE"
+                        },
+                        "representationInformation": {
+                            "Syntax": {
+                                "mime-type": "TAG_MIME_TYPE"
+                            }
+                        }
+                    }
+                ],
+                "pdi": {
+                    "contextInformation": {
+                        "tags": [
+                            "URN:AIP:DATASET:CDPP:67db4ba0-0ba5-40f7-ac6d-fe2fdbf42664:V1"
+                        ]
+                    },
+                    "provenanceInformation": {
+                        "history": [
+                            {
+                                "eventDate": "TAG_CURRENT_DATE",
+                                "comment": "SIP creation"
+                            }
+                        ]
+                    },
+                    "accessRightInformation": {
+                        "licence": "CNES",
+                        "data_rights": "secure"
+                    },
+                    "referenceInformation": {
+                        "doi": "102455/120.34SDSS"
+                    },
+                    "fixityInformation": {}
+                },
+                "descriptiveInformation": {
+                    "timePeriod": {
+                        "startDate": "TAG_TD",
+                        "stopDate": "TAG_TF"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "mms1_scm_brst_l2_scb_20151201010044_v2.2.0.cdf",
+            "ipType": "TAG_IP_TYPE",
+            "geometry": null,
+            "properties": {
+                "contentInformations": [
+                    {
+                        "dataObject": {
+                            "regardsDataType": "'TAG_DATA_TYPE'",
+                            "url": "TAG_DOD_URL",
+                            "checksum": "TAG_CHECKSUM",
+                            "algorithm": "TAG_CHECKSUM_ALGO",
+                            "filename": "TAG_DOD",
+                            "fileSize": "TAG_SIZE"
+                        },
+                        "representationInformation": {
+                            "Syntax": {
+                                "mime-type": "TAG_MIME_TYPE"
+                            }
+                        }
+                    }
+                ],
+                "pdi": {
+                    "contextInformation": {
+                        "tags": [
+                            "URN:AIP:DATASET:CDPP:67db4ba0-0ba5-40f7-ac6d-fe2fdbf42664:V1"
+                        ]
+                    },
+                    "provenanceInformation": {
+                        "history": [
+                            {
+                                "eventDate": "TAG_CURRENT_DATE",
+                                "comment": "SIP creation"
+                            }
+                        ]
+                    },
+                    "accessRightInformation": {
+                        "licence": "CNES",
+                        "data_rights": "secure"
+                    },
+                    "referenceInformation": {
+                        "doi": "102455/120.34SDSS"
+                    },
+                    "fixityInformation": {}
+                },
+                "descriptiveInformation": {
+                    "timePeriod": {
+                        "startDate": "TAG_TD",
+                        "stopDate": "TAG_TF"
+                    }
+                }
+            }
+        }
+    ]
+}

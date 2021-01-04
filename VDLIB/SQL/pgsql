@@ -1,0 +1,88 @@
+#!/bin/bash
+
+SCRIPT_PATH=`dirname $0`                  # Repertoire de l'outil
+SCRIPT_NAME=`basename $0`                 # Nom du script
+
+# Repertoire ROOT
+if [[ "${SCRIPT_PATH::1}" == "/" ]]
+then
+   cd ${SCRIPT_PATH%/SQL}/SQL              # Chemin absolu
+else
+   cd ${PWD%/SQL}/${SCRIPT_PATH}/SQL       # Chemin relatif
+fi;
+
+if [[ "$1" == "-c" ]]
+then
+   #  \a                     toggle between unaligned and aligned output mode
+   #  \C [STRING]            set table title, or unset if none
+   #  \f [STRING]            show or set field separator for unaligned query output
+   #  \H                     toggle HTML output mode (currently off)
+   #  \pset NAME [VALUE]     set table output option
+   #                         (NAME := {format|border|expanded|fieldsep|fieldsep_zero|footer|null|
+   #                         numericlocale|recordsep|recordsep_zero|tuples_only|title|tableattr|pager})
+   #  \t [on|off]            show only rows (currently off)
+   #  \T [STRING]            set HTML <table> tag attributes, or unset if none
+   #  \x [on|off|auto]       toggle expanded output (currently off)
+
+   vOnlyDataCall="-q"
+   vOnlyDataSet="\\a\\t\\f ';'"
+   shift
+fi
+
+if [[ $# -eq 0 ]]
+then
+   ls *.sql | xargs -i awk -F":" '/[Dd]escription : / {printf("%-30s : %s\n", FILENAME, $2);}' {}
+   exit 1
+fi
+
+vRequest=${1%.sql}.sql
+
+if [[ ! -f ${vRequest} ]] 
+then
+   echo "Request '$vRequest' not found ! "
+   exit 1
+fi;
+
+typeset -i nbParams=$(grep -c "^-- P[0-9]" ${vRequest})
+
+if [[ ${nbParams} -ne 0 && $# -le ${nbParams} ]]
+then
+   awk '/^-- Description/
+        /^-- P[0-9]/' ${vRequest}
+   exit 1
+fi;
+
+typeset -x PGSQL_RESULT=/tmp/pgsql_result_$$.txt
+psql $vOnlyDataCall <<EOF 2>&1 | tee $PGSQL_RESULT
+-- Definition des parametres constants
+\set packageVersion 'format(\'%s_v%s_%s\', package_name, replace(to_char(package_version, \'FM990.099\'), \'.\', \'_\'), package_patch)'
+\set toolVersion 'format(\'%s_v%s_%s\', tool_name, replace(to_char(tool_version, \'FM990.099\'), \'.\', \'_\'), tool_patch)'
+\set annexeVersion 'format(\'%s_v%s\', annexe_name, replace(to_char(annexe_version, \'FM990.099\'), \'.\', \'_\'))'
+\set deployedLabel 'case when deployed = true then \'OK\' else \'-\' end as "En operation"'
+\set validatedLabel 'case when validated = true then \'OK\' else \'-\' end as "Validation"'
+
+-- Definition des parametres variables
+\set P1 $2
+\set P2 $3
+\set P3 $4
+\set P4 $5
+\set P5 $6
+
+$vOnlyDataSet
+
+\ir ${vRequest}
+
+EOF
+
+# Analyse du resultat
+
+grep ERROR $PGSQL_RESULT >/dev/null
+C_RET=$?
+
+rm $PGSQL_RESULT
+
+if [[ $C_RET -eq 0 ]]
+then
+   exit 1
+fi;
+

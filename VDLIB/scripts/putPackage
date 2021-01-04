@@ -1,0 +1,172 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : putPackage
+#s*
+#s* ROLE :  Copie les fichiers dans l'espace de livraison de la vdlib
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES : 
+#s* SYNOPSIS :  
+#s*
+#s*****************************************************************************
+
+. utils.bash
+
+typeset REP_DEST=${VDLIB_PATH}/livraison
+typeset LOG=/tmp/vdlib_$$.log
+#typeset MAIL_DEST="richard.moreno@cnes.fr"
+typeset MAIL_DEST="v.cephirins@akka.eu"
+typeset MAIL_CC="exploitcdpp@akka.eu"
+
+typeset -l reponse=y
+typeset -i NBfiles=0
+typeset -i NBtransfer=0
+typeset -i vDebug=0
+
+#--- Recuperation des options
+typeset -i deploy=0;
+typeset -i quiet=0;
+typeset -i cptOpt=0;
+OPTIND=1
+while getopts dq SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      d) deploy=1;
+         cptOpt=cptOpt+1;
+         ;;
+      q) quiet=1;
+         cptOpt=cptOpt+1;
+         ;;
+      *) fEndProc 0 "Syntax : putPackage <package>";
+         ;;
+   esac
+done
+
+shift $cptOpt
+
+NBfiles=$#
+[[ $NBfiles -eq 0 ]] && fEndProc 0 "Syntax : putPackage <package>"
+
+vPackage=$1
+
+fInfoLog $0 $@ > $LOG
+
+{
+   [[ ! -r $vPackage ]] && fEndProc 1 "ERROR : FILE ($vPackage) NOT FOUND";
+
+   #Recupere le nom de l'outil
+   vPackageNameVersion=$(basename ${vPackage})
+   vPackageName=$(expr "${vPackageNameVersion}" : '\(.*\)_[vV][0-9].*')
+
+   # validation que le package est bien declare dans la base
+   read vPackageValidated vDeployed  <<< $(curl -s "${VDLIB_REQUEST}?request=listPackages&P1=${vPackageNameVersion%.tar*}" | head -1 | 
+      awk -F";" '{printf("%s %s\n", $2, $3);}')
+   if [[ "${vPackageValidated}" != "${vPackageNameVersion%.tar*}" ]]
+   then
+      fEndProc 1  "ERROR : Package '${vPackageNameVersion}' is not declared into VDLIB site (${VDLIB_HOST}/vdlib_www/src/vdlib.php)!";
+   fi
+
+   # Validation de la version du package vis a vis de la mise en conf au SGC
+   vFileRef=$(ls -rt ${VDLIB_PATH}/archives/SGC_vdlib* ${VDLIB_PATH}/deepArchives/SGC_vdlib* | tail -1)
+   vFileFound=$(find  ${VDLIB_PATH}/archives  ${VDLIB_PATH}/deepArchives ! -newer ${vFileRef} -name ${vPackageNameVersion})
+   vFileFound=$(basename "$vFileFound" 2>/dev/null)
+   if [[ "$vFileFound" == "${vPackageNameVersion}" ]]
+   then
+      fEndProc 1  "ERROR : Package '${vPackageNameVersion}' is already posted in freeze VDLIB library SGC conf : You must increment package version !";
+   fi
+
+   # Check du contact obligatoire
+   read vMail <<< $(curl -s "${VDLIB_REQUEST}?request=listPackagesContacts&P1=${vPackageValidated}" | head -1 |
+      awk -F";" '{printf("%s\n", $5);}')
+   if [[ "${vMail}" == "" ]]
+   then
+      fEndProc 1  "ERROR : E-mail contact for Package '${vPackageNameVersion}' is not declared into VDLIB site (${VDLIB_HOST}/vdlib_www/src/vdlib.php)!";
+   fi
+
+   # Check des librairies
+   if [[ -d library ]]
+   then
+      for libFile in $(ls library)
+      do
+          # verifier que cette librairie n'est pas deja installee
+          # pour un autre outil
+          vLibName=$(basename ${libFile})
+          vLibNameFound=$(ls -l ${VDLIB_PATH}/library/${vLibName} 2>/dev/null )
+          if [[ $? -eq 0 ]]
+          then
+             vPackageFound=$(expr "${vLibNameFound}" : '.*/packages/\([^/]*\).*')
+             vPackageFound=$(expr "${vPackageFound}" : '\(.*\)_[vV][0-9].*')
+          
+             # Si la librarie est utilisee dans un outil different alors erreur
+             if [[  "${vPackageFound}" != "${vPackageName}" ]]
+             then
+                fEndProc 1 "ERROR : Library '${vLibName}' is already used by package '${vPackageFound}' : you must change library name or version !";
+             fi
+          fi;
+      done
+   fi;
+
+   echo "Target -> "$REP_DEST
+   echo ""
+   echo "File(s) => $vPackage"
+   fConfirm "transfer files" || fEndProc 0
+
+   cp ${vPackage} ${REP_DEST}
+   fError "ERROR : cp ${vPackage} ${REP_DEST}"
+
+   chmod 666 $REP_DEST/$vPackageNameVersion
+   fError "ERROR : chmod 666 $REP_DEST/$vPackageNameVersion"
+
+   NBtransfer=NBtransfer+1
+
+   echo $vPackageNameVersion -\> $REP_DEST OK
+
+   [[ $NBtransfer -ne $NBfiles ]] && fEndProc 1 "Error occurred during tranfert !"
+
+   echo ""
+   echo "Transfert completed."
+
+   if [[ "${vDeployed}" == "OK" || ${deploy} -eq 1 ]]
+   then
+      [[ "${vDeployed}" == "OK" ]] || fConfirm "Deploy package ?" || fEndProc 0
+
+      # Deploiement automatique du package
+      curl -s "${VDLIB_CMD}?cmd=deployPackage&P1=-b&P2=-q&P3=${vPackageNameVersion}" |
+         awk 'BEGIN {error = 1;}
+              /^Deploiement .* termine$/ {error = 0;}
+              # /^=>/ {next;}
+              {print $0;}
+              END { exit error; }'
+      [[ $? -ne 0 ]] && fEndProc 1  "ERROR : problem to deploy package !";
+
+      echo ""
+      echo "Package deployed."
+   fi
+
+   # Force flush
+   sync
+
+   if [[ $quiet -eq 1 ]]
+   then
+      mailx -s "[VDLIB] putPackage $(basename ${vPackage})" $MAIL_DEST < $LOG
+   else
+      if [[ "${vMail}" == "${MAIL_CC}" ]]
+      then
+         mailx -s "[VDLIB] putPackage $(basename ${vPackage})" -c $MAIL_DEST $vMail < $LOG
+      else
+         mailx -s "[VDLIB] putPackage $(basename ${vPackage})" -c $MAIL_CC -c $MAIL_DEST $vMail < $LOG
+      fi
+   fi
+
+} 2>&1 | tee -a $LOG
+
+grep "ERROR [!:]" $LOG >/dev/null && fEndProc 1
+
+rm $LOG >/dev/null 2>&1
+
+fEndProc 0
+
+
+

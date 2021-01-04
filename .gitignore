@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+*.py[cod]
+*.class
+.idea/
+**/*pyc
+
+*.bck
+tmp/
+temp/
+
+dataCollector*.cde
+*.tar.gz
+suivi/**/*
+livraison/
+nohup.out
+

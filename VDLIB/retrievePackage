@@ -1,0 +1,59 @@
+#!/bin/bash -f
+#
+#set -x
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : retrievePackage
+#s*
+#s* ROLE :  recuperation et deploiement d'un package dans l'espace de travail
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+# Chargement des fonctions de base
+. $HOME/vdlib/packages/utils/scripts/utils.bash
+
+function fSyntax {
+   echo "$0  <package>";
+}
+
+# Control args
+NbArgs=$#
+
+if [[ $NbArgs -ne 1 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+typeset packagePkg=${1%.tar*}.tar.gz
+typeset package=$(basename $1)
+
+# Position automatique dans le repertoire de travail
+cd $HOME/vdlib/travail
+fError "Repertoire '$HOME/vdlib/travail' inaccessible !"
+
+# Verifie l'existence du package
+if [[ -d $package ]]
+then
+   echo "package '$package' deja dans l'espace de travail !"
+
+   # Suppression du package
+   fConfirm "Suppression du package '$package' de l'espace de travail ?"
+   fError "Procedure interrompue !"
+   rm -rf ${package}
+   fError "Suppression du package de l'espace de travail en erreur !"
+fi;
+
+# deploiement du package
+mkdir -p ${package}
+cd ${package}
+[[ -f ../../archives/${package}.tar.gz ]] && gztar xvpf ../../archives/${package}.tar.gz
+[[ $? -ne 0 ]] && gztar xvpf ../../deepArchives/${package}.tar.gz
+
+fEndProc 0 "Preparation du package '$package' terminee"
+

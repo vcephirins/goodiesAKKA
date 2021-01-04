@@ -1,0 +1,15 @@
+# Initialisation des chemins a mettre dans le fichier profile du compte d'administration
+
+export VDLIB_PATH=$HOME/vdlib
+
+# Chemin d'administration de la vdlib
+export PATH=$PATH:$VDLIB_PATH/packages/utils
+export PATH=$PATH:$VDLIB_PATH/packages/utils/executables
+export PATH=$PATH:$VDLIB_PATH/packages/utils/scripts
+export FPATH=$FPATH:$VDLIB_PATH/packages/utils/fonctions
+
+# Chemin d'acces aux autre packages de la vdlib
+export PATH=$PATH:$VDLIB_PATH/executables
+export PATH=$PATH:$VDLIB_PATH/scripts
+export FPATH=$FPATH:$VDLIB_PATH/fonctions
+

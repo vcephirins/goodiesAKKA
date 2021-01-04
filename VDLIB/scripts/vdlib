@@ -1,0 +1,270 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : vdlib
+#s*
+#s* ROLE :  Point d'entree sur les packages de la vdlib
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES : 
+#s* SYNOPSIS :  
+#s*
+#s* VERSION : 1.1  Amelioration de l'affichage firefox
+#s*****************************************************************************
+
+SCRIPT_PATH=`dirname $0`                  # Repertoire de l'outil
+SCRIPT_NAME=`basename $0`                 # Nom du script
+
+. utils.bash
+
+function fSyntax {
+   #--- Definition d'un bloc permettant de rediriger vers la sortie standard
+   {
+   echo "";
+   echo "  Usage : $SCRIPT_NAME [ subcommand [ subcommand-args ] ]";
+   echo "";
+   echo "  Available SubCommands and Args:";
+   echo "";
+   echo "  + help          [package]"
+   echo "  + avail|list    [package]"
+   echo "  + listTools     [tool]"
+   echo "  + search        <keyword>"
+   echo "  + show|display  <package>"
+   echo "  + get           <package>"
+   echo "  + restore       <package>"
+   echo "  + getAnnexes    <package>"
+   }
+   return 1
+}
+
+# Recuperation de la liste des packages
+function fGetPackage {
+   mode=${1:-list}
+
+   optPackage=${2%.tar.gz}
+
+   urlVd=${VDLIB_HOST}/vdlib_www/src/vdlib.php?vue=accueil
+   allPages=""
+
+   curl -s "${VDLIB_REQUEST}?request=listPackages&P1=${optPackage:-%}" | 
+      awk -F";" '{printf("%s %s %s %s %s\n", $2, $3, $6, $7, $10);}' | while read  package depl dateDel dateDepl desc
+   do
+
+      # N'affiche que les packages deployes
+      [[ "${depl}" != "OK" ]] && continue;
+
+      # utils est reserve a l administration
+      [[ "${package}" == "utils" ]] && continue;
+
+      # recuperation du nom des infos
+      if [[ $mode == "list" ]]
+      then
+         printf "%-30s : %s\n"  "$package"  "$desc" ;
+         continue;
+      fi;
+
+      echo $package
+
+      if [[ "$mode" == "show" ]]
+      then
+         # Affichage des informations de la version courante
+         echo ""
+         echo "  Description : ";
+
+         printf "    %s\n\n    Livraison le %s\n    Deploiement le %s\n"  "$desc"  $dateDel  $dateDepl ;
+
+         # Affichage des composants
+         echo ""
+         echo "  Composants : ";
+
+         curl -s "${VDLIB_REQUEST}?request=listPackagesTools&P1=$package" | awk -F";" '{printf("    %s\n", $2);}'
+ 
+         # Affichage des version archivees
+         echo ""
+         echo "  Versions archivees : ";
+
+         lsArchives ${package%_[vV][0-9]*} 2>/dev/null | while read filename
+         do
+            echo "     $filename"
+         done
+
+         # Affichage des annexes
+         echo ""
+         echo "  Annexes : ";
+
+         curl -s "${VDLIB_REQUEST}?request=listPackagesAnnexes&P1=$package" | 
+            awk -F";" '{printf("     %s : %s (%s)\n", $7, $3, ($8 == "")? "Non livre": $8);}'
+
+         echo ""
+
+      fi;
+
+   done
+
+   if [[ "$allPages" != "" ]]
+   then
+         # Affichage
+         firefox $allPages &
+   fi;
+}
+
+# Position automatique dans le repertoire des packages
+PWD_ORIG=$PWD
+cd $VDLIB_PATH/packages
+fError "Directory '$VDLIB_PATH/packages' unavailable !"
+
+#--- Recuperation des argument
+# Control args
+NbArgs=$#
+
+if [[ $NbArgs -eq 0 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+typeset subCmd=$1
+typeset param=$2
+
+case $subCmd in
+   search)
+      # recherche d'un mot clef dans la base
+      curl -s "${VDLIB_REQUEST}?request=searchVdlib&ext&P1=${param}"
+      ;;
+
+   avail|list)
+      optPackage=${param%.tar.gz}
+      fGetPackage list $optPackage
+      ;;
+
+   listTools)
+
+      curl -s "${VDLIB_REQUEST}?request=listTools&P1=${param:-%}" |
+         awk -F";" '{printf("%s %s %s %s\n", $1, $2, $3, $6);}' | while read  tool package depl desc
+      do
+
+         # N'affiche que les packages deployes
+         [[ "${depl}" != "OK" ]] && continue;
+
+         printf "%-30s;%-30s;%s\n"  "$tool" "$package"  "$desc" ;
+         continue;
+
+      done
+      ;;
+
+   show|display)
+      optPackage=${param%.tar.gz}
+      if [[ "$optPackage" == "" ]]
+      then
+         fSyntax
+         fEndProc 0
+      fi
+      fGetPackage show $optPackage
+      ;;
+
+   get)
+      optPackage=${param%.tar.gz}
+      if [[ "$optPackage" == "" ]]
+      then
+         fSyntax
+         fEndProc 0
+      fi
+
+      # Restauration d'une version archivee
+      packageRestore=$(getArchive $optPackage)
+      if [[ -f "${packageRestore}" ]]
+      then
+         cd $PWD_ORIG
+         cp "${packageRestore}" $(basename "${packageRestore}")
+         rm -f "${packageRestore}" 2>/dev/null
+      fi;
+
+      ;;
+
+   getAnnexes)
+      optPackage=${param%.tar.gz}
+      if [[ "$optPackage" == "" ]]
+      then
+         fSyntax
+         fEndProc 0
+      fi
+
+      # Test le nom exact du package
+      [[ -f $VDLIB_PATH/archives/${optPackage}.tar.gz ]] ||
+      [[ -f $VDLIB_PATH/deepArchives/${optPackage}.tar.gz ]]
+      fError "Package '$optPackage' not found !"
+
+      # Recuperation des annexes du package
+      typeset -i bFound=0;
+      cd $PWD_ORIG
+
+      # Liste des annexes livrees
+      for vIdAnnexe in $(curl -s "${VDLIB_REQUEST}?request=listPackagesAnnexes&P1=$optPackage" |
+            awk -F";" '{printf("%s ", ($8 == "")? "" : $5);}')
+      do
+
+         # Infos de l'annexe
+         read vAnnexeName vAnnexe <<< $(curl -s "${VDLIB_REQUEST}?request=getAnnexe&P1=$vIdAnnexe" |
+            awk -F";" '{printf("%s %s/%s/%s\n", $1, $6, $4, $1);}')
+
+         bFound=1
+         echo "get $vAnnexeName"
+         cp $VDLIB_PATH/annexes/packages/$vAnnexe .
+         fError "get annexe '$vAnnexe' ERROR !"
+      done
+
+      [[ $bFound -eq 0 ]] && echo "Pas d'annexe pour le package '$optPackage' !"
+      ;;
+
+   restore)
+      optPackage=${2%.tar.gz}
+      if [[ "$optPackage" == "" ]]
+      then
+         fSyntax
+         fEndProc 0
+      fi
+
+      # Restauration d'une version archivee
+      packageRestore=$(getArchive $optPackage)
+      if [[ -f "${packageRestore}" ]]
+      then
+         # Verifie l'existence de l'outil
+         cd $PWD_ORIG
+         if [[ -d ${optPackage} ]]
+         then
+            echo "Outil '${optPackage}' deja dans l'espace de travail !"
+
+            # Suppression de l'outil
+            fConfirm "Ecrasement de l'outil '${optPackage}' de l'espace de travail ?"
+            fError "Procedure interrompue !"
+         fi;
+
+         # deploiement de l'outil
+         mkdir -p ${optPackage}
+         cd ${optPackage}
+         tar xvpfz "${packageRestore}"
+
+         rm -f "${packageRestore}" 2>/dev/null
+      fi;
+
+      fEndProc 0 "Preparation de l'outil '$optPackage' terminee"
+      ;;
+
+   help)
+      optPackage=${param%.tar.gz}
+      [[ "$optPackage" == "" ]] && optPackage=VDLIB_SERVER
+
+      if ! which firefox >/dev/null 2>/dev/null
+      then
+         module load firefox
+      fi
+      firefox ${VDLIB_HOST}/vdlib_www/src/vdlib.php?vue=accueil &
+      ;;
+   *) fSyntax
+      fEndProc 0
+      ;;
+esac
+
+fEndProc 0
+

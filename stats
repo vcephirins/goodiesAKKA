@@ -1,0 +1,12 @@
+#!/bin/bash
+
+REP_STATS=$(which stats)
+REP_STATS=${REP_STATS%/*}/STATS
+LOG_STATS=${REP_STATS}/memoStats.log
+DATE_JOUR=$(date '+%Y%m%d.%H%M%S');
+CMD=${0##*/}
+[[ "${CMD}" == "stats" ]] && exit 0
+
+echo "${DATE_JOUR};${USER};${HOSTNAME}:/${PWD};${CMD};$@" >> $LOG_STATS
+${REP_STATS}/${CMD} "$@"
+

@@ -1,0 +1,62 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : mailDoc
+#s*
+#s* ROLE :  attache les documents en piece jointes au mail
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+. utils.bash
+
+typeset -l reponse=y
+
+#--- Recuperation des options
+while getopts s: SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      s) subject="$OPTARG"
+         shift 2
+         ;;
+      *) echo "mailDoc [-s "subject"] <adresse mail> <doc1> [<doc2> ...]";
+         exit 1;;
+   esac
+done
+
+#--- Recuperation des arguments obligatoires
+if [[ $# -lt 2 ]]
+then
+   echo "mailDoc [-s "subject"] <adresse mail> <doc1> [<doc2> ...]";
+   exit 1
+fi;
+
+adresse=$1
+shift
+
+if [[ -r $1 ]]
+then
+   echo "adresse mail -> "$adresse
+   echo ""
+   echo "File(s) => $*"
+   fConfirm "envoie"
+
+   if [[ $? -ne 1 ]]
+   then
+      exit
+   fi;
+else
+   fError 1 "FILE ($1) NOT FOUND"
+fi;
+
+{ 
+for doc in $*
+do
+   uuencode $doc $doc
+done
+} | mailx -s "${subject:-${1}}" "$adresse"
+

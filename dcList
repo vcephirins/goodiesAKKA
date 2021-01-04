@@ -1,0 +1,91 @@
+#!/bin/bash -f
+#
+#set -x
+
+SCRIPT_PATH=`dirname $0`                  # Repertoire de l'outil
+SCRIPT_NAME=`basename $0`                 # Nom du script
+
+# Repertoire ROOT
+if [[ "$(echo $SCRIPT_PATH | cut -c1)" = "/" ]]
+then
+   OUTIL_PATH=${SCRIPT_PATH}                    # Chemin absolu
+else
+   OUTIL_PATH=${PWD}/${SCRIPT_PATH}             # Chemin relatif
+fi;
+
+function fct_Usage
+{
+   #--- Definition d'un bloc permettant de rediriger vers la sortie standard
+   {
+   printf "\n";
+   printf "Usage : $SCRIPT_NAME [-h] [-d] [-t] [-e | -s] <config> [vParam1 ...] \n";
+   printf "Options :\n";
+   printf " h  : Affichage de l'aide en ligne\n";
+   printf " d  : Mode debug. Genere un fichier dataCollector.cde dans le repertoire courant\n";
+   printf " t  : Mode test. Test la connexion et les access aux repertoires de la config.\n";
+   printf " e  : Edit le ficher des configurations\n";
+   printf " s  : affiche la configuration\n";
+   printf " config  : la configuration selectionnee\n";
+   printf " vParam1-9  : parametres libres de 1 a 9\n";
+   }
+   return 1
+}
+
+#-----------------------------------------------------------------------
+#                     CONTROLE OPTIONS/ARGUMENTS
+#-----------------------------------------------------------------------
+#--- Recuperation des options
+OPTIND=1
+while getopts dtehs SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      h | \?) fct_Usage
+         exit 0
+         ;;
+      d) vDebug="-d"
+         ;;
+      t) vTest="-t"
+         ;;
+      e) if [[ "${EDITOR:-vi}" == "vi" ]]
+         then
+            vi +":set ic" +"/ident.*$2" ${OUTIL_PATH}/cnx.cfg
+         else
+            ${EDITOR} ${OUTIL_PATH}/cnx.cfg
+         fi;
+         exit 0
+         ;;
+      s) typeset -u IDENT=$2
+         awk 'toupper($0) ~ /IDENT.*["]?'"$IDENT"'["]?/,/^---/' ${OUTIL_PATH}/cnx.cfg
+         exit 0
+         ;;
+      *) fct_Usage
+         exit 4
+         ;;
+   esac
+done
+
+shift $(($OPTIND - 1))
+
+typeset -u config=${1}
+
+if [[ $# -lt 1 ]]
+then
+   fct_Usage
+   echo
+fi;
+
+# Parametres facultatifs en fin
+shift
+export vParam1=$1
+export vParam2=$2
+export vParam3=$3
+export vParam4=$4
+export vParam5=$5
+export vParam6=$6
+export vParam7=$7
+export vParam8=$8
+export vParam9=$9
+
+# l'option -i pour ignorer les messages "Files not found"
+dataCollector -i ${vDebug} ${vTest}  ${OUTIL_PATH}/cnx.cfg "${config}"
+

@@ -1,0 +1,65 @@
+{
+    "modeles": {
+        "modele_global": {
+            "type": "FeatureCollection",
+            "metadata": {
+                "processing": "DefaultProcessingChain",
+                "session": "cdppSession01"
+            },
+            "features": []
+        },
+        "modele_do": {
+            "dataObject": {
+                "regardsDataType": "${DATA_TYPE}",
+                "url": "${DOD_URL}",
+                "checksum": "${CHECKSUM}",
+                "algorithm": "${CHECKSUM_ALGO}",
+                "filename": "${DOD}",
+                "fileSize": "${SIZE}"
+            },
+            "representationInformation": {
+                "Syntax": {
+                    "mime-type": "${MIME_TYPE}"
+                }
+            }
+        },
+        "modele_1": {
+            "type": "Feature",
+            "id": "DA_TC_${DOD}",
+            "ipType": "${IP_TYPE}",
+            "geometry": null,
+            "properties": {
+                "contentInformations": [],
+                "pdi": {
+                    "contextInformation": {
+                        "tags": [
+                            "URN:AIP:DATASET:CDPP:67db4ba0-0ba5-40f7-ac6d-fe2fdbf42664:V1"
+                        ]
+                    },
+                    "provenanceInformation": {
+                        "history": [
+                            {
+                                "eventDate": "${CURRENT_DATE}",
+                                "comment": "SIP creation"
+                            }
+                        ]
+                    },
+                    "accessRightInformation": {
+                        "licence": "CNES",
+                        "data_rights": "secure"
+                    },
+                    "referenceInformation": {
+                        "doi": "102455/120.34SDSS"
+                    },
+                    "fixityInformation": {}
+                },
+                "descriptiveInformation": {
+                    "timePeriod": {
+                        "startDate": "${TD}",
+                        "stopDate": "${TF}"
+                    }
+                }
+            }
+        }
+    }
+}

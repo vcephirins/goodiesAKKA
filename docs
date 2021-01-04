@@ -1,0 +1,31 @@
+#!/bin/bash -f
+#
+#set -x
+#set -v
+
+SCRIPT_PATH=`dirname $0`                  # Repertoire de l'outil
+SCRIPT_NAME=`basename $0`                 # Nom du script
+
+# Repertoire ROOT
+if [[ "$(echo $SCRIPT_PATH | cut -c1)" = "/" ]]
+then
+   OUTIL_PATH=${SCRIPT_PATH}                    # Chemin absolu
+else
+   OUTIL_PATH=${PWD}/${SCRIPT_PATH}             # Chemin relatif
+fi
+export ROOT=${OUTIL_PATH%/bin}
+
+##########
+# BODY
+##########
+
+#For full listing 
+##################
+
+if [[ "$1" = "" ]]
+then
+   ls $ROOT/DOCUMENTS
+else 
+   $EDITOR $ROOT/DOCUMENTS/$1
+fi;
+   

@@ -1,0 +1,10 @@
+SQL> select 'test T_SELECTION_STAR_TYPE :', count(*) from T_REGION;
+test T_SELECTION_STAR_TYPE :      60000                                         
+
+SQL> select 'test T_SELECTION_STAR_TYPE :', count(*) from T_REGION;
+test T_SELECTION_STAR_TYPE :      60000                                         
+
+SQL> select 'test T_SELECTION_STAR_TYPE :', count(*) from T_REGION;
+test T_SELECTION_STAR_TYPE :      60000                                         
+
+SQL> spool off

@@ -1,0 +1,130 @@
+#!/bin/bash -f
+#
+#set -x
+
+typeset -i C_RET;
+typeset -u sKey;
+typeset -u sKey2;
+
+function fEndProc {
+   C_RET="$1";
+   if [[ $C_RET -eq 999 ]]
+   then
+      echo ""
+      C_RET=0;
+   else 
+      if [[ $C_RET -ne 0 ]]
+      then
+         echo ""
+         echo "Error occurred during process !"
+      fi;
+   fi;
+
+   exit $C_RET
+}
+
+function fSyntax {
+   echo "Syntax : memo    [-l | -e] | [-n] {Key [Name]}";
+   echo "Syntax : memoSH [-l | -e] | [-n] {Key [Name]}";
+   echo "Syntax : memoSQL [-l | -e] | [-n] {Key [Name]}";
+   echo " where : -l print Keywords list";
+   echo "         -e edit memos";
+   echo "         -n no more pipeline option";
+   echo " set key = ALL for searching all keywords";
+}
+
+function fError {
+   if [[ $? -ne 0 ]]
+   then
+      fEndProc 1;
+   fi;
+}
+
+function fct_scan {
+   sKey=$1;
+   sKey2=$2;
+
+   [[ "$sKey" == "ALL" ]] && sKey=""
+
+   if [[ "$sKey2" != "" ]] 
+   then
+      awk '/^##= '$sKey'/,/^##= END/' $manual.txt |
+         awk 'toupper($0) ~ /^ *=>.*'$sKey2'/,/^##= END/ {
+                 if ($1 == "=>") {
+                    if (index(toupper($0), "'$sKey2'")) init=1;
+                    else init=0;
+                 }
+                 if (index(toupper($0), "##= END")) {
+                    if (display == 1) print gensub("=>", "\n=>", "g", result) "\n" $0;
+                    result = ""; display=0;
+                    next;
+                 }
+                 if (init == 1) {result = result"\n"$0; display=1; next;}
+              }
+              toupper($0) ~ /^ *=>|'$sKey2'/ {
+                 result = result"\n"$0; display=1; next;
+              }
+	      /^##= END/ {
+                 if (display == 1) print gensub("=>", "\n=>", "g", result) "\n" $0;
+                 result = ""; display=0;
+                 next;
+              }
+              /^##/ { result = result"\n"$0; }'
+   else
+      awk '/^##= '$sKey'/,/^##= END/' $manual.txt
+   fi;
+   fError;
+}
+
+# Which manual ?
+################
+manual=$0
+
+# Control args
+NbArgs=$#
+
+if [[ $NbArgs -eq 0 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+##########
+# BODY
+##########
+
+#For full listing 
+##################
+
+if [[ "$1" = "-l" ]]
+then
+   awk '/^##= / {if($2 != "END") print $0}' $manual.txt | sort
+   fError;
+
+   fEndProc 0;
+fi;
+
+if [[ "$1" = "-e" ]]
+then
+   shift
+   sKey=$1;
+   if [[ "${EDITOR:-vi}" == "vi" ]]
+   then
+      vi +":set ic" +"/^##= $sKey" ${manual}.txt
+   else
+      ${EDITOR} ${manual}.txt
+   fi
+
+   fEndProc 0
+fi
+ 
+if [[ "$1" == "-n" ]]
+then
+   shift
+   fct_scan $1 $2
+else
+   fct_scan $1 $2 | more
+fi 
+
+fEndProc 0;
+

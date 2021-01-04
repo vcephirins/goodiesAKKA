@@ -1,0 +1,30 @@
+export VERSION=2_6_0
+tar cvpfz utils_v${VERSION}.tar.gz \
+ \
+prep_utils \
+prep_vdlib_SGC \
+bash_profile \
+ \
+./deletePackage \
+./deployPackage \
+./deployPackageAnnexe \
+./deployToolAnnexe \
+./createLinks \
+./deleteLinks \
+./retrievePackage \
+./conso \
+./exDisplay \
+./modele_mail_SGC.eml \
+./pgsql \
+ \
+./scripts \
+ \
+./SQL \
+ \
+./DDC/ddc.txt \
+./DDC/delta-reference.txt \
+./DDC/liste-reference.txt \
+ \
+
+chmod 666 utils_v${VERSION}.tar.gz
+echo "=> utils_v${VERSION}.tar.gz"

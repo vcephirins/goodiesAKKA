@@ -1,0 +1,78 @@
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "processing": "DefaultProcessingChain",
+        "session": "cdppSession01"
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "id": "2012001.pdf",
+            "ipType": "DATA",
+            "geometry": null,
+            "properties": {
+                "contentInformations": [
+                    {
+                        "dataObject": {
+                            "regardsDataType": "RAWDATA",
+                            "url": "staf://GF_SGDS/CASSINI/RPWS/HFR/DYNSPECTRA_N2/2012/2012001.pdf",
+                            "checksum": "sdfsd455sdfdsgdfg4dgdfg23",
+                            "algorithm": "MD5",
+                            "filename": "2012001.pdf",
+                            "fileSize": 143000
+                        },
+                        "representationInformation": {
+                            "Syntax": {
+                                "mime-type": "application/pdf"
+                            }
+                        }
+                    },
+                    {
+                        "dataObject": {
+                            "regardsDataType": "THUMBNAIL",
+                            "url": "file://home/cdpp/supplies/thumbnails/thumb_001.jpg",
+                            "checksum": "sdfsd455sdfdsgdfg4dgdfg23",
+                            "algorithm": "MD5",
+                            "filename": "thumb_001.jpg",
+                            "fileSize": 143000
+                        },
+                        "representationInformation": {
+                            "Syntax": {
+                                "mime-type": "image/jpeg"
+                            }
+                        }
+                    }
+                ],
+                "pdi": {
+                    "contextInformation": {
+                        "tags": [
+                            "URN:AIP:DATASET:CDPP:67db4ba0-0ba5-40f7-ac6d-fe2fdbf42664:V1"
+                        ]
+                    },
+                    "provenanceInformation": {
+                        "history": [
+                            {
+                                "eventDate": "2017-01-01T23:10:05",
+                                "comment": "SIP creation"
+                            }
+                        ]
+                    },
+                    "accessRightInformation": {
+                        "licence": "CNES",
+                        "data_rights": "secure"
+                    },
+                    "referenceInformation": {
+                        "doi": "102455/120.34SDSS"
+                    },
+                    "fixityInformation": {}
+                },
+                "descriptiveInformation": {
+                    "timePeriod": {
+                        "startDate": "2012-01-01T00:00:00",
+                        "stopDate": "2012-01-01T23:59:59"
+                    }
+                }
+            }
+        }
+    ]
+}

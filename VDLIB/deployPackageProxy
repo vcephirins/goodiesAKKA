@@ -1,0 +1,152 @@
+#!/bin/bash
+#
+#set -x
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : deployPackageProxy
+#s*
+#s* ROLE :  Deploiement d'un package dans le proxy
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+# Chargement des fonctions de base
+. utils.bash
+
+typeset vRepLivraison=${VDLIB_PROXY}/livraison
+
+function fSyntax {
+   echo "${0##*/}  <package>";
+}
+
+#--- Recuperation des options
+typeset -i batch=0;
+typeset -i cptOpt=0;
+OPTIND=1
+while getopts bq SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      b) batch=1;
+         cptOpt=cptOpt+1;
+         ;;
+      *) fSyntax
+         fEndProc 999;
+         ;;
+   esac
+done
+
+shift $cptOpt
+
+# Control args
+if [[ $# -ne 1 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+typeset package=${1%.tar*}
+typeset packagePkg=${VDLIB_PROXY/livraison}/${package}.tar.gz
+typeset listPackagesDirectories=/tmp/$USER/listPackagesDirectories_$$
+
+# Ajout des droits d'execution et de lecture par defaut
+umask go+rx
+
+mkdir -p /tmp/$USER
+fError "ERROR : Creation du repertoire '/tmp/$USER' impossible!"
+
+# Position automatique dans le repertoire des packages
+cd ${VDLIB_PROXY}/packages
+fError "ERROR : Repertoire '${VDLIB_PROXY}/packages' inaccessible !"
+
+# Verifie si le package existe
+[[ ! -s $packagePkg ]] && fEndProc 1 "package '$packagePkg' inexistant !";
+
+# Recuperation de la liste de publication
+# pgsql -c listPackagesDirectories ${package} >${listPackagesDirectories}
+# fError "ERROR : pgsql listPackagesDirectories ${package} !"
+
+curl -s "${VDLIB_REQUEST}?request=listPackagesDirectories&P1=${package}" >${listPackagesDirectories}
+fError "ERROR : pgsql listPackagesDirectories ${package} !"
+
+typeset listeRep=$(awk -F";" '{printf $NF " ";}' ${listPackagesDirectories})
+
+echo Publication : $listeRep
+if [[ $batch -eq 0 ]]
+then
+   fConfirm "les repertoires a publier : "
+   fError "ERROR : Procedure interrompue !"
+fi
+
+# traitement du cas particulier : archivage avec "./"
+typeset listeRepDot
+for repertoire in $listeRep
+do
+   listeRepDot="$listeRepDot ./$repertoire"
+done
+
+# deploiement du package
+if [[ -d $package ]]
+then
+   if [[ $batch -eq 0 ]]
+   then
+      fConfirm  "l'ecrasement du package '$package' existant ?"
+      fError "ERROR : Procedure interrompue !"
+   else
+      echo "Ecrasement du package '$package' existant"
+   fi
+
+   # Suppression des liens vers ce package
+   deleteLinks -d $package
+   fError "ERROR : Suppression des liens vers le package en erreur !"
+
+   echo "=> liens vers le package '$package' supprimes"
+
+   # Suppression du package
+   rm -rf $package
+   fError "ERROR : Suppression du package en erreur !" 
+   echo "=> package '$package' existant supprime"
+fi
+
+# Creation du package
+mkdir $package
+fError "ERROR : Creation du package impossible !"
+
+# Limitation des droits sur le package
+chmod 755 $package
+fError "ERROR : Modification des droits en erreur !"
+
+if [[ "${listeRep}" != "" ]]
+then
+   # Deploiement du package
+   cd $package
+   fError
+
+   tar xvpzf $packagePkg ${listeRep} ${listeRepDot} 2>/dev/null
+   #fError "Deploiement du package en erreur !"
+   echo "=> package '$package' nouveau deploye"
+
+   cd ..
+   fError
+
+   # Creation des liens vers le nouveau package
+   if [[ $batch -eq 1 ]]
+   then
+      createLinks -c $package $listeRep >/dev/null
+   else
+      createLinks -c $package $listeRep
+   fi
+   fError "ERROR : Creation des liens en erreur !"
+   echo "=> Liens vers le package '$package' crees"
+else
+   echo "=> Pas de publication"
+fi
+
+# Suppression des fichiers temporaires
+rm -f ${listPackagesDirectories} 2>/dev/null
+
+fEndProc 0 "Deploiement de package '${package}' dans l'espace PROXY termine"
+

@@ -1,0 +1,103 @@
+#!/bin/bash -f
+#
+#set -x
+
+typeset vUser=""
+typeset vMail=""
+typeset vProject=${PWD##*/}
+typeset vServer="git@gitlab.cnes.fr:Valdo"
+
+function fGetUsers {
+memoSH git "user" | awk '
+/git config user.name/ {name=$4; next;}
+/git config user.email/ {mail=":"$4;};
+{
+   if (name != "")  {printf("   %s%s\n", name, mail)}
+   name = ""
+}'
+}
+
+function fSyntax {
+   echo "gitAuthor [<user[:mail]]>";
+   echo "users   : ";
+   fGetUsers
+}
+
+# CONFIRM function
+##################
+function fConfirm {
+
+    typeset -l reponse='';
+    while [[ ${reponse} = '' ]]
+    do
+       echo ""
+       echo ${1:-Confirm}" (y/n/q)."
+       printf "Default value 'y' : ";read reponse
+       echo ""
+       case ${reponse:=y} in
+          y) return 0;;
+          n) return 1;;
+          q) echo "  => Break\n";
+             return 2;;
+          *) echo "unauthorized value."
+             echo "Possible values 'y', 'Y', 'n', 'N', 'q', 'Q'."
+             reponse='';;
+       esac
+    done
+}
+
+#--- Recuperation des options
+OPTIND=1
+while getopts hp:s: SCRIPT_OPTIONS
+do
+   case ${SCRIPT_OPTIONS} in
+      h | \?) fSyntax
+         exit 0
+         ;;
+      *) fSyntax
+         exit 1
+         ;;
+   esac
+done
+
+shift $((${OPTIND} - 1))
+
+vUser="${1%:*}"
+vMail="${1#${vUser}}"
+vMail="${vMail#:}"
+
+if [[ "${vUser}" == "" ]]
+then
+   # Le pattern est obligatoire
+   fSyntax
+   exit 1
+fi;
+
+# Recherche du mail
+if [[ "${vMail}" == "" ]]
+then
+   vUserMail=$( fGetUsers | grep -i ${vUser} )
+
+   # Le mail est obligatoire
+   vUser="${vUserMail%:*}"
+   vMail="${vUserMail#${vUser}}"
+   vMail="${vMail#:}"
+
+   if [[ "${vMail}" == "" ]]
+   then
+      fSyntax
+      exit 1
+   fi
+fi;
+
+echo "Affectation de l'auteur"
+echo "   User    : ${vUser}"
+echo "   Mail    : ${vMail}"
+
+fConfirm "git config user and mail" || exit 0
+
+git config user.name ${vUser}
+git config user.email ${vMail}
+
+git conf user
+

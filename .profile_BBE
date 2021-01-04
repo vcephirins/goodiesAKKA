@@ -1,0 +1,26 @@
+# Fichier .profile personnalise des parties communes
+#
+stty istrip
+stty erase 
+
+#Editeur de texte par defaut
+export EDITOR="nedit"
+
+#Ajout outils standards
+export OUTILS_SVA=$HOME/.bin
+export PATH=$PATH:$OUTILS_SVA
+
+export PS1=$(tput smso;echo '$LOGNAME on $HOSTNAME';tput rmso;echo '$PWD\n\$ ')
+#export PS1=$(tput smso;echo '$LOGNAME on \c';echo "`hostname`\c";tput rmso;echo ' $PWD'"\n\r$ ")
+
+set -o emacs
+alias __A=`echo "\020"`
+alias __B=`echo "\016"`
+alias __Z=`echo "\017"` #Shift In : permet d'annuler l'effet du \016 (Shift Out)
+alias __C=`echo "\06"`
+alias __D=`echo "\02"`
+
+#unalias vi
+unalias ls 2>/dev/null
+TERM=xterm
+

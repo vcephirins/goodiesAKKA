@@ -1,0 +1,2015 @@
+##= AWK 
+##= NAWK
+#########
+
+=> Variantes nawk, gawk
+
+ *** Note : utiliser --re-interval pour la repetition des pattern (ex : [0-9]{n,m})
+
+awk 'BEGIN{};/pattern/{if(NR >= 5 && NR <= 10) {print NR,$0}};END{}'  toto
+awk '/[{}]/ {print $0}' file    /* indentation */
+awk '/BEGIN|IF|LOOP|EXECUTE|END/ {print $0}' *.pc => Association de Patterns
+awk '/if/,/else/' testfile     => affiche le bloc
+awk '!/^ *$/' testfile         => Supprime les lignes vides ou a blanc
+awk '/if/,/else/ {if($0 !~ /^ *$/) {print $0}' testfile
+
+   . : 1 caractere
+   * : 0 ou n expression
+   ? : 0 ou 1 expression
+   () : group expression  ex : awk '/a(ll)?(n)*(uy){0}e/' testfile
+   {m[,[n]]} : nombre d'occurrences  
+      ex : awk '/t{2,}/' testfile
+           awk '/(titi){0}/' testfile
+   -> Remarque : m et n sont limites a 255
+   [String]
+   [^String] : String = liste ou interval (a-z) de caracteres
+               ^String = inverse
+   ~ 
+   !~   :  scan a specific field   ex : awk 'toupper($1) ~ /BEGIN/' testfile
+
+function Name (Parameter, Parameter,...)  { Statements }
+
+if ( Expression ) { Statement } [ else Action ]
+if ( Variable in Array ) { Statement }
+while ( Expression ) { Statement }
+for ( Expression ; Expression ; Expression ) { Statement }
+for ( Variable in Array ) { Statement }
+   break;
+   continue;
+delete Array [ Expression ]
+   ex : for (i in g)
+           delete g[i];
+
+x[expr1, expr2,...exprn]
+ex : /red/  { x["red"]++ }
+
+asort(A [, B])  # Tri du tableau A, copie dans B optionnelle, retourne le nombre d'element trie
+atan2( y, x )   Returns arctangent of y/x.
+cos( x )        Returns cosine of x; x is in radians.
+sin( x )        Returns sin of x; x is in radians.
+exp( x )        Returns the exponential function of x.
+log( x )        Returns the natural logarithm of x.
+sqrt( x )       Returns the square root of x.
+int( x )        Returns the value of x truncated to an integer.
+rand( ) Returns a random number n, with 0 <= n < 1.
+sub( Ere, Repl, [In])     Replaces
+gsub( Ere, Repl, [In])    Replaces all occurrences
+gensub( Ere, Repl, "g", [In])    Replaces all occurrences and return result
+index( String1, String2)  Returns the position, numbering from 1
+length [(String)]         Returns the length, in characters
+blength [(String)]        Returns the length, in bytes
+substr( String, Pos, [Long])   Returns a substring
+match( String, Ere, [A] )      Returns position
+split( String, A, [Ere] )
+strftime( format, timestamp, utc-flag)   Ex: print strftime("%F %T");
+tolower( String )
+toupper( String )
+print [ ExpressionList ] [ Redirection ] [ Expression ]
+printf Format [ , ExpressionList ] [ Redirection ] [ Expression ]
+sprintf(Format, Expr, Expr, . . . )
+system(Command )
+exit [ Expression ]
+next    Stops the processing of the current input record and proceeds
+        with the next input record.
+
+ARGC
+ARGV
+ARGV[ARGC - 1] : fichier courant
+FILENAME : fichier courant apres BEGIN
+FNR : Number of current input file
+FS : Field separator
+NF : Number of fields
+NR : Number of current input
+OFS     The output field separator (default is a space)
+ORS     The output record separator (default is a new-line character)
+RLENGTH The length of the string matched by the match function
+RSTART  The starting position of the string matched by the match function
+SUBSEP  Separates multiple subscripts. The default is \031
+RS      Input record separator (default is a new-line character)
+
+# Pour afficher une cote ' :
+    print "la '"'"' cote"
+    print "la \' cote"
+
+# Pour lire une variable d'environnement :
+    var="'$var'"
+# Pour conserver les blancs d'une variable lue :
+    var="'"$var"'"
+
+=> Recupere la date et l'heure d'une nomenclature
+awk --re-interval 'BEGIN {match("un_fichier_20150203132415_v01.txt", "_([0-9]{8})([0-9]{0,6})", res); print res[1], res[2], "\n", res[1, "start"], res[1, "length"];}'
+
+=> Remplace la commande sed : 
+# les lignes SUSPECTS sont supprimees
+# les lignes VALIDES sont modifiees
+# les autres lignes sont affichees
+nawk 'BEGIN {lu=0;}
+      /SUSPECTS/ {lu=1;}
+      /VALIDES/ {print "VALIDE"; lu=1;}
+      {if(lu==0) print $0; lu=0;}
+' toto
+
+=> Remplace la commande tee avec retour du code erreur :
+echo "ligne 1ligne 2Error" | nawk '{
+   print $0; print $0 > "'"${program}.log"'";}
+   /Error/ {exit 1;}'
+
+ou
+{
+ls fauxfichier;print "CR = $?"
+} | nawk '{
+   print $0;print $0 > "'${program}.log'";}
+   /CR = [^0]/ {exit $3;}'
+
+=> fonction de suppression des blancs et des commentaires en fin de ligne
+
+      function trim(value) {
+         # Suppression des blancs et des commentaires en fin de lignes
+         sub("^[\t ]*", "", value);
+         sub("[\t ]*(#.*)*$", "", value);
+         return value;
+      }
+
+   # Appel simple trim
+   awk 'BEGIN{print gensub("^ *| *$", "", "G", "'"${VAR}"'");}'
+
+=> Extraire des versions numeriques pour les comparer
+
+echo $1 | awk '{
+   match($0, "_[vV](([.]?[0-9]+)+)", version);
+   print version[1];
+   split(version[1], result, "[.]");
+   print length(result), result[1], result[2], result[3];
+
+   for (val in result) printf("%.3d", result[val]);
+   print "";
+}'
+
+=> Recherche des dernieres versions (fichier trie)
+awk 'BEGIN {buffer = ""; namePrec = "";}
+      {
+         # Ne conserve que la derniere version de chaque fichier (Note: remplacer $1 par le champ du nom a filtrer)
+         name = gensub("[_.][vV][0-9.]+([.]cdf)?", "", "g", $1);
+         if (name != namePrec && buffer != "") print buffer;
+         buffer = $0
+         namePrec = name;
+      }
+      END {
+         # Vidage du buffer si necessaire
+         if (buffer != "") print buffer;
+   }'
+
+=> fonction de lecture d'une valeur de type "key: value"
+   avec interpretation des variables d'environnement
+
+      function getValue(value) {
+         # Recupere la valeur d une clef de la forme key: value
+         sub("^[^:]*:[\t ]*", "", value);  # suppression de la clef
+         sub("[\t ]*(#.*)*$", "", value);  # trim fin de ligne
+
+         # Traitement des variables d environnement
+         var=""
+         maxElt = split(value, result, "(\\${)|}");
+         for (indElt = 1; indElt <= maxElt; indElt=indElt+2) {
+            var=sprintf("%s%s%s", var, result[indElt], ENVIRON[result[indElt+1]]
+);
+            }
+         return var;
+         }
+
+=> Definition des entrees/sorties standards
+
+echo bonjour | nawk '
+   BEGIN {
+      # definition des entrees / sorties standards
+      stdin="/dev/stdin";
+      stdout="/dev/stdout";
+      stderr="/dev/stderr";
+      }
+   {print $0 >stderr;}'
+
+=> Lecture d'un fichier des parametres avant traitement
+awk 'FNR==NR {params[$1] = $2; next;}
+      # Chargement du fichier des parametres
+      params[$1] = $2;
+      next;
+      }
+   }
+   /pattern/ {print params[pattern];}
+}' params.txt fichier2.txt
+   
+=> Recherche des elements manquants d'un fichier dans un autre
+# On peut aussi faire grep -f file.dat file.ref (file.dat avec des patterns regexp)
+# ou grep -fwF file.dat file.ref (word, no regexp)
+
+awk 'FNR==NR {ref[$1]; next;}
+     {
+        split($0, res, "/");
+        if ( ! (res[length(res)] in ref)) print $0;
+     }' file.ref file.dat
+
+=> Tri d'un tableau sur son index
+
+echo bonjour | nawk '
+      BEGIN {
+         listeDate["20010101"] = 1;
+         listeDate["20040101"] = 2;
+         listeDate["20030101"] = 3;
+         listeDate["20070101"] = 4;
+         listeDate["20050101"] = 5;
+         listeDate["20060101"] = 6;
+         listeDate["20020101"] = 7;
+         listeDate["20080101"] = 8;
+         listeDate["20090101"] = 9;
+         }
+         END {
+            # Tri par date
+            idxMax = asort(listeDate, result);
+            for(idx = 0; idx < idxMax; idx++) {
+               date = tabIdx[idx];
+               printf("[TEST] %s : %d \n", date, result[date]);
+            }
+         }
+
+      function asort(A, B) {
+         for (idx in B) delete B[idx];
+         idx = 0;
+         for (idxName in A) {
+            B[idx] = idxName;
+            idx++;
+         }
+         for (i = 1; i < idx; i++) {
+            for (j = i; j > 0 && B[j-1] > B[j]; j--) {
+               t = B[j-1]; B[j-1] = B[j]; B[j] = t;
+            }
+         }
+         return idx;
+      }
+   '
+
+##= END
+
+##= CATALOGUES MESSAGES
+#######################
+
+=>Variables :
+  $NLSPATH  =  localisation des catalogues
+  $LANG     =  Langage
+
+=>Affichage : 
+  dspmsg -s 1 test.cat 2 'message %s not found\n' 2
+            |   |      |            |           |-> parametre
+            |   |      |            |-> message par defaut
+            |   |      |-> numero du message
+            |   |-> catalogue
+            |-> Numero du Set
+
+=>Creer un catalogue :
+  gencat test.cat test.msg
+  ou test.msg est de la forme :
+
+$delset 1
+$set 1
+$quote "
+
+1	"test: 0402-150 There is a missing ] character.\n"
+2	"test: 0402-151 Too many parameters specified.\n"
+3	"test: 0402-152 Syntax error: a ) character was expected.\n"
+4	"test: 0402-153 Syntax error: a ) character was expected.\n"
+5	"test: 0402-154 An operator is missing or is not valid.\n"
+6	"test: 0402-155 A parameter is missing.\n"
+
+=>Visualiser un catalogue :
+dspcat [-g] Catalogue [Id Set] [Id msg]
+        |                |        |-> Numero du message
+        |                |-> Numero du Set
+        |-> Sortie formattee pour gencat
+
+=>Fonctions C
+
+nl_types.h
+   extern nl_catd catopen(const char *, int);
+   extern char  *catgets(nl_catd, int, int, const char *);
+   extern int catclose(nl_catd);
+   
+   extern char *NLgetamsg(char*, int, int, char*);
+   extern char *NLcatgets(nl_catd, int, int, char *);
+   extern char *catgetmsg(nl_catd, int, int, char*, int);
+
+##= END
+
+##= CDF
+#######
+
+=> Environnement
+
+export CDF_BASE=${HOME}/CDFUtils/CDF3-5
+export CDF_INC=$CDF_BASE/include
+export CDF_LIB=$CDF_BASE/lib
+export CDF_BIN=$CDF_BASE/bin
+export CDF_JAVA=$CDF_BASE/cdf35_0-dist/cdfjava
+export CDF_HELP=$CDF_BASE/lib/cdf/help
+
+=> Outils
+
+   cdfcompare
+   cdfedit
+   cdfdump           # cdfdump -dump data -vars "var1,var2"-recordrange "5,10" my_sample
+                     # cdfdump -dump metadata my_sample
+   cdfstats
+   skeletontable     # Create skeleton table
+   skeletoncdf       # Create CDF file
+
+##= END
+
+##= CHMOD
+#########
+
+=> chmod [f][R] [a]|[ugo] [+|-|=] [lrstwxX]
+
+ a     all
+ u     user
+ g     group
+ o     other
+
+ +     Ajoute
+ -     Supprime
+ =     Exactement
+
+ l     mandatory locking
+ r     read permission
+ s     user or group set-ID (user or group)
+ t     sticky bit (user)
+ w     write permission
+ x     execute permission
+ X     execute permission if the file is a directory or
+       if  there  is  execute permission for one of the
+       other user classes
+
+
+/* Positionne le Sticky */
+chmod ugo+=srwx file;chmod 6777 file;
+
+##= END
+
+##= CRONTAB
+###########
+
+=> Syntax command :
+   crontab [ -e | -l | -r | -v | File ]
+
+   crontab -l      :  List crontab
+           -e      :  Edit crontab
+           -r      :  remove crontab
+           -v      :  status crontab
+
+=> Syntax file :
+   minute  hour  day_of_month  month  weekday  command
+      minute 0 through 59
+      hour 0 through 23
+      day_of_month 1 through 31
+      month 1 through 12
+      weekday 0 through 6 for Sunday through Saturday
+      command a shell command
+      
+      *        : All values
+      n,m,...  : Specifics values
+      n-m      : Interval values
+
+=> exemple :
+SHELL=/bin/bash
+BASH_ENV=$HOME/.bash_profile
+45 23 1-15 * 1,4,5 PATH=$PATH:$HOME/scripts; cleanup.sh
+
+##= END
+
+##= SAUVEGARDE
+##############
+
+=> commande mt
+   mt [ -f TapeName ] Subcommand [ Count ]
+
+   Subcommands : 
+   eof, weof n : Writes the number of end-of-file markers specified 
+   fsf n : Moves the tape forward the number of files specified
+   bsf n : Moves the tape backwards the number of files specified 
+      If using the bsf subcommand would cause the tape head to move back
+      past the beginning of the tape, then the tape will be rewound, and the mt
+      command will return EIO.
+   fsr n : Moves the tape forward the number of records specified 
+   bsr n : Moves the tape backwards the number of records specified 
+   rewoff1, rewind : Rewinds the tape. The Count parameter is ignored.
+   status 
+
+   Flag :
+   -f TapeName Specifies the TapeName parameter.
+
+   Examples
+   1. To rewind the rmt1 tape device, enter:
+      mt -f /dev/rmt1 rewind
+
+=> sauvegarde
+   {
+      cat $listefic           |
+      cpio -ocavB             |
+      dd of=$dest obs=2048
+   } >>$backuplog 2>&1
+
+=> restaure
+   # restauration des fichiers selectionnes
+   {
+      dd if=$dest ibs=2048    |
+      cpio -icvd $listefic
+   } >>$restaurlog 2>&1
+
+##= SCREEN
+##########
+=> Outil permettant de ne pas perdre les traitements en cas de coupure
+   electrique ou reseau (cote "AKKA", pas cote "CNES").
+
+   Definir le PATH vers ${HOME}/tools/bin
+
+   1- Lancer un nouveau 'screen': screen
+        Utiliser 'screen -L' pour avoir une trace complete de la session
+        dans un fichier 'LOG'
+
+   2- Lister les sessions deja ouvertes: screen -list
+                There is a screen on:
+                10708.pts-138.trait-op5-ci      (Attached)
+                1 Socket in /tmp/uscreens/S-prodcdpp.
+
+   3- Recuperer une session deja attachee: screen -r -d  <session>
+                Exemple:
+                screen -d -r 10708.pts-138.trait-op5-ci
+
+   4- Detacher une session en cours: <Ctrl>-A d
+
+   5- Creer une nouvelle instance dans la session courante: <Ctrl>-A c
+
+   6- Passer d'une instance a une autre: <Ctrl>-A <numero>
+
+   7- Certaines sessions peuvent rester en etat "zombie" lors de coupures
+      electriques. Pour nettoyer ces sessions: screen -wipe
+
+##= END
+#######
+
+##= DATE
+########
+
+=> Timestamp
+TMPDATE=`date +"%Y%m%d_%H%M%S"`
+TMPIDENT=$TMPDATE'_'$$
+
+=> extraire les elements d'une date
+read YY MM DD <<< $(echo ${TMPDATE::4} ${TMPDATE:4:2} ${TMPDATE:6:2})
+read YY MM DD < <(echo ${TMPDATE::4} ${TMPDATE:4:2} ${TMPDATE:6:2})   # Variante
+
+=> Dernier jour du mois (mois suivant du jour precedent)
+date -d "2002-02-01 next month last day" "+%F"
+
+=> Convertir une date en timestamp unix (1er janvier 1970) et inversement
+date -d "2015-10-23" +"%s" # 1445558400
+date -d @1445558400 +"%F"  # 2015-10-23
+
+=> Convertir une date quantieme
+exDate=2014034
+exDateQQQ=10#${exDate:4}
+date -d"${exDate::4}0101 +$((${exDateQQQ}-1)) days" +%Y%m%d
+
+=> Premier lundi de l'annee
+exDate=20140312
+jourNouvelAn=$(date -d "${exDate::4}/01/01" +%u);
+premierLundi=$(( ( 8 - ${jourNouvelAn}) % 7 +1 ))  # 
+date -d "${exDate::4}/01/${premierLundi}"
+
+=> Date a partir d'une reference et d'une date CDS sur 3 octets de poids faibles
+date -d "19500101 +$((1275080002 & 0x00FFFFFF)) days"
+
+##= END
+#######
+
+##= DD
+######
+
+dd if=DATA.TBD074PA of=TOTO conv=ascii cbs=481
+rsh remote "dd bs=4096 if=/dev/rmt0" | tar -tvf -
+
+=> Creer un vide vide de 1Mo
+dd if=/dev/zero of=test.txt bs=1k count=1000
+
+##= END
+#######
+
+##= DIAGNOSTIC
+##############
+
+Sous root lancer la commande diag
+
+##= END
+
+##= DIFF, PATCH, MERGE
+######################
+
+=> diff [-options] file1 file2
+   -b     : Ignore les espaces et tabulations
+   -e     : genere en sortie les commandes pour ed
+   -i     : ignore case
+   -r     : recursif sur les repertoires
+   -q     : quiet, affiche que les noms des fichiers
+   -s     : les fichiers identiques
+   -y     : Affiche sur 2 colonnes
+   -x Pat : exclusion des fichiers correspondants au pattern
+   -X File: les patterns sont lus dans le fichier File
+   --strip-trailing-cr : ignore les fins de lignes (cr / nl)
+
+=> Variantes : diff3 [-e|-x|-E|-X|-3] File1 File2 File3
+               bdiff File1 File2 [Number] [-s]
+               cmp [-l | -s] File1 File2
+               comm [-123] File1 File2
+
+=> patch [-options] -i file.diff fileOrig
+
+# Generer un fichier diff compatible ed :
+diff -e fileToUpdate file > file.diff
+
+# Editer le fichier file.diff et ne garder que les modifications necessaires
+# Appliquer le patch
+
+patch -e -i file.diff fileToUpdate
+
+# options possibles
+   -e             : ed diff context
+   -n             : normal diff context
+   -u             : unified diff context
+   -o <outFile>   : fichier en sortie ( - pour la sortie standard)
+   -b             : creer un fichier backup file.orig
+   -R             : Reverse modifications
+   -s             : Silent mode
+
+##= END
+
+##= DIVERS
+##########
+
+=> Position Curseur
+
+echo -en "\033[x;yH"            # Position en x;y
+echo -en "\033[xA"              # Monte le curseur de x lignes
+echo -en "\033[xB"              # Descend le curseur de x lignes
+echo -en "\033[xC"              # Deplace le curseur de x colonnes vers la droite
+echo -en "\033[xD"              # Deplace le curseur de x colonnes vers la gauche
+echo -en "\033[2J"              # Efface l'ecran
+echo -en "\033[K"               # Efface jusqu'a la fin de la ligne
+echo -en "\033[s"               # Sauvergarde la position du curseur
+echo -en "\033[u"               # Restaure la position du curseur
+
+/* groupe de pattern */
+ls /tmp/*(list*|suite*)
+ls /tmp/!(list*|suite*)
+ls /tmp/!(list*&*nt)
+
+/* Pause en shell : n en secondes */
+sleep n
+
+/* Deporter l'affichage */
+export DISPLAY=<IP>:0
+
+# A placer dans /etc/profile
+# Identification du DISPLAY appelant sauf si pas de terminal
+if [ -n "$TERM" ]; then
+   DISPLAY=`who am i | nawk '{gsub("[()]", "", $6);print $6}'`:0
+   export DISPLAY
+fi
+
+/* copie d'un repertoire */
+cp -prt <target> <source>
+
+/* Compression/Decompression d'un repertoire */
+/* rem : se connecter root pour conserver les proprietes des fichiers */
+tar cvf - Repertoire | gzip > Repertoire.gz
+gunzip -c Repertoire.gz | tar xvf -
+
+/* Sauvegarde sur bande */
+ls *dmp | cpio -ocavB | dd of=/dev/rmt0 obs=2048   #sauvegarde
+dd if=/dev/rmt0 ibs=2048 | cpio -icvt              #liste
+dd if=/dev/rmt0 ibs=2048 | cpio -icvd $listeFic    #restaure
+
+/* Positionne le Sticky */
+chmod ugo+=srwx file;chmod 6777 file;
+
+=> Affichage du Prompt
+   PS1=$(tput smso;echo '$LOGNAME on \c';echo "`hostname`\c";tput rmso ;echo ' $PWD (SID=${ORACLE_SID:=NOTSET})'"\n\r$ ")
+
+=> select
+
+select choix in "choix1" "choix2" "Quit"
+do
+   if [ $choix ]; then
+      if [ $choix = "Quit" ]; then
+         print "BYE"
+         break;
+      else
+         print $choix " => Recommencer"
+      fi
+   fi
+done
+
+=> pipe et code retour
+
+set -o pipefail  # interrompe l'enchainement et retourne le code retour ($?)
+
+exemples :
+   set -o pipefail
+   ls toto | xargs -i echo "ok : {}"
+   echo $?
+
+=> sortie d'un script source ou non
+
+if [[ "${0##*/}" == "toto" ]]
+then
+   # sous-shell
+   EXIT="exit";
+else
+   # source shell
+   EXIT="return";
+fi
+
+function run {
+   return 1
+}
+
+run
+${EXIT} $?
+
+=> Fonctions de calcul du path (expand)
+function getPwd() {
+   export vPwdEntry="$1"
+   vPwdPath=$(cd ${vPwdEntry}; [[ $? -ne 0 ]] && exit 1 || echo $PWD;)
+   if [[ $? -eq 0 ]]
+   then
+      [[ "${vPwdEntry::1}" != "/" ]] && vPwdPath="${vPwdPath#${PWD}/}"
+      echo ${vPwdPath:=.}
+      return 0
+   fi
+   return 1
+}
+
+=> Raccourcis ligne de commande
+   Voir $HOME/.inputrc
+
+   # forme 
+   "\e...":  commande
+
+   # Pour voir le code d'une combinaison de touches
+   faire <Ctrl-V> puis faire la combinasion de touches
+   Remplacer "^[" par "\e"
+
+
+##= END
+
+##= EMACS
+##= CHEAT CODES
+###############
+
+=> Divers
+   Alt-<number> : repeat command
+   Ctrl-l : lower word
+   Ctrl-u : upper word
+   
+=> history
+   Ctrl-p : Fetch the previous command from the history list
+   Ctrl-n : Fetch the next command from the history list
+   Ctrl-r : Search history backward
+   Ctrl-s : Search history forward
+   Ctrl-j : Edit history line
+   Alt-<  : Move to the first line in the history
+   Alt->  : Move to the last line in the history
+
+=> Completion
+   Esc Esc
+
+   Ctrl-x/ : filename completion
+   Ctrl-x$ : variable completion
+   Ctrl-x@ : hostname completion
+   Ctrl-x! : command completion
+   Ctrl-x~ : user completion
+
+=> Navigation
+   Alt-b   : Backward word
+   Alt-f   : Forward word
+   Ctrl-a  : beginnig
+   Ctrl-e  : end line
+ 
+##= END
+
+##= FIND
+########
+
+=> find Path [...] [Expressions]
+   -exec Command {} \;      => Execute la commande pour chaque entree
+   -exec Command {} +       => Execute la commande et renvoie le code status
+   -fstype type             => file appartenant au file system
+   -group  group            => file appartenant au Group
+   -nogroup                 => file n'appartenant pas a /etc/group
+   -inum number             => i-node
+   -links number            => nombre de liens (voir ln)
+   -ls                      => ls
+   -name 'file'             => nom recherche (avec patterns)
+   -newer file              => Plus recent que file
+   -ok Command {} \;        => Idem -exec mais demande confirmation
+   -perm [-] Mode           => Droit du fichier
+   -print                   => Affiche le resultat
+   -prune                   => N'explore pas les directories
+   -depth                   => 
+   -size block              => Taille en block de 512 bytes
+   -sizec number            => Taille en caracteres
+   -atime number            => Accede de number-1 a number (multiple de 24h)
+   -mtime number            => Modifie de number-1 a number (multiple de 24h)
+   -ctime number            => i-node modifie dans la periode (multiple de 24h)
+   -type b                  => file type b (block special file)
+         c                  => Charactere special file
+         d                  => directory
+         f                  => Plain file
+         l                  => Symbolic link
+         p                  => FIFO (a named pipe)
+         s                  => Socket
+   -user user               => file appartenant au user
+   -nouser                  => file n'appartenant pas a /etc/passwd
+   -xdev                    =>
+
+=> Expressions :
+   number peut etre precede de + : > number
+                               - : < number
+
+   \( Expression \)       : Ensemble
+   ! Expression           : Negation
+   -a                     : And
+   -o                     : Or
+
+=> Exemples :
+   /* cleanup des fichiers de plus de 7 jours */
+   find . \( -name '*.log' -o  -name 'toto' \) -mtime +7 -exec rm {} \;
+   
+   /* Recherche des fichiers de moins de 24h */
+   find . -mtime -1 -ls
+   
+   /* Edit files */
+   vi `find . -type file -exec grep -liE "ss11|acmms" {} \;`
+
+   /* Ne traitent que les fichiers du repertoire $PWD  */
+   find ${PWD} ! -name ${PWD##*/} -prune -type f
+
+   /* Recherche des repertoires de plus de 2 jours QUE sous /tmp
+   find /tmp -type d \( -mtime +2 -prune -print -o ! -path /tmp -prune \)
+   find /tmp -type d \( -mtime +2 -prune -o ! -path /tmp -prune -print \)  # Affiche les autres repertoires
+
+   /* Affiche les liens invalides
+   find -L . -type l
+   find -L . -type l | while read vFile
+   do
+      ll $vFile
+   done
+
+   /* Recherche si une arbo contient au moins 1 fichier */
+   find . -type f -exec false {} + -quit
+   [[ $? -ne 0 ]] && echo "fichier(s) trouve(s)"
+
+   /* Affiche en colonne ou en ligne */
+   find . -type d -exec echo {} \;
+   find . -type d -exec echo {} +
+
+##= END
+
+##= FTP
+#######
+
+=> ftp
+   help      : liste des commandes
+   quote     : execute une commande ftp sur le remote
+               exemple : quote help
+                         quote site lrecl=400
+
+=> Site sur MVS
+   Qdisk           : Liste la place disponible sur les volumes
+   QLANG           : Liste les langages disponibles
+   LRecl=value     : Longueur record
+   BLKsize=value   : BlockSize
+   BLocks          : Unite en cours (pour PRI et SEC)
+   TRacks          : Unite en  cours
+   CYlindre        : Unite en cours
+   PRImary=value   : Primary size             (De l'unite en cours)
+   SECondary=value : Secondary size (Extend)  (De l'unite en cours)
+
+   Le chemin absolu est indique par des cotes : 'DCAPS05.ACMM'
+   sinon le chemin est relatif.
+
+=> Exemple
+
+   ftp -i -n ibmas <<EOF >$LOGFILE 2>&1
+user toto titi
+verbose on
+cd 'DAV.DSNTRG.ACMMFILE.CIN'
+ascii
+quote SITE BLK=27600
+quote SITE LRECL=400
+quote SITE PRI=1000
+put $RESULTFILE P56TRSF
+quit
+EOF
+
+##= END
+
+##= GIT
+#######
+
+=> Notes :
+      - https://git-scm.com/book/fr
+      - sur gitlab.akka.eu, groupe CDPP, depuis le compte cdppdev et avec identification LDAP (session windows)
+
+      - gitlab AKKA
+         - depuis le CNES, se connecter avec https://gitlab.akka.eu/cdpp/<projet>.git
+         - depuis le PC AKKA, se connecter avec ssh://git@gitlab.akka.eu/cdpp/<projet>.git
+
+      - gitlab CNES
+         - depuis le CNES, se connecter avec git@gitlab.cnes.fr:Valdo/<projet>.git
+                                             https://gitlab.cnes.fr/Valdo/<projet>.git
+         - depuis l'exterieur, se connecter avec gu=cephirv@git@gitlab-ssh.cnes.fr:Valdo/<projet>.git
+
+      - origin est le nom par defaut que donne git au serveur ayant servi au clonage
+      - master est le nom par defaut de la branche principale
+      - HEAD est le pointeur sur le dernier commit de la branche active
+
+      - pour avoir de l'aide sur une commande: git commit --toto
+
+      - gitk   (IHM)
+
+      - pb certificats : git config --global http.sslVerify false
+
+      - Limitation taille de fichier (10 MB sur le gitlab.cnes.fr)
+        split -b 10MB file1 file1_   # Decouper
+        cat file1_* > file1               # Recoller
+
+=> macros-commandes d'initialisation ou clonage d'un depot
+   gitInit
+   gitClone
+
+=> Configuration globale
+   git config [--global | --system | --local] [-l | -e]          # local par defaut. -l pour lister, -e pour editer
+
+   git config --global credential.helper 'cache --timeout 3600'  # Utilise un cache pour la connexion de 1 heure
+   git config --global color.ui true
+   git config --global alias.last 'show --name-status --decorate'  # Creer un alias global pour la log du dernier commit (git last)
+   git config --global alias.unstage 'reset HEAD --'             # Creer un alias global pour desindexer un fichier, -- : parametre en ligne
+   git config --global alias.logs 'log --decorate --oneline --graph'     # Liste des commits
+   git config --global alias.logs-detail 'log --decorate --oneline --graph --name-status'     # git logs-detail [commit] [-<n>]
+   git config --global alias.follow 'log --decorate --oneline --graph --name-status'     # Liste des commits avec status des fichiers
+   git config --global alias.follow-detail 'log --decorate --oneline --graph -p'     # Liste des commits avec diff des fichiers
+   git config --global alias.indexed 'ls-tree -r --name-only HEAD'
+   git config --global alias.branches 'branch -a -vv'
+   git config --global alias.tags 'tag -l -n --'
+   git config --global alias.remotes 'remote -v'
+   git config --global alias.status-all 'status --untracked-files=all --ignored'
+   #git config --global alias.conf 'config --show-origin --get-regexp --'
+   git config --global alias.conf 'config --get-regexp --'
+   git config --global alias.upd 'pull --rebase=preserve '          # Preserve les fusions sans en ajouter
+   git config --global alias.pfwl 'push --force-with-lease'      # Push force apres un rebase avec control de l'ancetre commun
+   git config --global alias.list 'show --name-only HEAD '
+   git config --global alias.dw 'diff -w --color-words=".{3,}" --'
+   git config --global alias.author 'config --get-regexp user'
+   git config --global alias.save 'stash save -u '
+   git config --global alias.restore 'stash pop --index'
+   git config --global alias.alias 'config --get-regexp alias'
+
+   git config --global --unset-all <regexp>                      # Supprimer des alias
+
+=> Configuration locale author
+
+   git config user.name 'vcephirins'
+   git config user.email 'vincent.cephirins@akka.eu'
+# ou 
+   git config user.name 'sihadjh'
+   git config user.email 'hacene.si-hadj-mohand@akka.eu'
+# ou 
+   git config user.name 'nlormant'
+   git config user.email 'nicolas.lormant@akka.eu'
+# ou 
+   git config user.name 'dherrera'
+   git config user.email 'damien.herrera@akka.eu'
+
+=> Creer un depot
+   mkdir $HOME/test
+   cd test
+   git init [--template <dir>]                                   # Creer un depot [depuis un modele]
+
+   # Ajouter conf locale user.name et user.email
+
+   touch .gitignore                                              # Voir exemples sur https://github.com/github/gitignore ou gitlab
+   git add .
+   git commit -m 'Initialisation'
+   
+=> Cloner un depot distant (ou local avec le protocole file:///)
+   git clone [--branch <branche>][-o <remoteServer>] <url><projet.git> [repDest] 
+   git clone [-o originCnes] git@gitlab.cnes.fr:Valdo/<projet.git> [repDest] 
+   git clone -o originAkka https://gitlab.akka.eu/cdpp/<projet.git> [repDest]
+   git remote [-v] show [server]                                 # Detail d'un depot
+
+   # IMPORTANT: Apres le clone ajouter conf locale user.name et user.email
+   
+   # Basculer sur une branche
+   git checkout -b <VERSION>
+
+=> Depot distant (ou local avec le protocol file:///)
+   git remote add originAkka https://gitlab.akka.eu/cdpp/<projet>.git  # Ajouter un depot distant avec un alias (doit contenir ua moins 1 fichier)
+   git remote add originCnes https://gitlab.cnes.fr/Valdo/<projet>.git # Ajouter un depot distant avec un alias dans le meme projet
+ou git remote add originCnes git@gitlab.cnes.fr:Valdo/<projet>.git     # par ssh (en interne)
+
+   git remote rename <old_name> <new_name>                             # Renommer un depot 
+   git remote rm <server>                                              # Supprimer un depot
+   git remote set-url originCnes git@gitlab.cnes.fr:valdo/outils-prives/<projet>.git   # Modifier l'url d'un projet
+
+   git push -u <server> <branche> [<branche locale>] [--tags]    # Pousse et rattache la branche locale a une branche distante (-u ou --set-upstream-to)
+
+=> Commandes de base
+   git status
+   git clean -xfdn                                               # Liste les fichiers non indexes (x: all, f: force, d: delete, n: previsualise)
+   git pull [server]                                             # Recuperer et fusionner les MaJ. origin par defaut, sinon git pull isee1_v2
+   git checkout <branche>                                        # Bascule sur la branche
+   git fetch [server]                                            # Recuperer sans fusionner les MaJ (nouvelle branche)
+   git merge                                                     # Fusionner 
+   git checkout <branche> master                                 # Bascule sur la branche et merge master
+   git add *.py                                                  # Suivre les fichiers
+
+   git reset [HEAD~n]                                            # Annuler le dernier (ou n) commit
+   git reset [HEAD~n] toto.py                                    # Desindexer toto.py sur le dernier (ou n) commit (Voir alias unstage)
+
+   git diff -w --color-words[=.] [HEAD~n] [file]                 # -w = --ignore-all-space, color-words[=<regex d'un mot>]
+
+   git commit -m "Mes modifs"                                    # Valider les modifs
+   git commit --amend  [--reset-author]                          # Permet d'ajouter des modifs sur le meme commit, message compris [change le owner]
+
+=> TAG
+   git tag [-l 'v2.*']                                           # Liste des tags [ avec pattern ]
+   git tag -a -m 'Premiere version' 'v1.0'                       # Creer un tag annote sur le dernier commit
+   git show v1.0                                                 # Detail du commit tagge
+   git tag -d v1.0                                               # Supprimer un tag
+   git tag 'v1.0' -m 'Version 1.0'                               # Creer un tag leger
+   git tag 'v1.0' -m 'Version 1.0' e23dfer                       # Creer un tag sur un commit particulier (git log --pretty=oneline)
+   git push <server> v1.0                                        # Pousser sur le seveur distant le tag
+   git push <server> --tags                                      # Pousser sur le seveur distant tous les nouveaux tags
+
+=> Branches / Merge / Fusion
+   git branch -vv [--merged]                                     # Voir les branches, * indique la branche active [ visu du dernier commit ]
+   git branch testing                                            # Creer une nouvelle branche locale a partir de la branche courante
+   git checkout testing                                          # Basculer sur la branche de test
+   git checkout -- [files]                                       # Revert sur la branche courante complete
+   git checkout -b hotfix [serveur/branche]                      # Creer et basculer sur la branche hotfix [depuis une branche particuliere]
+   git checkout master                                           # Apres correction, rebasculer sur la branche master
+   git merge hotfix                                              # et fusionner la branche hotfix sur master en lineaire
+   git merge --no-ffr hotfix                                     # et fusionner la branche hotfix sur master (--no-ff: force un merge de fusion)
+                                                                 #    En cas de conflit editer le fichier (HEAD) puis relancer git commit pour valider
+   git branch --merged                                           # Visualiser les branches fusionnees qui peuvent etre supprimees
+   git branch -d hotfix                                          # Supprimer la branche hotfix une fois fusionnee
+
+   git branch -u <serveur>/<branche> [<branche locale>]          # Associer/Mettre a jour la branche locale a une branche distante
+
+   git fetch --all                                               # Synchronizer les branches locales et distantes
+   git push [serveur] [branche[:newBranche]]                     # Pousser la branche sur le serveur distant [:en la renommant]
+   git push [serveur] :oldBranche                                # Attention: supprime la branche distante
+   git push serveur --delete branche                             # Supprimer la branche sur le serveur distant
+   git push --force-with-lease                                   # Ecrase l'historique de la branche distante apres verif de l'ancetre commun
+
+=> Stash
+
+   # stash permet la sauvegarde temporaire d'un dev en cours
+   # qui sera repris plus tard
+   git stash save -u 'Mon message'                               # -u : save untracked files
+   git stash list
+   git stash pop [--index]                                       # Restaure le stash et supprime le stash si OK, --index: restaure les fichiers staged
+   git stash apply                                               # Restaure mais ne supprime pas le stash
+   git stash pop stash@{2}                                       # Restaure le 2eme stash
+   git stash show -p                                             # Diff du stash, ou complet [-u]
+   git stash drop stash@{1}                                      # Supprimer un stash
+   git stash clear                                               # Supprimer tous les stash
+
+=> Rebaser (ATTENTION: ne pas rebaser une branche pousser sur le serveur)
+   git checkout branche1 
+   git rebase master                                             # Rebase master sur branche1 
+   git rebase -i master                                          # Rebase interactif (remplacer pick par fixup pour supprimer les commits intermediaires)
+   git merge master branche1                                     # Fast-forward (checkout master + merge branche1) sur master
+
+   git pull --rebase=preserve                                    # Rebaser depuis un remote en preservant les fusions
+
+   # Avec 2 branches
+   git rebase --onto master branche1 branche2                    # Rebaser branche1 et branche2 sur master
+   git checkout master                                           # Basculer sur master
+   git merge branche2                                            # Avance rapide de master sur branche2
+   git rebase master branche1                                    # Rebaser branche1 du serveur sur master
+   git checkout master                                           # Basculer sur master
+   git merge branche1                                            # Avance rapide de master sur branche1
+   git branch -d branche1
+   git branch -d branche2
+
+=> Nettoyer/Supprimer un fichier de tout l'historique            # Attention: modifie tous les commits. Ajouter --all pour toutes branches
+   # git filter-branch --tree-filter 'rm -f monFichier.txt' HEAD
+   git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch *monFichier.txt -- --all'
+   # ou un repertoire
+   git filter-branch -f --index-filter 'git rm -r --cached --ignore-unmatch monRepertoire/ -- '
+
+   # Purger les logs
+   rm -rf .git/refs/original/
+   rm -rf .git/logs/
+
+   # Lancer le garbage collector
+   git gc --aggressive --prune=now
+
+=> Workflow nominal
+   # Creer une nouvelle branche
+   git checkout -b hotfix/v1.2.1 master
+
+   # Bumper la version
+   git commit -a -m "Bumped version number to 1.2.1"
+
+   # Apres correction, commit final
+   git commit -m "Fix huge production bug"
+
+   # Integrer la correction a la branche principale
+   git checkout master
+
+   # Merge ave commit
+   git merge --no-ff hotfix/v1.2.1
+
+   # Tagger le commit
+   git tag -a v1.2.1
+   
+   # Supprimer la branche 
+   git branch -d hotfix/v1.2.1
+
+
+=> Packager (depuis un tag)
+   # Verifier git describe master
+   git archive master --prefix='<projet>/' | gzip > $(git describe master).tar.gz
+   git archive master --prefix='<projet>/' --format=zip | $(git describe master).zip
+
+##= END
+
+##= GREP
+########
+
+grep :
+   -i ignore case
+   -c count lines
+   -l file name
+   -s suppresses error messages written for nonexistent or unreadable file
+   -v reverse match
+   -n line number
+   -p[separator] Displays the entire paragraph containing matched lines.
+   -E Extented regular experession (grep -E "abc|xyz" toto)
+   -q Suppresses all writting to standard output
+   -w Does a word search
+   -x Match exactly specified pattern
+
+##= END
+
+##= HARDCOPY
+############
+
+   xwd -xy -frame -out hardcopy
+   xpr -device ps -output hardcopy.prt hardcopy
+   qprt -B 'nn' hardcopy.prt
+
+##= END
+
+##= HEAD/TAIL
+#############
+
+Affichage de l'entete d'un fichier
+head [-c Number | -n Number] [File ...]
+
+-c : Nombre de bytes afficher
+-n : Nombre de ligne afficher
+
+Affichage de la fin d'un fichier
+tail [-f] [-c Number | -n Number | -m Number | -b Number | -k Number] [File]
+
+To Display Lines in Reverse Order
+tail [-r] [-n Number] [File]
+
+-f : Lecture en direct d'un fichier ecrit par un autre process
+-c : lecture en bytes
+-b : lecture en bloc (512 bytes)
+-k : lecture en KB
+-n : lecture en lignes
+Si Number est precede de + l'acces est depuis le debut du fichier sinon l'acces est depuis la fin du fichier.
+
+ex : lire un interval de fichier (ligne 11 à 31)
+tail -n +10 File | head -n 20
+
+##= END
+
+##= IMPRESSION
+##############
+
+   enscript -G $1
+   qprt -da -z1 $1
+   nl -ba $1 | lpr
+
+##= END
+
+##= INITTAB
+###########
+
+=> commandes : /etc/inittab
+      chitab "ident:runlevel:action:command"            :  Changes records.
+      lsitab <"ident"|-a>                               :  Lists records.
+      mkitab "[-i ident] ident:runlevel:action:command" :  Adds records.
+      rmitab "ident"                                    :  Removes records.
+
+##= END
+
+##= LICENSE
+###########
+
+=> Nombre d'utilisateur serveur
+   lslicense     :  visu
+   chlicense [-u License] [ -f {on | off}]
+      -u License    : Nombre d'utilisateurs autorisés
+      -f            : Licenses flottantes
+
+=> Compilateurs
+   Installer une license :
+      Lire les docs sur /usr/vac
+
+   Lister les licenses installees :
+      /var/ifor/i4blt -s
+
+   Shunt la license : 
+      Rajouter dans le fichier /etc/vac.cfg
+      Dans le paragraphe common definitions (ou tous les paragraphes)
+      sur la ligne options : ,-qnolm
+
+##= END
+
+##= LN
+######
+
+To Link a File to a File
+ln [-f] [-s] SourceFile [TargetFile]
+
+To Link a File or Files to a Directory
+ln [-f] [-s] SourceFile ... TargetDirectory
+
+-s : to create symbolic links
+-f : to replace any destination paths that already exists
+
+##= END
+
+##= MAIL
+########
+
+=> sendmail
+Les fichiers de conf se trouvent sous /etc/mail
+Pour envoyer des mails a l'exterieur modifier le fichier sendmail.cf :
+
+# "Smart" relay host (may be null)
+#DSmailhost.$m
+DSsmtp.gfi.fr
+
+=> Envoi de fichiers attaches :
+{
+cat mail.txt
+cat mail2.txt | uuencode mail2.txt
+uuencode image.jpg image.jpg
+uuencode doc.pps doc.pps
+} | mailx -s "Objet du mail" "nom@adresse"
+
+##= END
+
+##= MOUNT / UNMOUNT
+###################
+
+=> Liste de tous les files systems
+   lsfs
+
+=> liste des systems montes
+   mount
+
+=> monter/demonter un cdrom
+   mount -r -v cdrfs /dev/cd0 /cdrom
+   unmount /cdrom
+
+##= END
+
+##= OD
+######
+
+=>  Affiche en hexa 1 byte, 200 bytes a partir du 501 bytes :
+
+od -j 500 -N 200 -t x1 V4N_1021_010.orig
+
+##= END
+#######
+
+##= NETSTAT
+###########
+
+netstat
+   -n            => Affichage des adresses
+   -r            => Affichage de la table de routage
+   -f Interface  => 
+   -s            => Statistiques des protocole
+   -v            => Statistiques des drivers
+   -D            => Compteur de paquets par systeme de communication
+
+##= END
+
+##= PROCESSES
+##= PS
+##= EXEC
+##= REDIRECTIONS
+################
+
+==> variables de process
+
+    $$     : Current process
+    $PPID  : Parent process
+    $?     : Exit value of the last command
+    $#     : Number of command-line arguments
+    $*     : arguments of the command-line ($1 $2 ...)
+    $@     : arguments of the command-line, individually quoted ("$1" "$2" ...)
+    $0     : Command name and arguments
+    $-     : Current option flags as specified on invocation
+    $!     : Pid of the most recent background command
+
+=> tester un script qui doit etre source
+   if [[ "$0" != "-bash" || $# -lt 2 ]]
+   then
+      echo "source <script> <arg1> <argn>" >&2
+      [[ "$0" == "-bash" ]] && return 1 || exit 1
+   fi;
+
+=> Arbo d'un user ou d'un pid
+pstree -Alpha $USER
+pstree -Alpha $PPID
+
+=> Process en cours du user courant
+   # Voir $HOME/.toprc
+   top -c -u ${USER} -d 30
+
+=> Occupation CPU
+   ps -eo 'user tty pid ppid pcpu vsz time comm args' | awk '{if ($5 != "0.0") print $0}'
+
+=> Occupation Memoire
+ps -eo 'user tty pid ppid pcpu vsz time comm args' | sort -k 6
+
+=> Process du user courant
+ps -u `id -un`
+ps -u $USER
+
+=> Kill named process
+#for process in $(ps ho pid -C <process name>); do kill -s TERM ${process}; done
+pkill -term -u $USER -x <process name>
+
+=> Recherche si ce programme est deja en cours
+pgrep -u $USER -x ${0##*/} | grep -v $$ && echo "Already in progress" && false
+
+=> Coproc
+# coproc [NAME] command [redirections]
+
+coproc TEST ls
+echo ${TEST_PID}
+
+=> exec Redirection
+# exec [-a NAME] [-cl] [COMMAND] [ARGS ...] [REDIRECTION]
+
+exec 3< input.txt # Open descriptor file 3
+read LINE <&3   
+exec 3<&-         # Close deccriptor file 3
+
+# Redirige stdout et stderr pour la session en cours dans my.log
+exec >/var/adm/my.log 2>&1
+
+cat <<EOF
+   exemple
+EOF
+
+# ou avec indentation
+	cat <<-EOF
+   exemple
+	EOF
+
+# <( list commands ) ou >( list commands ) renvoyent le descripteur d'un fichier temporaire contenant le resultat
+echo <(ls)
+cat <(ls)
+diff <(ls rep1) <(ls rep2)
+
+# Recuperer le resultat sans pipe
+count=0;
+while read file
+do
+   # echo $file;
+   ((count++));
+done < <(ls . 2>/dev/null);
+echo $count
+
+##= END
+
+##= PROGRESS BAR
+##= TDQM
+################
+
+=> Suivi download files pour mms
+
+clear; while [[ $? -eq 0 ]]; do    echo -en "\033[0;0H" ;    ll /tmp/cdppexp/mms/data/* | wc -l ;    du -hs .; sleep 15; done
+
+# ou avec checkStat initialise
+source $HOME/MMS/checkStat.cfg
+clear; while [[ $? -eq 0 ]]; do    echo -en "\033[0;0H" ;    ll /tmp/cdppexp/mms/data/* | checkStat -t -m - month;    du -hs .; sleep 15; done
+
+# Pour le dataCollector
+tail -n +1 -f /tmp/archcdpp/dataCollector_14000.log.err | awk '/^[ 0-9]+/ {printf("\r%s", $0);} /Saving to/ {print "";}'
+
+# Variante
+tail -n +1 -f $(ls -rt /tmp/cdppexp/dataCollector_*log | tail -1) | awk '/Fetching / {num+=1; printf("%d / 1131\r", num);}'
+
+=> tqdm / progress  bar
+# executable python
+# envPython
+find /home/CDPP/archcdpp type f  2>/dev/null | tqdm --unit files --unit_scale --total 1000000 >>/dev/null
+
+##= END
+
+##= PYTHON
+##########
+
+=> environnement
+python --version
+
+# Sources dev specifiques
+cd /home/CDPP/archcdpp/.bin/PYTHON
+
+# configuration vim / python
+https://dev.launchpad.net/UltimateVimPythonSetup
+
+=> principales commandes
+# Lister le contenu de l'environnement
+pip freeze
+pip list
+
+# installer / mettre a jour un module (up ou down)
+pip install <module>[=<version>]
+pip install [--upgrade] <module>
+
+# desintaller un module
+pip uninstall <module>
+
+# Installer le contenu sur une autre machine
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+# Detail d'un module
+pip show <module>
+
+=> pip / install / update projet
+# connexion archcdpp
+pip list
+pip --proxy http://CNESNET\\...:<passwd>@proxy-HTTP2.cnes.fr:8050 install <module>
+pip --proxy http://CNESNET\\...:<passwd>@proxy-HTTP2.cnes.fr:8050 install --upgrade <module>
+pip uninstall <module>
+find /home/CDPP/archcdpp/python3.5/lib -type d -exec chmod ug+rx {} \;
+find /home/CDPP/archcdpp/python3.5/lib -type f -exec chmod ug+r {} \;
+
+=> Usage memory with guppy
+   from guppy import hpy
+   h = hpy()
+   print h.heap() 
+
+##= END
+
+##= RANDOM
+##########
+
+# Nombre aleatoire entre 200 et 300
+echo $((RANDOM % 100 + 200))
+
+# Calcul d'une date aleatoire en quantieme pour 2016
+export DELAY=366
+printf "2016%.3d\n" $((RANDOM % DELAY + 1))
+
+# Selection au hasard d'un fichier
+files=(./*)   # ou depuis un fichier files=($(cat titi))
+nb=${#files[@]}
+echo ${files[RANDOM % nb]}
+
+##= END
+
+##= READ
+##= PASSWORD
+#################
+
+=> Read Password
+echo "Entrer le mot de passe : \c";read reponse
+printf "Entrer le mot de passe : ";read reponse
+read -p "Entrer le mot de passe (8 caracteres max.) : " -n 8 reponse
+read -p "Vous avez 5 sec. pour saisir le code :" -t 5 code
+
+stty -echo;read -p "password (8 caracteres max.) : " -n 8 password;stty echo
+read -p "password : " -s password
+
+=> IFS
+/* IFS (Internale Field Separator */
+/* Voir $IFS : cat -etv <<<"$IFS"
+
+IFS=','
+read val1 val2 < <(echo "un deux, trois + 4  ")
+echo $val1
+echo $val2
+unset IFS
+
+##= END
+
+##= RENAME
+##########
+  # Voir rename --help
+  # rename pattern string files...
+##= END
+
+##= SCCS
+########
+
+=> sccs <command> <file>
+     delta [-s] [-y[comment]] : check in pending changes
+     get                 : recupere le fichier
+     get SCCS            : recupere tous les fichiers
+     get [-e]            : en edition
+     get print           : historique
+     info [-b] [-u [username] | -U ]     : display info
+     rmdel -rsid         : delete le fichier de la version (ex -r5.3)
+     sact                : Show editing activity  status
+     sccsdiff -rold-sid -rnew-sid diff-options : diff entre 2 versions
+     unedit | unget      : reviens a la version precedente
+
+   [-b]              : ignore branche
+   [-u [username]]   : user name
+
+=> Initialiser un fichier
+     mkdir SCCS
+     sccs create program.c
+
+     Apres verification de la copie, supprimer la sauvegarde avec la virgule
+
+     diff program.c ,program.c
+     rm ,program.c
+
+##= END
+
+##= SED
+#######
+
+Syntaxe :
+sed [-n] [-i[SUFFIX]] Script [File ...]
+sed [-n] [-i[SUFFIX]] [-e Script] ... [-f Script_file] ... [File ...]
+
+     -n          quiet
+     -i[SUFFIX], --in-place[=SUFFIX]
+
+# Supprimer les NL
+sed -e \
+"/FROM.*_LOG_/{N
+s/\n//
+}" file
+
+# Ajoute de NL apres les '.'
+sed 's/\./.\r/g' file
+
+# Supprimer les ^M d'un fichier
+cat file | sed -e 's/<CTRL-V><CTRL-M>/\<CTRL-V><CTRL-J>/g' > file 
+
+# Supprime les lignes SUSPECTS
+# Modifie les lignes VALIDES ou VALISES
+sed -e "/SUSPECTS/d" \
+    -e "s/.*\(VALI[DS]E\)S.*/\1/" \
+    file
+
+# split line a 80 caracteres
+sed 's/\(.\{80\}\)/\1\n/g' fichier
+
+##= END
+
+##= RSH
+#######
+
+=> Files (sur le remote host)
+   /etc/hosts.equiv
+      host  user        #host et user qui demande la connection
+   $HOME/.rhosts
+      host user
+
+=> Command
+{ rsh | remsh } RemoteHost [ -n ] [ -l User ] [ -f | -F ] [ -k realm] [ Command]   
+=> Exemples
+   rsh isis -l st00_dev ls 
+   rsh isis -l st00_dev cat toto >> titi     #titi est en local
+   rsh isis -l st00_dev cat toto ">>" titi   #titi est sur le remote host
+   rsh isis -l st10_dev  tar cvf - .exrc > file.tar
+   
+##= END
+
+##= SORT
+########
+
+LANG=En_US sort         : Example pour definir le langage
+
+sort [-u]               : sort unique sur la clef
+     [-t Character]     : separateur de champ
+     [-b]               : Ignore leading spaces and tab
+     [-o OutFile]       : Output file (peut etre le fichier d'entree)
+     [-A]               : Sort ASCII
+     [-d]               : Sorts using dictionary order (letters, digits,spaces)
+     [-n]               : Sorts numeric fields by arithmetic value
+                          field containing any nonnumeric character gives 
+                          unpredictable results.
+     [-m]               : considere le fichier deja trie pour merge
+     [-f]               : Uppercase before comparison
+     [-i]               : Ignores all nonprinting characters
+     [-r]               : Reverse order
+     [-c]               : check si le fichier et trie => return zero si OK
+     [-T Directory]     : Temporary directory
+     [File(s)]          : Si plusieurs fichiers en entree => merge and sort
+
+     The key definition :
+     Note: The maximum number of fields on a line is 10.
+
+     -k [FStart[.CStart]][Modifier][,[FEnd[.CEnd]][Modifier]]
+        FStart          : Field start
+        FEnd            : Field end
+        CStart          : First column in the field
+        CEnd            : Last column in the field
+        Modifier        : b, d, f, i, n, or r definit comme les flags
+
+sort -u +0 -d -f +0 fruits
+        Le +0 permet de conserver des lignes comparer identiques , ex :
+apple
+%%banana    <=
+banana
+ORANGE      
+orange      <=
+Persimmon
+
+# Tri unique d'un fichier dont on garde la + grande valeur
+# avec fic.test :
+1 orange blabla2 orange 4
+1 banane blabla jaune 2
+1 orange blabla3 orange 5
+1 banane blabla orange 2
+
+sort -k 2,2 -k 4,4r -k5,5nr fic.test | sort -m -u -k 2,2
+
+=> voir aussi uniq
+
+##= END
+
+##= SSH KEYGEN
+##= SFTP
+##= SCP
+##############
+
+   # Principe : 
+   #   - Creer une seule paire de clefs publique/privee sur le compte de depart sans passphrase dans $HOME/.ssh
+   #   - publier la clef publique sur le compte@serveur cible ($HOME/.ssh)
+   #   - Creer ou mettre a jour le fichier $HOME/.ssh/config avec les alias et options necessaires
+
+   #     
+   # Note: Sauvegarde les clefs (par defaut) sous $HOME/.ssh/id_rsa
+   # Genere une paire de clefs publique/privee
+   ssh-keygen -t rsa -b 4096 [ -f keyfile ] [ -N newPassPhrase ]
+
+   # Copier la clef publique sur le serveur
+   ssh-copy-id -i $HOME/.ssh/id_rsa.pub  <login>@<host>
+   # on peut aussi copier directement avec un editeur texte la clef dans le fichier compte@serveur:$HOME/.ssh/authorized_keys
+
+   # Ne pas mettre de passPhrase ou la declarer dans ssh-agent (Voir aussi ssh-add)
+   ssh-agent $BASH
+   ssh-agent add
+   (Tapez votre PassPhrase)
+
+   # Changer la passPhrase
+   ssh-keygen -p -P oldPassPhrase -N newPassPhrase [ -f keyfile ]
+
+   # Acceder a un serveur via un proxy par rebond
+   ssh <serveur intermediaire> <command> <serveur final>
+   # ex :
+      ssh vcephirins@styx.obspm.fr ssh vcephirins@kronos.obspm.fr
+
+   # Acceder a un serveur en sftp via un proxy
+   sftp -o "ProxyCommand ssh <loginProxy>@styx.obspm.fr nc kronos.obspm.fr 22" <login>@kronos.obspm.fr 
+
+   # Declarer un fichier de config (par defaut) sous $HOME/.ssh/config
+   # Principales options (man ssh_config pour toutes les options)
+   Host Serveur1
+     Hostname <nom.domaine1.fr>
+     Port <port>
+     User <login>
+     LocalForward 22001 <nom.domaine2.fr:port>
+     IdentifyFile <keyfile>
+     ProxyCommand
+
+   # scp permet de copier des fichiers entre serveurs via ssh
+   # ex:
+   scp <LocalFile> <login>@<serveur>:<targetFile>
+
+   # Retrouver les adresses des serveurs
+   nslookup tu-mutcalc-d01.cst.cnes.fr
+   # ou
+   dig tu-mutcalc-d01.cst.cnes.fr
+
+   => relais-ssh: configuration specifique tu-mutcalc-pc
+   # vHV_RG90pm;h6$UCI#Dj
+   # Avec wrapper ($HOME/.ssh) contenant :
+   #!/usr/bin/perl
+   # exec '/usr/bin/ssh', '-A', map {$_ eq '-oFormatAgent=no' ? ( ) : $_} @ARGV
+
+   ssh-agent /bin/bash
+   ssh-add
+   sftp -S $HOME/.ssh/wrapper gu=compte_SIS%compte_cible%dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr
+   scp -S $HOME/.ssh/wrapper gu=compte_SIS%compte_cible%dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr:result.txt .
+   
+##= END
+
+##= SPLIT
+#########
+
+   # KB 1000, K 1024, MB 1000*1000, M 1024*1024, and so on for G, T, P, E, Z, Y
+
+   # Decouper par tranche de 10 000 000 bytes
+   split --bytes=10MB file1 file1_
+
+   # Recoller le fichier
+   cat file1_* > file1
+
+##= END
+
+##= TAR
+#######
+
+=> Exemples
+   # Copier une arborescence avec les fichiers (se connecter root pour conserver les droits)
+   # Peut etre utile pour compresser un flux sur le reseau
+   tar cvpf - -C fromdir . | tar xpvf -
+   ou
+   cd fromdir;tar cvpf - . | (cd todir;tar xvpf -)
+
+   # Archiver arborescence sans les fichiers
+   find . -type d | xargs tar --no-recursion -cvpf toto.tar
+
+   # copier une arborescence sans les fichiers
+   find fromdir -type d | xargs tar --no-recursion -cvpf - | tar xvpf -
+
+   # Conserver les proprietes (sans etre root)
+   tar pxvf tarfile.tar
+
+   # Copier tous les fichiers d'un repertoire
+   tar cvf . 
+
+   # Suivre les liens
+   tar hcvf .
+   
+   # Contruire un tar en ajoutant un path TEST en prefixe et en remontant un sous repertoire
+   tar cvpfz package.tar.gz --transform="s@^./@TEST/@" ./<files> -C <sousrep> ./<files>
+
+   # Deployer une archive sous un repertoire TEST
+   tar xvfpz ../package.tar.gz --transform "s@^@TEST/@"
+
+   # supprimer le path dans l'archive
+   tar cvpfz package.tar.gz --transform='s@^.*/@@' chemin/file*
+
+##= END
+
+##= ULIMIT
+##########
+
+=> Limitation de la taille des fichies (2Go)
+
+=> ulimit -f      :  AffichE la taille limite des fichiers
+
+=> Pour specifier une taille illimite pour un user :
+   chuser fsize=-1 <user>
+
+=> Pour specifier une taille illimite a tous les users :
+   mettre le parametre fsize = -1 du fichier /etc/security/limits
+
+##= END
+
+##= UNIQ
+########
+
+=> uniq [-c | -d | -u] [-f Fields] [-s Chars] [-Fields] [+Chars] [InFile [OutFile]]
+
+   -d     : copie un seul expemplaire des lignes adjacentes identiques
+   -u     : copie des lignes non identiques
+   -c     : Nb d'occurences
+   -n     : Ignore les n premiers champs
+   +n     : Ignore les n premiers caracteres
+
+##= END
+
+##= VARIABLES
+#############
+
+=> Notes : 
+
+   Utiliser les {} pour eviter la confusion sur les noms : print ${VAR}
+
+=> Declarer
+
+/* declarer une variable visible aux processus fils */
+export variable=toto
+typeset -x toto
+
+/* declarer une variable typee */
+typeset -l var  => lower
+typeset -u var  => upper
+typeset -i var  => integer
+typeset -Z4 titi=23 => 0023
+typeset -Z4 titi=12345 => 2345
+
+print ${toto:-0}     /* Si toto est null alors renvoie 0 (toto reste null) */
+print ${toto:=0}     /* Si toto est null alors assigne 0 ` toto */
+
+=> segments, manipulation, pattern
+
+# Suppression
+PWD='/home/dev/tmp'
+echo ${PWD#*dev}     # '/tmp'
+echo ${PWD#*m}       # 'e/dev/tmp'
+echo ${PWD##*m}      # 'p'
+echo ${PWD%dev*}     # '/home/'
+echo ${PWD%m*}       # '/home/dev/t'
+echo ${PWD%%m*}      # '/ho'
+echo ${#PWD}         # 18
+
+echo ${PWD##*/}      # equivalent a basename
+echo ${PWD%/*}       # equivalent a dirname
+echo ${FILENAME##*.} # Affiche l'extension
+echo ${FILENAME%.xml}.txt # Remplace l'extension
+
+# Substitution : ${VAR/motif/chaine}
+# Si motif commence par / (double //), toutes les correspondances sont remplacees
+# Si motif commence par #, il doit correpondre au debut de chaine
+# Si motif commence par %, il doit correpondre a la fin de chaine
+PWD='/home/dev/tmp'
+echo ${PWD/m/TT}     # '/hoTTe/dev/temp'
+echo ${PWD//m/}      # '/hoe/dev/tp'
+[[ ! -z ${PWD//[^@]/} ]] && echo "La chaine contient @"
+
+# Modification de la casse ${VAR^[abc]}, ${VAR,[abc]}
+# ^ pour transformer en majuscule (^^ pour toute la chaine)
+# , pour transformer en minuscule (,, pour toute la chaine)
+VAR='titre DE Chapitre'
+echo ${VAR^}          # 'Titre DE Chapitre'
+echo ${VAR,,}         # 'titre de chapitre'
+echo ${VAR^^[te]}     # 'TiTrE dE chapiTrE'
+
+# substring
+# syntaxe : ${VAR:<debut>:<longueur>} avec debut = 0
+# exemples :
+PWD='/home/dev/tmp'
+echo "${PWD:6:3} ${PWD::5} ${PWD:10}"  # => dev /home tmp
+                                       # => Dans le cas d'un tableau, ramene les elements
+
+=> Cas des tableaux (limite a 4096 elements)
+
+tabA=("Col1" "Col2" "Col3")
+
+echo ${tabA[@]}      # => 'Col1 Col2 Col3'    /* Liste des elements */
+echo ${#tabA[@]}     # => 3                   /* Nombre d'elements */
+echo ${#tabA[0]}     # => 4                   /* Taille de l'element */
+echo ${tabA[@]:2:1}  # => 'Col2'              /* 2eme element */
+echo ${tabA[@]/Col/Column}  # => 'Column1 Column2 Column3'
+
+tabB=("Col4" "Col5 Col6")
+tabAll=(${tabA[@]} ${tabB[@]})
+
+echo ${tabAll[@]}   #   => Col1 Col2 Col3 Col4 Col5 Col6    /* Liste des elements */
+echo ${!tabAll[@]}  #   => 0 1 2 3 4 5                     /* Liste des indexes */
+
+for idx in ${!tabB[@]}
+do 
+   echo $idx = ${tabB[idx]}
+done
+
+# Supprimer un element du tableau
+unset tabA[1]
+
+# Convertir une liste en tableau
+   VAR="192;158;1;49"
+   vArr=(${VAR//;/ })
+
+=> IFS (voir aussi read)
+   vArr=(un "deux   trois" quatre)
+
+   # Convertir un tableau en chaine
+   IFS='.'; echo "${vArr[*]}"; unset IFS;  #un.deux   trois.quatre
+
+   # Differents resultats
+   IFS='.'
+   echo ${vArr[*]};   #un deux   trois quatre
+   echo "${vArr[@]}"; #un deux   trois quatre
+   echo ${vArr[@]};   #un deux   trois quatre
+   unset IFS
+
+
+=> Evaluer une variable composee
+
+   TOTO=exemple
+   TUTU=TO
+   eval echo \$${TUTU}TO   # affiche exemple
+  
+   typeset -a TITI[1]="YES"
+   typeset -a TOTO[1]="TI"
+   eval echo \${${TOTO[1]}TI[@]}   # affiche YES
+
+   TOTO="ALL"
+   TITI="file_<period>.txt"
+   echo ${TITI//<period>/${TOTO//ALL/*}}
+
+=> variable en base octal ou base 10
+   # Une valeur commencant par 0 est interpretee en base 8
+
+   typeset -i TOTO=008       # Renvoie une erreur value too great for base (error token is "008")
+   typeset -i TOTO=10#008    # Correct. Interprete la valeur en base 10, TOTO vaut 8
+
+=> avec les expressions regulieres
+
+   # en bash
+   STRING="   # un commentaire"
+   EXPR="[^#]+#.*$"
+   [[ ${STRING} =~ ${EXPR} ]] && echo "Commentaire sur cette ligne"
+   [[ ! ${STRING} =~ ${EXPR} ]] && echo "Ligne sans commentaire"
+   
+   # Tester une valeur dans une liste
+   LISTE="UN DEUX TROIS"
+   VAL=DEUX
+   [[ "${LISTE}" =~ (^| )+${VAL}( |$)+ ]] && echo OK
+
+   expr //$PWD : '.*/\(.*\)'    # equivalent a basename
+
+   expr "titi/toto" : ".*/\(t.t.\)" => toto
+   expr "titi/toto" : ".*/t.t." => 9
+
+   # avec repetition
+   expr "titi/tttoto" : ".*/\(t\{2,3\}.t.\)" => tttoto
+   expr "titi/toto" : ".*/\(\(to\)\{2\}\)" => toto
+
+=> liste
+
+echo {1..10..2}
+echo {a..z..2}
+
+for ((i=1; i<=10; i=i+2))
+do
+   echo $i
+done
+
+# Liste des mois d'une annee
+printf "2006%.2d " {1..12}
+
+##= END
+
+##= VERSION
+###########
+
+# Distribution Linux faisant partie du projet LSB
+lsb_release -a
+
+# Distribution Ubuntu
+cat /etc/lsb-release
+
+# Distribution redhat, Fedora ou Centos
+cat /etc/redhat-release
+
+# Distribution SuSE
+cat /etc/SuSE-release
+
+# Distribution Debian
+cat /etc/issue
+
+# Release systeme
+lsb_release -a
+
+# Information system
+uname [-a] | [-l][-m][-M][-n][-r][-s][-u][-v]
+-a : All informations
+-l : Lan network
+-m : Machine number
+-M : system Model name
+-n : Node name
+-r : release number of the operating system
+-v : version number of the operating system
+-s : system name
+-u : system Id number
+
+##= END
+
+##= VIM
+########
+
+=> caracteres speciaux et accents
+:help digraph
+:dig
+
+exemples:
+pour é:  <CTL-K> e '
+pour è:  <CTL-K> e !
+pour à:  <CTL-K> a !
+
+Principaux car. :
+        Exclamation mark        !       Grave
+        Apostrophe              '       Acute accent
+        Greater-Than sign       >       Circumflex accent
+        Question mark           ?       Tilde
+        Colon                   :       Diaeresis
+        Comma                   ,       Cedilla
+
+=> Manipulation des buffers
+Remarque : les commandes ne sont pas affichees sur la derniere ligne
+"bnyy                => copie a partir de la ligne courante les n lignes 
+                        dans le buffer b (a-z disponibles)
+                        remplacer yy par dd pour deplacer le texte
+"bp                    => copie le buffer b apres la ligne courante
+                          remplacer p par P pour copier avant la ligne courante
+
+=> Scripter une commande vi
+   vim +"set bomb | set fileencoding=utf-8 | wq" fichier
+
+=> Voir tous les caracteres
+   :set list
+
+=> Personnalisation
+declarer
+export EXINIT='set exrc'
+puis creer un fichier .exrc dans le repertoire local
+avec les commandes :map :ab :set ...
+
+pour toutes les sessions :
+   ne pas initialiser EXINIT
+   creer un fichier .exrc dans $HOME tel que
+<cmd1>    // commande generale 1
+<cmd2>    // ""        ""      2
+:set exrc
+
+puis creer des fichiers .exrc personnalises dans les directories adequates
+
+=> MACROS
+caracteres disponibles :
+*       Letters g, K, q, V, and v
+
+*       Control key sequences Ctrl-A, Ctrl-K, Ctrl-O, Ctrl-T, Ctrl-W,
+and Ctrl-X
+
+*       Symbols _ (underscore), * (asterisk), \ (backslash), and
+= (equal sign)
+
+:map           => visualise les map existantes
+:unmap
+:map!          => Commande en mode insertion
+
+ex : 
+modifier tous les map par MAP
+:map v /map<Ctrl-V><Enter>cwMAP<Ctrl-V><antislash><Ctrl-V><Enter>
+
+les sequences Enter Esc Backspace Delete Home End .... 
+   doivent etre precedees de <Ctrl-V>
+
+les touches de fonctions peuvent etre programme avec :
+:map #1 /main/      => touche F1
+
+Command :ab
+        :unab
+Permet de remplacer en mode insert un mot par une phrase
+:ab city Austin, Texas 78759
+apres l'appuis sur <Tab> remplace City par Austin, Texas 78759
+
+/* Faire une subsitution partielle */
+phrase d'origine : "si toto_exemple1, toto_ex25"
+:s/toto\(_ex[0-9]*\)/titi\1/g
+phrase resutlat : "si toto_ex1, titi_ex25"
+
+/* Mise en majuscule */
+:map #5 <Ctrl-V><Backspace>/[a-z]<Ctrl-V><Enter>~
+soit :map #5 ^H/[a-z]^M~
+
+/* placer un ^M en fin de ligne */
+:s/$/<antislash><Ctrl-V><Enter>/
+soit :s/$/\^M/
+
+/* ajoute un ^M si n'existe pas deja */
+:s/\([^^M]\)$/\1\^M/
+
+/* Remplacer une date par yyyymmdd */
+:0,$s/[0-9]\{8\}/yyyymmdd/g
+
+##= END   
+
+
+

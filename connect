@@ -1,0 +1,2 @@
+cd $OUTILS_SVA/SQL
+sqlplus $ORACLE_OWNER/$ORACLE_PWD @init

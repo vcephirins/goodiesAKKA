@@ -1,0 +1,80 @@
+#!/bin/bash
+###########################################################################
+# HISTORIQUE
+#
+# VERSION : 1.0 Creation
+# AUTEUR  : V. Cephirins
+#
+# FIN-HISTORIQUE
+#
+###########################################################################
+#
+# Renvoie une liste melangee aleatoirement   
+#
+###########################################################################
+
+function fct_Usage
+{
+    echo " getRandom [-n <nb values>] list" >&2
+    echo "    -n      : Return n elements from the list" >&2
+    echo "    list    : List perhaps file or stdin. One item by line." >&2
+    return 1
+}
+
+#----------------         DECLARATION des VARIABLES GLOBALES    ----------------
+
+#-----------------------------------------------------------------------
+#                     CONTROLE OPTIONS/ARGUMENTS
+#-----------------------------------------------------------------------
+
+typeset -i vNbValues=0
+
+#--- Recuperation des options
+
+OPTIND=1
+while getopts hn: SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      h | \?) fct_Usage
+         exit 0
+         ;;
+      n) vNbValues=$OPTARG;
+         ;;
+      *) fct_Usage;
+         exit 1;
+         ;;
+   esac
+done
+
+shift $(($OPTIND -1))
+
+#--- Recuperation des parametres obligatoires
+typeset -x vDataFile=$1
+[[ "${vDataFile}" == "" ]] && vDataFile="/dev/stdin"
+
+typeset -i indElt=0
+while read line
+do
+   vListElts[indElt]="$line"
+   indElt=indElt+1
+done < ${vDataFile}
+
+typeset -i vNbElts=${#vListElts[@]}
+typeset -i vIndice=0
+
+[[ $vNbValues -eq 0 ]] && vNbValues=$vNbElts
+[[ $vNbValues -gt $vNbElts ]] && vNbValues=$vNbElts
+
+while [[ $vNbValues -gt 0 ]]
+do
+   vIndice=$((RANDOM % vNbElts))
+   echo "${vListElts[vIndice]}"
+   unset vListElts[vIndice]
+
+   vListElts=("${vListElts[@]}")
+   vNbElts=${#vListElts[@]}
+   vNbValues=vNbValues-1
+
+done
+
+exit 0

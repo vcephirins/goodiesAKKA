@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : putVdlib
+#s*
+#s* ROLE :  Copie les fichiers dans l'espace de livraison de la vdlib
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES : 
+#s* SYNOPSIS :  
+#s*
+#s*****************************************************************************
+
+echo "Cette procedure n'existe plus !"
+echo "La livraison des packages et des annexes se fait soit via l'IHM de la vdlib :"
+echo "   http://tu-mutcalc-pc:8011/vdlib_www/src/vdlib.php"
+echo ""
+echo "Vous devez vous connecter et utiliser l'onglet 'Livraison'"
+echo "Si vous n'avez pas de compte, contacter l'administrateur : exploitcdpp@akka.eu"
+echo ""
+echo "soit par scripts :"
+echo "   putPackage, putAnnexe et putAnnexeTool"
+echo ""
+

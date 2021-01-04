@@ -1,0 +1,2519 @@
+##= ANNUAIRE
+############
+
+=> intranet CNES
+
+   depuis une machine interne :
+   http://intranet-prestataires.cnes.fr  (toulouse/portail)
+
+=> Commandes :
+    0 => Passer un appel exterieur
+    9 => Acceuil
+   777<NUMPOSTE> => Messagerie (Code 0000)
+   *01 => Prendre un appel exterieur
+
+=>
+Nom                   Numero           Commentaire               
+-----------------------------------------------------------------------------
+3 brasseurs           05 62 88 82 22     Resto labege
+A LA UNE              05 61 58 43 24     124 R. louis plana Resto jolimont
+AKKA standard         05 34 61 92 92     AKKA ISS
+Assistance56          05 61 28 19 56     assistance56@cnes.fr
+Autan des saveurs     05 61 30 42 51     Blagnac
+BARRAILLE Philippe    05 61 28 36 36     Cnes Support reseau
+BASSILANA Jean-Luc    05 61 28 18 56     CNES COR-COO
+BARTHE Alain          05 61 55 83 69     AKKA CESR
+BARTHE Alain          06 65 74 73 43     AKKA Portable
+BESSON Bruno          05 61 28 18 31     CNES COROT CDPP
+Bistro d'Utopia       05 34 51 88 10     Resto Tournefeuille
+BOISSIER Enguerran    05 61 27 40 49     CS Cnes
+BOISSONNADE Marina    05 34 61 93 57     AKKA
+BOUCHEMIT Myriam      05 61 55 61 60     CESR CDPP
+BOUCON Daniele        05 61 27 44 79     Cnes cdpp
+BOUZID Veronique      01 39 25 49 01     Lesia Cluster STAFF_SA
+BROCHOT Jean-Yves     02 38 25 53 28     LPCE Orleans DEMETER
+Broches gauloises     05 61 81 79 88     Resto Escalquens
+Canard sur le grill   05 61 15 71 00     Resto Blagnac
+CARLIER Arnaud        05 61 28 33 36     CNES DEE/EI/RS/IU
+CABROLIE Francoise    05 61 27 38 46     SIPAD Gfi
+CECCONI Baptiste      01 45 07 77 59     Meudon Cassini
+CEPHIRINS Vincent     05 34 61 92 69     AKKA GAIA CDPP
+CNES Standard         05 61 27 31 31     CNES
+CAZES Pierre-Henri    05 61 17 63 79     CS SIPAD-NG
+DELMAS Dominique      05 61 27 31 76     CNES
+DERIOT Francoise      05 61 27 49 15     Cnes Cluster
+DIANA Marie-Helene    05 61 75 24 24     GFI Agence 
+DRAPEAU Frederic      01 39 25 49 47     Lesia Cluster STAFF_SA
+DUFOUR Nicolas        05 61 28 20 07     CNES MAPSIT
+DUTHY Jean-Paul       05 61 27 42 64     CNES SEPIA POG
+Envol                 05 61 24 59 08     Resto Lasbordes
+ESSON Steve                              ESA CAA Cluster WHISPER
+Evangelina            05 61 21 30 00     Resto Compans
+Florentin             05 62 47 28 27     Resto Saint Orens
+Folles saisons        05 62 14 64 85     Resto basso Toulouse
+GESSON Murielle       05 61 27 34 13     CNES Corotsky
+GODINO Stephanie      05 34 61 92 75     Silogic ASC Bureau A24
+Grand Vatel           05 62 26 00 92     63, allee Campferran 31320 Auzeville
+GUILLERM Christian    05 61 28 16 97     CNES - administration bases
+HENKEL Patrick        05 61 28 17 83     Cnes
+HEULET Dominique      05 61 28 24 97     CNES Cluster SIPAD-NG
+HOEGAARDEN CAFE       05 61 52 78 17     Resto Rte de Narbonne
+Homard en folies      05 61 71 12 07     Resto Blagnac
+JARDIN PAMPLEMOUSE    05 61 27 22 84     Resto Escalquens
+JEAN-ANTOINE Anne     05 61 28 31 93     CNES - Gaia
+JOCTEUR-MONROZIER Fr. 05 61 28 30 73     CNES - Galileo
+KHUM KEA              05 61 75 24 76     GFI
+LAFAYETTE Bistro      05 62 24 97 43     Resto Labege
+LEVOIR Thierry        05 61 27 42 50     Cnes Gaia
+LORMANT Nicolas       05 34 61 93 70     AKKA CDPP Valdo
+LORMANT Nicolas       05 61 27 42 84     CNES CDPP Valdo
+LOURME Emmanuel       05 61 27 39 50     CNES Passerelles Eutelsat
+Mare aux canards      05 61 23 81 58     Resto Centre Ville
+MAURICIA (Le)         05 62 87 73 46     Resto 330 Rte de Seysses
+MINGUILLON Denis      05 61 27 40 93     CNES DEX
+MIQUEL Christine      05 61 28 17 97     Cnes
+Mounede               05 61 43 07 20     Resto Basso Toulouse
+NGUYEN Quynh Nhu      01 45 07 75 81     Lesia Stereo Paris Meudon
+NONON Michel          05 61 28 15 82     Cnes Cluster SIPAD SAM MERCATOR
+NUNES Adeline         05 34 61 92 53     Silogic
+OnNador               05 61 41 05 60     Resto 5 rue de l'universite Toulouse
+ORSAL Evelyne         05 61 27 40 20     Cnes Inventaire LPCE
+PAGOLA Aline          05 62 24 52 45     EIRsys Labege
+PAISIBLE              05 61 00 56 46     Resto Labege
+PLANES Christian      05 61 27 43 88     Cnes POG
+POTTIER Claire                           CNES SIPAD-NG
+Pre vert              05 61 73 61 62     Resto Ramonville
+RATIER Jerome         05 61 27 37 58     AKKA CDPP Cnes
+RECOULES Joel         05 61 27 34 08     AKKA cataQI
+REDON Philippe        05 34 61 93 89     AKKA
+ROCHEL Alban          02 38 25 78 25     Cnrs LPCE Cluster WHISPER STAFF_SA
+ROQUEBERT Jean-Michel 05 61 27 36 45     CNES Passerelles
+RUBIO Jean-Claude     05 61 27 37 32     CNES Passerelles ICARE
+Salon d'Eugenie (Le)  05 62 30 84 52     Resto 16 rue des Lois
+SCHNELLER Gaetan      05 34 61 88 07     Corot akka cnes
+SOULA Jean-Marc       05 61 27 46 47     CNES
+Table de marche (la)  05 62 71 24 25     Resto Castanet Tolosan
+TAVERNE Heidelberg    05 61 71 80 75     Resto Blagnac
+Tonnelles (les)       05 61 86 15 64     Resto rte St Simon
+VALLIERES Xavier      02 38 25 78 27     ESA CAA Whisper
+WARROT Thierry        05 61 27 35 75     Cnes GDOC
+
+##= END
+#######
+
+##= BUGTOASTER
+##############
+
+   Voir la commande :
+   vdlib show bugtoaster
+
+##= END
+#######
+
+##= SCREEN
+##########
+=> Outil permettant de ne pas perdre les traitements en cas de coupure
+   electrique ou reseau (cote "AKKA", pas cote "CNES").
+
+   Definir le PATH vers ${HOME}/tools/bin
+
+   1- Lancer un nouveau 'screen': screen
+	Utiliser 'screen -L' pour avoir une trace complete de la session
+   	dans un fichier 'LOG'
+
+   2- Lister les sessions deja ouvertes: screen -list
+                There is a screen on:
+                10708.pts-138.trait-op5-ci      (Attached)
+                1 Socket in /tmp/uscreens/S-prodcdpp.
+
+   3- Recuperer une session deja attachee: screen -r -d  <session>
+                Exemple:
+		screen -d -r 10708.pts-138.trait-op5-ci
+
+   4- Detacher une session en cours: <Ctrl>-A d
+
+   5- Creer une nouvelle instance dans la session courante: <Ctrl>-A c
+
+   6- Passer d'une instance a une autre: <Ctrl>-A <numero>
+
+   7- Certaines sessions peuvent rester en etat "zombie" lors de coupures
+      electriques. Pour nettoyer ces sessions: screen -wipe
+
+##= END
+#######
+
+##= CIS-N3
+##########
+
+=> Production des donnees :
+
+   Connexion sur trait-op5-ci (clu_cis)
+
+   cd $HOME/CIS-N3/script
+   PREPARER_DONNEES_CIS_N3 -d yyyymm[dd]
+
+   Suivre la production :
+       cd $HOME/CIS-N3/suivi
+
+   Repertoire des donnees :
+      cd /data/ctpsvd/clu_cis
+
+=> Controle des fichiers archives au STAF, un fois la production terminee
+
+      stafcon -open -prj gf_plasma -pw <standard>
+      stafnod -locate -n /cluster/hte_resol/cis_n3
+      stafnod -list -n catalogues | awk -F"/" '/FILE=.*2005.*/{print $NF}'
+      stafnod -list -d 4 | awk '
+         /2001.*CEF.GZ/{count2001++}
+         /2002.*CEF.GZ/{count2002++}
+         /2003.*CEF.GZ/{count2003++}
+         /2004.*CEF.GZ/{count2004++}
+         /2005.*CEF.GZ/{count2005++}
+         END {
+            printf("2001 = %d\n", count2001);
+            printf("2002 = %d\n", count2002);
+            printf("2003 = %d\n", count2003);
+            printf("2004 = %d\n", count2004);
+            printf("2005 = %d\n", count2005);
+}' 
+      stafcon -close
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Verifier la livraison au SIPAD-NG des fichiers :
+      ls /home/sipad/liv_cdpp/livraison/cluster/data/data_objets_CIS_N3*
+
+   Ingerer les donnees : Voir SIPAD-NG
+
+=> Statistiques
+
+   cd $HOME/CIS-N3/utils
+   prepStats ../suivi/<CR_...>
+ 
+   read date?'date (yyyy[mm]) : '
+   countRef.sh CP_CIS- $date | uuencode RefSipad$date.txt | mailx -s "Ref Sipad $date" v.cephirins@akka.eu
+
+=> Cas de reprise (la reprise est automatique)
+
+   cd $HOME/CIS-N3/script
+   PREPARER_DONNEES_CIS_N3 -d yyyymm[dd]
+
+   Pour forcer en mode de non reprise : 
+
+   cd $HOME/CIS-N3/script
+   PREPARER_DONNEES_CIS_N3 -d yyyymm[dd] -f
+
+
+=> Cas de plantage pour mot de passe a changer
+
+   modifier le fichier de conf $HOME/conf/*cfg
+   relancer la procedure
+
+##= END
+#######
+
+##= COROTSKY
+##= CAT
+############
+
+=> fichier d'environnement
+   \\Pcce6\PCCE6\COROT\env_CNES_COROT.xls
+
+=> Connexion serveur internetdev-ci (alias sshCorot depuis cephirin@trait-op5-ci)
+   corotsky : cormhttp
+   cat      : catmhttp
+
+=> Arreter/relancer le serveur tomcat
+   cd $HOME
+   restart.sh
+
+=> Applet Corot server developpement
+   Url : http://132.149.11.50:9280/CorotWeb/corotsky.server.CorotServer
+   login : corotskyc/cnes01
+   port tomcat : 9282
+
+=> Applet Cat server developpement
+   Url : http://132.149.11.50:9270/CATWeb/CATWeb
+   login : CAT_admin/jeusep03
+   port tomcat : 9272
+
+=> logs
+   /internet/CORTMA/server_root/tomcat/logs/catalina*out
+   /internet/CATTMA/server_root/tomcat/logs/catalina*out
+
+=> Base de donnees de dev
+   module load oracle/10.2
+   #DEV10G (132.149.11.142:1522)
+   sqlplus corot_tma_dba/corot_tma_dba@DEV10G
+   sqlplus corot_tma_web/corot_tma_web_09@DEV10G   (pour la consultation uniquement)
+   sqlplus cmc_tma/tma_2008@DEV10G
+
+=> Tomcat
+   /internet/CORTMA/server_root/tomcat
+   /internet/CATTMA/server_root/tomcat
+
+=> DDC
+
+   Mettre a jour le fichier GENERATION/ft_already_taken_into_account.txt a partir du fichier DDC/dm-couv.txt
+   Mettre a jour la version de tous les fichiers sous DDC
+   Committer
+
+=> Generation/Livraison
+
+   Mettre a jour le DDC (voir au-dessus)
+
+   Voir document sous GENERATION/livraison_readme.txt
+      Connexion sunb (predon/depart0)
+      Connexion CVS : A0/schneller
+
+   transferer le package sous cormhttp@internetdev-ci /tmp/GENE_COROTSKY_DEV
+                         sous catmhttp@internetdev-ci /tmp/GENE_CAT_DEV
+      
+=> SGC
+   /home/sgc/projet/cmc_corot/rec/AKKA
+
+=> Patch
+   cd /tmp/GENE_COROTSKY_DEV
+   cd /tmp/GENE_CAT_DEV
+
+   S'assurer de la version (./client/src/corotsky/client/gui/CDlgAbout.java)
+   Verifier la version dans ant.properties
+
+   copier directement les sources (*.java) dans les repertoires apropries
+      [client | server ]/src/corotsky/[client | server]/...
+
+   Passer directement a la generation (ant pack)
+
+=> Generation sur internetdev-ci
+   Voir le document COR-MG-511-0001-AKKA_Vx.x_Manuel_Generation_CorotSky.doc
+
+   cd /tmp/GENE_COROTSKY_DEV
+   rm -rf COROTSKY
+   gunzip -c *gz | tar xvf -
+
+   cd /tmp/GENE_CAT_DEV
+   rm -rf CATWeb
+   gunzip -c *gz | tar xvf -
+
+   module load ant/1.6.5
+   module switch jdk/1.4.2  #Corotsky
+   module switch jdk/1.5.0  #Cat
+
+   cd /tmp/GENE_COROTSKY_DEV/COROTSKY
+   ant pack 2>&1 | tee ant_pack.log
+
+   cd /tmp/GENE_CAT_DEV/CATWeb
+   ant pack 2>&1 | tee ant_pack.log
+
+   Recuperer la distribution sous build/dist
+
+=> Installation
+   voir le document COR-MI-511-0001-AKKA-Vx.x_Manual_Installation_CorotSky.doc
+
+   cd $HOME/install
+   rm -rf COROTSKY corotsky_web_v*_FULL.tar.gz
+   cp /tmp/GENE_COROTSKY_DEV/COROTSKY/build/dist/corotsky_web_v*_FULL.tar.gz .
+   gunzip -c *gz | tar xvf -
+
+   cd $HOME/install
+   rm -rf CAT cat_web_v*_FULL.tar.gz
+   cp /tmp/GENE_CAT_DEV/CATWeb/build/dist/cat_web_v*_FULL.tar.gz .
+   gunzip -c *gz | tar xvf -
+
+   * Mise a jour base de donnees
+   cd $HOME/install/COROTSKY/sql
+   ./update_corotsky_db.sh corot_tma_web corot_tma_web_09@DEV10G corot_tma_dba corot_tma_dba@DEV10G | tee update_db.log
+
+   * tester la base
+   cd $HOME/install/COROTSKY/sql
+   ./test_bd.sh corot_tma_web/corot_tma_web_09@DEV10G
+   
+   * Deployer l'application
+   cd $HOME/install/COROTSKY
+   cd $HOME/install/CAT
+
+   Editer le fichier corotsky_dev.conf et renseigner le pwd de la base
+
+   update_corotsky.ksh -f corotsky_dev.conf # ou corotsky_val.conf
+
+   module switch jdk/1.4.2
+   update_cat.ksh -f cat_dev.conf # ou cat_val.conf
+
+   Verifier que le serveur est bien demarre sinon $HOME/restart.sh
+
+##= END
+#######
+
+##= CSDS
+########
+
+=> Notes :
+   Periodicite : en debut de mois (Attendre le mail du LPC2E)
+   Reporter le changement du mot de passe  de connexion du pacte
+   dans le script ~/EXPLOIT_CSDS/exec_product
+
+=> Production des donnees :
+
+   Connexion sur trait-op5-ci (clucdpp)
+
+   Pre-requis : 
+      Controler les connexions au STAF et pacci-relais  avec 
+         cd ~/EXPLOIT_CSDS
+         testConnexion
+
+      les fichiers npall_nouveau, npall_ancien, ls_SPP_nouveau, ls_SPP_ancien
+      et liste_tar doivent exister :
+         ls -l ~/CSDS/fichiers_permanents/config 
+
+      les repertoires fichiers_temporaires et livraison doivent etre vides (sinon les vider) :
+   find ~/CSDS/livraison ~/CSDS/fichiers_temporaires -type f -exec rm {} \;
+
+      Supprimer des compte_rendus les fichiers autres que CR_EXE_*
+   find ~/CSDS/compte_rendus \( -name 'CR_[ct]*' -o -name 'liste_*' \) -exec rm {} \;
+
+      Controler la coherence des archives (sinon relancer Save_STAF.sh) :
+      Comparer les numeros des fichiers tar avec ceux de la derniere production
+         cat ~/CSDS/fichiers_permanents/config/liste_tar
+         
+       #Verifier l'espace et le nombre de fichiers a traiter : 
+         #quota -v
+         #wc -l ~/CSDS/fichiers_temporaires/travail/*cfg
+
+    Lancement de la production : 
+       cd ~/EXPLOIT_CSDS
+       exec_product
+    (Info les 6 parametres sont : userpacte@csds-fr, password pacte, user clucdpp sur csds-fr, password user clucdpp sur csds-fr, projet staff, password staff)
+
+    Preparation des fichiers de controle (A faire en parallele de la prod.)
+       #entrer la date yyyymm correspondant a la date du jour du traitement
+       read date?'date (yyyymmdd) : '  # date +"%Y%m%d" | read date
+
+       cd ~/EXPLOIT_CSDS/CTRL_EXPLOIT
+       cp ~/CSDS/fichiers_temporaires/travail/npall_diff .
+       cp ~/CSDS/fichiers_temporaires/travail/ls_SPP_diff .
+       
+       awk '/< C._/ {print $2}' npall_diff | sort  > ${date}_data; 
+
+       more ${date}_data;
+
+       awk '/< C._/ {print $2}' ls_SPP_diff | sort  > ${date}_grafic
+       more ${date}_grafic;
+
+    Suivre la production : 
+       ls /home/user31/ctpsvd/clucdpp/CSDS/fichiers_temporaires/travail
+       ls /home/user31/ctpsvd/clucdpp/CSDS/fichiers_temporaires/stockage
+       tail -f /home/user31/ctpsvd/clucdpp/CSDS/compte_rendus/CR_EXE_${date}_*
+
+   
+=> Controle des fichiers archives au STAF, un fois la production terminee
+
+      #saisir la date yyyymm correspondant au mois en cours
+      read date?'date (yyyymm) : '   # date +"%Y%m" | read date
+
+      stafcon -open -prj plasma -pw <standard>
+      stafnod -locate -n /cluster/csds
+      stafnod -list -n catalogue | grep ${date}
+      stafnod -list -n sauve_imagettes | grep ${date}
+      stafcon -close
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Verifier la livraison au SIPAD-NG des fichiers :
+      ls /home/sipad/liv_cdpp/livraison/cluster/*
+      data_objets_<date_debut>_<date_fin>_<1er>_<dernier_objets>.xml
+      delete_data_objets_<date_debut>_<date_fin>_<1er>_<dernier_objets>.xml
+
+   Ingerer les donnees : Voir SIPAD-NG
+
+     cd /home/sipad/liv_cdpp/livraison/cluster/data
+     su prodcdpp
+     cp *.xml /home/sipad/sng1cdpp/services/ingestion/manual/cluster/data
+     exit
+
+     # Ingerer les deletes puis les data
+     cd /home/sipad/liv_cdpp/livraison/cluster/data
+     mv *.xml /home/sipad/liv_cdpp/apres_acquisition/cluster/data
+
+=> Controle des metriques
+
+   #entrer la date yyyymm correspondant a la date de traitement (date du jour)
+   read date?'date (yyyymmdd) : ' # date +"%Y%m%d" | read date
+   export date
+
+   cd ~/EXPLOIT_CSDS/CTRL_EXPLOIT/ACQ_SIPAD
+
+   listing_cluster.sh 
+   ctrl_metriques.sh | tee metriquesCSDS_${date}.txt
+
+   cd ~/EXPLOIT_CSDS/CTRL_EXPLOIT
+
+   info_metriques.sh $date | tee -a metriquesCSDS_${date}.txt
+   last_date_exploit.sh | tee -a metriquesCSDS_${date}.txt
+   info_pvl_delete.sh | tee -a metriquesCSDS_${date}.txt
+   checkCSDS | tee -a metriquesCSDS_${date}.txt
+
+   mailx -s "metriques CSDS" "v.cephirins@akka.eu" < metriquesCSDS_${date}.txt
+   ou
+{
+uuencode metriquesCSDS_${date}.txt metriquesCSDS_${date}.txt
+} | mailx -s "metriques CSDS ${date}" "v.cephirins@akka.eu"
+
+=> Pb de comptage STAF <=> SIPAD
+
+   Verifier les doublons (V01 -> V02) avec la commande :
+   getSipadNoUniqRef DA_TC_CLU_PP_C1_WHI
+   getSipadNoUniqRef DA_TC_CLU_PP_C2_WHI
+   getSipadNoUniqRef DA_TC_CLU_PP_C3_WHI
+   getSipadNoUniqRef DA_TC_CLU_PP_C4_WHI
+   getSipadNoUniqRef DA_TC_CLU_SP_CL_WHI
+
+   Creer et ingerer un fichier delete_objets
+
+=> Cas de plantage pour mot de passe STAFF a changer
+
+   modifier le mode reprise a 10 dans le script ~/EXPLOIT_CSDS/exec_rattrap
+
+   lancer la procedure de reprise :
+   cd ~/EXPLOIT_CSDS
+   exec_rattrap
+
+=> Cas de plantage STAF en ecriture (liste_*.cfg existants)
+ 
+   Si les donnees sont en cours de creation des tar
+   modifier le mode reprise a 40 dans le script ~/EXPLOIT_CSDS/exec_rattrap
+
+   Si les donnees sont en cours d'etre recuperees
+   modifier le mode reprise a 30 dans le script ~/EXPLOIT_CSDS/exec_rattrap
+
+   lancer la procedure de reprise :
+   cd ~/EXPLOIT_CSDS
+   exec_rattrap
+
+=> Cas de plantage pour quota de disk exceeded
+
+   Faire une sauvegarde du repertoire ~/CSDS/fichiers_temporaires/travail
+
+   Supprimer un certain nombre de fichiers a la fin de la liste qui a plantee
+       par exemple depuis C4_PP_EFW_20060124_V01.cdf
+ 
+   Supprimer les memes fichiers du repertoire de stockage :
+      cd /home/user31/ctpsvd/clucdpp/CSDS/fichiers_temporaires/stockage
+      find . -name '*cdf' -newer C4_PP_EFW_20060124_V01.cdf -exec rm {} \;
+
+   controler que l'espace liberee :
+      quota -v
+
+   modifier le mode reprise a 40 dans le script ~/EXPLOIT_CSDS/exec_rattrap
+
+   lancer la procedure de reprise : 
+   cd ~/EXPLOIT_CSDS
+   exec_rattrap
+
+
+##= END
+#######
+
+##= DEMETER
+###########
+
+=> notes :
+      donnees : ls /data/ctpsvd/cdpp_tra/DEMETER
+      reprise : ls /data/ctpsvd/cdpp_tra/DEMETER/reprise*
+      log     : ls -rt $HOME/DEMETER/log | tail -15
+
+=> Production des donnees
+
+   Connexion sur trait-op5-ci (cdpp_tra)
+
+   par crontab
+
+=> Mode reprise :
+   
+   Verifier que le repertoire livraison est vide
+   ls /home/user4/ctpsvd/cdpp_tra/DEMETER/livraison
+   Verifier qu'il y a bien le fichier dans le repertoire de reprise (voir plus haut)
+   se placer sous /home/user4/ctpsvd/cdpp_tra/DEMETER/script
+   cd /home/user4/ctpsvd/cdpp_tra/DEMETER/script
+   PREPARER_DONNEES_DEMETER R GRP[1, 2 ou 3]
+
+=> Connexion au STAF
+
+   stafcon -open -prj plasma -pw strdmt123
+
+   ou utiliser les alias open ou close pour ouvrir ou fermer le Staf
+
+=> Archivage au STAFF de la liste des fichiers (a faire toutes les semaines)
+
+   Les fiches sont sous /home/user4/ctpsvd/cdpp_tra/DEMETER/conf
+
+   stafcon -open -prj plasma -pw strdmt123
+   stafnod -locate -n /DEMETER/catalogue
+   staffil -archive -stf dmt_n1_acquit_list_GRP1_2006 -rep y -psc CS1
+   staffil -archive -stf dmt_n1_acquit_list_GRP2_2006 -rep y -psc CS1
+   staffil -archive -stf dmt_n1_acquit_list_GRP3_2006 -rep y -psc CS1
+   stafcon -close
+
+=> Plantage a l'acquittement suite a une reprise
+
+   On a un message suivant dans le compte rendu :
+[WARNING] Acquittement DMT_N1_1140_111270_20060803_223711_20060803_231028.DAT : Impossible de diposer le fichier d'acquittement
+
+   Rajouter le fichier deja acquitte (ex: CDPP_DMT_N1_1140_111270_20060803_223711_20060803_231028.DAT) dans /home/user4/ctpsvd/cdpp_tra/DEMETER/conf/dmt_n1_acquit_list_GRP1_2006 (si c'est un fichier du groupe 1 et de 2006)
+   (C'est la liste des fichiers acquittes)
+   Relancer la reprise
+
+=> Aides diverses pour l'exploitation
+
+   psm : alias pour lister les processus en cours si PREPARER_DONNEES_DEMETER est plante
+
+
+
+##= END
+#######
+
+##= DSDS
+##= DOUBLE STAR
+###############
+
+=> Notes :
+   Periodicite : en debut de mois (crontab)
+
+=> Production des donnees :
+
+   Connexion sur trait-op5-ci (clucdpp)
+
+=> Verifier la date de derniere livraison
+   cd $HOME/DSDS
+   grep Date suivi/npall_nouveau
+
+##= END
+#######
+
+
+##= ECLIPSE
+###########
+
+    * Alt + shift : Bascule clavier  Azerty <-> Qwerty
+    * Ctrl + espace : la completion automatique 
+    * Ctrl + Shift + 0 : Auto imports
+    * Ctrl + Shift + R : Recherche d'un fichier dans le workspace
+    * Ctrl + Shift + G : Recherche des references dans le workspace
+    * Ctrl + O : affichage des attributs et methodes de la classe courante
+    * Ctrl + O + O : ajoute a l'affichage les attributs et methodes herites
+    * Ctrl + T : affiche l'arborescence d'heritage de la classe courante
+    * Alt + Shift + J : genere un template de javadoc pour une classe une mehode ou un attribut en fonction de la selection
+    * Ctrl + Shift + F : mise en forme du code (vous pouvez surligner une zone de code pour restreindre le formatage)
+    * Ctrl + Shift + I : indentation du code (vous pouvez surligner une zone de code pour restreindre l'indentation)
+    * Ctrl + D : efface la ligne courante
+    * Alt + Shift + R : pour refactoriser le nom d'une fonction ou d'une variable
+    * Ctrl + Shift + C : pour commenter des lignes
+    * Ctrl + Shift + / : decommenter des lignes
+    * Crtl + Shift + P : Pour se deplacer d'une accolade a l'autre
+
+##= END
+
+##= ENVIRONNEMENT
+#################
+
+=> Silogic
+
+      ftp.silogic.fr  : 84.14.57.150
+
+=> CNES
+
+   PACCI-RELAIS       :
+       relais           192.134.216.17 (entrante)
+                        192.134.216.26 (sortante)
+       relais2          192.134.216.18 (entrante)
+                        192.134.216.28 (sortante)
+      
+   PROXY web          :
+      proxy.pac       : http://surf.cnes.fr:8051/proxy.pac
+      proxy serveur   : http://proxy-HTTP2.cnes.fr:8050
+      user            : cdppexp
+      pwd             : 1DC3F7B23D92BB65CD8C4F863D4119F2
+
+   SEF                : cdpp-cluster-sef.cnes.fr
+      Connexion       : cephirinsv / P.......
+      mot de passe    : https://ldap-web.cnes.fr
+
+                      : logicc
+   Reseau Silogic     : 132.149.105.128 - 132.149.105.157
+       Passerelle     : 132.149.105.158
+       Broadcast      : 132.149.105.159
+       PCCE0          : 132.149.105.129 (Philippe Redon)
+       PCCE1          : 132.149.105.130 (Veronique Payot)
+       PCCE2          : 132.149.105.131 (Nicolas Lormant)
+       PCCE3          : 132.149.105.132 (Alain Barthe)
+       DIAMS150       : 132.149.105.133 (Thomas Verbeke)
+       PCCE6          : 132.149.105.135 (Nicolas Mengin)
+       PCCE5          : 132.149.105.153 (Sylvie Philippart)
+       PCCE7          : 132.149.105.157 (Vincent Cephirins)
+
+   Host (Sun) Dev.    : calc-gen5-ci (IP : 132.149.11.3)
+      Connexion       : transdev
+      Connexion       : clu_whi (WHISPER / SOUNDING TIMES / DENSITY / CAVEATS)
+      Connexion       : clucdpp (CSDS / DSDS / DSTAR)
+      Connexion       : sgdsexp/ (ULYSSE / DEMETER Quicklooks / WIND-RADIO)
+      Aide VDLIB      : http://calc-gen5-ci:8123
+
+
+   Host (VMS)         : ulysse.obspm.fr (IP : ) via pacci-relais
+      Connexion LESIA : CDPPULS/psvd123 (WIND-RADIO / ULYSSE)
+
+   svn valdo          : svn://srv-svn.silogic.fr/svn/VALDO.svn
+                        cephirins/valdo17
+                        cnesvaldo/psvdo123
+
+   Host (Sun) Dev.    : internetdev-ci (IP : 132.149.13.50)
+      Connexion       : cormhttp/(voir COROT)  #env de dev
+
+   Host (Sun) Dev.    : internet1-ci (IP : 132.149.13.65)
+   Host (Sun) Expl.   : trait-op5-ci (IP : 132.149.11.9)
+      Connexion       : cephirin
+      Connexion       : sva_silo
+      Connexion       : whi_caa (WHISPER / SOUNDING TIMES / DENSITY / CAVEATS)
+      Connexion       : cdpp_tra (DEMETER)
+      Connexion       : cdpp_tra (STEREO)
+      Connexion       : sgdsexp (DEMETER Quicklooks / WIND RADIO)
+      Connexion       : sta_sa (STAFF_SA/STAFF_SC)
+      Connexion       : clucdpp (CSDS / DSDS / DSTAR)
+      Connexion       : clu_cis (CIS-N3 / CIS-MOMENTS)
+      Connexion       : prodcdpp (CASSINI_RPWS)
+      Connexion       : samadm (CASSINI / SAM / MERCATOR)
+      Connexion       : sippdm/sipad00 (ou 00sipad) (Metriques CSDS)
+      Connexions base : sng1cdpp_dba/ora_sipng@BDWEB10g (initprod metaphase)
+      Connexion       : sng1cdpp/ng1_sng1cdpp (ou sng1cdpp_ng1) (SIPADNG)
+      Connexion       : sng1exp/ng1_sip (trait-op3-ci) SIPADNG pour les Logs
+      Connexion       : archcdpp (format_cdpp/interball)
+      Connexion       : cis_cesr (CIS / CESR / TRANSFERT)
+      Connexion       : sip4arch/sip4arch_ng (SALTO / Lot2)
+      Connexion base  : sip4arch_dba/ora_sipng101@REC10G (SALTO / Lot2)
+
+   SIPAD-NG (Ingestion): https://132.149.11.9:7015/adminCdpp (cephirinsv)
+   CDPP (Commandes)    : http://132.149.11.139/cdpp/login.do (cephirins)
+   TDB Whisper (netscape): file:/home/user3/ctpsvd/whi_caa/WHISPER/TDB/TDB_Whisper_caa_1_2005.html
+   TDB Whisper (externe): http://www.whisper.cnrs-orleans.fr/TDB/tdb.html
+
+   Host (Sun) Expl.   : trait-op3-ci (IP : 132.149.11.95)
+      Connexion       : samadm/00sipad (ou sipad00) (SAM_MERCATOR / CASSINI)
+                        sampdm/sipad00 
+                        http://mercator.cnes.fr:8300/mercator.html
+
+   Host (linux)       : linux-ci
+      Connexion       : gogdev/gog2007
+      Connexion       : gaiatest/gaiadpac
+                        initprod oracle 10gR2_64
+                        initprod oracle 9iR2_32   # pour tkprof
+
+      Connexions base : gaia_dev/gaia_dev@gaia_def
+
+   Host (linux)       : Bases gaia (depuis linux-ci)
+      Connexion       : ssh -l oracle 132.149.13.25 (ou 26)
+      fichiers traces :
+      cd $HOME/database/traces/instance1
+      sftp oracle@132.149.13.25:/home/produits-locaux/rdbms/admin/DBGAIA/udump
+      cd $HOME/database/traces/instance2
+      sftp oracle@132.149.13.26:/home/produits-locaux/rdbms/admin/DBGAIA/udump
+
+=> Maintenance Contrat CNES : voir annuaire assistance56
+
+=> licenses flottantes agence : srv-oracle
+=> proxy : srv-scan
+
+=> Portable de recette (NEC PRO 14)
+   valdo/psvdo123
+   silogic/silogic
+   administrateur/toulouse
+
+=> Mise au point avec jconsole : 
+   
+   java -XX:+PerfBypassFileSystemCheck -Dcom.sun.management.jmxremote  -jar test.jar
+
+   $JDK_HOME/bin/jconsole
+
+   rem -XX:+PerfBypassFileSystemCheck est utile pour les sytemes windows FAT32
+
+=> Optimisation de la memoire de la JVM :
+
+   voir "http://gfx.developpez.com/tutoriel/java/gc" pour les details
+
+   Memoire de la JVM : 
+   *  -Xms[taille], difinit la taille minimale du heap. Ce paramhtre permet d'iviter des dimensionnements friquents du heap si vous savez que votre application utilise beaucoup de mimoire,
+   * -Xmx[taille], difinit la taille maximum du heap. Ce paramhtre est majoritairement utilisi pour les applications serveurs qui nicessitent parfois plusieurs gigaoctets de mimoire. Le heap peut varier entre les valeurs spicifiies par -Xms et -Xmx,
+   * -XX:NewRatio=[nombre], indique le rapport de taille tenured sur young space. Le nombre 2 donnera par exemple un tenured de 64 Mo et un young de 32 Mo pour un heap global de 96 Mo,
+   * -XX:SurvivorRatio=[nombre], indique le rapport de taille entre l'iden et un survivor space. Pour un ratio de 2 et un young space de 64 Mo, l'iden occupera 32 Mo et chaque survivor 16 Mo.
+
+   Mode du GC : 
+   *  -Xincgc, active le GC incrimental,
+   * -XX:+UseParallelGC, active le GC parallhle. Le nombre de threads utilisi peut jtre modifii ` l'aide de l'option -XX:ParallelGCThreads=[nombre],
+   * -XX:+UseConcMarkSweepGC, active le GC concurrent. Les minor collections parallhles peuvent jtre activis en utilisant conjointement l'option -XX:+UseParNewGC.
+
+   ex : java -Xms64m -Xmx512m
+
+   * -verbosegc,  trace la gestion memoire de la GC
+
+##= END
+#######
+
+##= GLOSSAIRE
+#############
+
+ADP             : Acceptance Data Package
+ADS             : Autocommutateur de donnees spatiales
+AIC             : Archival Information Collection
+AIP             : Archival Information Package
+AIU             : Archival Information Unit
+AMDA            : Automated Multi Dataset Analysis
+ANC             : ANChor (Harpon)
+AOS	            : Heure d'acquisition du signal (Acquisition Of Signal)
+ARAMIS          : Aide a la Reservation des Atennes des MIni et microSatellites
+ASA             : Austrian Space Agency
+ASCII           : American Standard Code for Information Interchange
+ASI             : Agenzia Spaziale Italiana
+ASPOC           : Active Spacecarft Potential Control 
+ASW             : Address Synchronization Word
+BBP             : Broad-Band Photometer (obsolete)
+BC              : Bon de Commande
+BCD             : Binaire code decimal
+BCP             : Bureau de Coordination et de Programmation
+BFSPO           : Belgian Federal Science Policy Office
+BNSC            : British National Space Centre
+BO	            : Bulletin d'Orbite
+BSC             : Barcelona Supercomputing Centre
+CAA             : Cluster Active Archive
+CAD             : Computer-automated Design
+CASSE           : Cometary Acoustic Sounding Surface Experiment
+CAST            : Chinese Academy of Space Technology
+CC              : Cycle Court
+CCC             : Command Control Center
+CCI             : Controle et Commande des Instruments
+CCS             : Centre de Controle Specialise
+CCSDS           : Consultative Committee for Space Data Systems
+CD-ROM          : Compact Disk - Read Only Memory
+CDDC            : Chinese DSP Data Center 
+CDDS            : Cluster Data Disposition System 
+CDF             : Common Data Format
+CDMS            : Control and Data Management System
+CDO             : Content Data Object
+CDPP            : Centre de Donnees de la Physique des Plasmas
+CDS             : CCSDS Day Segmented 
+CEF             : Cluster Exchange Format
+CEOS            : Committee on Earth Observation Satellites
+CETP            : Centre d'Etudes des Environnements Terrestre et Planetaires
+CESR            : Centre d'Etude Spatiale des Rayonnements
+CGBH            : Controleur Generateur de Blocs HDLC (CNES) 
+CGIS            : Contrats Globaux d'Informatique Spatiale
+CIS             : Cluster Ion Spectroscopy
+CMDH            : Command History File 
+CNES            : Centre National d'Etudes Spatiales
+CNSA            : Chinese National Space Agency 
+COI             : CO-Investigator
+COO	            : Centre d'Orbitographie Operationnelle
+COR	            : Centre des Operations Reseau
+CORBA           : Common Object Request Broker Architecture
+CPA	            : Calculateur de Pilotage d'Antenne (terme generique designant les differents types de calculateur : Sherpa (Aus,Kru), Pla (Krn,Kuk), Ker (Ker), MCS(Hbk 2G), KAS (Hbk Ku)
+CRC             : Cyclical Redundancy Check
+CRID            : Command Request Interface Document 
+CSA             : Canadian Space Agency
+CSB             : Copy Status Byte
+CSDS-FR         : Serveur du Cluster Science Data System et Double star
+CSIR            : MIKOMTEK: CSIR (Republic of South Africa)
+CSIRO           : Commonwealth Scientific and Industrial Research Organization (Autralia)
+CSSAR           : Center for Space Science and Applied Research 
+CTA             : Centro Tecnico Aerospacial (Brazil)
+CU              : Coordination Unit (in DPAC)
+CUD             : Call User Data
+CUG             : Close User Group
+CC              : Cycle Court
+CCI             : Controle et Commande des Instruments
+CODIF           : ion COmposition and DIstribution Function Analyser
+CV              : Circuit Virtuel
+CVC             : Circuit Virtuel Commute
+DACC            : Data Analysis Coordination Committee
+DACE            : Data Analysis Consortium Executive
+DAVIS           : Digital Audio Video System
+DAWG            : Data Archive Working Group
+DBMS            : Data Base Management System
+DCT/ME/EU       : Direction du Centre spatial de Toulouse, sous-direction Mission et Exploitation de donnees, service Etude de exploration de l'Univers
+DCT/PS/TVI      : Direction du Centre spatial de Toulouse, sous-direction Produits et Segment sol, service Techniques de Valorisation des donnees et d'Ingenierie sol
+DDS             : Data Disposition System
+DDC             : Dossier Descriptif de la Configuration
+DDMS            : Double Star data Management System
+DDID            : Data Delivery Interface Document 
+DDL             : Data Description Language
+DDS             : Data Disposition System
+DED             : Data Entity Dictionary
+DEDSL           : Data Entity Dictionary Specification Language
+DEX             : Data EXtration
+DIF             : Directory Interchange Format
+DIM             : Dust Impact Monitor
+DIME            : Direct Internet Message Encapsulation
+DIODE           : Determination Immediate d'Orbite par DORIS Embarque
+DIP             : Dissemination Information Package
+DLR             : Deutsches Zentrum fur Luft- und Raumfahrt
+DMS             : Double and Multiple Stars
+DO              : Data Object
+DOMC            : Double Star Operantions and Management Center 
+DORIS           : Determination d'Orbite et Radiopositionnement Integre par Satelllite
+DORIS 2GM       : DORIS 2eme Generation Miniaturisee
+DPA	            : Donnees de Pointage Antenne
+DPC             : Cata Processing Centre
+DPSS            : Data Packet Switching System (EUTELSAT)
+DRC             : Data Reduction Cycle
+DSAS            : Double Star Science Application Subsystem 
+DSDS            : Double Star Science Data System 
+DSOC            : Double Star Science Operation Center 
+DSP             : Double Star Program 
+DSRI            : Danish Space Research Institute
+DSS	            : Donnees de Suivi Satellite. Elles regroupent le bulletin d'orbite, le posvit associe et les previsions de passage. Pour un meme satellite, peuvent coexister dans SEPIA les DSS precedentes, nominales et futures.
+DTD             : Document Type Definition
+DVD             : Digital Versatile Disk
+DWF             : Decommutated WaveForm
+EAD             : Encoded Archival Description
+EAICD           : Experiment Archive Interface Control Document
+EAST            : Enhanced Ada SubseT
+EBCDIC          : Extented Binary Coded Decimal Data Interchange Code
+ECS             : EOSDIS Core System
+EDDC            : European DSP Data Center 
+EDDS            : European Data Dispostion System 
+EGSE            : Electric & Electronic Ground System Equipment
+EID             : Experiment Interface Document 
+END	            : Heure de fin de support
+EOP             : Experiments Operations Plan
+EOR             : Experiments Operations Request
+EOSDIS          : Earth Observing System Data and Information System
+EPOS            : European Playload Operation System 
+ESA             : European Space Agency
+ESAC            : European Space Astronomy Centre (Villafranca, Espagne)
+ESOC            : European Space Operation Centre (Damstadt, Allemagne)
+ESTEC           : European Space Research and Technology Center 
+ETTD	        : Equipement Terminal de Transmission de Donnees
+ETTD            : Equipement Terminal de Traitement de donnees
+EUMETSAT        : EUropean METeorological SATellites
+EUTELSAT        : EUropean TELecommunication SATellite
+EXCHANGE     	: Messagerie interpersonnelle Microsoft
+FCS             : Frame Check Sequence
+FDDC            : French DSP Data Centre
+FGDC            : Federal Geographic Data Committee
+FGM             : Fluxgate Magnetometer 
+FITS            : Flexible Image Transport System
+FORTRAN         : FORmula TRANslator
+FOS	        : Frontal de l'Operateur Satellite
+FSF             : Frame Status Field
+FTP             : File Transfer Protocol
+FTRP            : Frame Transaction ResPonse
+FTRQ            : Frame transmit ReQuest
+GAIA            : Global Astrometric Interferometer for Astrophysics
+GAREX           : GAia Relativity EXperiment
+GASCON	        : Gestion Automatique des Stations de CONtrtle
+GASS            : GAia System-level Simulator
+GAT             : Gaia Astronomical Tools
+GATT            : Gaia Algorithm Tracking Tool (GDAAS)
+GCH             : Generateur de Code Horaire
+GDS             : Ground Data System 
+GECO            : Groupe d'Exploitation et de Coordination des Operations
+GIBIS           : Gaia Instrument and Basic image Simulator
+GIF             : Graphics Interchange Format
+GLU             : Generateur de Liens Uniformes
+GOG             : Gaia Object Generator
+GRM             : Ground Reference Model
+GSM             : Geocentric Solar Magnetospheric co-ordinate system 
+GTS             : Gaia Transfer Service
+HDLC            : High-Level Data Link Control
+HEED            : High Energy Electron Detector 
+HEPD            : High Energy Proton Detector 
+HFMS            : Hierarchical File Management System
+HFR             : High Frequency Receiver (Cassini/RPWS experiment)
+HIA             : Hot Ion Analyser
+HID             : Heavy Ion Detector 
+HK              : HouseKeepping
+HKD             : HouseKeeping Data 
+HNSC            : Hellenic National Space Committee
+HPD             : Housekeeping Parameter Definition 
+HS              : High-Sensitivity
+ICA             : International Council on Archives
+ICD             : Interface Control Document
+ICONES          : Infrastructures de Communication Optimisees pour les NouvEaux Satellites
+ICR             : Immediate Command Request
+ICS             : Interoperable Catalogue System
+ID              : IDentifier
+IDENSAT	        : Projet/satellite
+IDT             : Initial Data Treatment
+IEEE            : Institute of Electrical and Electronic Engineers
+IFP	            : Indicateur de Fin de Passage
+IGN             : Institut Geographique National
+IHM             : Interface Homme Machine
+IKI             : Institute of Space Research (Russian Federation)
+INPE            : Instituto Nacional de Pesquisas Espaciais (Brazil)
+INTEGRAL        : INTErnational Gamma-Ray Astrophysics Laboratory (ESA)
+IMS             : Information Management System
+IP              : Information Package
+IPSL            : Institut Pierre Simon Laplace
+IOAC            : Institute of Astronomy Cambridge
+ISBN            : International Standard Book Number
+ISC             : Intermediate Subcarrier Modem
+ISDC            : INTEGRAL Science Data Centre
+ISO             : International Organization for Standardization
+ISRO            : Indian Space Research Organization
+JAXA            : Japan Aerospace Exploration Agency
+JDB             : Journal De Bord
+JDEX            : Java Data EXtraction
+KARI            : Korea Aerospace Research Institute
+KeepAlive       : Test de la ligne
+KFKI            : KFKI Research Institute for Particle & Nuclear Physics (Hungary)
+LATMOS          : Laboratoire ATmospheres Milieux Observations Spatiales
+LCC             : Lander Control Center
+LCN             : Logical Channel Number (numero de cv)
+LEID            : Low Energy Ion Detector 
+LESIA           : Laboratoire d'Etudes spatiales et d'Instrumentation en Astrophysique
+LFEW            : Low Frequency Electromagnetic Wave Detector 
+LIOR            : Lander Instrument Operations Request
+LOR             : Lander Operations Request
+LOS	            : Heure de perte du signal (Loss Of Signal)
+LPCE            : Voir LPC2E
+LPC2E           : Laboratoire de Physique et Chimie de l'environnement et de l'Espace
+LS              : Low-Sensitivity
+LSB             : Low Significant Bit
+LSDA            : Life Sciences Data Archive
+LTEF            : Long Term Event File 
+LTOF            : Long Term Orbit File 
+MAP             : Maintenance en poste
+MARC            : MAchine-Readable Cataloging
+MBP             : Medium Band Photometry
+MC              : Message condition
+MCS	            : Nouveau calculateur de pilotage d'antenne d'HBK
+MDB             : Main Database (Gaia Project)
+METS            : Metadata Encoding and Transmission Standard
+MIGS            : Microsatellite Ground Segment
+MIME            : Multipurpose Internet Mail Extensions
+MIP             : Mise en poste
+MOC             : Ministry Of Communications (Israel)
+MOST            : Mission Operations Scheduling Tool
+MOT             : Model of Objects for Transfer
+MPTS            : Multi Purpose Tracking System
+MS              : Message Subtype
+MSB             : Main Significant Bit
+MSW             : Mode Selection Word
+MT              : Message Type
+NARA            : National Archives and Records Administration
+NASA            : National Aeronautics and Space Administration (USA)
+NICT            : National Institute of Information and Communications Technology (Japan)
+NOAA            : National Oceanic & Atmospheric Adinistration (USA)
+NSD             : Normal Science Data 
+NSPO            : National SPace Organization (Taipei)
+NSSDC           : National Space Science Data Center
+OAIS            : Open Archival Information System
+OBDH            : On-board Data Handler 
+OBT             : On Board Time
+OCC             : Operations Control Center 
+ODL             : Object Description Language
+OWL             : Web Ontology Language
+PACTE           : Point d'Acces Controle pour Transaction Externes
+PAIMAS          : Producer-Archive Interface Methodology Abstract Standard
+PAIS            : Producer-Archive Interface Specifications
+PCM             : Pulse Coded Modulation
+PDF             : Portable Document Format
+PDI             : Preservation Description Information
+PDMP            : Project Data Management Plan
+PDMS            : Playload Data Management System 
+PDR             : Preliminary Design Review
+PDS             : Planetary Data System
+PDU             : Protocol Data Unit
+PDV             : Plan de Developpement
+PEACE           : Plasma Electron and Current Experiment 
+PEN             : PENetrator
+PGGS            : Proteus Generic Ground Segment
+PI              : Principal Investigator
+PID             : Processed Ident-word
+PIN             : Perennisation des Informations Numeriques
+PGGS            : Proteus Generic Ground Segment
+PLA	            : Calculateur de PiLotage d'Antenne
+POG             : Programme des Operations Generales
+POSVIT	        : Fichier en POSition-VITesse
+POT             : Plan des Objets a Transferer
+PP              : Permittivity Probe
+PP              : Prime Parameters
+PTRP            : Primary Transaction ResPonse
+PSA             : Planetary Science Archive
+PSDD            : Planetary Science Data Dictionnary
+PSS             : Portable Simulation System (EUTELSAT)
+PTRP            : Primary Transaction ResPonse
+PVL             : Parameter Value Language
+QO              : Qualification Operationnelle
+QSO             : Quasi Stellar Object
+QT              : Qualification Technique
+RAC             : Real Application Clusters (Oracle - Load Balancing)
+RAR             : Resources Allocation Request
+RC              : Response Code
+RDF             : Resource Description Format
+RE              : Responsable d'Exploitation
+RLGS            : Rosetta Lander Ground Segment
+RM              : Reference Model
+RNF             : Request Number Frames
+RO              : Responsable Operations
+ROSETTA         : Mission d'exploration de la comete 67P/Churyumov-Gerasimenko
+Roskosmos       : Federal Space Agency (Russian Federation)
+RPA             : Retarding Potential Analyser
+RPC             : Remote Procedure Call
+RPWS            : cassini-Radio and Plasma Wave Science
+RSC             : Receive Site Code
+RV              : Radial Velocity
+RVS             : radial Velocity Spectrometer
+SATT            : Spacecraft Attitude and Spin Rate 
+SC              : Satellite Code
+SC              : SCience
+SCC             : Satellite Control Centre (ESA)
+SCCS	        : Source Code Control System
+SCCT            : Satellite Code Condition Table
+SD              : Serveur de donnees SSALTO
+SD2             : Sample Drill & Distribution System
+SDID            : Station Data Interchange Document
+SEM             : Service d'Echange de Medias
+SEPIA	        : Systeme d'Elaboration des Previsions de pAssages
+SERAD           : SErvice de Referencement et d'Archivage des Donnees
+SFDU            : Standard Formatted Data Unit
+SGDS            : Systeme de Gestion des Donnees Spatiales
+SGC             : Service de Gestion en Configuration
+SGIS            : Spectroscopic Global Iterative Solution
+SGML            : Standard Generalized Markup language
+SHERPA	        : Nouveau calculateur de pilotage d'antenne d'Aussageul et Kourou
+SIMB            : Service d'Installation et de Maintenance des Balises DORIS
+SIMBAD          : Systeme d'Information et de Management des BAlises Doris
+SIP             : Submission Information Package
+SIPAD-NG        : Systeme d'Information de Preservation et d'Acces aux Donnees Nouvelle Generation
+SN              : Subsystem Number
+SOAP            : Simple Object Access Protocol
+SONC            : Scientific Operation & Navigation Center
+SPASE           : Space Physics Archive Search and Extract
+SPP             : Summary Parameters
+SQL             : Structured Query Language
+SS              : Satellite Code
+SSALTO          : Segment Sol multi-missions ALTimetrie, Orbitographie et localisation precise
+SSC             : Source Site Code
+SSC             : Swedish Space Corporation
+SSIM            : Satellite SIMulator
+SSMM            : Solid State Mass Memory
+ST              : Subsystem Type
+STA	            : STAtion
+STAF            : Service de Transfert et d'Archivage de Fichiers
+STAFF           : Spatio-Temporal Analysis of Field Fluctuations 
+STAFF_SA        : Spatio-Temporal Analysis of Field Fluctuations Spectrum Analyser
+STAFF_SC        : Spatio-Temporal Analysis of Field Fluctuations_Search Coil
+STEF            : Short Term Event File 
+STEREO          : Solar TErrestrial RElations Observatory
+STILO           : Systeme de Traitement des Instruments Localisation et Orbitographie
+STOF            : Short Term Orbit File 
+STRT	        : Heure de debut de support
+SUP 	        : Type de SUPport
+SUPARCO         : Space and UPper Atmospheric Research COmmission (Pakistan)
+TAB             : Time Acquisition Bit
+TAI             : Temps Atomique International
+TARQ            : transmission Abort Request
+TBC             : To Be Confirmed
+TBD             : To Be Defined (Determined)
+TC              : TeleCommande
+TC-1            : Equatorial DSP Satellite (Tan Ce 1)
+TC-2            : Equatorial DSP Satellite (Tan Ce 2)
+TCC             : TeleCommande CNES
+TCE             : TeleCommande Exterieure
+TCP/IP          : Transfer Control Protocol / Internet Protocol
+TCR             : Telemetry Commanding and Ranging
+TCU             : Thermal control unit
+TEI             : Text Encoding Initiative
+TG	            : TeleGestion
+TM              : TeleMesure
+TM              : Thermal Mapper
+TMC             : TeleMesure CNES
+TME             : TeleMesure Exterieure
+TNF             : Transmit Number Frames
+TOD             : Transfer Object Descriptor
+TR              : Transaction Response
+TRD             : Technical Requirements document
+TS	            : TeleSurveillance
+TsNIIMash       : Central Research Institute of Machine Building (Russian Federation)
+TTF             : Time Tag Field
+TU              : Temps Universel
+TUC             : Temps Universel Coordonne
+UBGS            : Universitat de Barcelona Gaia Simulator
+UML             : Unified Modeling Language
+UMR             : Unidentified Message Response
+UNICODE         : Universal Code
+URD             : User Requirements Document
+URI             : Uniform Resource Identifier
+URL             : Uniform Resource Locator
+URN             : Uniform Resource Name
+USGS            : United States Geological Survey (USA)
+UTC             : Coordinated Universal Time
+VDLIB           : Valorisation Data LIBrary
+W3-SONC         : SONC's Internet Web server
+W3C             : WorldWide Web Consortium
+WHISPER         : Waves of HIgh frequency and Sounder for Probing the Electron density by Relaxation
+WWW             : WorldWide Web
+X25             : Protocole de communication a commutation de paquets
+XFDU            : XML Formatted Data Units
+XML             : eXtensible Markup Language
+XMM             : X-ray Multi-mirror Mission (ESA; officially known as XMM-Newton)
+
+##= END
+
+##= PACCI-RELAIS
+##= PACTE-SV
+################
+
+=> Le pacte-sv est remplace par pacci-relais
+
+=> Notes : 
+   pour connaitres les services disponibles, apres la connexion taper /help
+
+=> pacci-relais :
+
+   Changez le password :
+      telnet pacci-relais
+      login : cephirinsv
+      /password
+      ...
+      /end
+
+   Connexion ftp :
+   ftp pacci-relais
+   Host : cephirinsv@<adresse>
+   password : <standard>
+
+   Connexion telnet :
+   telnet pacci-relais
+   Host : /ssh @<adresse>
+
+   Changez le password ftp du site cible
+   telnet pacci-relais
+   login : cephirinsv
+   Host : csds-fr
+   password : <password perso>
+   user <login site> // clucdpp
+   Password: <old password site>
+
+##= END
+
+##= SAM (Mercator)
+##= CASSINI (SAM)
+##################
+
+=> Environnement
+
+   se connecter samadm sur trait-op5-ci
+
+   #Repertoire ou recuperer les fichiers livres par le projet
+   cd /home/user5/ctpatd/cassini/CASS_files/sam
+
+   #Repertoire des sauvegardes
+   /home/sam/sam/SAUV_CASSINI/"nom_manip"
+
+   #Repertoire des compte-rendus
+   /home/user31/ctpsvd/samadm/BIN_CASSINI/PROD_PVL/Compte-rendus
+
+=> A faire lors du feu vert de l'exploit CASSINI
+
+   # Lancer l'acquisition
+   cd BIN_CASSINI/PROD_PVL
+   PREPARER_DONNEES_CASSINI
+
+   #Verification du depot des fichiers dans le repertoire d'acq du sam
+   cd /home/sam/sam/BIN_CASSINI/PROD_PVL/LIVRAISON
+
+   # Les PVL sont a transferer sous /home/sam/sam/SAUV_CASSINI/"nom_manip"/PVL
+   # Les imagettes sont a supprimer, elles sont deja dans l'espace de sauvegarde
+
+   # CAT, PVL a archiver au STAF sous /SAUV_CATALOGUES/"manip"
+   # TAR a archiver au STAF sous sauve_imagettes
+   stafcon -open -prj cassini -pw ???
+
+=> PB de depassement du nombre de fichiers a traiter
+
+   utiliser le script decoup_cata.ksh
+
+=> VERSION OBSOLETE
+=> Notes :
+   A faire a la reception des mails (en cumuler 3 ou 4)
+   ou ls /home/MERCATOR/PVL/[MPV]*[0-9]
+
+=> Acquisition des donnees
+
+   Connexion sur trait-op3-ci (samadm)
+   
+   Recuperer les donnees :
+      cd /home/sam/sam/SAUV_MERCATOR
+      recup_all.ksh
+
+   Pour suivre l'acquisition des fichiers : 
+      ls /home/sam/sam2/MERCATOR/livraisons
+
+   Archiver les fichiers dans les dossiers correspondants
+      mv *.pvl <repertoire adequate>
+
+   Consulter les donnees : 
+   http://mercator.cnes.fr:8300/mercator.html
+
+=> Mise a jour du site mercator
+
+   connexion par telnet (SAM) ou ftp sur internet1-ci (nonon/sipad00)
+   cd /internet4/SAM/server_root/data
+
+=> Nouveau produit
+
+   connection sur calc-gen3-ci (transdev/psvd456)
+   cd miquel/MERCATOR
+
+   Transferer par ftp sur internet1-ci (nonon/sipad00)
+
+=> En cas de "plantage" :
+
+   Supprimer les fichiers verrous : /tmp/ACQ*
+   Supprimer les fichiers temporaires : /home/sam/sam2/MERCATOR/livraisons
+
+##= END
+#######
+
+##= CASSINI_DYNSPECTRA (N2 ou N3)
+##= DYNSPECTRA (N2 ou N3)
+#################################
+
+=> Generalites
+   connexion sur trait-op5-ci avec le compte prodcdpp
+
+   cd $HOME/CASSINI_RPWS
+   TYPE=N2
+   TYPE=N3
+
+   # Lancer un traitement
+   script/PREPARER_DONNEES_CASSINI_RPWS_HFR_DYNSPECTRA -t DYNSPECTRA_${TYPE} -d 199710
+
+   # retraiter un mois
+   cd script
+   PREPARER_DONNEES_CASSINI_RPWS_HFR_DYNSPECTRA -t DYNSPECTRA_${TYPE} -d 199710 -f
+
+   # traiter une periode (1 an)
+   cd script
+   nohup runBatchDynspectra.sh ${TYPE} 200101 12 &
+
+   # Si des erreurs sont signalees en fin de traitement, bien relever
+   # les dates concernees pour verifier plus tard au SIPAD que les
+   # imagettes sont correctes.
+
+=> Statistiques / Mettre a jour le CR
+
+   read DATE_EXPL?'date (yyyy[mm]) : '
+   $HOME/CASSINI_RPWS/utils/prepStatsDynspectra ${TYPE} $DATE_EXPL
+
+=> Ingerer les donnees au SIPAD
+
+   LIV_CASS=/home/sipad/liv_cdpp/livraison/cassini
+   ING_CASS=/home/sipad/sng1cdpp/services/ingestion/manual/cassini
+   AFT_CASS=/home/sipad/liv_cdpp/apres_acquisition/cassini
+
+   read DATEI?'date (yyyy[[mm]dd]) : '
+   read TYPE?'type (N2 ou N3) : '
+
+   cd $LIV_CASS
+   cp data/*DYNSPECTRA_${TYPE}*${DATEI}*.xml $ING_CASS/data
+   chmod g+w $ING_CASS/data/*DYNSPECTRA_${TYPE}*${DATEI}*.xml
+   cp browse/*DYNSPECTRA_${TYPE}*${DATEI}*.xml $ING_CASS/browse
+   chmod g+w $ING_CASS/browse/*DYNSPECTRA_${TYPE}*${DATEI}*.xml
+   cp browse/rep_i*/*DYNSPECTRA_${TYPE}*${DATEI}*.png $ING_CASS/browse/rep_image
+   chmod g+w $ING_CASS/browse/rep_image/*DYNSPECTRA_${TYPE}*${DATEI}*.png
+
+   Lancer l'ingestion depuis firefox
+   Recuperer le numero d'ingestion pour le CR
+
+   Apres le transfert, deplacer les fichiers dans apres_acquisition
+   cd $LIV_CASS
+   mv data/*DYNSPECTRA_${TYPE}*${DATEI}*.xml $AFT_CASS/data
+   mv browse/*DYNSPECTRA_${TYPE}*${DATEI}*.xml $AFT_CASS/browse
+   rm browse/rep_image/*DYNSPECTRA_${TYPE}*${DATEI}*.png
+
+=> Archiver
+
+   cd $HOME/CASSINI_RPWS/suivi
+   rm creer_descr*.log
+
+   read YY?'date (yyyy) : '
+
+   tar cvf archives/exploit_dynspectra_N2_${YY}.tar $(grep -l "exploitation  = '${YY}" CR*_DYNSPECTRA_N2_*)
+   tar cvf archives/exploit_dynspectra_N3_${YY}.tar $(grep -l "exploitation  = '${YY}" CR*_DYNSPECTRA_N3_*)
+   gzip archives/exploit_dynspectra_*.tar
+
+   du -hs archives/*_${YY}*
+   rm $(grep -l "exploitation  = '${YY}" CR*_DYNSPECTRA_N2_*)
+   rm $(grep -l "exploitation  = '${YY}" CR*_DYNSPECTRA_N3_*)
+
+##= END
+#######
+
+##= CASSINI_RPWS
+################
+
+=> Generalites
+   connexion sur trait-op5-ci avec le compte prodcdpp
+
+   cd CASSINI_RPWS
+   TYPE=N2
+
+   # Lancer un traitement
+   script/PREPARER_DONNEES_CASSINI_RPWS_HFR_${TYPE} -d 1997025
+
+   # retraiter une date
+   script/PREPARER_DONNEES_CASSINI_RPWS_HFR_${TYPE} -d 1997097 -f
+
+   # traiter une periode (1 an)
+   cd $HOME/CASSINI_RPWS/script
+   nohup runBatch.sh 2001001 365 &
+
+   # Traitement par trimestre
+   cd $HOME/CASSINI_RPWS/script
+   nohup runBatch.sh 2011001 90 &
+   nohup runBatch.sh 2011091 91 &
+   nohup runBatch.sh 2011182 92 &
+   nohup runBatch.sh 2011274 92 &
+
+   # Traitement par trimestre (annee bissextile)
+   cd $HOME/CASSINI_RPWS/script
+   nohup runBatch.sh 2012001 91 &
+   nohup runBatch.sh 2012092 91 &
+   nohup runBatch.sh 2012183 92 &
+   nohup runBatch.sh 2012275 92 &
+
+=> Statistiques / Mettre a jour le CR
+
+   read DATE_EXPL?'date (yyyy[mm]) : '
+   $HOME/CASSINI_RPWS/utils/prepStats $DATE_EXPL
+
+   importer les resultats dans le premier onglet du CR
+
+=> Ingerer les donnees au SIPAD
+
+   LIV_CASSINI=/home/sipad/liv_cdpp/livraison/cassini
+   ING_CASSINI=/home/sipad/sng1cdpp/services/ingestion/manual/cassini
+   AFT_CASSINI=/home/sipad/liv_cdpp/apres_acquisition/cassini
+
+   read DATE_ING?'date (yyyy[[mm]dd]) : '
+
+   cp $LIV_CASSINI/data/data*${DATE_ING}*.xml $ING_CASSINI/data
+   chmod g+w $ING_CASSINI/data/data*${DATE_ING}*.xml
+
+   Recuperer le numero d'ingestion pour CR
+
+   Apres le transfert, deplacer les fichiers dans apres_acquisition
+   mv $LIV_CASSINI/data/data*${DATE_ING}*.xml $AFT_CASSINI/data
+
+=> Archiver les comptes-rendu
+
+   cd $HOME/CASSINI_RPWS/suivi
+   rm creer_descr*.log
+
+   read YY?'date (yyyy) : '
+
+   TAR_EXPL=archives/exploit_CDPP_N2_${YY}.tar
+   tar cvf ${TAR_EXPL} $(grep -l "exploitation  = '${YY}" CR*_CDPP_N2*)
+   gzip ${TAR_EXPL}
+
+   du -hs archives/*_${YY}*
+   rm $(grep -l "exploitation  = '${YY}" CR*_CDPP_N2*)
+
+=> Connexion au site des donnees sources
+
+   ftp pacci-relais
+   cephirinsv@kronos.obspm.fr
+   user rpwsCnes 4738AFBE284A7B7671DF10899A80D024
+   cd /Volumes/KronoRaid/rpws_data
+
+   ou
+
+   lsFtpKronos /Volumes/KronosRaid/rpws_data/Turn_on/lis
+
+##= END
+#######
+
+##= Otari
+#########
+
+=>  Generalites
+
+    Executable sous valdo\08_Utilitaires_Outil\Otari
+
+    java -jar otari-2.0.jar
+
+##= END
+#######
+
+##= SAUVEGARDE
+##############
+
+=> API_CDPP
+
+   SVN url = svn://srv-svn.silogic.fr/svn/API_CDPP.svn/trunk
+
+##= END
+
+##= SGC
+#######
+
+=> /home/sgc/projet/sgds/vdlib/rec
+
+=>Voir VDLIB
+
+##= END
+
+##= SIPAD-NG
+##= SNGP_CDPP
+#############
+
+=> Acces au Sipad de prod :
+   Ingestion : https://132.149.11.9:7015/adminCdpp (nomp)
+   commande : http://132.149.11.139/cdpp/login.do (nom)
+
+   ingestion : trait-op5-ci (prodcdpp)
+      /home/sipad/sng1cdpp/services/ingestion
+
+=> Acces au SIPAD de qualif
+
+   https://132.149.11.9:7016/sipproj4Admin/initUser.do (silogic_adm)
+   http://132.149.11.50:9050/sipproj4Cdpp/startPage.do (silogic)
+
+   ingestion : trait-op5-ci (sipngrec/sipngrec_ng)
+      /home/user3/ctpsvd/sipproj4/services/ingestion
+
+   logs :
+     /home/user3/ctpsvd/sipngrec/services/logs/ingestion.log
+     /home/user3/ctpsvd/sipngrec/services/logs/command.log
+
+=> Acces au SIPAD CDPP (Pre-PROD)
+
+   https://132.149.11.9:7140/adminCdpp (nomp)
+   http://132.149.11.50:9380/sngpCdpp
+
+   ingestion : trait-op5-ci (prodcdpp)
+      /home/sipad/sngpcdpp/services/ingestion
+
+   logs :
+     /home/sipad/sngpexp/services/logs/ingestion.log
+     /home/sipad/sngpexp/services/logs/command.log
+
+=> l'ingestion automatique
+
+   se connecter avec son user sur trait-op5-ci (prodcdpp)
+   cd /home/sipad/sng1cdpp/ingest/bin
+   
+   # Controler les process en cours
+   ps -fu sng1exp | grep sip.c
+   => -Dsip.c=ingestion et -Dsip.c=delivery
+
+   # Controle des logs
+   tail -50 /home/sipad/sng1cdpp/ingest/logs/ingestion.log
+
+   # Arreter le client d'ingestion
+   stop_client_ingestion ingestion 
+   ls -R /home/sipad/sng1cdpp/services/ingestion/automated
+   ls -R /home/sipad/liv_cdpp/livraison/stereo/auto/data
+
+   # Lancer une ingestion ponctuelle
+   start_client_ingestion
+
+   # Demarrer le client d'ingestion automatique
+   at midnight 
+   start_client_ingestion
+   <CTRL-D>
+   
+=> Preparer l'ingestion
+
+   Verifier ou Copier les fichiers sous 
+     /home/sipad/liv_cdpp/livraison/cluster/data
+   ou 
+     /home/sipad/liv_cdpp/livraison/cluster/browse
+
+   transferer les fichiers sur l'espace d'ingestion :
+   se connecter avec le user sur trait-op5-ci (prodcdpp)
+   les copier sur /home/sipad/sng1cdpp/services/ingestion/manual/...
+   
+   Pour browse, les fichiers doivent etre detares et 
+   posseder les repertoires rep_image et rep_doc
+   rep_image et les browses doivent etre selectionnes ensembles
+
+   Apres le transfert, deplacer les fichiers dans 
+      /home/sipad/liv_cdpp/apres_acquisition/cluster/data ou browse
+
+    Les fichiers tar ne sont pas sauvegardes
+
+=> Valider l'ingestion
+
+   Se connecter (mozilla) sur le serveur SIPAD-NG
+   http://132.149.11.9:7015/adminCdpp (cephirinsv/vc001)
+   Selectionner les fichiers a ingerer et soumettre
+   
+   Commander des donnees pour verification :
+   http://132.149.11.139/cdpp/login.do (cephirins/vc001)
+
+=> En cas de problemes :
+
+   Se connecter sur trait-op5-ci (prodcdpp)
+   Recherche les erreurs dans la log sous :
+   /home/sipad/sng1cdpp/ingest/logs/ingestion.log
+
+   voir aussi 
+   /home/sipad/sng1cdpp/ingest/logs
+
+=> CEH, entetes, headers
+
+   Les entetes doivent etre deposes sur le serveur archcdpp@trait-op5-ci
+   dans le repertoire additionnal_data/<NODE>
+
+   Archiver le fichier dans le STAF
+
+=> Exemple de graphes : Voir CASSINI_RPWS sur prodcdpp
+
+   Les entites doivent etre crees en premier.
+   Viennent ensuite les collections.
+   Les graphes qui representent le mapping viennent en dernier.
+
+   Les scripts xml doivent etre au meme endroit que les scripts html et rep_doc
+
+   Ordre de passage des scripts :
+
+   doc_desc_CASSINI.xml
+   sh_entity_CASSINI.xml
+
+   data_set_CASSINI_RPWS.xml
+   browse_set_CASSINI_RPWS.xml
+
+   doc_coll_CASSINI_RPWS.xml
+   data_coll_CASSINI.xml
+   browse_coll_CASSINI.xml
+
+   doc_graphe_CASSINI.xml
+   data_graphe_CASSINI.xml
+   browse_graphe_CASSINI.xml
+
+   exemple de scripts de delete :
+
+   delete_doc_desc_CASSINI.xml
+   delete_browse_graphe_CASSINI.xml
+   delete_data_graphe_CASSINI.xml
+   delete_doc_graphe_CASSINI.xml
+
+   Note pour les documents et logiciels :
+
+   Si le nom du fichier tar est de la forme LIVRAISON_nnn.tar, il est automatiquement detarer lors de la navigation dans le SIPAD.
+
+##= END
+#######
+
+##= SSALTO
+##= ACQUISITION - ARCHIVAGE
+##= LOT2
+##########
+
+=> Connexion voir :
+   memo env salto
+   ora_sip4arch
+
+=> STAF
+=======
+   stafcon -open -prj gf_sgds -pw sip4arch00
+
+   stafnod -locate -n /cassini/rpws/hfr
+   lsStaf -c cdpp_n2
+   lsStaf -c catalogue
+
+   stafnod -locate -n /cluster/hte_resol/whisper/solution1
+   dirStaf .
+   
+   stafcon -close
+
+   # Configuration du STAF
+   ./services/archiving/conf/sipad/externalSystems/archiving/staf/STAFConfiguration.xml
+
+=> BD
+=====
+   sqlplus sip4arch_dba/ora_sipng101@REC10G
+   set pagesize 400
+   set linesize 80
+
+   # table des fournitures
+   desc tm_file
+   select * from tm_file;
+
+   # table des xml a ingerer
+   desc t_desc_action
+   select dataset_name, desc_action_date,
+          file_concerned , c.meaning type,
+          b.meaning status
+          from t_desc_action a, 
+            t_enum_desc_action_status b, 
+            t_enum_desc_action_type c
+   where b.enum_desc_action_status_id = a.desc_action_status
+   and   c.enum_desc_action_type_id = a.desc_action_type
+   order by desc_action_date;
+
+   # table des fichiers livres
+   select a.mfile_id, c.mproduct_name, a.file_name,  b.meaning status
+   from t_file a, t_enum_file_status b, tm_file c
+   where b.enum_file_status_id = a.file_status
+   and c.mfile_id = a.mfile_id
+   order by c.mproduct_name, a.file_id;
+
+   # liste des plugins
+   select * from t_plugin;
+
+=> SIPAD
+========
+   URL admin
+   https://132.149.11.9:7016/sipproj4Admin/initUser.do
+
+   URL commande
+   http://132.149.11.50:9050/sipproj4Cdpp/startPage.do
+   Noeuds :
+         DA_TC_CAS_RPWS_HFR_CDPP_N2
+         DA_TC_CAS_RPWS_HFR_NATIVE_N1
+         DA_TC_CAS_RPWS_HFR_NATIVE_N2
+         DA_TC_CAS_RPWS_HFR_MODE_LIST
+         DA_TC_C1_WHI_ACTIVE
+
+   Logs :
+      $HOME/services/logs/acquisition.log
+      $HOME/services/logs/archiving.log
+      $HOME/clients/logs/acquisitionClient.log
+      $HOME/clients/logs/catalogUpdateClient.log
+      $HOME/clients/logs/logarchivingClient.log
+      $HOME/outils/ssaltoBugToaster/bugToaster.log
+
+=> archive locale
+=================
+   /home/user3/ctpsvd/sipproj4/services/online_archive
+
+   ## Purge archive locale
+   cd $HOME/outils/ssaltoBugToaster
+   acquisition.sh requests/acquisition/Purge_archive_locale.xml response.xml
+   cd -
+
+=> Arret / demarrage des services serveurs
+==========================================
+   consulter : // ATTENTION : archivi n'apparait qu'apres consultation depuis "archive history" de l'IHM
+      ps -fu sip4arch | grep rmi
+      ps -fu sip4arch | grep Dsip.s
+
+   cd $HOME/services/rmidLauncher
+   start_rmi_server.ksh [stopServer]
+
+   cd $HOME/services/acquisition
+   ant -f startRmiAcquisitionService.xml [stopServer]
+
+   cd $HOME/services/archiving
+   ant -f startRmiArchivingService.xml [stopServer]
+
+=> Arret / demarrage des services clients
+=========================================
+   ps -fu sip4arch | grep Dsip.c
+
+   ## Acquisition automatique (laisser le service actif)
+   ## Le parametre de periode est sur chaque fourniture
+   cd $HOME/clients/acquisitionClient
+   ## Demarrer :
+      ant -f acquisitionClient.xml
+      sleep 10
+   ## Arreter :
+      $HOME/clients/stopClientSsalto.ksh acquisition
+   cd -
+
+   ## Catalogue update
+   cd $HOME/clients/catalogueUpdate
+   ## Demarrer : 
+      ant -f catalogueUpdateClient.xml
+      sleep 10
+   ## Arreter : 
+      $HOME/clients/stopClientSsalto.ksh catalogueUpdate
+   cd -
+
+   ## archive STAF (long time)
+   cd $HOME/clients/archivingClient
+   ## Demarrer : 
+      ant -f archivingClient.xml
+      sleep 10
+   ## Arreter : 
+      $HOME/clients/stopClientSsalto.ksh archiving
+   cd -
+
+=> Suppression d'un produit
+===========================
+   Depuis l'IHM -> "File Selection" : "File State = ARCHIVED 
+
+=> Parametrages des services
+============================
+   # Redemarrer les services apres modification des parametres
+
+   Parametres d'acquisition
+      $HOME/services/acquisition/conf/ssalto/service/acquisition/acquisition.properties
+
+   Parametres du catalogUpdate
+      $HOME/clients/catalogueUpdate/conf/ssalto/client/updateCatalogue/catalogueUpdateProperties.xml
+
+   Parametres d'archivage :
+      $HOME/services/archiving/conf/ssalto/service/archiving/archiving.properties
+   Parametres de l'archive locale :
+      $HOME/services/acquisition/conf/ssalto/service/common/repository/serviceRepositoryProperties.xml
+      
+   Parametres des plugins :
+      $HOME/services/acquisition/conf/ssalto/domain/plugins/impl/tools/*_PluginConfiguration.xml
+
+   Parametres d'archivage, notamment tailles min et max :
+      $HOME/services/archiving/conf/sipad/externalSystems/archiving/staf/STAFConfiguration.xml
+
+=> Fournitures
+==============
+   cd $HOME/outils/ssaltoBugToaster
+
+   creer un fichier fourniture, ex :
+      requests/acquisition/fourniture*xml
+
+   ingerer la fourniture :
+      acquisition.sh requests/acquisition/fourniture_cass_rpws.xml response.xml
+
+   supprimer une fourniture :
+
+   lister les fournitures (voir aussi IHM) :
+      acquisition.sh requests/acquisition/getAllSupplies.xml response.xml
+
+=> Plugins
+==========
+
+   # fichiers de configuration des plugins (par defaut ProductMetaDataPlugin) :
+   # sous $HOME/services/acquisition/conf/ssalto/domain/plugins/impl/tools
+   # pluginConfiguration.properties
+   # <DATASET>_PluginConfiguration.xml
+
+   # Declarer un nouveau plugin 
+   cd $HOME/outils/ssaltoBugToaster
+
+   creer le nouveau xml d'ingestion du plugin sous :
+      requests/acquisition/monPlugin.xml
+
+    ingerer le plugin :
+      acquisition.sh requests/acquisition/monPlugin.xml response.xml
+
+    # Liste des plugins crees :
+    SELECT * from T_PLUGIN;
+
+=> Packages d'installation
+==========================
+   /home/sgc/projet/sgds/sipad_ng/exp/4.7
+
+##= END
+#######
+
+##= SOUNDING-TIMES
+##################
+
+=> Preparation des donnees : 
+
+   A la reception d'un mail, recuperer les donnees :
+
+   Se connecter sur archcdpp@trait-op5-ci
+   cd $HOME/transfert_whi/SOUNDING-TIMES
+
+   ftp pacci-relais
+       nomp@lpc2e.cnrs-orleans.fr
+       user anonymous cnes.fr
+
+   Repartir les donnees dans des rertoires par annee (*.cef.gz)
+
+=> Production des donnees
+
+   Connexion sur trait-op5-ci (whi_caa)
+   
+   Produire les donnees pour 1 mois (ex: janvier 2011) :
+      DateExpl=201101
+      cd $HOME/script
+      PREPARER_DONNEES_SOUNDING-TIMES -d ${DateExpl}    
+   
+=> controler les donnees archivees
+
+   DateExpl=201101
+   stafcon -open -prj gf_plasma -pw <standard>
+   stafnod -locate -n /cluster/hte_resol/whisper
+
+   lsStaf -c -k  sounding_times/c1/C1_CP_WHI_SOUNDING_TIMES__${DateExpl}@
+   lsStaf -c -k  sounding_times/c2/C2_CP_WHI_SOUNDING_TIMES__${DateExpl}@
+   lsStaf -c -k  sounding_times/c3/C3_CP_WHI_SOUNDING_TIMES__${DateExpl}@
+   lsStaf -c -k  sounding_times/c4/C4_CP_WHI_SOUNDING_TIMES__${DateExpl}@
+
+   lsStaf -c -k  catalogues/DATA_OBJECTS_WHISPER_SOUNDING_TIMES_${DateExpl}@
+   lsStaf -c -k  catalogues/CATAL_WHISPER_SOUNDING_TIMES_${DateExpl}@
+   
+   stafcon -close
+
+=> Ingestion des donnees au SIPAD-NG
+   Voir SIPAD-NG
+   
+   Verifier la presence de fichiers xml dans 
+   /home/sipad/liv_cdpp/livraison/cluster/data
+
+=> Prevenir le lpc2e que tout est OK.
+
+##= END
+#######
+
+##= STAF
+########
+
+=> Notes : 
+   Changement de mot de passe a la connexion : 
+      stafcon -open -prj gf_plasma -pw <oldpwd>//<newpwd>//<newpwd>
+
+=> Liberer les ressources
+   killMDT
+
+=> macros commandes
+   lsStaf
+   dirStaf
+   duStaf
+
+=> Commandes usuelles :
+   
+   @ represente un joker. Il ne peut etre utiliser qu'en fin
+
+   stafcon -open -prj gf_plasma -pw <pwd>
+   stafnod -where
+   stafnod -list [-n <node>] [-d <profondeur 0-7>]
+   stafnod -locate -n <node>
+
+   stafprj -list   # consultation des attributs du projet
+   stafusp -list   # consultation de l'USP
+   stafper -list   # consultation des droits d'acces
+
+   staffil -list -f <file[@]> -att [ATT]
+   staffil -list -n <node> -att [ATT]
+      avec ATT : FMT DF PSC SCC SIZE ORIGIN_OS CRE_DATE ARC_DATE ARC_USP RET_DATE MODIF_DATE ALL
+
+   staffil -list -att PSC SIZE -f <node/file[@]> # voir la classe et la taille
+
+   staffil -exist -f <file[@]>
+   staffil -exist -fn <file[@]> [-n node] [-d <profondeur 0-7>]
+   staffil -retrieve -stf <file ...> [-tn mdt_nod] [-rep y/n] [-asy y/n]
+   staffil -archive -stf <file ...> [-tn mdt_nod] [-rep y/n] -psc CS3
+   staffil -modify -stf <oldfile> <newfile>
+   staffil -delete -f <file ...> [-cnf y/n] [-d <profondeur 0-7>]
+   staffil -delete -n <node> [-cnf y/n]
+   
+   # Creation / Suppression d'un noeud (avec privileges)
+   stafnod -create -n <node>
+   stafnod -delete -n <node>
+
+   stafcon -close
+
+=> Lister les fichiers et leur taille
+
+   staffil -list -f <node/file[@]> -att SIZE | nawk -F"'" '
+      BEGIN {nbFiles=0;tailleFiles=0;}  /^FILE=/ {
+         nbFiles++;
+      };
+        /^ SIZE/ {
+         sub(" *$", "", $2);
+         tailleFiles+=$2;
+      };
+      END {print nbFiles, "fichiers", tailleFiles, "Ko"}'
+
+# END
+#####
+
+##= STAFF_SA
+############
+
+=> Notes : voir le fichier STAFF_SA/conf/staff_sa.cfg
+   Repertoire de depot LESIA : /data/ctpsvd/sta_sa
+   Les donnees sont produites 1 fois par mois (A reception du mail)
+   Le repertoire STAFF_SA/utils contient les outils de cryptage
+
+=> Production des donnees
+
+   Connexion sur trait-op5-ci (sta_sa)
+
+   Verifier le fichier ~/STAFF_SA/conf/staff_sa.cfg (notamment le pwd)
+   Verifier la presence des donnees sous /data/ctpsvd/sta_sa
+
+   Lancer la production :
+      cd ~/STAFF_SA/script
+      PREPARER_DONNEES_STAFF_SA
+
+   On peut aussi lancer la production :
+   nohup PREPARER_DONNEES_STAFF_SA &
+   Afin de ne pas interrompre la commande en cas de perte de connexion
+
+
+   Suivre la production :
+      cd ~/STAFF_SA/suivi
+      tail -f CR_PREPARER_DONNEES_STAFF_SA_yyyymmdd_*
+      /* yyyymmdd est la date de lancement de la commande */
+
+=> Controler l'archivage des fichiers au STAF
+
+      cd ~/STAFF_SA/suivi
+      checkStaff.sh yyyymm
+
+   ou 
+   stafcon -open -prj gf_plasma -pw <standard>
+   
+   Verifier les catalogues et XML :
+      stafnod -list -n /cluster/hte_resol/staff_sa/catalogues | grep yyyymm
+
+   Verifier les donnees STAFF_SA (1 noeud par satellite x produit)
+      stafnod -list -n /cluster/hte_resol/staff_sa/caa/[C1 a C4]/[AGC|PSD|SM]
+
+   stafcon -close
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Verifier la livraison au SIPAD-NG du fichier : 
+      data_objets_STAFF_SA_<date_debut>_<date_fin>_<1er>_<dernier_objets>.xml   
+      ls /home/sipad/liv_cdpp/livraison/cluster/*
+
+   Ingerer les donnees : Voir SIPAD-NG
+
+=> Nettoyer l'extension dmf /data/ctpsvd/sta_sa (rm -f *yyyymm*)
+   Envoyer un mail a Veronique Bouzid pour signaler la fin
+
+=> Mettre a jour la doc d'exploitation, l'archiver sur VALDO et envoyer un mail a Francoise
+
+##= END
+#######
+
+##= STEREO
+##########
+
+=> Notes :
+   Periodicite : Hebdomadaire dans la nuit de mercredi a jeudi
+
+=> Production des donnees
+
+   Pre-requis :
+      Controler les connexions du STAF, pacci-relais, archcdpp  avec
+         $HOME/STEREO/utils/testConnexions.sh
+
+   execution par crontab
+
+=> Controler la production et l'ingestion tous les jeudi matin
+   Faire un compte rendu et le mettre sur VALDO
+
+   Connexion sur trait-op5-ci (cdpp_tra)
+
+   voir aussi doc :
+      docs cnes_archivage_stereo.txt
+
+=> REPRISE
+
+   # Verifier dans le CR : "Preparation des donnees pour le mode (R)eprise"
+
+   # Lancer le mode reprise
+   cd $HOME/STEREO/script
+   PREPARER_DONNEES_STEREO R
+
+   # Puis lancer en mode normal pour traiter les autres donnees
+   PREPARER_DONNEES_STEREO
+
+   # L'ingestion automatique terminera la reprise
+
+=> maj du compte rendu
+
+   Connexion sur trait-op5-ci (cdpp_tra)
+
+   # Verifier le compte-rendu
+   cd $HOME/STEREO/compte-rendus
+   ls *cr
+   ../utils/prepStats <fileCR>
+   ../utils/prepStats $(ls *cr | tail -1)
+
+   # 4 - Editer le compte-rendu et modifier l'en-tete
+     4.1 - les dates de la periode d'exploitation (ajouter 7 jours a date debut et date fin pour PRE et DEF)
+     4.2 - la date de livraison
+     4.3 - la date d'exploitation
+     4.4 - Le nom de l'exploitant
+     4.5 - le numero d'ingestion
+   5 - Modifier les dates des fichiers:
+     5.1 - Tableaux DEF et PRE -> Ajouter 7 jours a la date de la 1ere ligne (cases A10, A20-> mises a jour auto des autres dates)
+     5.2 - Tableau SPD -> Ajouter 7 jours a la date pour les cases A31 et A32 (a priori pas de modif sur la case A30 il ne devrait pas y avoir de fichier 27J, si c'est le cas mettre la date correspondat au fichier et mettre 1 en case K30)
+     5.3 - Tableau des dereferences -> Ajouter 7 jours a la date pour la case A46
+     5.4 - Tableau des suppression -> Ajouter 7 jours a la date pour la case A59
+   6 - Faire un search/replace Excel et remplacer 2012S(xx-1) par 2012Sxx (MAJ des infos metriques SIPAD)
+
+   # Lancer metriques.sh
+      ssh archcdpp@trait-op5-ci
+      cd /home/CDPP/archcdpp/format_natif/stereo/swaves
+      metriques.sh
+
+   12 - Verifier que les dates de fichier indiquees (Debut="STA_WAV_LFR_YYYYMMDD_PRE_B3E") correspondent bien a la derniere date des objets supprimes + 1 jour (case A65)
+   13 - Si tout est OK faire les copies d'ecran SIPAD (data et browse) et reporter les metriques SIPAD dans le tableau (case C75 a AQ75)
+   14 - Verifier que les metriques ligne 74 et 75 sont egales
+   15 - Valider les browses sur le SIPAD (ie faire afficher les 8 fichiers, verifier les dates debut et fin ,afficher au moins 1 en grande resolution)
+   16 - Commander les donnees (commande de la date debut et de la date de fin, attention ce ne sont pas les memes pour DEF et PRE)
+   17 - Si tout est OK, publier le CR sur serveur ZOPE, prevenir besson, duf ,dd , doume et exploitcdpp de la parution du CR
+
+##= END
+#######
+
+##= WHISPER
+###########
+
+=> Notes : 
+      Lorsque le mot de passe change, modifier les scripts exec_ndays et exec_oneday sous $HOME/EXPLOIT
+      Lorsque un semestre debute, modifier le tableau de bord et voir les procedures d'archivage et nettoyage.
+      les variables et parametres d'environnement sont dans $HOME/WHISPER/outil/livraison/cree_env.ksh
+
+=> Production des donnees
+
+   Connexion sur trait-op5-ci (whi_caa)
+   
+   Produire les donnees pour 1 mois :
+      cd $HOME/EXPLOIT
+      # Verifier les parametres de exec_ndays, Notamment le 2eme parametre (semestre du mois traite).
+      # Modifier pour completer le mois en cours et executer launch_exec_ndays
+      
+       nohup launch_exec_ndays &
+       
+   Produire les donnees pour 1 journee :
+      cd $HOME/EXPLOIT
+      Verifier les parametres de exec_oneday.
+      exec_oneday yyyymmdd
+   
+   Suivre la production :
+     logWhisper -f
+      
+   Verifier les CR :
+     Dans le cas nominal, 6 fichiers archives x 4 satellites x nb jours
+     $HOME/WHISPER/outil/script/checkWhisper 200503
+     
+   Verifier la coherence des Tableaux de bords : 
+      http://www.whisper.cnrs-orleans.fr/TDB/tdb.html
+   et sous firefox : 
+      file:/home/user3/ctpsvd/whi_caa/WHISPER/TDB/TDB_Whisper_caa_1_2005.html
+   
+   Verifier les logs des fichiers zip produits
+
+   Prevenir par mail le LPC2E (whisper@cnrs-orleans.fr)
+
+   Mettre a jour le CR d'exploitation
+   
+   * Pour relancer la production de certains jours :
+      cd $TDB_PATH
+
+      editer le fichier txt correspondant au semestre : 
+         vi TDB_Whisper_caa_1_2005.txt
+
+      remplacer les lignes pour les dates concernees par :
+          "20050627!`_traiter! ! "
+
+      supprimer les fichiers correspondant de $INVALIDE_PATH ...
+      relancer la procedure de production
+
+=> Transfert des donnees (Apres validation du LPCE)
+
+   Notes : Des donnees precedentes peuvent etre presentes (jusqu'a 3 mois)
+      dans $VALIDE_PATH, utiliser le filtre yyyymm pour les etapes suivantes.
+
+   Connexion sur trait-op5-ci (whi_caa)
+   
+   lorsque les donnees produites sont validees par le LPCE (a reception du mail),
+   transfert automatique : 
+      cd $HOME/WHISPER/outil/script
+      transfert_valide_whisper
+   
+   transfert manuel :
+      Si des donnees sont invalides ou a_valider (checkWhisper 200503)
+      transferer ces dernieres pour chaque fichier
+
+      cd $HOME/WHISPER/outil/script
+         transfert_whisper yyyymmdd valide $A_VALIDER_PATH $VALIDE_PATH
+         transfert_whisper yyyymmdd valide $INVALIDE_PATH $VALIDE_PATH
+         transfert_whisper yyyymmdd en_attente $A_VALIDER_PATH $VALIDE_PATH
+      Valide un fichier relivre
+         transfert_whisper yyyymmdd valide $TAMPON_PATH $VALIDE_PATH
+      Passe de valide -> invalide
+         transfert_whisper yyyymmdd en_attente $A_VALIDER $INVALIDE_PATH
+      Abandonne le fichier
+         transfert_whisper yyyymmdd abandonne $INVALIDE_PATH
+
+=> Archivage des donnees au STAF (Apres le transfert des donnees)
+
+   Connexion sur trait-op5-ci (whi_caa)
+
+   Recupere la date de dernier archivage : 
+      cd $HOME/EXPLOIT
+      compter_date_valide.sh
+
+   Verifier la liste des fichiers dans $VALIDE_PATH
+
+   lancer l'archivage :
+   cd $HOME/WHISPER/outil/script
+   archivage_whisper gf_plasma <standard> <date de dernier archivage>
+   
+=> controler les donnees archivees
+
+   DateExpl=201101
+   stafcon -open -prj gf_plasma -pw <standard>
+   stafnod -locate -n /cluster/hte_resol/whisper
+   lsStaf -c -k  caa/${DateExpl}@
+
+   lsStaf -c -k  catalogues/DATA_OBJETS_MONITEUR_WHISPER_@
+   lsStaf -c -k  catalogues/CATAL_MONITEUR_WHISPER_@
+
+   stafcon -close
+
+   note : catalogues = data_objet... et catal_moniteur...
+
+=> Envoie du tableau de bord au LPCE (pubTdbWhisper)
+   
+  Notes : Cette etape est faite par le script de production des donnees.
+
+   Connexion sur trait-op5-ci (whi_caa)
+   
+   Copier le tableau de bord au format : 
+      cd $TDB_PATH
+      ls -rt *caa_?_20??.html | tail -1 | read tdbName
+      tdbNameCible=${tdbName%.html}_$(date +"%Y%m%d_%H%M").html
+      cp $tdbName $tdbNameCible
+
+   Se connecter au pacci-relais :
+      ftp pacci-relais
+      Name : cephirinsv@lpce.cnrs-orleans.fr
+      pwd : <standard>
+      user anonymous cnes.fr
+      cd /projects/whisper/incoming
+      bin
+      put $tdbNameCible
+      quit
+
+=> Envoie des donnees au CAA a travers le pacci-relais
+
+   Connexion sur trait-op5-ci (whi_caa)
+
+   Ouverture d'une session sur le CAA : 
+      telnet pacci-relais (cephirinsv)
+      Host : /ssh @caa-delivery.estec.esa.int
+      pwd : <standard>
+
+   Ouverture d'une 2eme session sftp
+      cd $VALIDE_PATH
+      sftp whisper@pacci-relais
+
+    Accepter la connexion sur la premiere session.
+
+    Saisir le pwd (louis16th)
+
+    Transferer les fichiers :
+       cd CEF
+       mput 200502*
+
+    Verifier les fichiers :
+       ls -l
+
+    Terminer la connexion de la 1ere session
+       q
+       /end
+
+    Terminer la connexion de la 2eme session
+       quit
+
+    # Envoyer un mail a Delphine Herment (caateam@rssd.esa.int)
+
+    Supprimer les fichiers au retour OK par mail.
+       cd $VALIDE_PATH
+       rm 200503*
+    # Terminer le compte-rendu et envoyer un mail a Dominique Delmas
+
+=> Ingestion des donnees au SIPAD-NG
+   Voir SIPAD-NG
+   
+   Verifier la presence de fichiers xml dans 
+   /home/sipad/liv_cdpp/livraison/cluster/data
+
+   cd /home/sipad/liv_cdpp/livraison/cluster/data
+   su prodcdpp
+   cp *.xml /home/sipad/sng1cdpp/services/ingestion/manual/cluster/data
+   exit
+
+   # Ingerer les deletes puis les data
+
+   cd /home/sipad/liv_cdpp/livraison/cluster/data
+   mv data_objets_moniteur_whisper_*.xml /home/sipad/liv_cdpp/apres_acquisition/cluster/data
+
+=> Nettoyage et Archivage (par semestre)
+
+   Archiver les fichiers logs ($LOG_PATH) : 
+
+      cd $LOG_PATH
+      read sem?'semestre (1 ou 2) : '
+      read annee?'annee (yyyy) : '
+
+      tar cvf log_file_semestre_${sem}_${annee}.tar log_file_${annee}*.txt
+      tar cvf HK_file_semestre_${sem}_${annee}.tar HK_file_${annee}*.txt
+
+   Envoyer les archives au STAF : 
+
+      stafcon -open -prj gf_plasma -pw <standard>
+      stafnod -locate -n /cluster/hte_resol/whisper/exploitation
+
+      cd $LOG_PATH
+      staffil -archive -stf log_file_semestre_${sem}_${annee}.tar -psc CS1
+      staffil -archive -stf HK_file_semestre_${sem}_${annee}.tar -psc CS1
+   
+      cd $TDB_PATH
+      staffil -archive -stf TDB_Whisper_caa_${sem}_${annee}.html -psc CS1
+      staffil -archive -stf TDB_Whisper_caa_${sem}_${annee}.txt -psc CS1
+
+      stafcon -close
+
+   Supprimer les fichiers logs  et les TDB journaliers:
+
+      cd $LOG_PATH
+      rm log_file_${annee}*.txt HK_file_${annee}*.txt
+
+      cd $TDB_PATH
+      rm TDB_Whisper_caa_${sem}_${annee}_*.html
+
+   Generer le nouveau tableau de bord : 
+      cd $EXE_PATH
+      init_tdb.pl yyyy s
+
+   Modifier les semestre des scripts exec* sous ~/EXPLOIT
+
+=> Mise en place d'une nouvelle version du logiciel :
+
+   # Mettre a jour le $HOME/.profile
+   export versionPrec=3.02
+   export versionCurr=3.03
+
+   Recuperer la version souhaite :
+   cd ~/LIVRAISON
+
+   Se connecter au pacci-relais :
+      ftp pacci-relais
+      Name : cephirinsv@lpce.cnrs-orleans.fr
+      pwd : <standard>
+      user anonymous cnes.fr
+      cd /projects/whisper/pub/(logicielCAA_livraison | akka )
+      bin
+      get livraison_[Vv]${versionCurr}.tar.gz
+      quit
+
+   cd ~/WHISPER/outil
+   mv livraison livraison_${versionPrec}
+   gunzip -c ~/LIVRAISON/livraison_[vV]${versionCurr}.tar.gz | tar xvf -
+
+   renommer la livraison si necessaire :
+      mv livraison_[vV]${versionCurr} livraison
+
+   cd livraison
+
+   s'assurer de la copie de la libz.a sous CAAtools/lib
+   s'assurer de l'existence des rep log_file et exe sous ARCHIVE
+
+     ls CAAtools/lib
+     ls ARCHIVE
+
+   Optionnel : purge des fichiers SCCS :
+      find . -name SCCS -exec rm -rf {} \;
+
+   Copier les fichiers 
+      chmod ug+w ./cree_env.ksh
+      chmod ug+w ARCHIVE/sh/find_date_rep.sh
+      cp cree_env.ksh cree_env.ksh.orig
+      cp ARCHIVE/sh/find_date_rep.sh ARCHIVE/sh/find_date_rep.sh.orig
+      cp ../livraison_${versionPrec}/cree_env.ksh .
+      cp ../livraison_${versionPrec}/ARCHIVE/sh/find_date_rep.sh ARCHIVE/sh
+
+   Lancer la compilation :
+      . cree_env.ksh
+      make
+   
+   Supprimer la livraison n-2
+      cd ~/WHISPER/outil
+      ls
+      rm -rf livraison_<n-2>
+
+   Pour voir le Delta : 
+      cd ~/WHISPER/outil
+      diff -rq -x *.o -x *.bd livraison livraison_${versionPrec}
+
+=> retraitement, reprocess (du 01/02/2001 au 30/09/2007)
+
+   cd $HOME/WHISPER/CAA_reprocess
+   Verifier les parametres du fichier reproc.cfg
+
+   Le mot de passe STAF est crypte directement dans PREPARER_DONNEES_REPROC
+
+   Lancer l'application (PREPARER_DONNEES_REPROC) a l'aide de runBatch.sh
+
+   nohup runBatch.sh 20010201 20010202 20010203
+
+   logs dans 
+   ls -rt $HOME/WHISPER/CAA_reprocess/suivi
+
+##= END
+#######
+
+##= WHISPER CAVEATS
+##= CAVEATS
+###################
+
+=> Production des donnees
+
+   Connexion sur trait-op5-ci (whi_caa)
+
+   # Tester les connexions : 
+      cd $HOME/CAVEATS
+      testConnexions.sh
+
+   # Produire les donnees :
+      cd $HOME/CAVEATS/script
+
+      # via le pacci
+      PREPARER_DONNEES_WHI_CAVEATS -f /projects/whisper/pub/CDPP/...
+
+      # directement sur archcdpp
+      PREPARER_DONNEES_WHI_CAVEATS -d -f /whi_caa/...
+
+   # verifier la production
+      . $HOME/CAVEATS/conf/whi_caveats.cfg
+      stafcon -open -prj $PROJ_STAF -pw $PW_STAF
+      stafnod -locate -n /CLUSTER/HTE_RESOL/WHISPER/CAVEATS
+      lsStaf -c -k data
+      lsStaf -c -k catalogues
+      stafcon -close
+
+=> Ingestion des donnees au SIPAD-NG
+   Voir SIPAD-NG
+
+   Verifier la presence de fichiers xml dans
+   ls /home/sipad/liv_cdpp/livraison/cluster/data
+
+   cd /home/sipad/liv_cdpp/livraison/cluster/data
+   su prodcdpp
+   cp *CAVEATS*.xml /home/sipad/sng1cdpp/services/ingestion/manual/cluster/data
+   exit
+
+   # Ingerer les deletes puis les data
+
+   cd /home/sipad/liv_cdpp/livraison/cluster/data
+   mv *_WHI_CAVEATS_*.xml /home/sipad/liv_cdpp/apres_acquisition/cluster/data
+
+
+##= END
+#######
+
+##= VDLIB
+#########
+
+=> executer la commande sur calc-gen5-ci ou trait-op5-ci
+   vdlib         # Aide sur la comande
+   vdlib help    # Acces a la page d'accueil
+
+=> ~sgds_www/vdlib/livraison
+   ou /home/user5/ctpatd/sgds_www/vdlib/livraison
+
+=> Sous firefox : http://calc-gen5-ci:8123
+
+=> administration (sgds_www/lapom123@calc-gen5-ci)
+   page d'accueil : ~/apache/htdocs/bibliothequeVd.html
+   Les pages : ~/vdlib/pages_html
+
+   firefox file:///home/user5/ctpatd/sgds_www/apache/htdocs/bibliothequeVd.html&
+
+=> Chemin d'acces VDLIB a integrer dans le .profile
+
+export VDLIB_PATH=/home/user5/ctpatd/sgds_www/vdlib
+export PATH=$PATH:$VDLIB_PATH/executables
+export PATH=$PATH:$VDLIB_PATH/scripts
+export FPATH=$FPATH:$VDLIB_PATH/fonctions
+
+# Fonctions VDLIB pour le STAF
+. $VDLIB_PATH/fonctions/lsStaf
+. $VDLIB_PATH/fonctions/duStaf
+. $VDLIB_PATH/fonctions/dirStaf
+
+=> scripts disponibles ($HOME/vdlib/outils/utils)
+
+   putVdlib [-q] : livraison d'un outil avec mail (ou non (-q)) d'alerte
+   validManifest : validation du fichier manifest de livraison a la vdlib
+   createLinks : Publication d'un outil par la creation de liens
+   deleteLinks : Retire la publication d'un outil
+   deployTool  : Deploiement et publication d'un outil
+   deleteTool  : Suppression d'un outil
+   prep_vdlib_SGC : Preparation d'un version pour le SGC
+   
+=> exemple de procedure de livraison/publication/svn
+
+   putVdlib -q utils_v1_0.tar.gz # -q n'envoie pas de mail
+
+   Se connecter sgds_www@calc-gen5-ci
+   cd vdlib
+   ls livraison
+   deployTool utils_v1_0.tar.gz
+
+   #Note : on peut ajouter en parametre la liste des repertoires que l'on veut deployer
+
+   cd archives
+   putFtpSilo vdlib utils_v1_0.tar.gz
+
+    # a recuperer ensuite sur ftp.silogic.fr et le mettre sous svn
+
+=> Livraison au SGC (sgds_www@calc-gen5-ci)
+
+    # Une fois tous les outils deployes
+    
+    ls $HOME/vdlib/archives/SGC*
+    prep_vdlib_SGC v1.1 v1.0 # une version v0.0 existe pour la creation complete
+
+    # Repertoire de livraison au SGC
+    /home/sgc/projet/sgds/vdlib/rec
+
+    # Genere le checksum
+    module load md5sum
+    md5sum SGC_vdlib_v1.1.tar.gz > SGC_vdlib_v1.1.tar.gz.md5
+    cp SGC_vdlib_v1.1.tar.gz.md5 /home/sgc/projet/sgds/vdlib/rec
+    chmod ugo=rw /home/sgc/projet/sgds/vdlib/rec/*md5
+
+##= END
+#######
+
+##= Wrapper
+###########
+
+=> jdk1.5.0_06
+
+=> MinGW-3.2.0-rc-3.exe (make, gcc, gdb, ...)
+
+=> Configuration d'eclipse :
+   Eclipse 3.1.1
+      org.eclipse.cdt-3.0.2-win32.x86.zip
+      org.eclipse.cdt.sdk-3.0.2-win32.x86.zip
+      com.atlassw.tools.eclipse.checkstyle_4.0.1-bin.zip
+
+=> Creation d'un workspace
+   -> File -> "switch workspace..."
+      : Workspace = "D:\API_CDPP\Eclipse\workspace" => "OK"
+
+=> Importation du projet
+   -> File -> "Import..." -> "Existing projects into workspace" => Next
+
+=> Configuration du projet : "Project Propreties" -> "C/C++ Make Project"
+   -> "Make Builder" : "Build Command" = "C:\MinGW\bin\mingw32-make.exe"
+   -> "Binary Parser" : Cocher seulement "PE Windows Parser"
+
+
+=> Configuration du debugger : Run -> "Debug ..."
+   -> "C/C++ local application" => "New"
+      : Name = <nom conf.>
+      -> main
+         : "Project" = "wrapper" 
+         : "C/C++ Application" = <nom de l'exe a debugger>
+      -> Debugger
+         : Debugger = "GDB Debugger"
+         -> main : "GDB Debugger" = gdb
+
+##= END
+

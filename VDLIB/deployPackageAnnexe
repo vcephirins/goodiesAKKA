@@ -1,0 +1,105 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : deployPackageAnnexe
+#s*
+#s* ROLE :  publication de l'annexe
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES : 
+#s* SYNOPSIS :  
+#s*
+#s*****************************************************************************
+
+. utils.bash
+
+typeset vRepLivraison=${VDLIB_PATH}/livraison
+typeset MAIL_DEST="richard.moreno@cnes.fr"
+#typeset MAIL_DEST="v.cephirins@akka.eu"
+typeset MAIL_CC="exploitcdpp@akka.eu"
+
+typeset -l option=$1
+typeset -l reponse=y
+typeset -i NBfiles=0
+typeset -i NBtransfer=0
+typeset -i vDebug=0
+
+if [[ $option = '-q' ]]
+then
+   shift;
+   quiet="yes"
+else
+   quiet="no"
+fi;
+
+NBfiles=$#
+
+if [[ $NBfiles -le 1 ]]
+then
+   echo "Syntax : deployPackageAnnexe <package> <annexe>"
+   cd $vRepLivraison
+   find . -type f
+   fEndProc 999;
+fi
+
+vPackagePath=$1
+vAnnexeSrc=${vRepLivraison}/${2#${RepLivraison}/}
+
+vPackage=${vPackagePath##*/}
+vAnnexe=${vAnnexeSrc##*/}
+
+if [[ ! -r ${vAnnexeSrc} ]]
+then
+   fEndProc 1 "ERROR : FILE ($vAnnexeSrc) NOT FOUND";
+fi;
+
+# Cherche les infos en base
+# id_package |    package     |       annexe_name       | version | id_annexe |      path      |    type    | livraison
+#------------+----------------+-------------------------+---------+-----------+----------------+------------+-----------
+#         70 | WHISPER_v3_1_0 | WHISPER_v3_1.val.tar.gz |     3.1 |        34 | WHISPER_v3_1_0 | validation |
+
+echo "=> Recherche des infos en base"
+read vIdAnnexe vTypeAnnexe vPathAnnexe <<< $(pgsql -c getPackageAnnexe ${vPackage} ${vAnnexe} | awk -F";" '{print $5,$7,$6}')
+fError "pgsql getPackageAnnexe ${package} ${vAnnexe} Error !"
+
+if [[ "${vIdAnnexe}" == "" || "${vTypeAnnexe}" == "" ]]
+then
+   fEndProc 1 "ERROR : Annexe '$vAnnexe' not declared for Package '$vPackage'";
+fi;
+
+# Creation du path par defaut
+[[ "${vPathAnnexe}" == "" ]] && vPathAnnexe=${vPackage}
+
+echo "=> info : $vIdAnnexe    $vTypeAnnexe   '$vPathAnnexe'"
+
+# Creation du repertoire cible
+typeset vRepDest=${VDLIB_PATH}/annexes/packages/${vTypeAnnexe}/${vPathAnnexe}
+echo "=> Creation du repertoire cible : ${vRepDest}"
+mkdir -p ${vRepDest}
+fError "ERROR : impossible to create directory : ${vRepDest}"
+chmod a+rx ${vRepDest}
+fError "ERROR : chmod a+rx ${vRepDest}"
+
+# Copie de l'annexe pour la proprietes des droits
+echo "=> Copie de l'annexe ${vAnnexeSrc} -\> ${vRepDest}"
+cp ${vAnnexeSrc} ${vRepDest}
+fError "ERROR : cp ${vAnnexeSrc} ${vRepDest}"
+
+chmod 644 ${vRepDest}/${vAnnexe}
+fError "chmod 644  ERROR !"
+
+# Mise a jour de la date de livraison
+echo "=> Mise a jour de la date et du chemin de la livraison"
+pgsql -c updAnnexeDelivery ${vIdAnnexe} ${vRepDest##*/}
+fError "pgsql updAnnexeDelivery for ${tool} ${vAnnexe} Error !"
+
+# Suppression de la livraison
+rm ${vAnnexeSrc}
+fError "rm ${vAnnexeSrc}  ERROR !"
+
+echo "Annexe '${vAnnexe}' livre"
+fEndProc 0
+
+
+

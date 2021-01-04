@@ -1,0 +1,7 @@
+#!/bin/bash -f
+#
+
+ps -eo 'user tty pid ppid pcpu vsz time etime args' | 
+   awk '{if ($5 != "0.0") printf("%-.100s\n", $0);}' | 
+   sort -n -k 5 | head
+

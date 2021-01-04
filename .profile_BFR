@@ -1,0 +1,49 @@
+# Fichier .profile personnalise des parties communes
+#
+stty istrip
+stty erase 
+
+#Editeur de texte par defaut
+export EDITOR="nedit"
+
+export PS1=$(tput smso;printf '$LOGNAME on $HOSTNAME';tput rmso;echo ' $PWD\n\$ ')
+#export PS1=$(tput smso;echo '$LOGNAME on \c';echo "`hostname`\c";tput rmso;echo ' $PWD'"\n\r$ ")
+
+set -o emacs
+alias __A=`echo "\020"`
+alias __B=`echo "\016"`
+alias __Z=`echo "\017"` #Shift In : permet d'annuler l'effet du \016 (Shift Out)
+alias __C=`echo "\06"`
+alias __D=`echo "\02"`
+
+#unalias vi
+unalias ls 2>/dev/null
+alias ll='ls -l --color=auto -h'
+TERM=xterm
+
+export PATH=$PATH:/home/user3/ctpsvd/cdppexp/.bin
+
+case ${USER} in
+   cdppexp ) 
+             alias open='stafOpen plasma psvdo123'
+             alias opengf='stafOpen gf_plasma psvdo123'
+             ;;
+   cdppqual) 
+             alias open='stafOpen sgds psvdo456'
+             alias opengf='stafOpen gf_sgds psvdo123'
+             ;;
+   archcdpp) 
+             alias open='stafOpen plasma psvdo123'
+             ;;
+   *       ) 
+             alias open='stafOpen sgds psvdo456'
+             alias opengf='stafOpen gf_sgds psvdo123'
+             ;;
+esac
+
+alias close='stafClose'
+
+function calc() {
+    awk "BEGIN {print ($*);}"
+}
+

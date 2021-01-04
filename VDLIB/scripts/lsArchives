@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : lsArchives
+#s*
+#s* ROLE :  Liste les packages de l'archives
+#s*
+#s* AUTEUR : V. Cephirins (AKKA)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s* VERSION : 1.0  Creation
+#s* VERSION : 1.1  Ajout de deepArchives
+#s*****************************************************************************
+
+ls -t $VDLIB_PATH/archives/${1}* $VDLIB_PATH/deepArchives/${1}* 2>/dev/null | while read filename
+do
+   fileVersion=$(basename $filename)
+   echo $fileVersion
+done

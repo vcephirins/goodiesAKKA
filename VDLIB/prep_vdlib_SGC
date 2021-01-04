@@ -1,0 +1,282 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : prep_vdlib_SGC
+#s*
+#s* ROLE :  Prepare la package de livraison pour le SGC
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+# Chargement des fonctions de base
+. $HOME/vdlib/packages/utils/scripts/utils.bash
+
+function fSyntax {
+   name=$(basename $0)
+   echo "$name  <version courante> <version n-1>";
+   echo "   ex :   $name v1_1 v1_0";
+}
+
+# Control args
+NbArgs=$#
+
+if [[ $NbArgs -ne 2 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+version=$(expr ${1} : "[vV]\(.*\)" | tr '.' '_')
+versionPrec=$(expr ${2} : "[vV]\(.*\)" | tr '.' '_')
+export version=v${version}
+export versionPrec=v${versionPrec}
+export dateLivraison=$(date +"%d/%m/%Y");
+export versionLinux=$(uname -a)
+
+typeset pkgSgc=SGC_vdlib_${version}.tar.gz
+typeset pkgSgcPrec=SGC_vdlib_${versionPrec}.tar.gz
+
+typeset -x REP_HOME=$HOME/vdlib
+typeset -x REP_SGC=/home/sgc/projet/sgds/vdlib/rec
+typeset -x REP_TEMP=/tmp/${USER}/vdlib
+typeset -x REP_VDLIB=${REP_TEMP}/SGC_vdlib_${version}
+typeset -x REP_VDLIB_PREC=${REP_TEMP}/SGC_vdlib_${versionPrec}
+
+typeset -x LOG=$REP_TEMP/prep_vdlib_${versionPrec}_to_${version}.log
+typeset -x MODELE_DDC=$REP_HOME/packages/utils/DDC/ddc.txt
+typeset -x MODELE_REFERENCE=$REP_HOME/packages/utils/DDC/liste-reference.txt
+typeset -x MODELE_DELTA=$REP_HOME/packages/utils/DDC/delta-reference.txt
+typeset -x MODELE_MAIL_SGC=$REP_HOME/packages/utils/modele_mail_SGC.eml
+
+# Creation des repertoires de travail
+echo "=> Creation des repertoires temporaires"
+
+rm -rf $REP_TEMP >/dev/null 2>&1
+
+mkdir -p $REP_VDLIB_PREC
+fError "Repertoire temporaire '$REP_VDLIB_PREC' non cree!"
+
+mkdir -p $REP_VDLIB
+fError "Repertoire temporaire '$REP_VDLIB' non cree!"
+
+{
+# Deploiement de la version precedente
+echo "=> Deploiement de la version precedente"
+cd $REP_VDLIB_PREC
+fError
+
+vArchiveBase=archives
+ls $REP_HOME/${vArchiveBase}/$pkgSgcPrec 2>/dev/null
+if [[ $? -ne 0 ]]
+then
+   vArchiveBase=deepArchives
+   ls $REP_HOME/${vArchiveBase}/$pkgSgcPrec
+   fError "package '$REP_HOME/archives/$pkgSgcPrec' introuvable!"
+fi
+
+gunzip -c $REP_HOME/${vArchiveBase}/$pkgSgcPrec | tar pxvf - >/dev/null
+fError "Deploiement du package '$pkgSgcPrec' en erreur !"
+
+# Preparation de la version courante
+echo "=> Preparation de la version courante"
+cd $REP_VDLIB
+fError
+mkdir -p $REP_VDLIB/SRC $REP_VDLIB/DDC
+fError "Creation des repertoires SRC et DDC en erreur !"
+
+# Copies des sources de la version courante
+echo "=> Copies des sources de la version courante"
+cd $REP_VDLIB/SRC
+fError
+
+# Suppression de deepArchives de la livraison au SGC
+#tar pcvf - -C $REP_HOME --exclude='SGC_vdlib*' ./archives ./deepArchives ./annexes \
+tar pcvf - -C $REP_HOME --exclude='SGC_vdlib*' ./archives ./annexes \
+./packages/utils/bash_profile \
+./packages/utils/createLinks \
+./packages/utils/deleteLinks \
+./packages/utils/deletePackage \
+./packages/utils/deployPackage \
+./packages/utils/deployPackageAnnexe \
+./packages/utils/deployToolAnnexe \
+./packages/utils/pgsql \
+./packages/utils/prep_utils \
+./packages/utils/prepval_utils \
+./packages/utils/prep_vdlib_SGC \
+./packages/utils/retrievePackage \
+./packages/utils/testCallSys.c \
+./packages/utils/DDC \
+./packages/utils/SQL \
+ 2>/dev/null | tar xvpf - >/dev/null
+
+fError "Copie des sources en Erreur !"
+
+# Delta des packages
+echo "=> Delta des packages archives et des sources"
+cd $REP_VDLIB
+fError
+
+# Exemple de diff :
+# Files /tmp/vdlib/SGC_vdlib_v2_0/SRC/packages/utils/deleteLinks and /tmp/vdlib/SGC_vdlib_v1_9/SRC/outils/utils/deleteLinks differ
+# Binary files /tmp/vdlib/SGC_vdlib_v2_0/SRC/packages/utils/deleteLinks and /tmp/vdlib/SGC_vdlib_v1_9/SRC/outils/utils/deleteLinks differ
+# Only in /tmp/vdlib/SGC_vdlib_v2_0/SRC: packages
+# Only in /tmp/vdlib/SGC_vdlib_v2_0/SRC/packages/utils: deletePackage
+# Only in /tmp/vdlib/SGC_vdlib_v1_9/SRC/outils/utils: deleteTool
+   diff -rq $REP_VDLIB/SRC ${REP_VDLIB_PREC}/SRC 2>&1 | while read lineDiff 
+   do
+      # echo "=>$lineDiff"
+      read vCode vPathPkg <<< $(echo $lineDiff | awk '
+         /^Only in .*SGC_vdlib_'"${version}"'\/SRC/ {
+            gsub(".*/SRC/*", "", $3);
+            gsub(":", "", $3);
+            if ($3 == "") printf("+ %s\n", $4);
+            else printf("+ %s/%s\n", $3, $4);
+         }
+         /^Only in .*SGC_vdlib_'"${versionPrec}"'\/SRC/ {
+            gsub(".*/SRC/*", "", $3);
+            gsub(":", "", $3);
+            if ($3 == "") printf("- %s\n", $4);
+            else printf("- %s/%s\n", $3, $4);
+         }
+         /differ$/ {
+            vName=(tolower($1) == "binary")? $3 : $2;
+            gsub(".*/SRC/*", "", vName);
+            printf("* %s\n", vName);
+         }')
+
+      case $vCode in
+         +)
+            find ${REP_VDLIB}/SRC/${vPathPkg} \( -type f -or -type l \) | while read vNameFile
+            do
+               # echo "====>${vNameFile}"
+               echo "+ ${vNameFile#*SRC/} cree"
+            done
+            ;;
+         -)
+            find ${REP_VDLIB_PREC}/SRC/${vPathPkg} \( -type f -or -type l \) | while read vNameFile
+            do
+               # echo "====>${vNameFile}"
+               echo "- ${vNameFile#*SRC/} supprime"
+            done
+            ;;
+         *)
+            echo "* $vPathPkg modifie"
+            ;;
+      esac
+   done
+} 2>&1 | tee $LOG
+
+# Calcule de la taille du package
+read taillePkg rest_of_line <<< $(du -hs $REP_VDLIB)
+export taillePkg;
+  
+#
+# Mise a jour du DDC
+#
+echo "=> Mise a jour du fichier delta-reference.txt" | tee -a $LOG
+awk 'BEGIN{
+   tagVersion="'$version'";
+   tagDate="'$dateLivraison'";
+   }
+   /##TAG_VERSION##/ {sub("##TAG_VERSION##", tagVersion);}
+   /##TAG_DATE##/ {sub("##TAG_DATE##", tagDate);}
+   /##TAG_AJOUT##/ {
+      system("awk '"'"'/^[+].*cree$/ {print \"   \" $2}'"'"' $LOG");
+      next;
+   }
+   /##TAG_MODIFICATION##/ {
+      system("awk '"'"'/^[*].*modifie$/ {print \"   \" $2}'"'"' $LOG");
+      next;
+   }
+   /##TAG_SUPPRESSION##/ {
+      system("awk '"'"'/^[-].*supprime$/ {print \"   \" $2}'"'"' $LOG");
+      next;
+   }
+   /.*/
+' $MODELE_DELTA > $REP_VDLIB/DDC/delta-reference.txt
+fError
+
+echo "=> Mise a jour du fichier ddc.txt" | tee -a $LOG
+awk 'BEGIN{
+   tagDate="'$dateLivraison'";
+   tagVersion="'$version'";
+   tagVersionPrec="'$versionPrec'";
+   tagLinux="'"$versionLinux"'";
+   }
+   /##TAG_VERSION##/ {sub("##TAG_VERSION##", tagVersion);}
+   /##TAG_VERSION_PREC##/ {sub("##TAG_VERSION_PREC##", tagVersionPrec);}
+   /##TAG_DATE##/ {sub("##TAG_DATE##", tagDate);}
+   /##TAG_LINUX##/ {sub("##TAG_LINUX##", tagLinux);}
+   /.*/
+' $MODELE_DDC > $REP_VDLIB/DDC/ddc.txt
+fError
+ 
+echo "=> Mise a jour du fichier liste-reference.txt" | tee -a $LOG
+awk 'BEGIN{
+   tagVersion="'$version'";
+   tagDate="'$dateLivraison'";
+   }
+   /##TAG_VERSION##/ {sub("##TAG_VERSION##", tagVersion);}
+   /##TAG_DATE##/ {sub("##TAG_DATE##", tagDate);}
+   /##TAG_LOGICIEL##/ {
+      system("cd $REP_VDLIB;find SRC -type f ");
+      next;
+   }
+   /.*/
+' $MODELE_REFERENCE > $REP_VDLIB/DDC/liste-reference.txt
+fError
+ 
+{
+# Preparation du nouveau package de la VDLIB
+echo "=> Creation du package '$pkgSgc'"
+cd $REP_TEMP
+fError
+tar cvfp - -C $REP_VDLIB . 2>/dev/null | gzip > $pkgSgc
+fError "Creation du package '$REP_TEMP/$pkgSgc' en erreur!"
+chmod 666 $pkgSgc
+echo "=> Package '$REP_TEMP/$pkgSgc' cree."
+
+# Calcul du checksum md5
+echo "=> Cheksum md5 du package '$pkgSgc'"
+module load md5sum
+echo "md5sum  ${pkgSgc} > ${pkgSgc}.md5"
+md5sum  ${pkgSgc} > ${pkgSgc}.md5
+fError "checksum md5 du package '$REP_TEMP/$pkgSgc' en erreur!"
+chmod 666 ${pkgSgc}.md5
+
+# Archivage du package dans la vdlib
+fConfirm " l'archivage du package dans la vdlib"
+if [[ $? -eq 0 ]]
+then
+   echo "=> Archivage du package '$pkgSgc' ($REP_HOME/archives)"
+   cp $REP_TEMP/$pkgSgc $REP_HOME/archives
+   fError "Copie du package '$REP_TEMP/$pkgSgc' sur '$REP_HOME/archives' en erreur!"
+   cp $REP_TEMP/$pkgSgc.md5 $REP_HOME/archives
+   fError "Copie du md5 '$REP_TEMP/$pkgSgc.md5' sur '$REP_HOME/archives' en erreur!"
+   echo "=> Package $REP_HOME/archives/$pkgSgc' archive."
+fi
+
+# Suppression des repertoires temporaires
+fConfirm " Suppression des repertoires temporaires"
+if [[ $? -eq 0 ]]
+then
+   rm -rf $REP_VDLIB
+   fError
+   rm -rf $REP_VDLIB_PREC
+   fError
+fi
+
+echo "=> Preparation du package pour le SGC terminee."
+echo
+echo "=> L'envoie au SGC se fait par Crypt'n Share"
+echo
+echo "Informations:"
+echo "Version: "${version}
+echo "Date de fourniture: "${dateLivraison} 
+} 2>&1 | tee -a $LOG
+
+exit 0;

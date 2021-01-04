@@ -1,0 +1,11 @@
+#!/bin/bash -f
+#
+#set -x
+
+echo gitInit
+echo gitClone
+echo gitAuthor
+echo gitSearch
+echo
+
+git alias

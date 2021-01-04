@@ -1,0 +1,124 @@
+From: "<exploitCDPP@akka.eu>
+To: "richard.moreno@cnes.fr"
+Cc: "exploitcdpp@akka.eu"
+Subject: livraison SGC de la VDLIB ##TAG_VERSION##
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_002A_01CAB60B.0F3C8380"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Unsent: 1
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_002A_01CAB60B.0F3C8380
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+---------------- Projet/Composante ---------------- =20
+ Projet : SGDS
+ Composante : VDLIB
+ Version : ##TAG_VERSION##
+ Imputation budg=E9taire : W-ECPT/06-06-10=20
+
+
+ ---------------- Emetteur ---------------- =20
+ Nom : MORENO Richard
+ Sigle : DCT/PS/TVI
+ Adresse :=20
+
+
+ ----------------  Fourniture au SGC  ---------------- =20
+  OUI
+ Lieu de Fourniture : TU-MUTCALC-PC
+ Format :  TAR LINUX COMPRESSE
+ Description : Livraison des outils de la VDLIB=20
+1 fichier tar gz est =E0 archiver tel quel : SGC_vdlib_##TAG_VERSION##.tar.gz.
+1 fichier md5 de controle : SGC_vdlib_##TAG_VERSION##.tar.gz.md5
+ Les fichiers sont d=E9pos=E9s sous /home/sgc/projet/sgds/vdlib/rec
+
+ Date de fourniture au SGC : ##TAG_DATE_LIVRAISON##
+
+
+ ----------------  Fourniture du SGC  ---------------- =20
+ NON
+
+ ----------------  Descriptif du travail  ---------------- =20
+ Type de travail : Mise en configuration et gel de version=20
+ Autre travail :=20
+ Description :=20
+
+
+ ----------------  Environnement de g=E9n=E9ration  ---------------- =20
+ Nom Machine 1: TU-MUTCALC-PC
+ Nom Machine 2:=20
+ Type Machine 1: LINUX
+ Type Machine 2:=20
+
+
+ ----------------  Adresse suppl=E9mentaire d'envoi d'avis de CRT =
+---------------- =20
+ Adresse 1 :  exploitCDPP@akka.eu
+ Adresse 2 :  =20
+ Adresse 3 : =20
+ Adresse 4 :  =20
+ Adresse 5 :  =20
+ Adresse 6 :  =20
+
+------=_NextPart_000_002A_01CAB60B.0F3C8380
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"MSHTML 6.00.2900.2180" name=3DGENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY bgColor=3D#ffffff>
+<DIV><FONT face=3DArial size=3D2>
+<DIV>---------------- Projet/Composante ----------------&nbsp; =
+<BR>&nbsp;Projet=20
+: SGDS<BR>&nbsp;Composante : VDLIB<BR>&nbsp;Version=20
+:&nbsp;##TAG_VERSION##<BR>&nbsp;Imputation budg=E9taire=20W-ECPT/06-06-10=20
+:&nbsp;<BR><BR><BR>&nbsp;---------------- Emetteur =
+----------------&nbsp;=20
+<BR>&nbsp;Nom : MORENO Richard<BR>&nbsp;Sigle : <BR>&nbsp;Adresse :=20
+<BR><BR><BR>&nbsp;----------------&nbsp; Fourniture au SGC&nbsp;=20
+----------------&nbsp; <BR>&nbsp; OUI<BR>&nbsp;Lieu de Fourniture =
+:&nbsp;=20
+TU-MUTCALC-PC<BR>&nbsp;Format :&nbsp; TAR LINUX COMPRESSE<BR>&nbsp;Description : =
+
+Livraison des outils de la VDLIB</DIV>
+<DIV>1 fichier tar gz est =E0 archiver tel quel : =
+SGC_vdlib_##TAG_VERSION##.tar.gz.</DIV>
+<DIV>&nbsp;Le fichier a =E9t=E9 d=E9pos=E9 sous=20
+/home/sgc/projet/sgds/vdlib/rec<BR><BR>&nbsp;Date de fourniture au SGC=20
+:&nbsp;##TAG_DATE_LIVRAISON##<BR><BR><BR>&nbsp;----------------&nbsp; =
+Fourniture du=20
+SGC&nbsp; ----------------&nbsp;=20
+<BR>&nbsp;NON<BR><BR>&nbsp;----------------&nbsp; Descriptif du =
+travail&nbsp;=20
+----------------&nbsp; <BR>&nbsp;Type de travail : Mise en configuration =
+et gel=20
+de version <BR>&nbsp;Autre travail : <BR>&nbsp;Description :=20
+<BR><BR><BR>&nbsp;----------------&nbsp; Environnement de =
+g=E9n=E9ration&nbsp;=20
+----------------&nbsp; <BR>&nbsp;Nom Machine 1: =
+TU-MUTCALC-PC<BR>&nbsp;Nom=20
+Machine 2: <BR>&nbsp;Type Machine 1: LINUX<BR>&nbsp;Type Machine 2:=20
+<BR><BR><BR>&nbsp;----------------&nbsp; Adresse suppl=E9mentaire =
+d'envoi d'avis=20
+de CRT ----------------&nbsp; <BR>&nbsp;Adresse 1 :&nbsp; <A=20
+href=3D"mailto:exploitCDPP@akka.eu">exploitCDPP@akka.eu</A><BR>&nbs=
+p;Adresse=20
+2 :&nbsp;&nbsp; <BR>&nbsp;Adresse 3 :&nbsp; <BR>&nbsp;Adresse 4 =
+:&nbsp;&nbsp;=20
+<BR>&nbsp;Adresse 5 :&nbsp;&nbsp; <BR>&nbsp;Adresse 6 :&nbsp;&nbsp;=20
+<BR></DIV></FONT></DIV></BODY></HTML>
+
+------=_NextPart_000_002A_01CAB60B.0F3C8380--

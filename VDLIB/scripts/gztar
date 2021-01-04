@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : gztar
+#s*
+#s* ROLE :  Gestion des fichiers tar compresses au format gzip
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+if [[ $# -lt 2 ]]
+then
+   echo "gztar <tar options> <gz tar file> [files] [-C directories]"
+   exit 0;
+fi
+
+typeset option=$1
+typeset gzfile=$2
+shift
+shift
+
+#if [[ "$(expr $gzfile : '.*\.\(.*\)')" == "gz" ]]
+#then
+#   gunzip -c $gzfile | tar $option - $*
+#else
+#   tar $option $gzfile $*
+#fi;
+
+gunzip -c $gzfile | tar $option - $*
+

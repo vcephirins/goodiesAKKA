@@ -1,0 +1,5 @@
+VDLIB ##TAG_VERSION## ##TAG_DATE##
+
+Fichier
+
+##TAG_LOGICIEL##

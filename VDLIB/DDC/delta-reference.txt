@@ -1,0 +1,10 @@
+VDLIB ##TAG_VERSION## ##TAG_DATE##
+
+Fichiers ajoutés :
+##TAG_AJOUT##
+
+Fichiers modifiés :
+##TAG_MODIFICATION##
+
+Fichiers supprimés:
+##TAG_SUPPRESSION##

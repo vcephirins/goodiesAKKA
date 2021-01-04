@@ -1,0 +1,180 @@
+#!/bin/bash -f
+#
+#set -x
+
+typeset vUser=""
+typeset vMail=""
+typeset vProject=${PWD##*/}
+typeset vServer="git@gitlab.cnes.fr:Valdo"
+
+function fGetUsers {
+memoSH git "user" | awk '
+/git config user.name/ {name=$4; next;}
+/git config user.email/ {mail=":"$4;};
+{
+   if (name != "")  {printf("   %s%s\n", name, mail)}
+   name = ""
+}'
+}
+
+function fSyntax {
+   echo "gitInit [-s server] [-p <project name>] <user[:mail]>";
+   echo "users   : ";
+   fGetUsers
+   echo "Server  : ${vServer}"
+   echo "Project : ${vProject}"
+   echo "     ou   outils-publics/${vProject}"
+   echo "     ou   outils-prives/${vProject}"
+}
+
+# CONFIRM function
+##################
+function fConfirm {
+
+    typeset -l reponse='';
+    while [[ ${reponse} = '' ]]
+    do
+       echo ""
+       echo ${1:-Confirm}" (y/n/q)."
+       printf "Default value 'y' : ";read reponse
+       echo ""
+       case ${reponse:=y} in
+          y) return 0;;
+          n) return 1;;
+          q) echo "  => Break\n";
+             return 2;;
+          *) echo "unauthorized value."
+             echo "Possible values 'y', 'Y', 'n', 'N', 'q', 'Q'."
+             reponse='';;
+       esac
+    done
+}
+
+#--- Recuperation des options
+OPTIND=1
+while getopts hp:s: SCRIPT_OPTIONS
+do
+   case ${SCRIPT_OPTIONS} in
+      p) vProject=${OPTARG#/}
+         vProject="${vProject%.git}.git"
+         ;;
+      s) vServer="${OPTARG%/}"
+         ;;
+      h | \?) fSyntax
+         exit 0
+         ;;
+      *) fSyntax
+         exit 1
+         ;;
+   esac
+done
+
+shift $((${OPTIND} - 1))
+
+if [[ -d .git ]]
+then
+   # Git deja initialise
+   git conf user
+   git remotes
+   git logs
+   git status
+  
+   echo
+   echo "Indexer puis commiter les fichiers :"
+   echo "   git add <files>"
+   echo "   git unstage <files>   # Desindexer"
+   echo "   git commit -m 'Initialisation'"
+
+   echo
+   echo "Ajouter un tag :"
+   echo "   git tag -a -m 'Initialisation' 'v1.0.0'"
+
+   # attacher et pousser sur le serveur
+   echo
+   echo "Pousser le depot sur le serveur :"
+   echo "   git push -u origin master --tags"
+
+   exit 0
+fi
+
+vUser="${1%:*}"
+vMail="${1#${vUser}}"
+vMail="${vMail#:}"
+
+if [[ "${vUser}" == "" ]]
+then
+   # Le pattern est obligatoire
+   fSyntax
+   exit 1
+fi;
+
+# Recherche du mail
+if [[ "${vMail}" == "" ]]
+then
+   vUserMail=$( fGetUsers | grep -i ${vUser} )
+
+   # Le mail est obligatoire
+   vUser="${vUserMail%:*}"
+   vMail="${vUserMail#${vUser}}"
+   vMail="${vMail#:}"
+
+   if [[ "${vMail}" == "" ]]
+   then
+      fSyntax
+      exit 1
+   fi
+fi;
+
+echo "Initialisation du depot GIT"
+echo "   User    : ${vUser}"
+echo "   Mail    : ${vMail}"
+echo "   Url     : ${vServer}/${vProject}"
+
+fConfirm "Init git" || exit 0
+
+git init .
+
+git config user.name ${vUser}
+git config user.email ${vMail}
+
+git remote add origin ${vServer}/${vProject}
+
+echo "# Byte-compiled / optimized / DLL files
+**/__pycache__/
+*.py[cod]
+*${py}.class
+.idea/
+**/*pyc
+
+*.bck
+tmp/
+temp/
+
+dataCollector*.cde
+*.tar.gz
+suivi/**/*
+livraison/
+nohup.out
+" > .gitignore
+
+git add .gitignore
+
+git conf user
+git remotes
+git status
+
+echo
+echo "Indexer puis commiter les fichiers :"
+echo "   git add <files>"
+echo "   git unstage <files>   # Desindexer"
+echo "   git commit -m 'Initialisation'"
+
+echo
+echo "Ajouter un tag d'initialisation :"
+echo "   git tag -a -m 'Initialisation' 'v1.0'"
+
+# Push sur le serveur
+echo
+echo "Pousser le depot sur le serveur :"
+echo "   git push -u origin master --tags"
+

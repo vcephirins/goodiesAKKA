@@ -1,0 +1,3899 @@
+##= ANNUAIRE
+############
+
+=> intranet CNES
+
+   depuis une machine interne :
+   http://intranet-prestataires.cnes.fr  (toulouse/portail)
+
+=> Commandes :
+    0 => Passer un appel exterieur
+    9 => Acceuil
+    511 <NUMPOSTE> => Numero interne
+    777<NUMPOSTE> => Messagerie (Code 0000)
+    *01 => Prendre un appel exterieur
+
+=> Liste
+Nom                   Numero           Commentaire               
+-----------------------------------------------------------------------------
+3 brasseurs           05 62 88 82 22     Resto labege
+A LA UNE              05 61 58 43 24     124 R. louis plana Resto jolimont
+Air d'Ascagne         05 61 86 35 31     Resto 4 rue Hector Berlioz 31170 Tournefeuille
+AKKA standard         05 36 .. .. ..     AKKA 7 Boulevard Henri Ziegler 31700 BLAGNAC
+AKKA CE               05 36 25 10 00     AKKA 7 Boulevard Henri Ziegler CS-70234 31705 BLAGNAC CEDEX
+Assistance56          05 61 28 19 56     assistance56@cnes.fr
+Autan des saveurs     05 61 30 42 51     Blagnac
+BARTHE Alain          05 61 55 83 69     AKKA CESR IRAP
+BARTHE Alain          06 65 74 73 43     AKKA Portable
+Bistro d'Utopia       05 34 51 88 10     Resto Tournefeuille
+BOISSONNADE Marina    05 34 61 93 57     AKKA
+BOUCHEMIT Myriam      05 61 55 61 60     CESR CDPP
+BOUCON Daniele        05 61 27 44 79     Cnes cdpp
+BOUZID Veronique      01 39 25 49 01     Lesia Cluster STAFF_SA
+BROCHOT Jean-Yves     02 38 25 53 08     LPC2E Orleans CNRS DEMETER TARANIS
+Broches gauloises     05 61 81 79 88     Resto Escalquens
+Canard sur le grill   05 61 15 71 00     Resto Blagnac
+CAPGEMINI                                109 Avenue Eisenhower 31086 Toulouse Cedex 1
+CABROLIE Francoise    05 61 27 38 46     SIPAD Gfi
+CAILLET Claire        05 61 28 14 38     CNES
+CAZES Pierre-Henri    05 61 17 63 79     CS SIPAD-NG
+CECCONI Baptiste      01 45 07 77 59     Meudon Cassini
+CEPHIRINS Vincent     05 36 25 15 12     511512  (14000997) AKKA CDPP VALDO
+CHAUSSERIE-LAPREE B.  05 61 28 23 49     CNES Serad
+CNES Standard         05 61 27 31 31     18 Avenue Edouard Belin 31401 Toulouse Cedex 9
+DIANA Marie-Helene    05 61 75 24 24     GFI Agence 
+DRAPEAU Frederic      01 39 25 49 47     Lesia Cluster STAFF_SA
+DUFOUR Nicolas        05 61 28 20 07     CNES CDPP MAPSIT
+Envol                 05 61 24 59 08     Resto Lasbordes
+Epi du midi           05 61 44 19 85     Resto rapide Pradette
+Evangelina            05 61 21 30 00     Resto Compans
+Fagotiere             05 61 06 67 52     Resto 117 rue Gaston Doumergue 31170 Tournefeuille
+FAYEL Corinne         05 36 25 10 00     AKKA IS CE (511308)
+Florentin             05 62 47 28 27     Resto Saint Orens
+Folles saisons        05 62 14 64 85     Resto basso Toulouse
+GODINO Stephanie      05 36 25 13 93     AKKA ASC Bureau 0-03
+GOURRET Michel        06 21 05 94 24     VEOLIA - michel.gourret@veolia.com
+Grand Vatel           05 62 26 00 92     Resto 63 allee Campferran 31320 Auzeville
+GUILLERM Christian    05 61 28 16 97     CNES - administration bases
+HENKEL Patrick        05 61 28 17 83     Cnes
+HEULET Dominique      05 61 28 24 97     CNES SIPAD-NG
+HOEGAARDEN CAFE       05 61 52 78 17     Resto Rte de Narbonne
+Homard en folies      05 61 71 12 07     Resto Blagnac
+JARDIN PAMPLEMOUSE    05 61 27 22 84     Resto Escalquens
+JOCTEUR-MONROZIER Fr. 05 61 28 30 73     CNES - Galileo
+LADUGUIE Alain                           VEOLIA - alain.ladugie@veolia.com
+LAFAYETTE Bistro      05 62 24 97 43     Resto Labege
+LAGARDE Sophie        05 36 25 13 04     AKKA I&S CE (511304)
+LARROQUE Martine      05 61 27 47 36     CNES serad
+LORMANT Nicolas       05 61 27 42 32     CNES CDPP Valdo
+LORMANT Nicolas       05 36 25 15 12     AKKA CDPP Valdo
+LPP                                      Ecole Polytechnique, Route de Saclay 91128 PALAISEAU Cedex - France
+Mare aux canards      05 61 23 81 58     Resto Centre Ville
+MAURICIA (Le)         05 62 87 73 46     Resto 330 Rte de Seysses
+MAURY Alain           06 11 73 38 55     VEOLIA - alain.maury@veolia.com
+MBAYE Stephane        09 72 37 73 93     GAEL System (PAIS)
+MIQUEL Christine      05 61 28 17 97     AKKA Cnes
+Mounede               05 61 43 07 20     Resto Basso Toulouse
+NGUYEN Quynh Nhu      01 45 07 75 81     Lesia Stereo Paris Meudon
+NONON Michel          05 61 28 15 82     Cnes Cluster SIPAD SAM MERCATOR
+OnNador               05 61 41 05 60     Resto 5 rue de l'universite Toulouse
+PAGOLA Aline          05 62 24 52 45     EIRsys Labege
+PAISIBLE              05 61 00 56 46     Resto Labege
+PAQUETTE serge        05 82 52 26 88     Airbus Defense & Space, 5 rue des satellites
+PENOU Emmanuel        05 61 55 56 61     emmanuel.penou@irap.omp.eu
+PERGOLA               05 61 49 29 10     Resto Lardenne
+POTTIER Claire                           CNES SIPAD-NG
+Pre vert              05 61 73 61 62     Resto Ramonville
+RATIER Jerome         05 61 27 37 58     AKKA CDPP Cnes
+RECOULES Joel         05 61 27 34 08     AKKA cataQI
+ROCHEL Alban          02 38 25 78 25     Cnrs LPCE Cluster WHISPER STAFF_SA
+ROUCH Vincent         05 31 08 82 39     Capgemini VDLIB
+RUBIO Jean-Claude     05 61 27 37 32     CNES Passerelles ICARE
+SI-HADJ-MOHAND Hacene 05 36 25 15 11     AKKA CDPP VALDO
+Salon d'Eugenie (Le)  05 62 30 84 52     Resto 16 rue des Lois
+SOULA Jean-Marc       05 61 27 46 47     CNES
+Table de marche (la)  05 62 71 24 25     Resto Castanet Tolosan
+TAVERNE Heidelberg    05 61 71 80 75     Resto Blagnac
+Tonnelles (les)       05 61 86 15 64     Resto rte St Simon
+Trouillard Roger      06 24 44 35 11     AKKA
+VALLIERES Xavier      02 38 25 78 27     ESA CAA Whisper
+VEOLIA EAU                               Usine de depollution de Ginestou - Garonne, 2 chemin de Daturas - BP10503, 31205 TOULOUSE Cedex 2
+WARROT Thierry        05 61 27 35 75     Cnes GDOC
+
+##= END
+#######
+
+##= AMDA
+##= FOOTPRINTS
+#####################
+
+   https://gitlab.akka.eu/Benjamin.RENARD/footprints
+   bas-amda-01.akka.eu (v.cephirins)
+
+=> installer footprints
+   git clone ssh://git@gitlab.akka.eu:22522/Benjamin.RENARD/footprints.git
+
+=> Configurer le proxy dans $HOME/footprints/config/footprints.cfg
+   et Renseigner un mail (MAIL_DST)
+
+##= END
+#######
+
+##= BUGTOASTER
+##############
+
+   Voir la commande :
+   vdlib show bugtoaster
+
+##= END
+#######
+
+##= CIS_N3
+##= CIS_MOMENTS
+###############
+
+=> Livraison :
+
+   cd $HOME/CIS_N3/script
+   PREPARER_DONNEES_CIS_N3 -v [-u <dateSince>] [-j <JEU>]
+
+=> Production des donnees :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   # traitement
+   cd $HOME/CIS_N3/script
+   PREPARER_DONNEES_CIS_N3 [-h] [-u <dateSince>] [-j <JEU>] [-d <yyyy[mm[dd]>]
+
+   nohup runBatch.sh  <dateSince> [JEU] [period] & tail -f nohup.out
+
+=> Ingestion des donnees au SIPAD-NG
+
+   # Verifier la livraison au SIPAD-NG des fichiers :
+   # Voir SIPAD-NG
+   cd $LIV_SIPAD_PATH/manuel/CLUSTER/cis/data
+   ll *.xml
+
+   # Si 1 seul fichier xml
+   source connectSipadCdpp cephirinsv:82b3e9c394d5d733b49e2f53dc12a1f4
+   ingestSipadXml -p CLUSTER/cis/data *.xml
+
+   # Sinon
+   cp -p *.xml $INGESTION_SIPAD_PATH/manual/CLUSTER/cis/data
+   chmod ugo+rw $INGESTION_SIPAD_PATH/manual/CLUSTER/cis/data/*.xml
+
+   # Recuperer le numero d'ingestion pour CR
+
+   # Apres le transfert, deplacer les fichiers dans apres_acquisition
+   mv *.xml ${APRES_ACQ_SIPAD_PATH}/CLUSTER/cis/data
+
+
+=> Statistiques (STAF / SIPAD)
+
+   cd $HOME/CIS_N3/utils
+
+   checkSipad <period>
+
+   mailx -s inventSipad.txt vincent.cephirins@akka.eu < inventSipad.txt
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/CIS_N3/utils
+   groupCommandData <period> [year | month | day] [nb files]
+ou
+   commandData <period> [nb files]
+
+=> Inventaire SIPAD
+
+   connectSipadCdpp <login>:<md5Pwd>
+
+   cd $HOME/CIS_N3/utils
+   for year in {2001..2017}
+   do
+      inventaireSipad $year
+      mailx -s inventaireSipad_${year}.txt vincent.cephirins@akka.eu < inventaireSipad_${year}.txt
+   done
+
+
+##= END
+#######
+
+##= CSDS
+########
+
+=> Livraison :
+   Periodicite : en debut de mois (mois n-2, ex : an aout traiter du 1er juin au 1er juillet)
+
+   Serveur RAL : 
+      http://cdhf5.bnsc.rl.ac.uk/pub-query/dms_request
+      http://cdhf5.bnsc.rl.ac.uk/cdms
+
+   # CheckStat
+   export VERSION="[vV][0-9]+"
+   export PATTERN="CRIT2_SEP3_CRIT1_SEP1_CRITDATE_SEP1_VERSION_EXTENSION"
+
+=> Production des donnees :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   # Verifier le compte de connexion au SIPAD
+      vi -c /SIPAD_USER $HOME/CSDS/conf/CSDS.cfg
+
+   # Lancement de la production : 
+   Ex pour les ingestions du 01/01/2013 au 01/02/2013
+       cd $HOME/CSDS/script
+       PREPARER_DONNEES_CSDS -i 2013-01-01:2013-02-01
+
+=> Controle des fichiers archives au STAF, un fois la production terminee
+
+   # stafOpen plasma <old 2>
+   open
+   stafList -s -k -n /cluster/csds/catalogue -p $(date "+%Y%m")
+   close
+   # stafClose
+
+=> Ingestion des donnees au SIPAD-NG
+
+   # Voir SIPAD-NG
+   cd $LIV_SIPAD_PATH/manuel/CLUSTER/csds/data
+
+   # Verifier la livraison au SIPAD-NG des fichiers :
+   ll *_CSDS_*
+
+   #   data_objets_CSDS_<date_debut>_<heure debut>_<1er>_<dernier_objets>.xml
+   #   delete_data_objets_CSDS_<date_debut>_<heure_debut>_<dernier_objets>.xml
+
+   # Si 1 seul xml alors
+      source connectSipadCdpp <login>:<pwdMd5>
+      ingestSipadXml -p CLUSTER/csds/data *_CSDS_*.xml
+
+   # Sinon
+      cp -p *_CSDS_*.xml $INGESTION_SIPAD_PATH/manual/CLUSTER/csds/data
+      chmod ugo+rw $INGESTION_SIPAD_PATH/manual/CLUSTER/csds/data/*_CSDS_*.xml
+
+   # Recuperer le numero d'ingestion pour CR
+
+   # Apres le transfert, deplacer les fichiers dans apres_acquisition
+   mv *_CSDS_*.xml ${APRES_ACQ_SIPAD_PATH}/CLUSTER/csds/data
+
+=> Statistiques (SIPAD)
+
+   # Se connecte au SIPAD
+   source connectSipadCdpp <login>:<pwdMd5>
+
+   cd $HOME/CSDS/utils
+
+   for statJeu in ASP CIS DWP EDI EFW FGM PEA RAP STA WHI AUX SPP
+   do
+      countRefSipad $statJeu
+      [[ $? -ne 0 ]] && break
+   done
+
+   [[ "${statJeu}" == "SPP" ]] && countAllSipad ALL
+
+=> Pb de comptage STAF <=> SIPAD
+
+   Verifier les doublons (V01 -> V02) avec la commande (pour PP par ex) :
+   getSipadNoUniqRef DA_TC_CLU_PP_C1_WHI
+   getSipadNoUniqRef DA_TC_CLU_PP_C2_WHI
+   getSipadNoUniqRef DA_TC_CLU_PP_C3_WHI
+   getSipadNoUniqRef DA_TC_CLU_PP_C4_WHI
+   getSipadNoUniqRef DA_TC_CLU_SP_CL_WHI
+
+   Creer et ingerer un fichier delete_objets
+
+=> Commande aleatoire (SIPAD)
+
+   # Se connecte au SIPAD
+   source connectSipadCdpp <login>:<pwdMd5>
+
+   cd $HOME/CSDS/utils
+   commandData
+
+
+##= END
+#######
+
+##= CURL
+##= REST
+########
+
+=> Interrogation via CURL
+
+   cd /home/user3/ctpsvd/cdppdev/CURL
+
+   # Voir aussi les scripts sous /home/user3/ctpsvd/sr1cabro/test/CURL
+
+   # 1) Demander un jeton :
+   ./demande_jeton.sh
+
+   # Inclure ce jeton dans le script lance_commande.sh et lancer le script :
+   ./lance_commande.sh
+
+   ./etat_commande.sh
+
+=> Adresses et ports des services REST
+   # Voir connectSipadCdpp
+
+SR1 (https) :
+Service cdpp-rest 	        https://10.120.10.3:8059/cdpp-rest
+Service ingestion-rest 	        https://10.120.10.3:8167/ingestion-rest
+Service administration-rest 	https://10.120.10.3:8051/administration-rest
+Service command-rest 	        https://10.120.10.3:8052/command-rest
+Service consultation-rest 	https://10.120.10.3:8053/consultation-rest
+Service userauthenticate-rest 	https://10.120.10.3:8054/userauthenticate-rest
+Service usermanagement-rest 	https://10.120.10.3:8055/usermanagement-rest
+Service userworkspace-rest 	https://10.120.10.3:8056/userworkspace-rest
+command telechargement 	        Port 8058
+userWorkspace telechargement 	Port 8057
+ 
+SP1 :
+service cdpp-rest 	        http://10.120.10.5:8086/cdpp-rest
+service ingestion-rest 	        http://10.120.10.5:8012/ingestion-rest
+service administration-rest 	http://10.120.10.5:8077/administration-rest
+service command-rest 	        http://10.120.10.5:8078/command-rest
+service consultation-rest 	http://10.120.10.5:8079/consultation-rest
+service userauthenticate-rest 	http://10.120.10.5:8081/userauthenticate-rest
+service usermanagement-rest 	http://10.120.10.5:8082/usermanagement-rest
+service userworkspace-rest 	http://10.120.10.5:8083/userworkspace-rest
+Command telechargement 	        Port 8084
+UserWorkspace telechargement 	Port 8085
+ 
+SO1 :
+service  cdpp-rest 	        http://10.120.10.5:8138/cdpp-rest
+service ingestion-rest 	        http://10.120.10.5:8013/ingestion-rest
+service administration-rest 	http://10.120.10.5:8130/administration-rest
+service command-rest 	        http://10.120.10.5:8131/command-rest
+service consultation-rest 	http://10.120.10.5:8132/consultation-rest
+service userauthenticate-rest 	http://10.120.10.5:8133/userauthenticate-rest
+service usermanagement-rest 	http://10.120.10.5:8134/usermanagement-rest
+service userworkspace-rest 	http://10.120.10.5:8135/userworkspace-rest
+Command telechargement 	        Port 8136
+UserWorkspace telechargement 	Port 8137
+ 
+=> comptes
+
+#export vxCurlUser=sipad_admin
+#export vxCurlMd5Pwd=bd69b2e50a2133e2918bc41f655363a0
+#export vxCurlUser=cabrolie
+#export vxCurlMd5Pwd=44a182a526aea4ae8f7d22e0b9cdfba6
+
+=> codage md5
+
+encrypt.sh <motDePasse> MD5
+
+ou
+
+md5sum<Ctrl-M>
+motDePasse<Ctrl-D>
+<Ctrl-D>
+
+##= END
+#######
+
+##= DEMETER
+###########
+
+=> notes :
+      donnees : ls /data/ctpsvd/cdpp_tra/DEMETER
+      reprise : ls /data/ctpsvd/cdpp_tra/DEMETER/reprise*
+      log     : ls -rt $HOME/DEMETER/log | tail -15
+
+=> livraison
+   # DMT_N1_1134_026531_20041231_213841_20041231_221223.DAT
+
+   export DEBLIG="DMT_N1_"
+   export CRIT1="[0-9]+"
+   export NUMORBIT="[0-9]+"
+   export ENDOFLINE="_.*.DAT"
+   export PATTERN="DEBLIG_CRIT1_SEP1_NUMORBIT_SEP1_CRITDATE_ENDOFLINE"
+   checkStat - month
+
+
+=> Production des donnees
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   par crontab
+
+=> Mode reprise :
+   
+   Verifier que le repertoire livraison est vide
+   ls /home/user4/ctpsvd/cdpp_tra/DEMETER/livraison
+   Verifier qu'il y a bien le fichier dans le repertoire de reprise (voir plus haut)
+   se placer sous /home/user4/ctpsvd/cdpp_tra/DEMETER/script
+   cd /home/user4/ctpsvd/cdpp_tra/DEMETER/script
+   PREPARER_DONNEES_DEMETER R GRP[1, 2 ou 3]
+
+=> Connexion au STAF
+
+   stafcon -open -prj plasma -pw 
+
+   ou utiliser les alias open ou close pour ouvrir ou fermer le Staf
+
+=> Archivage au STAFF de la liste des fichiers (a faire toutes les semaines)
+
+   Les fiches sont sous /home/user4/ctpsvd/cdpp_tra/DEMETER/conf
+
+   stafcon -open -prj plasma -pw strdmt123
+   stafnod -locate -n /DEMETER/catalogue
+   staffil -archive -stf dmt_n1_acquit_list_GRP1_2006 -rep y -psc CS1
+   staffil -archive -stf dmt_n1_acquit_list_GRP2_2006 -rep y -psc CS1
+   staffil -archive -stf dmt_n1_acquit_list_GRP3_2006 -rep y -psc CS1
+   stafcon -close
+
+=> Plantage a l'acquittement suite a une reprise
+
+   On a un message suivant dans le compte rendu :
+[WARNING] Acquittement DMT_N1_1140_111270_20060803_223711_20060803_231028.DAT : Impossible de diposer le fichier d'acquittement
+
+   Rajouter le fichier deja acquitte (ex: CDPP_DMT_N1_1140_111270_20060803_223711_20060803_231028.DAT) dans /home/user4/ctpsvd/cdpp_tra/DEMETER/conf/dmt_n1_acquit_list_GRP1_2006 (si c'est un fichier du groupe 1 et de 2006)
+   (C'est la liste des fichiers acquittes)
+   Relancer la reprise
+
+=> Aides diverses pour l'exploitation
+
+   psm : alias pour lister les processus en cours si PREPARER_DONNEES_DEMETER est plante
+
+=> Statistiques (SIPAD)
+
+   # DMT_N1_1133_043980_20050430_184832_20050430_185128.DAT
+   # DMT_QL_044001_20050430_224906_20050430_232230_CDPP.ps
+   export DEBPAT="DMT_"
+   export ENDPAT="(_CDPP)?"
+   export EXTENSION=".dat|.DAT|.ps|.PS|.zip|.ZIP"
+   export CRIT2="[QN].(_[0-9]+)?"
+   export SEPNUM="_[0-9]+"
+   export PATTERN="DEBPAT_CRIT2_SEPNUM_SEP1_CRITDATE_SEPNUM_SEPNUM_SEPNUM_ENDPAT_EXTENSION"
+
+##= END
+#######
+
+##= DSTAR
+##= DOUBLE STAR
+###############
+
+=> Livraison  :
+
+   # Tester les connexions :
+   dcList -t "DSTAR SEF LIST"
+
+   # Verifier si des donnees sont disponibles
+
+   unset PATTERN
+   export EXTENSION=".cef.gz"
+   export CRIT2="D."
+   dcList "DSTAR SEF LIST" | checkStat - month
+
+   export EXTENSION=".ceh"
+   export PATTERN="CRIT2_SEP1_CRIT1_EXTENSION"
+   dcList "DSTAR SEF LIST" | checkStat -
+
+=> Production des donnees :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   Produire les donnees pour 1 mois :
+      cd $HOME/DSTAR/script
+      PREPARER_DONNEES_DSTAR -d yyyymm[dd]
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/DOUBLESTAR/data
+   ll *DSTAR*.xml
+   cp *DSTAR*.xml ${INGESTION_SIPAD_PATH}/manual/DOUBLESTAR/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/DOUBLESTAR/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/DOUBLESTAR/data
+   mv *DSTAR*.xml ${APRES_ACQ_SIPAD_PATH}/DOUBLESTAR/data
+
+##= END
+#######
+
+
+##= ECLIPSE
+###########
+
+    * Alt + shift : Bascule clavier  Azerty <-> Qwerty
+    * Ctrl + espace : la completion automatique 
+    * Ctrl + Shift + 0 : Auto imports
+    * Ctrl + Shift + R : Recherche d'un fichier dans le workspace
+    * Ctrl + Shift + G : Recherche des references dans le workspace
+    * Ctrl + O : affichage des attributs et methodes de la classe courante
+    * Ctrl + O + O : ajoute a l'affichage les attributs et methodes herites
+    * Ctrl + T : affiche l'arborescence d'heritage de la classe courante
+    * Alt + Shift + J : genere un template de javadoc pour une classe une mehode ou un attribut en fonction de la selection
+    * Ctrl + Shift + F : mise en forme du code (vous pouvez surligner une zone de code pour restreindre le formatage)
+    * Ctrl + Shift + I : indentation du code (vous pouvez surligner une zone de code pour restreindre l'indentation)
+    * Ctrl + D : efface la ligne courante
+    * Alt + Shift + R : pour refactoriser le nom d'une fonction ou d'une variable
+    * Ctrl + Shift + C : pour commenter des lignes
+    * Ctrl + Shift + / : decommenter des lignes
+    * Crtl + Shift + P : Pour se deplacer d'une accolade a l'autre
+
+##= END
+
+##= EXCEL
+#########
+
+=> Masquer les valeurs 0
+   - Selectionner les cellules
+   - Format cellule -> Categorie: personnalisee
+   -    Type: 0;;;@
+
+=> Valider une formule matricielle
+   - Ctrl + Maj + Entree
+
+##= END
+#######
+
+##= ENVIRONNEMENT
+#################
+
+=> AKKA (Silogic)
+
+   PC FIXE DEV        : AK43748 (VCE)
+   Imprimantes        : \\andromede-printer.akka.eu
+
+      Proxy : and-fgt-ha.akka.eu:9090 (172.25.254.33) (windows) # --proxy http://and-fgt-ha.akka.eu:9090
+      Proxy : and-fgt-linux-01.akka.eu:9090 (172.25.254.203) (serveurs)
+
+   Host (linux)       : and-asw-ora-01.akka.eu (172.25.254.18)
+      Connexion       : ldap
+      Connexion       : oracle/&&Ora2020!
+      dbconsole       : https://and-asw-ora-01.akka.eu:1158/em/console
+                                
+   Host (linux)       : bas-oracle-01.akka.eu (172.25.31.135)
+      Connexion       : adminprod/Old1
+      Connexion       : oracle/Old1
+      Connexion base  : akkaexp_dba / akka_ora01 (ORACLE_SID=AKKAEXP)
+      Connexion base  : akkaexp_user / akka_ora0 (ORACLE_SID=AKKAEXP)
+      dbconsole       : https://bas-oracle-01.akka.eu:1158/em/console
+                                
+=> gitlab akka
+   https://gitlab.akka.eu
+
+=> Observatoire de Paris (obspm)
+
+   Passerelle         : styx.obspm.fr (145.238.186.5)
+      kronos            kronos.obspm.fr (145.238.171.20)
+      dedale            ssh://cephirins@dedale-stm.lpp.upmc.fr:22/mammouth (134.157.77.2/C5B24B5A80EF4F7850A8122D6554D3C2)
+
+=> CSA Cluster Science Archive
+   https://www.cosmos.esa.int   (vcephiri/1!)
+
+=> CNES
+
+   PACCI-RELAIS       :
+       relais           192.134.216.17 (entrante)
+                        192.134.216.26 (sortante)
+       relais2          192.134.216.18 (entrante)
+                        192.134.216.28 (sortante)
+       relais-ssh.cnes.fr:   sftp -S $HOME/.ssh/wrapper gu=<compte SIS>@<compte cible>@<seveur cible>@relais-ssh.cnes.fr
+   
+   PROXY FTP          :
+      proxy serveur   : proxy-tech-ftp.cnes.fr 8021
+                        <user FTP>@<host FTP> <login PROXY FTP>
+                        cdpp@ftp.akka.eu ftp-cephirinsv   # x%l#|8RDfWSroM{Q 
+
+   PROXY web          :
+      #proxy.pac      : http://surf.cnes.fr:8051/proxy.pac
+      #proxy serveur  : http://surf.cnes.fr:8050
+      proxy-surf      : http://proxy-surf.loc.cnes.fr:8050
+      proxy serveur   : http://proxy-HTTP2.cnes.fr:8050
+      proxy user      : CNESNET\\cdppexp   (CNESNET\cdppexp sur l'ihm)
+      proxy pwd       : 1DC3F7B23D92BB65CD8C4F863D4119F2
+
+      export HTTP_PROXY="http://CNESNET\cdppexp:<pwd>@proxy-HTTP2.cnes.fr:8050"
+      export HTTPS_PROXY="http://CNESNET\cdppexp:<pwd>@proxy-HTTP2.cnes.fr:8050"
+
+   SEF                : cdpp-cluster-sef.cnes.fr
+      Connexion SEF   : cephirinsv
+      mot de passe SEF: https://ldapweb.cnes.fr/cgi-bin/mdp
+      mot de passe SEF: https://ldapweb.cnes.fr/cgi-bin/demande_reinit.mdp
+
+       admi           : logicc
+   Reseau Cnes/Akka   : plage : 132.149.105.128 - 132.149.105.157
+       Passerelle     : 132.149.105.158
+       Broadcast      : 132.149.105.159
+       PCCE0          : 132.149.105.129 (Exploitant / Armoire)
+       PCCE1          : 132.149.105.130 (Armoire)
+       AK33335        : 132.149.105.130 (Hacene SI-Hadj-Mohand / 1)
+       AK4779         : 132.149.105.131 (Nicolas Lormant / 1)
+       AK13555        : 132.149.105.132 (Sylvie Philippart / 1)
+       DIAMS150       : 132.149.105.133 (Libre)
+       PCCE6          : 132.149.105.135 (Libre)
+       PCCE8          : 132.149.105.136 (Libre) 
+       AK3412         : 132.149.105.136 (Libre)
+       AK4662         : 132.149.105.137 (Libre)
+       AK12835        : 132.149.105.157 (Vincent Cephirins / 1)
+
+   Host (Sun) Dev.    : calc-gen5-ci (IP : 132.149.11.3)
+   Host (Sun) Dev.    : calc-gen5z-ci (IP : 132.149.11.37)
+      Connexion       : transdev
+      Connexion       : clu_whi (WHISPER / SOUNDING TIMES / DENSITY / CAVEATS)
+      Connexion       : clucdpp (CSDS / DSDS / DSTAR)
+      Connexion       : sgdsexp/ (ULYSSE / DEMETER Quicklooks / WIND-RADIO)
+      Aide VDLIB      : http://calc-gen5-ci:8123
+
+   Host (Linux) Dev.  : tu-mutcalc-d01 (IP : 10.120.10.3)
+      Connexion       : cdppdev   (Developpement)
+
+   Host (Linux) Exp.  : tu-mutcalc-pc  (IP : 10.120.10.5)
+      Connexion       : cdppqual (qualification / Pre-Prod)
+      Connexion       : vdlibexp
+      Connexion       : cdppexp (Exploitation)
+      Connexion       : archcdpp (additionnal_data)
+      Connexion       : so1cabro (admin SIPAD)
+
+   svn valdo          : svn://srv-svn.silogic.fr/svn/VALDO.svn
+                        cephirins/8A10FC856988C210F5E7A396D2B40D3F
+                        cnesvaldo/1
+
+   Host (Sun) Dev.    : internet1-ci (IP : 132.149.13.65)
+   Host (Sun) Expl.   : trait-op5-ci (IP : 132.149.11.9)
+   Host (Sun) Expl.   : trait-op5z-ci (IP : 132.149.11.36) (machine de rempl.)
+      Connexion       : cephirin
+      Connexion       : sva_silo
+      Connexion       : whi_caa (SOUNDING TIMES / DENSITY / CAVEATS)
+      Connexion       : cdpp_tra (DEMETER)
+      Connexion       : cdpp_tra (STEREO)
+      Connexion       : sgdsexp (DEMETER Quicklooks / WIND RADIO)
+      Connexion       : sta_sa (STAFF_SA/STAFF_SC) # => voir prodcdpp
+      Connexion       : clucdpp (CSDS / DSDS / DSTAR) # => voir prodcdpp
+      Connexion       : clu_cis (CIS_N3 / CIS_MOMENTS) # => voir prodcdpp
+      Connexion       : prodcdpp (toutes missions)
+      Connexion       : samadm (CASSINI / SAM / MERCATOR)
+      Connexion       : archcdpp (format_cdpp/interball)
+      Connexion       : cis_cesr (CIS / CESR / TRANSFERT)
+
+   Svn PAIS (Gael)    : http://repository.gael.fr/shared/P289-CCSDS-PAIS
+                        <login> that is your name in lowercase
+                        pais<login>123
+
+=> Maintenance Contrat CNES : voir annuaire assistance56
+
+=> licenses flottantes agence : srv-oracle
+=> proxy : srv-scan
+
+=> Mise au point avec jconsole : 
+   
+   java -XX:+PerfBypassFileSystemCheck -Dcom.sun.management.jmxremote  -jar test.jar
+
+   $JDK_HOME/bin/jconsole
+
+   rem -XX:+PerfBypassFileSystemCheck est utile pour les sytemes windows FAT32
+
+=> Optimisation de la memoire de la JVM :
+
+   voir "http://gfx.developpez.com/tutoriel/java/gc" pour les details
+
+   Memoire de la JVM : 
+   *  -Xms[taille], difinit la taille minimale du heap. Ce paramhtre permet d'iviter des dimensionnements friquents du heap si vous savez que votre application utilise beaucoup de mimoire,
+   * -Xmx[taille], difinit la taille maximum du heap. Ce paramhtre est majoritairement utilisi pour les applications serveurs qui nicessitent parfois plusieurs gigaoctets de mimoire. Le heap peut varier entre les valeurs spicifiies par -Xms et -Xmx,
+   * -XX:NewRatio=[nombre], indique le rapport de taille tenured sur young space. Le nombre 2 donnera par exemple un tenured de 64 Mo et un young de 32 Mo pour un heap global de 96 Mo,
+   * -XX:SurvivorRatio=[nombre], indique le rapport de taille entre l'iden et un survivor space. Pour un ratio de 2 et un young space de 64 Mo, l'iden occupera 32 Mo et chaque survivor 16 Mo.
+
+   Mode du GC : 
+   *  -Xincgc, active le GC incrimental,
+   * -XX:+UseParallelGC, active le GC parallhle. Le nombre de threads utilisi peut jtre modifii ` l'aide de l'option -XX:ParallelGCThreads=[nombre],
+   * -XX:+UseConcMarkSweepGC, active le GC concurrent. Les minor collections parallhles peuvent jtre activis en utilisant conjointement l'option -XX:+UseParNewGC.
+
+   ex : java -Xms64m -Xmx512m
+
+   * -verbosegc,  trace la gestion memoire de la GC
+
+##= END
+#######
+
+##= GALILEO
+###########
+
+=> Notes :
+   # UBF (Ultra Basse Frequence) = ULF (Extra Low Frequency)
+   # Recuperes sur ftp://ftp.lpp.polytechnique.fr/robert/temp/GEOS_ULF_ASCII/
+   Donnees UBF G1 et G2 sur /home/CDPP/archcdpp/GEOS_UBF
+
+   STAF: Plasma:/GEOS
+
+=> Livraison :
+   Periodicite : TBD
+
+   Serveur PWS IOWA :
+      http://www-pw.physics.uiowa.edu/galileo/lrsdata
+
+   Donnees en local :
+      cdppexp@tu-mutcal-pc:/home/CDPP/archcdpp/GALILEO
+
+=> Production des donnees :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   # Lancement de la production :
+       cd $HOME/STANDARD_MISSION/script
+       PREPARER_STANDARD_MISSION -p GALILEO/PHASE_CROISIERE/BDP '*921210*'
+
+=> Ingestion des donnees au SIPAD-NG
+
+   # Voir SIPAD-NG
+   cd $LIV_SIPAD_PATH/manuel/GALILEO/data
+
+   # Verifier la livraison au SIPAD-NG des fichiers :
+   ll *_GALILEO*
+
+   cp -p *_GALILEO_*.xml $INGESTION_SIPAD_PATH/manual/GALILEO/data
+   chmod ugo+rw $INGESTION_SIPAD_PATH/manual/GALILEO/data/*_GALILEO_*.xml
+
+   # Recuperer le numero d'ingestion pour CR
+
+   # Apres le transfert, deplacer les fichiers dans apres_acquisition
+   mv *_GALILEO_*.xml ${APRES_ACQ_SIPAD_PATH}/GALILEO/data
+
+=> Statistiques (SIPAD)
+
+   cd $HOME/CSDS/utils
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/CSDS/utils
+
+##= END
+#######
+
+##= GLOSSAIRE
+#############
+
+AAD             : Accurate Attitude Data
+AACS            : Attitude and Articulation Control Subsystem
+AC              : A Completer
+AC              : Alternate Current
+ACES            : Atomic Clock Ensemble in Space
+ACPID           : Advanced Configuration and Power Interface
+AD              : A Definir
+ADMP            : ADMinistrateur USP Projet [STAF]
+ADMS            : ADMinistrateur USP Staf [STAF]
+ADP             : Acceptance Data Package
+ADS             : Autocommutateur de donnees spatiales
+ADSI            : Airbus Defense and Space-Intelligence
+AGC             : Automatic Gain Control
+AIC             : Archival Information Collection
+AIDA            : AIm et DArt
+AIM             : Asteroid Impact Monitoring
+AIO             : Archive Inter-Operability subsystem [ESAC]
+AIP             : Archival Information Package
+AIU             : Archival Information Unit
+AMDA            : Automated Multi Dataset Analysis
+AMU             : Atomic Mass Unit
+ANC             : ANChor (Harpon)
+ANL             : Archive Near-Line
+AOS	        : Heure d'acquisition du signal (Acquisition Of Signal)
+APAF            : ASPERA Processing and Archiving Facility [ASPERA]
+AR              : Accuse de Reception
+ARAMIS          : Aide a la Reservation des Atennes des MIni et microSatellites
+ARIEL           : Atmospheric Remote-sensing Infrared Exoplanet Large-survey
+ARTEMIS         : Acceleration Reconnection Turbulences & Electrodynamics of Moon's Interaction with the Sun
+ASA             : Austrian Space Agency
+ASCII           : American Standard Code for Information Interchange
+ASI             : Agenzia Spaziale Italiana
+ASIM            : Atmosphere-Space Interactions Monitor
+ASPERA          : Analyzer of Space Plasmas and Energetic Atoms [Venus Express, Mars Express]
+ASPOC           : Active Spacecraft Potential Control experiment
+ASW             : Address Synchronization Word
+ATHENA          : Advanced Telescope for High ENergy Astrophysics
+ATV             : Automatic Transfer Vehicle
+B1950           : Jour Julien 1950 (01/01/1950 0H00)
+BBP             : Broad-Band Photometer (obsolete)
+BC              : Bon de Commande
+BCD             : Binaire code decimal
+BCP             : Bureau de Coordination et de Programmation
+BFSPO           : Belgian Federal Science Policy Office
+BNSC            : British National Space Centre
+BO	        : Bulletin d'Orbite
+BSC             : Barcelona Supercomputing Centre
+BSP             : Binary Satellite and Planet kernel
+CAA             : Cluster Active Archive
+CAD             : Computer-automated Design
+CASSE           : Cometary Acoustic Sounding Surface Experiment
+CAST            : Chinese Academy of Space Technology
+CC              : Cycle Court
+CCC             : Command Control Center
+CCI             : Controle et Commande des Instruments
+CCS             : Centre de Controle Specialise
+CCSDS           : Consultative Committee for Space Data Systems
+CD-ROM          : Compact Disk - Read Only Memory
+CDAWeb          : Coordinate Data Analysis Web
+CDDC            : Chinese DSP Data Center 
+CDDS            : Cluster Data Disposition System 
+CDF             : Common Data Format
+CDMS            : Control and Data Management System
+CDO             : Content Data Object
+CDPP            : Centre de Donnees de la Physique des Plasmas
+CDS             : CCSDS Day Segmented 
+CEF             : Cluster Exchange Format
+CEOS            : Committee on Earth Observation Satellites
+CETP            : Centre d'Etudes des Environnements Terrestre et Planetaires
+CESR            : Centre d'Etude Spatiale des Rayonnements
+CGBH            : Controleur Generateur de Blocs HDLC [CNES] 
+CGIS            : Contrats Globaux d'Informatique Spatiale
+CHEOPS          : CHaracterising ExOplanets Satellite
+CIS             : Cluster Ion Spectroscopy experiment
+CMDH            : Command History File 
+CNES            : Centre National d'Etudes Spatiales
+CNR             : Consiglio Nazionale delle Ricerche
+CNRS            : Centre National de Recherche Scientifique
+CNSA            : Chinese National Space Agency 
+CODMAC          : COmmittee on Data Management Archiving and Computing
+COI             : Co-Investigator
+COPI            : Co-Principal Investigator
+COO	        : Centre d'Orbitographie Operationnelle
+COR	        : Centre des Operations Reseau
+CORBA           : Common Object Request Broker Architecture
+COROT           : COnvection, ROtation et Transits planetaires
+COSPAR          : COmmittee on SPAce Research; Numero d'immatriculation international des objets spatiaux
+CPA	        : Calculateur de Pilotage d'Antenne; terme generique designant les differents types de calculateur : Sherpa (Aus,Kru), Pla (Krn,Kuk), Ker (Ker), MCS(Hbk 2G), KAS (Hbk Ku)
+CRC             : Cyclical Redundancy Check
+CRID            : Command Request Interface Document 
+CSA             : Canadian Space Agency
+CSB             : Copy Status Byte
+CSDS-FR         : serveur du Cluster Science Data System et double star
+CSIR            : MIKOMTEK: CSIR (Republic of South Africa)
+CSIRO           : Commonwealth Scientific and Industrial Research Organization (Autralia)
+CSSAR           : Center for Space Science and Applied Research 
+CST             : Central Standard Time
+CSV             : Comma Separated Value
+CTA             : Centro Tecnico Aerospacial (Brazil)
+CU              : Coordination Unit
+CUD             : Call User Data
+CUG             : Close User Group
+CODIF           : ion COmposition and DIstribution Function Analyser
+CV              : Circuit Virtuel
+CVC             : Circuit Virtuel Commute
+CVS             : Concurrent Version System
+DA              : Document Applicable
+DACC            : Data Analysis Coordination Committee
+DACE            : Data Analysis Consortium Executive
+DAEMON          : Disk And Execution MONitor
+DART            : Doube Asteroid Redirection Test
+DAVIS           : Digital Audio Video System
+DAWG            : Data Archive Working Group
+DBMS            : Data Base Management System
+DC              : Direct Current
+DCT/ME/EU       : Direction du Centre spatial de Toulouse, sous-direction Mission et Exploitation de donnees, service Etude de exploration de l'Univers [CNES]
+DCT/PS/TVI      : Direction du Centre spatial de Toulouse, sous-direction Produits et Segment sol, service Techniques de Valorisation des donnees et d'Ingenierie sol [CNES]
+DDID            : Data Delivery Interface Document
+DDS             : Data Delivery System [ESA Server]
+DDS             : Data Disposition System [Mars Express]
+DDC             : Dossier Descriptif de la Configuration
+DDMS            : Double Star data Management System
+DDID            : Data Delivery Interface Document 
+DDL             : Data Description Language
+DDS             : Data Disposition System
+DED             : Data Entity Dictionary
+DEDSL           : Data Entity Dictionary Specification Language
+DEMETER         : Detection of ElectroMagnetic Emissions Transmitted from Earthquake Regions
+DES             : Dual Electron Spectrometers [MMS-FPI]
+DEX             : Data EXtration
+DF              : Direction-Finding
+DFT             : Direct Fourier Tranform
+DIF             : Directory Interchange Format
+DIM             : Dust Impact Monitor
+DIME            : Direct Internet Message Encapsulation
+DIODE           : Determination Immediate d'Orbite par DORIS Embarque
+DIP             : Dissemination Information Package
+DIS             : Dual Ion Spectrometers [MMS-FPI] 
+DLR             : Deutsches zentrum fur Luftund Raumfahrt (Allemagne)
+DMS             : Double and Multiple Stars
+DMZ             : DeMilitarized Zone
+DO              : Data Object
+DOI             : Digital Object Identifier
+DOMC            : Double Star Operantions and Management Center 
+DORIS           : Determination d'Orbite et Radiopositionnement Integre par Satelllite
+DORIS 2GM       : DORIS 2eme Generation Miniaturisee
+DOY             : Day Of Year
+DPA	        : Donnees de Pointage Antenne
+DPC             : Cata Processing Centre
+DPU             : Digital Processing Unit
+DPSS            : Data Packet Switching System [EUTELSAT]
+DR              : Document de Reference
+DRC             : Data Reduction Cycle
+DSAS            : Double Star Science Application Subsystem 
+DSDS            : Double Star Science Data System 
+DSOC            : Double Star Science Operation Center 
+DSP             : Digital Signal Processor
+DSP             : Double Star Program 
+DSRI            : Danish Space Research Institute
+DSS	        : Donnees de Suivi Satellite. Elles regroupent le bulletin d'orbite, le posvit associe et les previsions de passage. Pour un meme satellite, peuvent coexister dans SEPIA les DSS precedentes, nominales et futures.
+DST             : Disturbance Storm Time indices
+DTD             : Document Type Definition
+DVD             : Digital Versatile Disk
+DWF             : Decommutated WaveForm
+DWP             : Digital Wave Processing instrument
+EAD             : Encoded Archival Description
+EAICD           : Experiment to Archive Interface Control Document
+EAST            : Enhanced Ada SubseT
+EBCDIC          : Extented Binary Coded Decimal Data Interchange Code
+ECLIPJ          : Ecliptic coordinates based upon the J2000 frame
+ECS             : EOSDIS Core System
+ECSS            : European Cooperation for Space Standardization
+EDDC            : European DSP Data Center 
+EDDS            : European Data Dispostion System 
+EDI             : Electron Drift Instrument
+EDP             : Electric Double Probe
+EDR             : Experiment Data Record
+EFI             : Electric Field Instruments
+EEPROM          : Electrically Erasable Programmable read only Memory
+EGSE            : Electric & Electronic Ground System Equipment
+EID             : Experiment Interface Document 
+EISCAT          : European Incoherent Scatter Scientfic Association
+ELS             : Electron Spectrometer [ASPERA instrument]
+EME             : Earth Mean Equator and Equinox
+EME2000         : Earth Mean Equator at J2000 (Repere J2000)
+ENA             : Energetic Neutral Atom
+END	        : Heure de fin de support
+ENEA            : Agencia Nazionale per le nuove technologie, l'energia e lo sviluppo economico sostenibile
+EOP             : Experiments Operations Plan
+EOR             : Experiments Operations Request
+EOSDIS          : Earth Observing System Data and Information System
+EPD-EIS         : Energetic Particle Detector (EPD) Energetic Ion Spectrometer (EIS)
+EPOS            : European Playload Operation System 
+ERA             : European Robotic Arm
+ESA             : European Space Agency
+ESAC            : European Space Astronomy Centre (Villafranca, Espagne)
+ESDC            : ESAC Science Data Centre
+ESOC            : European Space Operation Centre (Damstadt, Allemagne)
+ESRO            : European Space Researc Organization; The predecessor organization of ESA
+ESTEC           : European Space Research and Technology Center (Noordwijk, Holland)
+ETTD	        : Equipement Terminal de Transmission de Donnees
+ETTD            : Equipement Terminal de Traitement de donnees
+EUMETSAT        : EUropean METeorological SATellites
+EUTELSAT        : EUropean TELecommunication SATellite
+EWF             : Electric Field and Wave experiment
+EXCHANGE     	: Messagerie interpersonnelle Microsoft
+FCS             : Frame Check Sequence
+FDDC            : French DSP Data Centre
+FEEPS           : Fly's Eye Energetic Particle Sensor
+FGDC            : Federal Geographic Data Committee
+FGM             : Fluxgate Magnetometer 
+FITS            : Flexible Image Transport System
+FFT             : Fast Fourier Transform
+FM              : Flight Model
+FORTRAN         : FORmula TRANslator
+FOS	        : Frontal de l'Operateur Satellite
+FPGA            : Field Programmable Gate Array
+FPI             : Fast Plasma Investigation
+FS              : Flight Spare
+FSF             : Frame Status Field
+FTP             : File Transfer Protocol
+FTRP            : Frame Transaction ResPonse
+FTRQ            : Frame transmit ReQuest
+GAIA            : Global Astrometric Interferometer for Astrophysics
+GAREX           : GAia Relativity EXperiment
+GASCON	        : Gestion Automatique des Stations de CONtrtle
+GAS             : Gestionnaire d'Application Serveur [STAF]
+GASS            : GAia System-level Simulator
+GAT             : Gaia Astronomical Tools
+GATT            : Gaia Algorithm Tracking Tool [GDAAS]
+GCH             : Generateur de Code Horaire
+GDS             : Ground Data System 
+GECO            : Groupe d'Exploitation et de Coordination des Operations
+GEI             : Geocentric Equatorial Inertial [SPATIAL]
+GEO             : Geographic [SPATIAL]
+GEOS            : Geostationary Earth Orbit Satellite
+GIBIS           : Gaia Instrument and Basic image Simulator
+GIF             : Graphics Interchange Format
+GLU             : Generateur de Liens Uniformes
+GNF             : Guide Normatif Simplifie
+GOCE            : Gravity field and steady-state Ocean Circulation Explorer
+GOG             : Gaia Object Generator
+GRM             : Ground Reference Model
+GP              : GonioPolarimetry
+GRM             : Ground Reference Model
+GSE             : Geocentric Solar Ecliptic [SPATIAL]
+GSFC            : Goddard Space Flight Center
+GSM             : Geocentric Solar Magnetospheric co-ordinate system [SPATIAL]
+GTS             : Gaia Transfer Service
+HAM             : HArvey Mother [ISEE1]
+HDLC            : High-Level Data Link Control
+HEE             : Heliocentric Earth Ecliptic
+HEED            : High Energy Electron Detector 
+HEOS            : Highly Eccentric Orbiting Satellite
+HEPD            : High Energy Proton Detector 
+HFMS            : Hierarchical File Management System
+HFR             : High Frequency Receiver
+HIA             : Hot Ion Analyser
+HID             : Heavy Ion Detector 
+HK              : House Keepping
+HKD             : House Keeping Data 
+HNSC            : Hellenic National Space Committee
+HPCA            : Hot Plasma Composition Analyzer
+HPD             : Housekeeping Parameter Definition 
+HRSC            : High-Resolution Stereo Camera
+HS              : High-Sensitivity
+IACG            : InterAgency Consultative Group 
+IAGA            : International Association of Geomagnetism and Aeronomy
+IAGC            : International Association of Geochemistry and Cosmochemistry
+IAP             : Image Archive Product
+IAS             : Institut d'Astrophysique Spatiale (Orsay, France)
+IC              : Interplanetary Cruise
+ICA             : International Council on Archives
+ICD             : Interface Control Document
+ICONES          : Infrastructures de Communication Optimisees pour les NouvEaux Satellites
+ICR             : Immediate Command Request
+ICS             : Interoperable Catalogue System
+ID              : IDentifier
+IDENSAT	        : Projet/satellite
+IDFS            : Instrument Data File Set or Instrument Description File Set
+IDL             : Interactive Data Language
+IDT             : Initial Data Treatment
+IEEE            : Institute of Electrical and Electronic Engineers
+IFP	        : Indicateur de Fin de Passage
+IFP             : Istituto Fisica del Plasma (Frascati)
+IGN             : Institut Geographique National
+IHM             : Interface Homme Machine
+IKI             : Institute of Space Research (Russian Federation)
+IMA             : Ion Mass Analyzer [ASPERA Instrument]
+IMS             : Information Management System
+IMS             : International Magnetospheric Study
+INAF            : Istituto Nazionale di AstroFisica (Frascati)
+INFN            : Laboratori Nazionali di Frascati
+INPE            : Instituto Nacional de Pesquisas Espaciais (Brazil)
+INTEGRAL        : INTErnational Gamma-Ray Astrophysics Laboratory [ESA]
+IOAC            : Institute of Astronomy Cambridge
+IoT             : Internet of Things
+IP              : Information Package
+IPSL            : Institut Pierre Simon Laplace
+IRAP            : Institut de Recherche en Astrophysique & Planetologie
+IRF             : Institutet for RymdFysik (Kiruna, Swedish Institute of Space Physics)
+ISBN            : International Standard Book Number
+ISC             : Intermediate Subcarrier Modem
+ISEE            : International Sun-Earth Explorers
+ISDC            : INTEGRAL Science Data Centre
+ISO             : Infrared Space Observatory [ESA; Telescope spatial]
+ISO             : International Organization for Standardization
+ISRO            : Indian Space Research Organization
+ISTP            : International Solar Terrestrial Physics
+ISS             : Internalional spatial Station
+IUE             : International Ultraviolet Explorer
+J2000           : Jour Julien 2000, (01/01/2000 12h00), Earth mean equator, dynamical equinox of J2000
+JAXA            : Japan Aerospace Exploration Agency
+JDB             : Journal De Bord
+JDEX            : Java Data EXtraction
+JPA             : Johnstone Plasma Analyzer
+JPL             : Jet Propulsion Laboratory
+JSOC            : cluster Joint Science Operations Centre
+JUICE           : JUpiter ICy moon Explorer
+JWST            : James-Webb Spatial Telescope
+KARI            : Korea Aerospace Research Institute
+KeepAlive       : Test de la ligne
+KeV             : Kilo Electron Volt
+KFKI            : KFKI Research Institute for Particle & Nuclear Physics (Hungary)
+KME             : Kronocentric Magnetic Equatorial
+KP              : Key Parameter
+KSM             : Kronocentric Solar Magnetic
+LAP             : LAngmuir Probe instrument
+LATMOS          : Laboratoire ATmospheres Milieux Observations Spatiales
+LCC             : Lander Control Center
+LCN             : Logical Channel Number
+LDL             : Long Debye Length
+LEID            : Low Energy Ion Detector 
+LESIA           : Laboratoire d'Etudes spatiales et d'Instrumentation en Astrophysique
+LFEW            : Low Frequency Electromagnetic Wave Detector 
+LIOR            : Lander Instrument Operations Request
+LOR             : Lander Operations Request
+LOS	        : Heure de perte du signal (Loss Of Signal)
+LPCE            : Voir LPC2E
+LPC2E           : Laboratoire de Physique et Chimie de l'environnement et de l'Espace
+LS              : Low-Sensitivity
+LSB             : Low Significant Bit
+LSDA            : Life Sciences Data Archive
+LTEF            : Long Term Event File 
+LTOF            : Long Term Orbit File 
+MADONA          : Moyen d'Acces a des DONnes ASCII
+MAGE            : Messages d'Avertissements et de Gestion des Erreurs
+MAP             : Maintenance en poste
+MARC            : MAchine-Readable Cataloging
+MaRS            : Mars Radio Science
+MARSIS          : Mars Advanced Radar for Subsurface and Ionospheric Sounding
+MBP             : Medium Band Photometry
+MC              : Message condition
+MCP             : MicroChannel Plate
+MCS	        : Nouveau calculateur de pilotage d'antenne d'HBK
+MDB             : Main Database (Gaia Project)
+MDT             : Moyen De Traitement [STAF]
+MEC             : Ephemeris
+METS            : Metadata Encoding and Transmission Standard
+MEX             : Mars EXpress
+MHD             : Magneto Hydro Dynamic
+MICROSCOPE      : MICRO-Satellite a trainee Compensee pour l'Observation du Principe d'Equivalence
+MIGS            : Microsatellite Ground Segment
+MIME            : Multipurpose Internet Mail Extensions
+MIP             : Mise en poste
+MIP             : Mutual Impedance Probe
+MMS             : Magnetospheric Multiscale Mission
+MMSL            : Mullard Space Science Laboratory; London UK
+MOC             : Ministry Of Communications (Israel)
+MOST            : Mission Operations Scheduling Tool
+MOT             : Model of Objects for Transfer
+MPTS            : Multi Purpose Tracking System
+MS              : Message Subtype
+MSB             : Main Significant Bit
+MSO             : Mars Solar Orbital
+MSW             : Mode Selection Word
+MT              : Message Type
+MU              : Main Unit
+NAIF            : Navigation and Ancillary Information Facility
+NARA            : National Archives and Records Administration
+NASA            : National Aeronautics and Space Administration (USA)
+NEMI            : Noise Equivalent Magnetic Induction
+NEV             : Near Earth Verification
+NICT            : National Institute of Information and Communications Technology (Japan)
+NOAA            : National Oceanic & Atmospheric Adinistration (USA)
+NPD             : Neutral Particle Detector
+NPI             : Neutral Particle Imager
+NRC             : National Research Council
+NSD             : Normal Science Data 
+NSPO            : National SPace Organization (Taipei)
+NSSDC           : National Space Science Data Center; Catalogue des objets spatiaux NASA
+OA              : Orbite/Attitude
+OAIS            : Open Archival Information System
+OASW            : Orbit and Attitude data access SoftWare
+OBDH            : On-board Data Handler 
+OBT             : On Board Time
+OCC             : Operations Control Center 
+ODL             : Object Description Language
+OMEGA           : Observatoire pour la Mineralogie, l'Eau, les Glaces et l'Activite
+ONERA           : Office National d'Etudes et de Recherche Aeroqpatiales
+OOBT            : Orbiter On Board Time
+OT              : Observation de la Terre
+OTS             : Orbital Test Satellite
+OWL             : Web Ontology Language
+PACTE           : Point d'Acces Controle pour Transaction Externes
+PAIMAS          : Producer-Archive Interface Methodology Abstract Standard
+PAIS            : Producer-Archive Interface Specifications
+PCM             : Pulse Coded Modulation
+PDF             : Portable Document Format
+PDI             : Preservation Description Information
+PDMP            : Project Data Management Plan
+PDMS            : Playload Data Management System 
+PDR             : Preliminary Design Review
+PDS             : Planetary Data System [NASA; JPL]
+PDU             : Protocol Data Unit
+PDV             : Plan de Developpement
+PEACE           : Plasma Electron and Current Experiment 
+PEN             : PENetrator
+PFS             : Planetary Fourier Spectrometer
+PGGS            : Proteus Generic Ground Segment
+PHARAO          : Projet d'Horloge Atomique par Refroidissement d'Atomes en Orbite
+PHD             : Pulse Height Distribution
+PI              : Principal Investigator
+PID             : Processed Ident-word
+PIN             : Perennisation des Informations Numeriques
+PIU             : Plasma Interface Unit
+PGGS            : Proteus Generic Ground Segment
+PLA	        : Calculateur de PiLotage d'Antenne
+PM              : Project Manager
+POG             : Programme des Operations Generales
+POSVIT	        : Fichier en POSition-VITesse
+POT             : Plan des Objets a Transferer
+PP              : Permittivity Probe
+PP              : Prime Parameters
+PPIN            : Planetary Plasma Interactions Node [PDS]
+PTRP            : Primary Transaction ResPonse
+PROM            : Programmable Read Only Memory
+PSA             : Planetary Science Archive [ESA]
+PSD             : Phase Space Density [STEREO]
+PSD             : Power Spectral Density
+PSDD            : Planetary Science Data Dictionnary
+PSP             : Parker Solar Probe
+PSS             : Portable Simulation System [EUTELSAT]
+PTRP            : Primary Transaction ResPonse
+PVL             : Parameter Value Language
+PVO             : Pioneer Venus Orbiter
+PVV             : PSA Validation and Verification tool [ESA]
+PWS             : Plasma Wave Subsytem
+QM              : Qualification Model
+QO              : Qualification Operationnelle
+QSO             : Quasi Stellar Object
+QT              : Qualification Technique
+RAC             : Real Application Clusters [Oracle; Load Balancing]
+RAPID           : Research with Adaptative Particle Imaging Detectors
+RAR             : Resources Allocation Request
+RC              : Response Code
+RDF             : Resource Description Format
+RDR             : Reduced Data Record
+RE              : Responsable d'Exploitation
+REST            : REpresentational State Transfer
+RFF             : Roproc File Format
+RID             : Raw Image Data
+RLGS            : Rosetta Lander Ground Segment
+RM              : Reference Model
+RNC             : Referentiel Normatif du CNES
+RNF             : Request Number Frames
+RO              : Responsable Operations
+ROPROC          : RObert's PROCessing
+ROSETTA         : Mission d'exploration de la comete 67P/Churyumov-Gerasimenko
+Roskosmos       : Federal Space Agency (Russian Federation)
+RPA             : Retarding Potential Analyzer
+RPA             : Reme Plasma Analyzer
+RPC             : Remote Procedure Call
+RPC             : ROsetta Plasma Consortium [ROSETTA]
+RPWS            : cassini-Radio and Plasma Wave Science
+RSC             : Receive Site Code
+RSSD            : Research and Scientific Support Department [ESA]
+RTN             : Radial Tangential Normal
+RV              : Radial Velocity
+RVS             : radial Velocity Spectrometer
+SA              : Spectrum Analyzer
+SATAN           : production d'ephemerides par rapport a SATurne et TitAN
+SATT            : Spacecraft Attitude and Spin Rate 
+SC              : Satellite Code
+SC              : SCience
+SCC             : Satellite Control Centre (ESA)
+SCM             : Search Coil Magnetometer
+SCCS	        : Source Code Control System
+SCCT            : Satellite Code Condition Table
+SD              : Serveur de donnees SSALTO
+SD2             : Sample Drill & Distribution System
+SDDAS           : Southwest Data Display and Analysis System
+SDID            : Station Data Interchange Document
+SEF             : Service d'Echange de Fichiers
+SEM             : Service d'Echange de Medias
+SEPIA	        : Systeme d'Elaboration des Previsions de pAssages
+SERAD           : SErvice de Referencement et d'Archivage des Donnees
+SFDU            : Standard Formatted Data Unit
+SFR             : Sweep Frequency Receiver
+SFU             : Solar Flus Units
+SGDS            : Systeme de Gestion des Donnees Spatiales
+SGC             : Service de Gestion en Configuration
+SGIS            : Spectroscopic Global Iterative Solution
+SGML            : Standard Generalized Markup language
+SHERPA	        : Nouveau calculateur de pilotage d'antenne d'Aussageul et Kourou
+SIMB            : Service d'Installation et de Maintenance des Balises DORIS
+SIMBAD          : Systeme d'Information et de Management des BAlises Doris
+SIP             : Submission Information Package
+SIPAD-NG        : Systeme d'Information de Preservation et d'Acces aux Donnees Nouvelle Generation
+SIS             : Software Interface Specification
+SM              : Solar Magnetic system
+SM              : Spectral Matrix
+SMILE           : Solar wind Magnetosphere Ionosphere Link Explorer
+SN              : Subsystem Number
+SOAP            : Simple Object Access Protocol
+SONC            : Scientific Operation & Navigation Center
+SPASE           : Space Physics Archive Search and Extract
+SPICAM          : Spectroscopy for the Investigation of the Characteristics of the Atmosphere of Mars
+SPICE           : Spacecraft, Planet, Instrument, C-matrix and Events
+SPM             : Software Project Manager
+SPP             : Summary Parameters
+SQL             : Structured Query Language
+SS              : Satellite Code
+SSALTO          : Segment Sol multi-missions ALTimetrie, Orbitographie et localisation precise
+SSC             : Source Site Code
+SSC             : Swedish Space Corporation
+SSIM            : Satellite SIMulator
+SSMM            : Solid State Mass Memory
+SST             : Solid State Telescope
+ST              : Subsystem Type
+STA	        : STAtion
+STAF            : Service de Transfert et d'Archivage de Fichiers
+STAFF           : Spatio-Temporal Analysis of Field Fluctuations experiment
+STAFF_SA        : Spatio-Temporal Analysis of Field Fluctuations Spectrum Analyser
+STAFF_SC        : Spatio-Temporal Analysis of Field Fluctuations_Search Coil
+STEF            : Short Term Event File 
+STEREO          : Solar TErrestrial RElations Observatory
+STILO           : Systeme de Traitement des Instruments Localisation et Orbitographie
+STOF            : Short Term Orbit File 
+STRT	        : Heure de debut de support
+SU              : Scanning Unit
+SUP 	        : Type de SUPport
+SUPARCO         : Space and UPper Atmospheric Research COmmission (Pakistan)
+SWEA            : Solar Wind Electron Analyzer (STEREO)
+SwRI            : SouthWest Research Institute
+TAAD            : Temporal Accurate Attitude Data
+TAB             : Time Acquisition Bit
+TAI             : Temps Atomique International
+TARQ            : transmission Abort Request
+TBC             : To Be Confirmed
+TBD             : To Be Defined (or Determined)
+TC              : TeleCommande
+TC-1            : Equatorial DSP Satellite (Tan Ce 1)
+TC-2            : Equatorial DSP Satellite (Tan Ce 2)
+TCC             : TeleCommande CNES
+TCE             : TeleCommande Exterieure
+TCP/IP          : Transfer Control Protocol / Internet Protocol
+TCR             : Telemetry Commanding and Ranging
+TCU             : Thermal control unit
+TDC             : Time to Digital Converter
+TE              : Temps des Ephemerides
+TEI             : Text Encoding Initiative
+TG	        : TeleGestion
+THEMIS          : Time History of Events and Macroscale Interactions During Substorms
+TM              : TeleMesure
+TM              : Thermal Mapper
+TMC             : TeleMesure CNES
+TME             : TeleMesure Exterieure
+TNF             : Transmit Number Frames
+TNR             : Thermal Noise Reveiver
+TOD             : Transfer Object Descriptor
+TR              : Transaction Response
+TRD             : Technical Requirements document
+TS	        : TeleSurveillance
+TsNIIMash       : Central Research Institute of Machine Building (Russian Federation)
+TTF             : Time Tag Field
+TU              : Temps Universel
+TUC             : Temps Universel Coordonne
+UBGS            : Universitat de Barcelona Gaia Simulator
+UAI             : Union Astronomique Internationale
+UBF             : Ultra Basse Frequence
+UCLA            : University of California, Los Angeles
+UID             : User ID [STAF]
+ULF             : Ultra Low Fequency
+UML             : Unified Modeling Language
+UMR             : Unidentified Message Response
+UNICODE         : Universal Code
+URD             : User Requirements Document
+URI             : Uniform Resource Identifier
+URL             : Uniform Resource Locator
+URN             : Uniform Resource Name
+USGS            : United States Geological Survey (USA)
+USP             : Utilisateur Staf Projet [STAF]
+UTC             : Universal Time Coordinated
+VDLIB           : Valorisation Data LIBrary
+VEX             : Venus EXpress
+VMS             : Virtual Memory System
+VSO             : Venus Solar Orbit
+W3-SONC         : SONC's Internet Web server
+W3C             : WorldWide Web Consortium
+WBD             : Wide Band Data receiver
+WFR             : WaveForm Receiver
+WHISPER         : Waves of HIgh frequency and Sounder for Probing the Electron density by Relaxation
+WWW             : WorldWide Web
+X25             : Protocole de communication a commutation de paquets
+XFDU            : XML Formatted Data Units
+XML             : eXtensible Markup Language
+XMM             : X-ray Multi-mirror Mission; officially known as XMM-Newton [ESA]
+YAML            : Yaml Ain't Markup Language
+
+##= END
+
+##= PACCI-RELAIS
+##= PACTE-SV
+################
+
+=> Notes : 
+   Le pacte-sv est remplace par pacci-relais
+   pour connaitres les services disponibles, apres la connexion taper /help
+
+=> Connexions :
+
+   Connexion ftp :
+   ftp pacci-relais
+   Host : cephirinsv@<adresse>
+   password : <standard>
+
+   Connexion telnet :
+   telnet pacci-relais
+   Host : /ssh @<adresse>
+
+   compte WAF
+   cephiriv/1
+
+=> Changer le password du compte pacci :
+
+   Changez le password :
+      telnet pacci-relais
+      login : cephirinsv
+      /password
+      ...
+      /end
+
+=> Changer le password ftp du site cible :
+
+   telnet pacci-relais
+   login : cephirinsv
+   Host : csds-fr
+   password : <password perso>
+   user <login site> // clucdpp
+   Password: <old password site>
+
+##= END
+
+##= CASSINI_DYNSPECTRA (N2 ou N3)
+##= DYNSPECTRA (N2 ou N3)
+#################################
+
+=> Livraison :
+
+   connexion sur tu-mut-calc-pc avec le compte cdppexp
+
+   dcList "CASSINI_RPWS DYNSPECTRA KRONOS LIST" 2015
+
+=> Production des donnees :
+
+   cd $HOME/CASSINI_RPWS
+   TYPE=N2
+   TYPE=N3
+
+   # Lancer un traitement
+   script/PREPARER_DONNEES_CASSINI_RPWS_HFR_DYNSPECTRA -t DYNSPECTRA_${TYPE} -d 199710
+
+   # retraiter un mois
+   cd script
+   PREPARER_DONNEES_CASSINI_RPWS_HFR_DYNSPECTRA -t DYNSPECTRA_${TYPE} -d 199710 -f
+
+   # traiter une periode (1 an)
+   cd script
+   nohup runBatchDynspectra.sh ${TYPE} 200101 12 & tail -f nohup.out
+
+   # Si des erreurs sont signalees en fin de traitement, bien relever
+   # les dates concernees pour verifier plus tard au SIPAD que les
+   # imagettes sont correctes.
+
+=> Ingestion des donnees au SIPAD-NG
+
+   read -p "date (yyyy[[mm]dd]) : " DATEI
+   read -p "type (N2 ou N3) : " TYPE
+
+   cd $LIV_SIPAD_PATH/manuel/CASSINI
+   cp data/*DYNSPECTRA_${TYPE}*${DATEI}*.xml $INGESTION_SIPAD_PATH/manual/CASSINI/data
+   chmod g+rw $INGESTION_SIPAD_PATH/manual/CASSINI/data/*DYNSPECTRA_${TYPE}*${DATEI}*.xml
+   cp browse/*DYNSPECTRA_${TYPE}*${DATEI}*.xml $INGESTION_SIPAD_PATH/manual/CASSINI/browse
+   chmod g+rw $INGESTION_SIPAD_PATH/manual/CASSINI/browse/*DYNSPECTRA_${TYPE}*${DATEI}*.xml
+   cp browse/rep_image/*DYNSPECTRA_${TYPE}*${DATEI}*.png $INGESTION_SIPAD_PATH/manual/CASSINI/browse/rep_image
+   chmod g+rw $INGESTION_SIPAD_PATH/manual/CASSINI/browse/rep_image/*DYNSPECTRA_${TYPE}*${DATEI}*.png
+
+   Lancer l'ingestion depuis firefox
+   Recuperer le numero d'ingestion pour le CR
+
+   Apres le transfert, deplacer les fichiers dans apres_acquisition
+   cd $LIV_SIPAD_PATH/manuel/CASSINI
+   mv data/*DYNSPECTRA_${TYPE}*${DATEI}*.xml $APRES_ACQ_SIPAD_PATH/CASSINI/data
+   mv browse/*DYNSPECTRA_${TYPE}*${DATEI}*.xml $APRES_ACQ_SIPAD_PATH/CASSINI/browse
+   rm browse/rep_image/*DYNSPECTRA_${TYPE}*${DATEI}*.png
+   rm $INGESTION_SIPAD_PATH/manual/CASSINI/browse/rep_image/*DYNSPECTRA_${TYPE}*${DATEI}*.png
+
+=> Statistiques (SIPAD)
+
+   cd $HOME/CASSINI_RPWS/utils
+
+   read -p "date (yyyy[mm]) : " DATE_EXPL
+   prepStatsDynspectra N2 $DATE_EXPL
+   prepStatsDynspectra N3 $DATE_EXPL
+
+   # Check STAF / SIPAD
+   cd $HOME/CASSINI_RPWS/utils
+   DATE_EXPL=2012
+   countKronosDynspectra ${DATE_EXPL}
+   dcList "CASSINI STAF list" CDPP_N2 ${DATE_EXPL} | statCDPP_N2 -
+   dcList "CASSINI STAF list" DYNSPECTRA_N2 ${DATE_EXPL} | statDyn -
+   dcList "CASSINI STAF list" DYNSPECTRA_N3 ${DATE_EXPL} | statDyn -
+ 
+   # importer les resultats dans le premier onglet du CR
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/CASSINI_RPWS/utils
+   commandData 201609:201612 5
+
+=> Archiver
+
+   cd $HOME/CASSINI_RPWS/suivi
+   rm creer_descr*.log
+
+   read -p 'date (yyyy) : ' YY
+
+   tar cvf archives/exploit_dynspectra_N2_${YY}.tar $(grep -l "exploitation  = '${YY}" CR*_DYNSPECTRA_N2_*)
+   tar cvf archives/exploit_dynspectra_N3_${YY}.tar $(grep -l "exploitation  = '${YY}" CR*_DYNSPECTRA_N3_*)
+   gzip archives/exploit_dynspectra_*.tar
+
+   du -hs archives/*_${YY}*
+   rm $(grep -l "exploitation  = '${YY}" CR*_DYNSPECTRA_N2_*)
+   rm $(grep -l "exploitation  = '${YY}" CR*_DYNSPECTRA_N3_*)
+
+##= END
+#######
+
+##= CASSINI_RPWS
+##= RPWS
+################
+
+=> Livraison :
+
+   connexion sur tu-mutcalc-pc avec le compte cdppexp
+
+   dcList "CASSINI_RPWS CDPP_N2 Kronos list" 2015
+
+
+=> Production des donnees :
+
+   cd $HOME/CASSINI_RPWS
+   TYPE=N2
+
+   # Lancer un traitement
+   script/PREPARER_DONNEES_CASSINI_RPWS_HFR_${TYPE} -d 1997025
+
+   # retraiter une date
+   script/PREPARER_DONNEES_CASSINI_RPWS_HFR_${TYPE} -d 1997097 -f
+
+   # traiter une periode (1 an)
+   cd $HOME/CASSINI_RPWS/script
+   nohup runBatch.sh 2001001 365 & tail -f nohup.out
+
+   # Traitement par trimestre
+   cd $HOME/CASSINI_RPWS/script
+   nohup runBatch.sh 2017001 90 &    # A lancer au mois de juillet 2017
+   nohup runBatch.sh 2017091 91 &    # A lancer au mois de octobre 2017
+   nohup runBatch.sh 2017182 92 &    # A lancer au mois de janvier 2018
+   nohup runBatch.sh 2017274 92 &    # A lancer au mois de avril 2018
+
+   # Traitement par trimestre (annee bissextile)
+   cd $HOME/CASSINI_RPWS/script
+   nohup runBatch.sh 2016001 91 &    # A lancer au mois de juillet 2016
+   nohup runBatch.sh 2016092 91 &    # A lancer au mois de octobre 2016
+   nohup runBatch.sh 2016183 92 &    # A lancer au mois de janvier 2017
+   nohup runBatch.sh 2016275 92 &    # A lancer au mois de avril 2017
+
+=> Ingestion des donnees au SIPAD-NG
+
+   read -p "date (yyyy[[mm]dd]) : " DATE_ING
+
+   cd $LIV_SIPAD_PATH/manuel/CASSINI/data
+   ll data*${DATE_ING}*.xml
+   cp data*${DATE_ING}*.xml $INGESTION_SIPAD_PATH/manual/CASSINI/data
+   chmod g+rw $INGESTION_SIPAD_PATH/manual/CASSINI/data/data*${DATE_ING}*.xml
+
+   # Recuperer le numero d'ingestion pour CR
+
+   # Apres le transfert, deplacer les fichiers dans apres_acquisition
+   mv data*${DATE_ING}*.xml $APRES_ACQ_SIPAD_PATH/CASSINI/data
+
+=> Statistiques (SIPAD)
+
+   cd $HOME/CASSINI_RPWS/utils
+   for DATE_EXPL in {201609..201612}
+   do
+      prepStats ${DATE_EXPL} > CASSINI_RPWS_HFR_CDPP_N2_${DATE_EXPL}
+      mailx -s "Stat CASSINI_RPWS_HFR_CDPP_N2_${DATE_EXPL}" v.cephirins@akka.eu < CASSINI_RPWS_HFR_CDPP_N2_${DATE_EXPL}
+   done
+
+   # importer les resultats dans le premier onglet du CR
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/CASSINI_RPWS/utils
+   commandData 201609:201612 5
+
+=> Archiver les comptes-rendu
+
+   cd $HOME/CASSINI_RPWS/suivi
+   rm creer_descr*.log
+
+   read -p "date (yyyy) : " YY
+
+   TAR_EXPL=archives/exploit_CDPP_N2_${YY}.tar
+   tar cvf ${TAR_EXPL} $(grep -l "exploitation  = '${YY}" CR*_CDPP_N2*)
+   gzip ${TAR_EXPL}
+
+   du -hs archives/*_${YY}*
+   rm $(grep -l "exploitation  = '${YY}" CR*_CDPP_N2*)
+
+##= END
+#######
+
+##= GENERER_XML
+##= ORPHAN MISSIONS
+###################
+
+=> Notes :
+
+   # Connexion sur tu-mutcalc-pc (cdppexp)
+   cd /home/CDPP/archcdpp/format_natif/gen_xml
+
+##= END
+#######
+
+##= INTERBALL
+##########
+
+=> Notes :
+
+   # Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Livraison :
+
+   # Verifier si des donnees sont disponibles
+
+   export SEP1="_"
+   export SEP2="__"
+   export CRITTAB="([vV][0-9]+)?"
+   export EXTFILE="[.].*"
+
+   # Definition des criteres
+   export CRIT1=".*"
+   export CRIT2=".*"
+   export LEVEL="l."
+   export DEBLIG=""
+
+   # Definition du pattern principal
+   export PATTERN="DEBLIG_CRIT2_SEP1_CRIT1_SEP1_CRITDATE_SEP1_CRITTAB_EXTFILE"
+
+   ll /home/CDPP/archcdpp/transfert_interball/data4skt | checkStat -i -m - month
+   ll /home/CDPP/archcdpp/transfert_interball/PITCH_ANGLE | checkStat -i -m - month
+
+=> Production des donnees :
+
+   # traitement
+   cd $HOME/INTERBALL_ION_N2/script
+   PREPARER_DONNEES_INTERBALL_ION_N2 [-h] [-s <AURORAL | TAIL>] [-d yyyy[mm[dd]] [-p <data_path>]
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/INTERBALL/data
+   ll
+
+   cp -p *.xml ${INGESTION_SIPAD_PATH}/manual/INTERBALL/data
+   chmod 776 ${INGESTION_SIPAD_PATH}/manual/INTERBALL/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/INTERBALL/data
+   mv *.xml ${APRES_ACQ_SIPAD_PATH}/INTERBALL/data
+
+=> Statistiques (STAF / SIPAD)
+
+   # AU SIPAD
+   cd $HOME/INTERBALL_ION_N2/utils
+   vPeriod=2010    # vPeriod=2010:201006
+   checkSipad ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[INTERBALL_ION_N2] Stats SIPAD ${vPeriod}" vincent.cephirins@akka.eu
+
+
+EOF
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/INTERBALL_ION_N2/utils
+   vPeriod=2010   # vPeriod=2010:201006
+   commandData ${vPeriod} 5
+
+##= END
+#######
+
+##= ISEE1
+#########
+
+=> Notes
+   # Fichier de configuration des stats
+   $HOME/ISEE1/conf/checkStat.cfg
+
+   # Visualiser les images / quicklook
+   module load imagemagick
+   display image.png
+
+   # Visualiser les fichiers CDF: 
+   memoSH cdf
+
+=> Production des donnees :
+
+   # Production des CDF master
+   cd $HOME/ISEE1/script/master
+   generateMaster
+
+   # Conversion des fichiers bin en fichiers CDF pour une annee
+   cd $HOME/ISEE1/script
+   python isee1Bin2Cdf.py -o /home/CDPP/archcdpp/format_cdf/isee1 /home/CDPP/archcdpp/format_natif/isee1/ISEE_BUSS_1977*dat
+
+   # produire les quickook pour une annee
+   cd $HOME/ISEE1/script
+   mkdir -p /tmp/${USER}/isee1/QL
+   for file in /home/CDPP/archcdpp/format_cdf/isee1/isee1_snd_h2_1977*cdf
+   do
+      python isee1Plot.py -o /tmp/${USER}/isee1/QL $file
+   done
+
+   # Archivage des donnees
+   cd $HOME/STANDARD_MISSION/script
+   PREPARER_STANDARD_MISSION -s -f $HOME/STANDARD_MISSION/conf/stat_isee1.cfg  -p /home/CDPP/archcdpp/format_cdf/isee1 'isee1_snd_*_1977*cdf'
+
+   # Archivage des Quicklook
+   cd $HOME/STANDARD_MISSION/script
+   PREPARER_STANDARD_MISSION -s -b -f $HOME/STANDARD_MISSION/conf/stat_isee1.cfg  -p /tmp/${USER}/isee1/QL 'isee1_snd_h2_1977*png'
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Voir SIPAD-NG
+   vPeriod=1977    # vPeriod=197710
+
+   cd ${LIV_SIPAD_PATH}/manuel/STANDARD_MISSION
+   ll data/*_${vPeriod}* browse/*_${vPeriod}*
+   cp -p data/*_${vPeriod}*.xml ${INGESTION_SIPAD_PATH}/manual/ISEE1/data
+   cp -p browse/*_${vPeriod}*.xml ${INGESTION_SIPAD_PATH}/manual/ISEE1/browse
+   cp -p browse/rep_image/*_${vPeriod}* ${INGESTION_SIPAD_PATH}/manual/ISEE1/browse/rep_image
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/STANDARD_MISSION
+   mv data/*_${vPeriod}*.xml ${APRES_ACQ_SIPAD_PATH}/ISEE1/data
+   mv browse/*_${vPeriod}*.xml ${APRES_ACQ_SIPAD_PATH}/ISEE1/browse
+   cd browse/rep_image
+   rm -f *_${vPeriod}*.png
+   cd ${INGESTION_SIPAD_PATH}/manual/ISEE1/browse/rep_image
+   rm -f *_${vPeriod}*.png
+
+=> Statistiques
+
+   cd $HOME/ISEE1/utils
+   vPeriod=1977    # vPeriod=2010:201006
+   checkSipad -f ../conf/checkStat.cfg ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[ISEE1_SND] Stats SIPAD ${vPeriod}" vincent.cephirins@akka.eu
+
+
+
+##= END
+#######
+
+##= Otari
+#########
+
+=>  Generalites
+
+    Executable sous valdo\08_Utilitaires_Outil\Otari
+
+    java -jar otari-2.0.jar
+
+##= END
+#######
+
+##= SAUVEGARDE
+##############
+
+=> API_CDPP
+
+   SVN url = svn://srv-svn.silogic.fr/svn/API_CDPP.svn/trunk
+
+##= END
+
+##= SGC
+#######
+
+# Obsolete => /home/sgc/projet/sgds/vdlib/rec
+=> La livraison se fait par Crypt'n Share avec un ticket fournit par le SGC
+
+=> Genere le checksum
+    module load md5sum
+    md5sum livraison.tar.gz > livraison.tar.gz.md5
+
+=>Voir VDLIB
+
+##= END
+
+##= SIPAD-NG
+##= SNGP_CDPP
+#############
+
+=> Instance Operationelle (SO1) :
+   commande : https://sipad-cdpp.cnes.fr (132.149.197.1:443)
+   Ingestion : https://sipad-cdpp-adm.cnes.fr (10.120.3.194:443) (cephirinsv)
+   
+   # depot (cdppexp):
+      /home/sipad/${INSTANCE_SIPAD}/cdpp/project/ingestion
+
+   # logs : 
+      /home/sipad/${INSTANCE_SIPAD}/cdpp/project/ingestion/logs/ingestion.log
+
+=> Instance de Qualification / Recette (SP1) :
+   commande : https://sipad-cdpp-val.cnes.fr (10.135.5.39:443)
+   Ingestion : https://sipad-cdpp-adm-pp.cst.cnes.fr (10.120.3.174:443) (sipad_admin)
+
+   # depot (cdppqual):
+      /home/sipad/${INSTANCE_SIPAD}/cdpp/project/ingestion
+
+   # logs :
+     /home/sipad/${INSTANCE_SIPAD}/cdpp/project/logs/ingestion.log
+     /home/sipad/${INSTANCE_SIPAD}/cdpp/project/logs/command.log
+
+=> Instance de Developpement (SR1)
+
+   commande : http://10.120.10.3:8050/sr1cdpp-ria (cephirins)
+   Ingestion : https://10.120.10.3:8014/sr1cdppAdmin/initUser.do (sipad_admin)
+
+   # depot (cdppdev): 
+      /home/user3/ctpsvd/${INSTANCE_SIPAD}/cdpp/project/ingestion
+
+   # logs :
+     /home/user3/ctpsvd/${INSTANCE_SIPAD}/cdpp/project/ingestion/logs
+     /home/user3/ctpsvd/${INSTANCE_SIPAD}/cdpp/project/command/logs
+
+   # Proprietes ingestion :
+     /produit/sipad/SR1/svexe/services/ingestion/conf/sipad/service/srv/ingestion/repository/ingestionRepositoryProperties.xml
+
+      vi +":0" +"/502 ERROR" /home/user3/ctpsvd/SR1/cdpp/project/ingestion/logs/ingestion.log
+
+=> Access right
+   cd /home/sipad/${INSTANCE_SIPAD}/cdpp/project/outils/CDPP_configDataSets/input
+
+   # Note: Aide a la mis en forme de la liste de jeux
+   # Se connecter au SIPAD et faire la liste pour une mission
+   # listSipadCollections -r DA_C_<MISSION> > listeDatasets_<MISSION>_<EXP>.txt
+   # Editer le fichier listeDatasets_<MISSION>_<EXP>.txt avec vi (important)
+   # Sous vi faire <F3> ou <F4> et supprimer les lignes inadequates
+
+   # Copier la liste des noeuds a mettre a jour
+   cp input/listeDatasets_<MISSION>_<EXP>.txt input/listeDatasets.txt
+
+   # Positionner les droits des groupes
+   vi conf/cdpp_userGroups.txt
+
+   # Executer la commande :
+   cd /home/sipad/${INSTANCE_SIPAD}/cdpp/project/outils/CDPP_configDataSets
+   touch  logs/$(date "+%Y%m%d_CDPP_configDataSets.log");
+   CDPP_configDataSets.sh droits & tail -f logs/$(date "+%Y%m%d_CDPP_configDataSets.log")
+
+=> Mise a jour des nouveaux jeux (SIPAD_DELTA inventaire)
+   # Se connecter au SIPAD
+   # source connectSipadCdpp <login>:<Md5Pwd>
+
+   # Lister les archives SIPAD_DELTA (annexes)
+   cdpplib show SIPAD_DELTA
+
+   # Etablir les listes en debut de mois
+   launchListSipad data
+   launchListSipad browse
+   launchListSipad doc
+
+   # Archiver l'historique dans la cdpplib
+   # tag (yyymmdd) permet de creer une archive unique (1 fois par an)
+   # Sinon l'archive est ecrasee
+   archiveHistory [tag]
+
+   # Faire le delta sur un type depuis une date donnee
+   # Avec date de la forme yyy[mm[dd]]
+   deltaListSipad <data|browse|doc> <date origine> [date du jour par defaut]
+
+=> Probleme de connexion sur SR1 :
+
+   Verifier dans le fichier 
+      /produit/sipad/SR1/webAdmin/chrootTomcat/tomcat/conf/server.xml
+
+   que la ligne <Valve ... allow> est en commentaire, sinon l'y mettre et redemarrer tomcat
+
+=> Arret / Relance RMI et REST
+
+   # Verifier que les 3 clients sont bien lances :
+
+   typeset -l clientSipad=${INSTANCE_SIPAD}
+   ps -fu ${clientSipad}cliex
+   ps -fu ${clientSipad}srvex
+   ps -fu ${clientSipad}rest
+
+   # Principes : 
+   #   Demarrer les services RMI puis les services REST
+
+   sudo /produit/sipad/${INSTANCE_SIPAD}/svexe/admin/init.d/start_rmid.sh
+
+   cd /produit/sipad/${INSTANCE_SIPAD}/svexe/admin/scripts
+   ./start_service.sh all
+
+   sudo /produit/sipad/${INSTANCE_SIPAD}/svexe/admin/init.d/start_service_rest.sh all
+
+   sudo /produit/sipad/${INSTANCE_SIPAD}/svexe/admin/init.d/start_client.sh workspace
+   sudo /produit/sipad/${INSTANCE_SIPAD}/svexe/admin/init.d/start_client.sh delivery
+   sudo /produit/sipad/${INSTANCE_SIPAD}/svexe/admin/init.d/start_client.sh monitoring
+
+=> Arret / relance TOMCAT
+
+   sudo /produit/sipad/SR1/webAdmin/admin/init.d/stop_tomcat.sh
+   sudo /produit/sipad/SR1/webAdmin/admin/init.d/start_tomcat.sh
+
+=> Instance WEB-NG
+
+   commande : https://132.149.196.56:443 (nomp)
+
+=> Services REST
+
+   /produit/sipad/${INSTANCE_SIPAD}/svexe/tools/sipad-rest-tools
+
+=> l'ingestion automatique
+
+   LINUX
+   se connecter cdppdev sur tu-mut-calc-d01
+   
+   # Controler les process en cours
+   ps -fu sr1cliex | grep sip.c
+   # -Dsip.c=ingestion
+
+   # Controle des logs
+   tail -50 /home/user3/ctpsvd/SR1/cdpp/project/ingestion/logs/ingestion.log
+
+   # Arreter le client d'ingestion
+   sudo /produit/sipad/SR1/svexe/admin/init.d/stop_client.sh ingestion
+   ls -R /home/user3/ctpsvd/SR1/cdpp/project/ingestion/automated
+   ls -R /home/sipad/liv_cdpp/livraison/*/auto/data
+
+   # Lancer une ingestion ponctuelle
+   sudo /produit/sipad/SR1/svexe/admin/init.d/start_client.sh ingestion
+
+   # Demarrer le client d'ingestion automatique à minuit
+    #at midnight 
+    #sudo /produit/sipad/SR1/svexe/admin/init.d/start_client.sh ingestion
+    #
+    #<CTRL-D>
+   
+   # Ajouter un repertoire auto
+    #cd /home/sipad/sng1cdpp/ingest/client
+    #vi delivery_dirs.lst
+    #Ajouter la meme arborescence dans apres_acquisition que dans livraison
+
+   UNIX
+   se connecter avec son user sur trait-op5-ci (cephirin)
+   cd /home/sipad/sng1cdpp/ingest/bin
+   
+   # Controler les process en cours
+   ps -fu sng1exp | grep sip.c
+   # -Dsip.c=ingestion et -Dsip.c=delivery
+
+   # Controle des logs
+   tail -50 /home/sipad/sng1cdpp/ingest/logs/ingestion.log
+
+   # Arreter le client d'ingestion
+   stop_client_ingestion ingestion 
+   ls -R /home/sipad/sng1cdpp/services/ingestion/automated
+   ls -R /home/sipad/liv_cdpp/livraison/*/auto/data
+
+   # Lancer une ingestion ponctuelle
+   start_client_ingestion
+
+   # Demarrer le client d'ingestion automatique
+   at midnight 
+   start_client_ingestion
+   <CTRL-D>
+   
+   # Ajouter un repertoire auto
+   cd /home/sipad/sng1cdpp/ingest/client
+   vi delivery_dirs.lst
+   Ajouter la meme arborescence dans apres_acquisition que dans livraison
+
+=> Preparer l'ingestion
+
+   Verifier ou Copier les fichiers sous 
+     ${LIV_SIPAD_PATH}/manuel/<MISSION>[/<experience>]/[data|browse|doc|graphes]
+
+   transferer les fichiers sur l'espace d'ingestion :
+   se connecter avec le user sur tu-mutcalc-pc (cdppexp)
+   les copier sur ${INGESTION_SIPAD_PATH}/manual/...
+   
+   Pour browse et doc, les fichiers doivent etre detares et 
+   posseder les repertoires rep_image et rep_doc
+   rep_image et les browses doivent etre selectionnes ensembles
+
+   Apres le transfert, deplacer les fichiers dans 
+      ${APRES_ACQ_SIPAD_PATH}/<MISSION>[/<experience>]/[data|browse|doc|graphes]
+
+    Les fichiers tar ne sont pas sauvegardes
+
+=> CEH, entetes, headers, additionnal_data
+
+   # Verifier les mots de passe du SEF et du STAF (open / close) si necessaire
+
+   # Note: Localisation des entetes sur le serveur SIPAD
+
+      # Pour SR1 et SP1 (faire une copie de SO1 par tar) :
+      ${SIPAD_PATH}/cdpp/project/local_archive/data/additional_data/<NODE>
+
+      # Pour S01 : Se connecter archcdpp
+      $HOME/additional_data
+
+   # Traitement
+   # Se connecter archcdpp et verifier si le fichier des correspondances est a jour :
+   cd $HOME/ADDITIONAL_DATA
+   vi conf/assocDatasetID.dat
+
+   # exemples :
+   cd $HOME/ADDITIONAL_DATA/script
+   module load jdk
+   module load staf
+   
+   # Enregistrer de nouveaux liens depuis des fichiers locaux
+   # -o : TAG Origine
+   # -r : Chemin absolu ou se trouve le(s) fichier(s) a enregistrer
+   # -f : Filtre 
+   PREPARER_ADDITIONAL_DATA FTP -o CNES -r /tmp -f CIS-CODIF
+
+   # Mise a jour des header pour WHISPER depuis le SEF
+   PREPARER_ADDITIONAL_DATA SEF -o LPC2E -r /LPC2E/lpc2e_to_cnes/headers
+   
+   # Rajouter les aknowledgments sur une mission
+   # Copier le fichier <MISSION>_acknowledgements.txt sous /tmp avec les droits 644
+   # Important : Respecter la nomenclature du fichier
+   chmod 644 /tmp/*_acknowledgments.txt
+   PREPARER_ADDITIONAL_DATA FTP -o CNES -r /tmp -f GEOS 
+
+   # Verifier les liens
+   PREPARER_ADDITIONAL_DATA FTP -c CIS-CODIF
+
+   # Mettre a jour les liens
+   PREPARER_ADDITIONAL_DATA FTP -u -c CIS-CODIF
+
+=> Shared entities, WebNG
+
+   Pour SR1 les scripts html et les images des entites partagees (shared_entities) doivent etre copiees sous :
+      (SR1) /produit/sipad/SR1/webUser/chrootTomcat/data/sr1cdpp/descriptions/
+
+   Pour SP1 et SO1, se connecter en FTP sur (SSH interdit !!!)
+      # dcList "WEBNG SP1 list" 'MMS'
+      # dcList "WEBNG SP1 put" '*.html'
+      (SP1) ftp sp1ftp1@tu-w3exsit-p10:ROOT/descriptions (E672DE77B0311C3789C965F48DEB06F6)
+      # dcList "WEBNG SO1 list" 'MMS'
+      # dcList "WEBNG SO1 put" '*.html'
+      (SO1) ftp so1ftp1@tu-w3exsit-p10:ROOT/descriptions ()
+
+   Ensuite copier et ingerer les fichiers images, html et xml.
+
+=> Suppression de collections et des objets associes
+
+<SIPAD_DATA xmlns="http://cnes.fr/dico_SIPAD"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://cnes.fr/dico_SIPAD SIPAD_Dictionary_CDPP_V2.9.xsd">
+   <DELETE_DATA_SET_AND_OBJECTS>
+      <NODE_IDENTIFIER>DA_TC_MMS_SCM_1234_L2_SRVY_HD</NODE_IDENTIFIER>
+      <NODE_IDENTIFIER>...</NODE_IDENTIFIER>
+   </DELETE_DATA_SET_AND_OBJECTS>
+</SIPAD_DATA>
+
+=> Graphes
+
+   Dictionnaire courant du CDPP : getDicoSipadCdpp -e
+
+   Les entites doivent etre crees en premier.
+   Viennent ensuite les collections.
+   Les graphes qui representent le mapping viennent en dernier.
+
+   Les scripts xml doivent etre au meme endroit que les scripts html et rep_doc
+
+   Pour modifier les informations des dataset, remplacer DATA_SET_DESCRIPTION par DATA_SET_UPDATE et 
+   reingerer le xml avec les *htm dependants.
+
+   Ordre de passage des scripts :
+
+   doc_desc_CASSINI.xml
+   sh_entity_CASSINI.xml
+
+   data_set_CASSINI_RPWS.xml
+   browse_set_CASSINI_RPWS.xml
+
+   doc_coll_CASSINI_RPWS.xml
+   data_coll_CASSINI.xml
+   browse_coll_CASSINI.xml
+
+   doc_graphe_CASSINI.xml
+   data_graphe_CASSINI.xml
+   browse_graphe_CASSINI.xml
+
+   exemple de scripts de delete :
+
+   delete_doc_desc_CASSINI.xml
+   delete_browse_graphe_CASSINI.xml
+   delete_data_graphe_CASSINI.xml
+   delete_doc_graphe_CASSINI.xml
+
+   Note pour les documents et logiciels :
+
+   Si le nom du fichier tar est de la forme LIVRAISON_nnn.tar, il est automatiquement detarer lors de la navigation dans le SIPAD.
+
+   Assigner les droits sur les collections/jeux : 
+   SIPAD Admin -> Data Management -> Access rights management
+
+=> SVA
+
+   # Les sva sont deployes sous : 
+   #    (SR1) : /home/user3/ctpsvd/${INSTANCE_SIPAD}/cdpp/project/sva
+   #    (SP1 / SO1) : /home/sipad/${INSTANCE_SIPAD}/cdpp/project/sva
+
+   # Fichiers de configuration  (command):
+      /produit/sipad/${INSTANCE_SIPAD}/svexe/services/command/conf/sipad/controlers/sva/manager/svaConfigParameters.xml
+      /produit/sipad/${INSTANCE_SIPAD}/svexe/services-rest/command-rest/webapps/command-rest/WEB-INF/classes/sipad/controlers/sva/manager/svaConfigParameters.xml
+   # S'assurer la ligne ("svaEnabled":true,) dans :
+      /produit/sipad/${INSTANCE_SIPAD}/webUser/chrootTomcat/tomcat/webapps/*cdpp-ria/json/StaticConfiguration.json
+
+   # Verifier les droits du SVA sur SIPAD Admin -> Service access rights
+
+   # Verifier que les additional_data (*cef) soient present avec les jeux concernes (voir memo -o sipad ceh).
+
+   # Associer les jeux aux SVA via un XML : 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SIPAD_DATA xmlns="http://cnes.fr/dico_SIPAD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://cnes.fr/dico_SIPAD ../Dicos_SIPAD/SIPAD_Dictionary_CDPP_V2.9.xsd" PROJECT_NAME="CDPP">
+   <SVA_DATASET_UPDATE>
+      <SVA>
+         <SVA_IDENTIFIER>SVA_CEF_TO_CDF</SVA_IDENTIFIER>
+         <DATA_SET>
+            <NODE_IDENTIFIER>DA_TC_DSTAR_D1_CP_HIA_ONBOARD_MOMENTS</NODE_IDENTIFIER>
+         </DATA_SET>
+         <DATA_SET>
+            <NODE_IDENTIFIER>DA_TC_DSTAR_D1_CP_HIA_3D_PSD</NODE_IDENTIFIER>
+         </DATA_SET>
+         <DEFAULT>false</DEFAULT>
+      </SVA>
+   </SVA_DATASET_UPDATE>
+</SIPAD_DATA>
+
+   # Supprimer un SVA
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SIPAD_DATA xmlns="http://cnes.fr/dico_SIPAD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://cnes.fr/dico_SIPAD ../Dicos_SIPAD/SIPAD_Dictionary_CDPP_V2.9.xsd" PROJECT_NAME="CDPP">
+
+<SVA_DELETE>
+   <SVA>
+      <SVA_IDENTIFIER>SVA_CEF_TO_CDF</SVA_IDENTIFIER>
+   </SVA>
+</SVA_DELETE>
+</SIPAD_DATA>
+
+   # Declarer un SVA
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SIPAD_DATA xmlns="http://cnes.fr/dico_SIPAD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://cnes.fr/dico_SIPAD ../Dicos_SIPAD/SIPAD_Dictionary_CDPP_V2.9.xsd" PROJECT_NAME="CDPP">
+
+<SVA_DESCRIPTION>
+        <SVA>
+                 <SVA_IDENTIFIER>SVA_CEF_TO_CDF</SVA_IDENTIFIER>
+                 <SVA_TYPE>BATCH</SVA_TYPE>
+                 <LABEL>CEF to CDF conversion SVA</LABEL>
+                 <PROCESS_SINGLE_FILE>false</PROCESS_SINGLE_FILE>
+                 <QUOTA_MAX_EXECUTION>10000</QUOTA_MAX_EXECUTION>
+                 <ESTIMATED_RATIO>1</ESTIMATED_RATIO>
+                 <QUOTA_MAX_INPUT_SIZE>200000000</QUOTA_MAX_INPUT_SIZE>
+                 <DESCRIPTION>SVA that converts CEF files to CDF</DESCRIPTION>
+                 <CALL_METHOD>cef-to-cdf/launch_Bcef-to-cdf.bash</CALL_METHOD>
+                 <DESCRIPTION_URI>none</DESCRIPTION_URI>
+        </SVA>
+</SVA_DESCRIPTION>
+</SIPAD_DATA>
+
+=> velocity
+
+   C'est Francoise Cabrolie qui est en charge de l'integration du fichier velocity (SO1)
+   Il faut lui demander le fichier de reference, le modifier et lui renvoyer.
+
+   Sinon le fichier velocity-context.properties se trouve sous :
+      (SR1)        : /home/user3/ctpsvd/${INSTANCE_SIPAD}/cdpp/project/velocity
+
+      (SP1 / SO1 ) : /home/sipad/${INSTANCE_SIPAD}/cdpp/project/velocity
+
+   # Penser a verfier le tag 'sipad_ng_server=' qui doit correspondre a l'instance SIPAD
+   # Le chemin des images n'est pas non plus meme
+
+   # Arreter-relancer le service consultation-rest :
+   sudo /produit/sipad/${INSTANCE_SIPAD}/svexe/admin/init.d/stop_service_rest.sh consultation-rest   
+   sudo /produit/sipad/${INSTANCE_SIPAD}/svexe/admin/init.d/start_service_rest.sh consultation-rest   
+
+=> noeuds sipad vides
+   # Voir countListSipadVide.sh et Redmine_8263 sous /home/sipad/SO1/cdpp/project/outils/CDPP_configDataSets
+
+##= END
+#######
+
+##= SSALTO
+##= ACQUISITION - ARCHIVAGE
+##= LOT2
+##########
+
+=> Connexion voir :
+   memo env salto
+   ora_sip4arch
+
+=> STAF
+=======
+   stafcon -open -prj gf_sgds -pw 00sip4arch
+
+   stafnod -locate -n /cassini/rpws/hfr
+   lsStaf -c cdpp_n2
+   lsStaf -c catalogue
+
+   stafnod -locate -n /cluster/hte_resol/whisper/solution1
+   dirStaf .
+   
+   stafcon -close
+
+   # Configuration du STAF
+   ./services/archiving/conf/sipad/externalSystems/archiving/staf/STAFConfiguration.xml
+
+=> BD
+=====
+   sqlplus sip4arch_dba/ora_sipng101@REC10G
+   set pagesize 400
+   set linesize 80
+
+   # table des fournitures
+   desc tm_file
+   select * from tm_file;
+
+   # table des xml a ingerer
+   desc t_desc_action
+   select dataset_name, desc_action_date,
+          file_concerned , c.meaning type,
+          b.meaning status
+          from t_desc_action a, 
+            t_enum_desc_action_status b, 
+            t_enum_desc_action_type c
+   where b.enum_desc_action_status_id = a.desc_action_status
+   and   c.enum_desc_action_type_id = a.desc_action_type
+   order by desc_action_date;
+
+   # table des fichiers livres
+   select a.mfile_id, c.mproduct_name, a.file_name,  b.meaning status
+   from t_file a, t_enum_file_status b, tm_file c
+   where b.enum_file_status_id = a.file_status
+   and c.mfile_id = a.mfile_id
+   order by c.mproduct_name, a.file_id;
+
+   # liste des plugins
+   select * from t_plugin;
+
+=> SIPAD
+========
+   URL admin
+   https://132.149.11.9:7016/sipproj4Admin/initUser.do
+
+   URL commande
+   http://132.149.11.50:9050/sipproj4Cdpp/startPage.do
+   Noeuds :
+         DA_TC_CAS_RPWS_HFR_CDPP_N2
+         DA_TC_CAS_RPWS_HFR_NATIVE_N1
+         DA_TC_CAS_RPWS_HFR_NATIVE_N2
+         DA_TC_CAS_RPWS_HFR_MODE_LIST
+         DA_TC_C1_WHI_ACTIVE
+
+   Logs :
+      $HOME/services/logs/acquisition.log
+      $HOME/services/logs/archiving.log
+      $HOME/clients/logs/acquisitionClient.log
+      $HOME/clients/logs/catalogUpdateClient.log
+      $HOME/clients/logs/logarchivingClient.log
+      $HOME/outils/ssaltoBugToaster/bugToaster.log
+
+=> archive locale
+=================
+   /home/user3/ctpsvd/sipproj4/services/online_archive
+
+   ## Purge archive locale
+   cd $HOME/outils/ssaltoBugToaster
+   acquisition.sh requests/acquisition/Purge_archive_locale.xml response.xml
+   cd -
+
+=> Arret / demarrage des services serveurs
+==========================================
+   consulter : // ATTENTION : archivi n'apparait qu'apres consultation depuis "archive history" de l'IHM
+      ps -fu sip4arch | grep rmi
+      ps -fu sip4arch | grep Dsip.s
+
+   cd $HOME/services/rmidLauncher
+   start_rmi_server.ksh [stopServer]
+
+   cd $HOME/services/acquisition
+   ant -f startRmiAcquisitionService.xml [stopServer]
+
+   cd $HOME/services/archiving
+   ant -f startRmiArchivingService.xml [stopServer]
+
+=> Arret / demarrage des services clients
+=========================================
+   ps -fu sip4arch | grep Dsip.c
+
+   ## Acquisition automatique (laisser le service actif)
+   ## Le parametre de periode est sur chaque fourniture
+   cd $HOME/clients/acquisitionClient
+   ## Demarrer :
+      ant -f acquisitionClient.xml
+      sleep 10
+   ## Arreter :
+      $HOME/clients/stopClientSsalto.ksh acquisition
+   cd -
+
+   ## Catalogue update
+   cd $HOME/clients/catalogueUpdate
+   ## Demarrer : 
+      ant -f catalogueUpdateClient.xml
+      sleep 10
+   ## Arreter : 
+      $HOME/clients/stopClientSsalto.ksh catalogueUpdate
+   cd -
+
+   ## archive STAF (long time)
+   cd $HOME/clients/archivingClient
+   ## Demarrer : 
+      ant -f archivingClient.xml
+      sleep 10
+   ## Arreter : 
+      $HOME/clients/stopClientSsalto.ksh archiving
+   cd -
+
+=> Suppression d'un produit
+===========================
+   Depuis l'IHM -> "File Selection" : "File State = ARCHIVED 
+
+=> Parametrages des services
+============================
+   # Redemarrer les services apres modification des parametres
+
+   Parametres d'acquisition
+      $HOME/services/acquisition/conf/ssalto/service/acquisition/acquisition.properties
+
+   Parametres du catalogUpdate
+      $HOME/clients/catalogueUpdate/conf/ssalto/client/updateCatalogue/catalogueUpdateProperties.xml
+
+   Parametres d'archivage :
+      $HOME/services/archiving/conf/ssalto/service/archiving/archiving.properties
+   Parametres de l'archive locale :
+      $HOME/services/acquisition/conf/ssalto/service/common/repository/serviceRepositoryProperties.xml
+      
+   Parametres des plugins :
+      $HOME/services/acquisition/conf/ssalto/domain/plugins/impl/tools/*_PluginConfiguration.xml
+
+   Parametres d'archivage, notamment tailles min et max :
+      $HOME/services/archiving/conf/sipad/externalSystems/archiving/staf/STAFConfiguration.xml
+
+=> Fournitures
+==============
+   cd $HOME/outils/ssaltoBugToaster
+
+   creer un fichier fourniture, ex :
+      requests/acquisition/fourniture*xml
+
+   ingerer la fourniture :
+      acquisition.sh requests/acquisition/fourniture_cass_rpws.xml response.xml
+
+   supprimer une fourniture :
+
+   lister les fournitures (voir aussi IHM) :
+      acquisition.sh requests/acquisition/getAllSupplies.xml response.xml
+
+=> Plugins
+==========
+
+   # fichiers de configuration des plugins (par defaut ProductMetaDataPlugin) :
+   # sous $HOME/services/acquisition/conf/ssalto/domain/plugins/impl/tools
+   # pluginConfiguration.properties
+   # <DATASET>_PluginConfiguration.xml
+
+   # Declarer un nouveau plugin 
+   cd $HOME/outils/ssaltoBugToaster
+
+   creer le nouveau xml d'ingestion du plugin sous :
+      requests/acquisition/monPlugin.xml
+
+    ingerer le plugin :
+      acquisition.sh requests/acquisition/monPlugin.xml response.xml
+
+    # Liste des plugins crees :
+    SELECT * from T_PLUGIN;
+
+=> Packages d'installation
+==========================
+   /home/sgc/projet/sgds/sipad_ng/exp/4.7
+
+##= END
+#######
+
+##= SOUNDING-TIMES
+##= WHI_SDT
+###########
+
+=> Livraison : 
+
+   # A la reception d'un mail, Verifier la presence des fichiers :
+
+   export DEBSTR=WHI_SOUNDING_TIMES_
+   export CRITDATE="(((((19)|(20))[0-9][0-9])([\-\/]?)((0[1-9])|(1[012]))([\-\/]?)(([0-2][0-9])|(3[01])?)))"
+   export PATTERN=DEBSTR_CRITDATE_EXTENSION
+   dcList "WHISPER SDT SEF LIST" | checkStat - month
+
+=> Production des donnees :
+
+   # Connexion sur tu-mutcalc-pc (cdppexp)
+   
+   # Produire les donnees :
+      cd $HOME/WHI_SDT/script
+      PREPARER_DONNEES_WHI_SDT -d yyyy[mm]
+   
+=> Ingestion des donnees au SIPAD-NG
+
+   # Voir SIPAD-NG
+
+   # Verifier la presence de fichiers xml dans
+
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_sdt/data
+   ll *.xml
+   cp -p *whi_sdt*.xml ${INGESTION_SIPAD_PATH}/manual/CLUSTER/whi_sdt/data
+
+   # Ingerer les deletes puis les data
+
+   # Ou (Si 1 seul fichier xml)
+   source connectSipadCdpp cephirinsv:<pwdMd5>
+   ingestSipadXml -p CLUSTER/whi_sdt/data *whi_sdt*.xml
+
+   # Deplacement apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_sdt/data
+   mv *whi_sdt*.xml ${APRES_ACQ_SIPAD_PATH}/CLUSTER/whi_sdt/data
+
+=> Statistiques (STAF / SIPAD)
+
+# AU SIPAD
+   cd $HOME/WHI_SDT/utils
+   vPeriod=2010    # vPeriod=2010:201006
+   checkSipad ${vPeriod} month | tee /dev/stderr |  mailx -s "[WHI_SDT] Stats SIPAD ${vPeriod}" vincent.cephirins@akka.eu
+# ou avec versions
+   checkSipad -d ${vPeriod} month | tee /dev/stderr | mailx -s "[WHI_SDT] Stats SIPAD ${vPeriod}" vincent.cephirins@akka.eu
+
+# AU STAF
+   cd $HOME/WHI_SDT/utils
+   vPeriod=2010   # vPeriod=2010:201006
+   checkStaf ${vPeriod} month | tee /dev/stderr | mailx -s "[WHI_SDT] Stats STAF ${vPeriod}" vincent.cephirins@akka.eu
+# ou avec versions
+   checkStaf -d ${vPeriod} month | tee /dev/stderr | mailx -s "[WHI_SDT] Stats STAF ${vPeriod}" vincent.cephirins@akka.eu
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/WHI_SDT/utils
+   vPeriod=2010   # vPeriod=2010:201006
+   commandData ${vPeriod}
+
+=> Suppression donnes au SEF (si pas automatique)
+   dcList "WHISPER SDT SEF delete" [yyyy[mm[dd]]]
+
+##= END
+#######
+
+##= STAF
+########
+
+=> Notes : 
+   Changement de mot de passe a la connexion : 
+      stafcon -open -prj gf_plasma -pw <oldpwd>//<newpwd>//<newpwd>
+
+   plasma : CLASS 3 (CS3)
+   gf_plasma = CLASS 5 (CS5), CLASS 6 (CS6)
+   sgds : CLASS 2, CLASS 4 (CS4)
+   gf_sgds : CLASS 5 (CS5), CLASS 6 (CS6)
+
+   USP ( MDT/UID ) : 
+   echo $VEM_MDT $VEM_UID
+
+=> Liberer les ressources
+   killMDT
+
+=> macros commandes librairie
+   source loadStafLib [-x]
+   stafHelp
+
+=> Commandes usuelles :
+   
+   @ represente un joker. Il ne peut etre utiliser qu'en fin
+
+   stafcon -open -prj gf_plasma -pw <pwd>
+   stafnod -where
+   stafnod -list [-n <node>] [-d <profondeur 0-7>]
+   stafnod -locate -n <node>
+
+   stafprj -list   # consultation des attributs du projet
+   stafusp -list   # consultation de l'USP
+   stafper -list   # consultation des droits d'acces
+
+   staffil -list -f <file[@]> -att [ATT]
+   staffil -list -n <node> -att [ATT]
+      avec ATT : FMT DF PSC SCC SIZE ORIGIN_OS CRE_DATE ARC_DATE ARC_USP RET_DATE MODIF_DATE ALL
+
+   staffil -list -att PSC SIZE -f <node/file[@]> # voir la classe et la taille
+
+   staffil -exist -f <file[@] ...>
+   staffil -exist -fn <file[@] ...> [-n node] -d <profondeur 0-7>
+   staffil -retrieve -stf <src,dest ...> [-n node] [-rep y/n] [-asy y/n]
+   staffil -archive -stf <file ...> [-n node] [-rep y/n] -psc CS3
+   staffil -modify -stf <oldfile> <newfile>
+   staffil -delete -f <file[@] ...> [-n node] [-cnf y/n]
+   staffil -delete -n <node> [-cnf y/n]
+   
+   # Creation / Suppression d'un noeud (avec privileges)
+   stafnod -create -n <node>
+   stafnod -delete -n <node>
+
+   stafcon -close
+
+=> Lister les fichiers et leur taille
+
+   staffil -list -f <node/file[@]> -att SIZE | nawk -F"'" '
+      BEGIN {nbFiles=0;tailleFiles=0;}  /^FILE=/ {
+         nbFiles++;
+      };
+        /^ SIZE/ {
+         sub(" *$", "", $2);
+         tailleFiles+=$2;
+      };
+      END {print nbFiles, "fichiers", tailleFiles, "Ko"}'
+
+##= END
+#######
+
+##= STAFF_SA
+##= STAFF_SC
+##= STAFF_CAVEATS
+#################
+
+=> Notes :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Livraison :
+
+   Verifier si des donnees sont disponibles
+
+   # Creation des separateurs, format libre, sans limitation
+   export SEP1="_"
+   export SEP2="__"
+   export EXTFILE="[.].*"
+   export SEPJEU="C._STA"
+
+   # Definition des criteres
+   export CRIT1=".*"
+   export CRIT2="C."
+   export CRITAB="[vV][0-9]+"
+   export DEBLIG=""
+   export DATESTOP="(_(([0-9]{4}[\-\/]?((0[1-9])|(1[012]))[\-\/]?((0[1-9])|([12][0-9])|(3[01])))))?"
+   
+   # Definition du pattern principal
+   #export PATTERN="DEBLIG_CRIT2_SEP1_SEPJEU_SEP1_CRIT1_SEP2_CRITDATE_SEP1_CRITAB"
+   export PATTERN="DEBLIG_CRIT2_SEP1_SEPJEU_SEP1_CRIT1_SEP2_CRITDATE_DATESTOP_SEP1_CRITAB"
+
+   # Remettre CRITTAB pour avoir les versions
+   #export PATTERN="DEBLIG_CRIT2_SEP1_SEPJEU_SEP1_CRIT1_SEP2_CRITDATE_SEP1_CRITTAB"
+
+   dcList "STAFF SEF LIST" | checkStat -m - month
+
+   dcList "STAFF SEF LIST" 19700101
+
+=> Production des donnees :
+
+   # traitement
+   cd $HOME/STAFF/script
+   PREPARER_DONNEES_STAFF [-h] [-d yyyy[mm[dd]]
+
+   # traitement de masse
+   cd $HOME/STAFF/script
+   runBatch.sh 201907:2019
+
+   Repertoire des donnees :
+      cd /tmp/${USER}/staff/data
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/staff/data
+   ll
+   cp -p *.xml ${INGESTION_SIPAD_PATH}/manual/CLUSTER/staff/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/CLUSTER/staff/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/staff/data
+   mv *.xml ${APRES_ACQ_SIPAD_PATH}/CLUSTER/staff/data
+
+=> Statistiques SIPAD
+
+   # Se connecter au SIPAD
+   source connectSipadCdpp <login>:<pwdMd5>
+
+   cd $HOME/STAFF/utils
+   checkSipad 201709:201912 month
+
+=> Commande aleatoire (SIPAD)
+
+   # Se connecter au SIPAD
+   source connectSipadCdpp <login>:<pwdMd5>
+
+   cd $HOME/STAFF/utils
+   commandData 201907:2019 3
+   # groupCommandData 2001:2010
+
+##= END
+#######
+
+##= MMSFPI
+##= MMS-FPI
+###########
+
+=> Notes :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   Connexion au serveur LPP (memo env dedale)
+
+=> Livraison :
+
+   # Principe
+   # La periode des jours a traiter se fait jusqu'a n-3
+   # On traite les mises jours des 4 derniers mois ((recouvrement du dernier mois traite):(mois en cours))
+   # ex: En avril 2020
+   2019                    2020
+   07  08  09  10  11  12  01  02  03  04
+   <--  PERIOD_EXPLOIT  -->
+                       <--  PERIOD_UPD  -->
+
+   # PREPARER_DONNEES_MMS -F ... -d :201912 -u 201912:202004
+
+   # Periode en cours
+   unset PERIOD_UPD
+   PERIOD_UPD=$(date -d "-4 months" "+%Y%m"):$(date "+%Y%m")
+   echo ${PERIOD_UPD}
+
+   # Verifier les donnees disponibles
+   cd ${HOME}/MMS/utils
+   eval "ssh cephirins@dedale-stm.lpp.upmc.fr 'cd scripts; ./searchUpdatedFPI -a -f -u ${PERIOD_UPD}' | tee invAll_FPI_${PERIOD_UPD}.txt"
+
+=> Production des donnees :
+
+   # Faire l'etat des fichiers livres depuis le dernier archivage (voir livraison)
+   # - Recuperer sur le dernier CR la date d'archivage
+
+   # traitement ponctuel
+   # faire un traitement pour les donnees de l'annee 2016
+   cd $HOME/MMS/script
+   rm nohup.out; touch nohup.out
+   nohup PREPARER_DONNEES_MMS -F -d 201601  & tail -f nohup.out
+
+   # traitement de masse (decoupage par mois)
+   cd $HOME/MMS/script
+   rm nohup.out; touch nohup.out
+   nohup runBatchFPI.sh "fast_l2_des-moms fast_l2_des-dist brst_l2_des-moms brst_l2_des-dist fast_l2_dis-moms fast_l2_dis-dist brst_l2_dis-moms brst_l2_dis-dist" "201502:201505, 201605,2018:201803 , 201906" month & tail -f nohup.out
+
+   # Traitement de masse des mises a jour
+   cd $HOME/MMS/script
+   rm nohup.out; touch nohup.out
+   nohup runBatchFPI.sh -u ${PERIOD_UPD} "fast_l2_des-moms fast_l2_des-dist brst_l2_des-moms brst_l2_des-dist fast_l2_dis-moms fast_l2_dis-dist brst_l2_dis-moms brst_l2_dis-dist" "2015:2019" year & tail -f nohup.out
+
+   # Suivi download files pour mms
+   wc -l /home/CDPP/archcdpp/workspace/cdppexp/mms/*delta
+   wc -l /home/CDPP/archcdpp/workspace/cdppexp/mms/*staf
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/MMS/data
+   ll
+   cp -p *fpi*.xml ${INGESTION_SIPAD_PATH}/manual/MMS/data
+   chmod 776 ${INGESTION_SIPAD_PATH}/manual/MMS/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/MMS/data
+   mv *fpi*.xml ${APRES_ACQ_SIPAD_PATH}/MMS/data
+
+   # Dans le cas des delete, executer le script *.staf pour supprimer les fichiers du STAF
+   # APRES ACQUISITION OK
+   cd ${LIV_SIPAD_PATH}/manuel/MMS/data
+   open
+   for listFiles in *fpi*.staf
+   do
+      while read file; do    echo $file;    staffil -delete -cnf n -f ${file}; done < ${listFiles}
+   done
+   close
+
+   mv *fpi*.staf ${APRES_ACQ_SIPAD_PATH}/MMS/data
+
+=> Statistiques (SIPAD / STAF)
+
+# AU SIPAD
+   source connectSipadCdpp <login>:<pwd>
+   vPeriod=2019    # vPeriod=2018:201806
+
+   cd $HOME/MMS/utils
+   checkSipad -F ../conf/checkStat.cfg ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[MMS] Stats SIPAD FPI ${vPeriod}" vincent.cephirins@akka.eu
+
+
+EOF
+
+=> Commande aleatoire (SIPAD)
+
+   source connectSipadCdpp <login>:<PwdMd5>
+
+   cd $HOME/MMS/utils
+   commandData -F 201510 2
+
+##= END
+#######
+
+##= MMSSCM
+##= MMS-SCM
+###########
+
+=> Notes :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   Connexion au serveur LPP (memo env dedale)
+
+=> Livraison :
+
+   # Principe
+   # La periode des jours a traiter se fait jusqu'a n-3
+   # On traite les mises jours des 4 derniers mois ((recouvrement du dernier mois traite):(mois en cours))
+   # ex: En avril 2020
+   2019                    2020
+   07  08  09  10  11  12  01  02  03  04
+   <--  PERIOD_EXPLOIT  -->
+                       <--  PERIOD_UPD  -->
+
+   # PREPARER_DONNEES_MMS ... -d :201912 -u 201912:202004
+
+   # Periode en cours
+   unset PERIOD_UPD
+   PERIOD_UPD=$(date -d "-4 months" "+%Y%m"):$(date "+%Y%m")
+   echo ${PERIOD_UPD}
+
+   # Verifier les donnees disponibles
+   cd ${HOME}/MMS/utils
+   eval "ssh cephirins@dedale-stm.lpp.upmc.fr 'cd scripts; ./searchUpdated -a -f -j \"scb schb scsrvy cal defatt defeph bpsd\" -u ${PERIOD_UPD}' | tee invAll_${PERIOD_UPD}.txt"
+
+   # OU pour les commissioning
+
+   # echo "ssh cephirins@dedale-stm.lpp.upmc.fr 'cd scripts; ./searchUpdated -a -f -j \"sc8 sc32 sc128 sc256 scmcomm\" -d 2015 -u ${PERIOD_UPD}' | tee invComm_${PERIOD_UPD}.txt"
+   awk '! /^\/mammouth/' inv*
+
+   # Faire la liste des fichiers vides
+   ssh cephirins@dedale-stm.lpp.upmc.fr 'find /mammouth/mms?/scm/brst/l1a/scb -type f -size 42523c | while read vFile;do ls -l ${vFile%_v*}*;done' | sort -k9 -u | tee listeEmptyFiles_scb.txt
+   ssh cephirins@dedale-stm.lpp.upmc.fr 'find /mammouth/mms?/scm/brst/l1a/schb -type f -size 37821c | while read vFile;do ls -l ${vFile%_v*}*;done' | sort -k9 -u | tee listeEmptyFiles_schb.txt
+
+   # Garde la derniere version par fichier
+   awk 'BEGIN {buffer = ""; namePrec = "";}
+      {
+         # Ne conserve que la derniere version de chaque fichier ($9 dans le cas des fichiers vides)
+         name = gensub("[_.][vV][0-9.]+([.]cdf)?", "", "g", $9);
+         if (name != namePrec && buffer != "") print buffer;
+         buffer = $0
+         namePrec = name;
+      }
+      END {
+         # Vidage du buffer si necessaire
+         if (buffer != "") print buffer;
+   }' listeEmptyFiles_scb.txt
+
+=> Production des donnees :
+
+   # Faire l'etat des fichiers livres depuis le dernier archivage (voir livraison)
+   # - Recuperer sur le dernier CR la date d'archivage
+   # En fonction du volume des fichiers faire un decoupage "intelligent"
+   # Apres traitement recuperer, verifier et envoyer la liste des fichiers vides au LPP
+
+   # traitement 
+   # faire un traitement pour les mises a jour de l'annee 2016
+   cd $HOME/MMS/script
+   rm nohup.out; touch nohup.out
+   nohup PREPARER_DONNEES_MMS -j "srvy_l1a_scsrvy brst_l1a_scb brst_l1a_schb srvy_l1a_cal srvy_l2_scsrvy brst_l2_scb brst_l2_schb fast_l2_bpsd slow_l2_bpsd DEFEPH DEFATT" -d 201601  & tail -f nohup.out
+
+   # traitement de masse (decoupage par mois)
+   cd $HOME/MMS/script
+   rm nohup.out; touch nohup.out
+   nohup runBatch.sh "srvy_l1a_scsrvy brst_l1a_scb brst_l1a_schb srvy_l1a_cal srvy_l2_scsrvy brst_l2_scb brst_l2_schb fast_l2_bpsd slow_l2_bpsd DEFEPH DEFATT" "201502:201505, 201605,2018:201803 , 201906" month & tail -f nohup.out
+
+   # Suivi download files pour mms
+   # source $HOME/MMS/conf/checkStat.cfg
+   # clear; while [[ $? -eq 0 ]]; do  echo -en "\033[0;0H" ; ll ${WORKSPACE_USER}/mms/data/* | checkStat -t -m - month; du -hs ${WORKSPACE_USER}/mms/data; sleep 60; done
+   # clear; while [[ $? -eq 0 ]]; do  echo -en "\033[0;0H" ; checkStat -t -m ${WORKSPACE_USER}/mms/fileList_DA_archived.staf month; sleep 60; done
+   wc -l ${WORKSPACE_USER}/mms/*delta
+   wc -l ${WORKSPACE_USER}/mms/*staf
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/MMS/data
+   ll
+   cp -p *.xml ${INGESTION_SIPAD_PATH}/manual/MMS/data
+   chmod 776 ${INGESTION_SIPAD_PATH}/manual/MMS/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/MMS/data
+   mv *.xml ${APRES_ACQ_SIPAD_PATH}/MMS/data
+
+   # Dans le cas des delete, executer le script *.staf pour supprimer les fichiers du STAF
+   # APRES ACQUISITION OK
+   cd ${LIV_SIPAD_PATH}/manuel/MMS/data
+   open
+   for listFiles in *.staf
+   do
+      while read file; do    echo $file;    staffil -delete -cnf n -f ${file}; done < ${listFiles}
+   done
+   close
+
+   mv *.staf ${APRES_ACQ_SIPAD_PATH}/MMS/data
+
+=> Statistiques (SIPAD / STAF)
+
+# AU SIPAD
+   source connectSipadCdpp <login>:<pwd>
+   vPeriod=2019    # vPeriod=2018:201806
+
+   cd $HOME/MMS/utils
+   checkSipad ../conf/checkStat.cfg ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[MMS] Stats SIPAD ${vPeriod}" vincent.cephirins@akka.eu
+
+
+EOF
+
+   checkSipad ../conf/checkStat_eph_att.cfg ${vPeriod::4} month <<EOF  | tee /dev/stderr | mailx -s "[MMS] Stats SIPAD aux ${vPeriod::4}" vincent.cephirins@akka.eu
+
+DEFEPH DEFATT
+EOF
+
+AU STAF (si necessaire)
+   cd $HOME/MMS/utils
+   vPeriod=2019    # vPeriod=2018:201806
+   checkStaf ${vPeriod} month <<EOF | tee /dev/stderr | mailx -s "[MMS] Stats STAF ${vPeriod}" vincent.cephirins@akka.eu
+
+
+EOF
+
+# Stats globales a partir des CR journaliers
+# ATTENTION : certains jours peuvent manquer
+cd $HOME/MMS/suivi
+export vPeriod=201906
+awk '/^'${vPeriod}'/ {print;nextfile;}' STAT_MMS_${vPeriod}* | mailx -s "stats MMS ${vPeriod}" exploitcdpp@akka.eu
+
+=> Commande aleatoire (SIPAD)
+
+   source connectSipadCdpp <login>:<PwdMd5>
+
+   cd $HOME/MMS/utils
+   commandData 201510 2
+
+##= END
+#######
+
+##= MMSQL
+##= MMS-QL
+##= quicklook MMS
+####################
+
+=> Notes :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   Connexion au serveur LPP (memo env dedale)
+
+=> Livraison :
+
+   # Principe
+   # La periode des jours a traiter se fait jusqu'a n-3
+   # Les images ne sont pas versionnees, on ne prend  que le mois pour ne pas retraiter 3 mois de suite les memes fichiers
+   # ex: En avril 2020
+   2019                    2020
+   07  08  09  10  11  12  01  02  03  04
+   <--  PERIOD_EXPLOIT  -->
+                       <--> PERIOD_UPD
+
+   # PREPARER_DONNEES_MMS ... -d :201911 -u 201912:20200101
+   # PREPARER_DONNEES_MMS ... -d 201912
+
+   # Periode en cours
+   PERIOD_UPD=$(date -d "-4 months" "+%Y%m"):$(date -d "-3 months" "+%Y%m01")
+   echo ${PERIOD_UPD}
+
+   # Verifier les donnees disponibles
+   cd ${HOME}/MMS/utils
+   eval "ssh cephirins@dedale-stm.lpp.upmc.fr 'cd scripts; ./searchUpdatedQL -a -j \"scsrvy scb schb\" -u ${PERIOD_UPD}' | tee invAll_QL_${PERIOD_UPD}.txt"
+
+=> Production des donnees :
+
+   # Faire l'etat des fichiers livres depuis le dernier archivage (voir livraison)
+   # - Recuperer sur le dernier CR la date d'archivage
+   # En fonction du volume des fichiers faire un decoupage "intelligent"
+   # Apres traitement recuperer, verifier et envoyer la liste des fichiers vides au LPP
+
+   # traitement 
+   # faire un traitement pour les mises a jour de l'annee 2016
+   cd $HOME/MMS/script
+   rm nohup.out; touch nohup.out
+   nohup PREPARER_DONNEES_MMS -Q -j "survey_l2ql_scsrvy brst_l2ql_scb brst_l2ql_schb" -d 201903 & tail -f nohup.out
+
+   # traitement de masse (decoupage par mois)
+   cd $HOME/MMS/script
+   rm nohup.out; touch nohup.out
+   nohup runBatchQL.sh "survey_l2ql_scsrvy brst_l2ql_scb brst_l2ql_schb" "201802,2019:201903" "${PERIOD_UPD}" month & tail -f nohup.out
+
+   # Suivi download files pour mms
+   source $HOME/MMS/conf/checkStat.cfg
+   cd ${WORKSPACE_USER}/mms
+
+   clear; while [[ $? -eq 0 ]]; do    echo -en "\033[0;0H" ;    find data -type f -name '*.png' ! -name '*_tn.png' | checkStat -t -m - month;    du -hs data; sleep 60; done
+   clear; while [[ $? -eq 0 ]]; do    echo -en "\033[0;0H" ;    ll QL | checkStat -t -m - month;    du -hs QL; sleep 60; done
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Voir SIPAD-NG
+   vPeriod=2015    # vPeriod=201510
+
+   cd ${LIV_SIPAD_PATH}/manuel/MMS
+   ll data/*_${vPeriod}*      #   browse/*_${vPeriod}*
+   cp -p data/*mms_ql_*_${vPeriod}*.xml ${INGESTION_SIPAD_PATH}/manual/MMS/data
+#   cp -p browse/*_${vPeriod}*.xml ${INGESTION_SIPAD_PATH}/manual/MMS/browse
+#   cp -p browse/rep_image/*_${vPeriod}* ${INGESTION_SIPAD_PATH}/manual/MMS/browse/rep_image
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/MMS
+   mv data/*mms_ql_*_${vPeriod}*.xml ${APRES_ACQ_SIPAD_PATH}/MMS/data
+   mv browse/*_${vPeriod}*.xml ${APRES_ACQ_SIPAD_PATH}/MMS/browse
+   cd browse/rep_image
+   rm -f *_${vPeriod}*.png
+   cd ${INGESTION_SIPAD_PATH}/manual/MMS/browse/rep_image
+   rm -f *_${vPeriod}*.png
+
+=> Statistiques (SIPAD / STAF)
+
+# AU SIPAD
+
+   source connectSipadCdpp <login>:<pwd>
+   vPeriod=2010    # vPeriod=2010:201006
+
+   checkSipad -Q ../conf/checkStat.cfg ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[MMS-QL] Stats SIPAD QL ${vPeriod}" vincent.cephirins@akka.eu
+
+
+EOF
+
+=> Commande aleatoire (SIPAD)
+
+   source connectSipadCdpp <login>:<PwdMd5>
+
+   cd $HOME/MMS/utils
+   commandData -Q 201510 2
+
+##= END
+#######
+
+##= ORBITE_ASCII
+################
+
+=> Notes :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Livraison :
+
+   # Recuperer les fichiers d'orbite xml (VOT)
+   # => /home/CDPP/archcdpp/format_natif/orbit/input
+   # Initialiser les variables HTTP_PROXY et HTTPS_PROXY
+   cd $HOME/ORBITE_ASCII/utils
+   3DViewServicesDaemon --start
+
+   # Recuperer les dates de debut et fin du satellite
+   3DViewServicesDaemon listBodies <satellite>
+
+   getListOrb <satellite> <period> GSE 60
+   
+   3DViewServicesDaemon --stop
+
+   export CRIT1=".*"
+   export CRIT2=".*"
+   export CRITDATE="((19)|(20))[0-9][0-9]((0[1-9])|(1[012]))"
+   export DEBLIG="orbit_"
+   export SEP1="_"
+   export EXTENSION=".vot.xml"
+   export PATTERN="DEBLIG_CRIT2_SEP1_CRITDATE_EXTENSION"
+
+   ll /home/CDPP/archcdpp/format_natif/orbit/input | checkStat -m - year
+
+=> Production des donnees :
+
+   # traitement
+   cd $HOME/ORBITE_ASCII/script
+   PREPARER_DONNEES_ORBITE CLUSTER 2015
+
+   Repertoire des donnees :
+      cd /tmp/${USER}/ORBITE_ASCII/data
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/ORBITE_ASCII/data
+   ll
+   cp -p *.xml ${INGESTION_SIPAD_PATH}/manual/ORBITE_ASCII/data
+   chmod ugo+rw ${INGESTION_SIPAD_PATH}/manual/ORBITE_ASCII/data/*
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/ORBITE_ASCII/data
+   mv *.xml ${APRES_ACQ_SIPAD_PATH}/ORBITE_ASCII/data
+
+=> Statistiques (STAF / SIPAD)
+
+   source connectSipadCdpp login:pwd
+
+   cd $HOME/ORBITE_ASCII/utils
+   checkSipad STEREO 2013: year
+
+=> Commande aleatoire (SIPAD)
+
+   source connectSipadCdpp login:pwd
+
+   cd $HOME/ORBITE_ASCII/utils
+   commandData STEREO 2015 4
+
+##= END
+#######
+
+##= REGARDS
+###########
+
+=> Proto
+   http://10.135.5.197/user/inventaire/modules/7
+
+##= END
+#######
+
+##= THEMIS
+##########
+
+=> Notes :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Livraison :
+
+   # Verifier si des donnees sont disponibles
+   source $HOME/THEMIS/conf/checkStat.cfg
+
+   dcList "THEMIS WGET LIST" tha 2010 | checkStat -i -m - month
+
+   # Verifier qu'il n'y a pas de nouvelles versions V03 pour les donnees STATE depuis le 20/02/2013
+   # Dans le cas contraitre prevoir une evolution du script PREP... pour selectionner un jeu
+   # Version 3 : Definitive Ephemeris + spin attitude corrections) Level 1 CDF
+   dcList "THEMIS WGET LIST" tha 2013 | checkStat -i -m - month
+
+=> Production des donnees :
+
+   # traitement
+   cd $HOME/THEMIS/script
+   PREPARER_DONNEES_THEMIS [-h] [-d yyyy[mm[dd]]
+
+   # traitement de masse
+   cd $HOME/THEMIS/script
+   runBatch.sh 200601:200612
+
+   Repertoire des donnees :
+      cd /tmp/${USER}/themis/data
+
+   # Suivi download files
+   source $HOME/THEMIS/conf/checkStat.cfg
+   clear; while [[ $? -eq 0 ]]; do    echo -en "\033[0;0H" ;    ll /tmp/cdppexp/themis/data/* | checkStat -t -m - month;    du -hs /tmp/cdppexp/themis/data; sleep 60; done
+
+=> Ingestion des donnees au SIPAD-NG
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/THEMIS/data
+   ll
+
+   cp -p *.xml ${INGESTION_SIPAD_PATH}/manual/THEMIS/data
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/THEMIS/data
+   mv *.xml ${APRES_ACQ_SIPAD_PATH}/THEMIS/data
+
+=> Statistiques (STAF / SIPAD)
+
+# AU SIPAD
+
+   source connectSipadCdpp <login>:<pwdMd5>
+
+   vPeriod=2010    # vPeriod=2010:201006
+   cd $HOME/THEMIS/utils
+   checkSipad ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[THEMIS] Stats SIPAD ${vPeriod}" vincent.cephirins@akka.eu
+
+
+EOF
+
+# AU STAF
+   vPeriod=2010   # vPeriod=2010:201006
+   cd $HOME/THEMIS/utils
+   checkStaf ${vPeriod} month <<EOF | tee /dev/stderr | mailx -s "[THEMIS] Stats STAF ${vPeriod}" vincent.cephirins@akka.eu
+
+
+EOF
+
+=> Commande aleatoire (SIPAD)
+
+   source connectSipadCdpp <login>:<pwdMd5>
+
+   vPeriod=2010   # vPeriod=2010:201006
+   cd $HOME/THEMIS/utils
+   groupCommandData ${vPeriod}   
+
+##= END
+#######
+
+##= STEREO-SWAVES
+##= SWAVES
+#################
+
+=> Livraison :
+
+   Periodicite : Hebdomadaire dans la nuit de mercredi a jeudi
+
+=> Production des donnees :
+
+   Pre-requis :
+      Controler les connexions du STAF, pacci-relais, archcdpp  avec
+         $HOME/STEREO/utils/testConnexions.sh
+
+   # traitement
+   cd $HOME/STEREO_SWAVES/script
+   PREPARER_DONNEES_STEREO -s
+
+=> Controler la production et l'ingestion tous les jeudi matin
+   Faire un compte rendu et le mettre sur VALDO
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   voir aussi doc :
+      docs cnes_archivage_stereo.txt (obsolete)
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/STEREO/SWAVES/
+   ll data/*.xml
+   ll -R browse
+   ll -R del_objects
+
+   cp data/*.xml ${INGESTION_SIPAD_PATH}/manual/STEREO/SWAVES/data
+   cp -r browse ${INGESTION_SIPAD_PATH}/manual/STEREO/SWAVES
+   cp -r del_objects ${INGESTION_SIPAD_PATH}/manual/STEREO/SWAVES
+
+   chmod -R 776 ${INGESTION_SIPAD_PATH}/manual/STEREO/SWAVES
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/STEREO/SWAVES
+   mv data/*.xml ${APRES_ACQ_SIPAD_PATH}/STEREO/SWAVES/data
+   mv browse/*xml ${APRES_ACQ_SIPAD_PATH}/STEREO/SWAVES/browse
+
+   rm del_objects/del_objects/*
+   rm del_objects/del_storage/*
+   rm browse/rep_image/*
+
+=> Stats sur une annee
+
+   cd $HOME/STEREO_SWAVES/utils
+   checkStatData 2010 year
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/STEREO_SWAVES/utils
+   commandData
+
+   ex pour commander 1 fichier d'une semaine glissante a partir du 1er mai 2007 pour tous les jeux
+commandData 20070501 <<EOF
+
+
+
+
+
+EOF
+
+   ex pour commander 2 fichiers definitifs HFR_L3A pour tous les mois de 2007
+
+for period in $(printf "2007%.2d " {1..12})
+do
+commandData ${period} 2 <<EOF
+
+
+DEF
+STA STB
+HFR_L3A
+EOF
+done
+
+
+##= END
+#######
+
+##= STEREO-SWEA
+##= SWEA
+###############
+
+=> Notes :
+   # Site de l'IRAP : http://clweb.irap.omp.eu/DATA/STEREO/DATA
+
+=> Livraison :
+
+   # Verifier les donnees disponibles
+   dcList "STEREO SWEA WGET LIST" 2018 06 | checkStat -f $HOME/STEREO_SWEA/conf/checkStat.cfg -m - month
+
+=> Production des donnees :
+
+   # Produire les donnees :
+   cd $HOME/STEREO_SWEA/script
+   PREPARER_DONNEES_STEREO_SWEA -d 201806
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/STEREO/SWEA/data
+   ll *stereo_swea*.xml
+
+   source connectSipadCdpp <login>:<MD5passwd>
+   ingestSipadXml -p STEREO/SWEA/data *.xml
+
+ou
+
+   cp *stereo_swea*.xml ${INGESTION_SIPAD_PATH}/manual/STEREO/SWEA/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/STEREO/SWEA/data/*.xml
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/STEREO/SWEA/data
+   mv *stereo_swea*.xml ${APRES_ACQ_SIPAD_PATH}/STEREO/SWEA/data
+
+=> Statistiques (SIPAD)
+
+   cd $HOME/STEREO_SWEA/utils
+   checkSipad
+
+##= END
+
+##= TARANIS
+###########
+
+=> Livraison :
+
+   Verifier si des donnees sont disponibles
+
+=> Production des donnees :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+   # Commande des donnees (login cdpp) :
+
+   https://taranis.lpc2e.cnrs.fr/taranis
+
+   # Recuperation des donnees :
+   dcList "taranis taranis list"
+
+   sftp cdpp@TARANIS
+   ls -al
+   get Download*.zip
+   rm Download*.zip
+   quit
+
+   unzip -l Download*.zip
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+=> Commande aleatoire (SIPAD)
+
+=> Inventaire (SIPAD)
+
+=> controler les donnees archivees (facultatif)
+
+##= END
+#######
+
+##= WHISPER
+##= HRES
+##= MASS_ARCHIVES
+#################
+
+=> Livraison : 
+
+   # Verifier si des donnees sont disponibles
+
+   unset CRITDATE
+   export PATTERN=CRITDATE_EXTENSION
+   dcList "WHISPER HRES SEF LIST" | checkStat - month
+
+   Pour les headers voir memo sipad headers
+
+=> Production des donnees :
+
+   # Connexion sur tu-mutcalc-pc (cdppexp)
+   
+   # Produire les donnees pour 1 mois :
+      cd $HOME/WHISPER_HRES/script
+      PREPARER_DONNEES_WHISPER_HRES -d yyyymm[dd]
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+   
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_hres/data
+   ll *WHISPER_HRES*.xml
+   cp *WHISPER_HRES*.xml ${INGESTION_SIPAD_PATH}/manual/CLUSTER/whi_hres/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/CLUSTER/whi_hres/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Ou (Si 1 seul fichier xml)
+   source connectSipadCdpp cephirinsv:<pwd>
+   ingestSipadXml -p CLUSTER/whi_hres/data data_objects_WHISPER_HRES_*.xml
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_hres/data
+   mv *WHISPER_HRES*.xml ${APRES_ACQ_SIPAD_PATH}/CLUSTER/whi_hres/data
+
+=> Statistiques (SIPAD)
+
+   cd $HOME/WHISPER_HRES/utils
+
+   # dateExpl=200101:200103
+   dateExpl=201607
+
+   checkData ${dateExpl} | tee listSIPAD_${dateExpl}.txt
+   prepStat listSIPAD_${dateExpl}.txt month | tee stats${dateExpl}.txt
+   mailx -s "stats whisper ${dateExpl}" exploitcdpp@akka.eu < stats${dateExpl}.txt
+
+=> Commande aleatoire (SIPAD)
+
+   source connectSipadCdpp <login>:<md5_pwd>
+   cd $HOME/WHISPER_HRES/utils
+   commandData <period> 2
+
+=> Suppression donnes au SEF (si pas automatique)
+   dcList "WHISPER HRES SEF delete" [yyyy[mm[dd]]]
+
+=> Inventaire (SIPAD)
+
+   cd $HOME/WHISPER_HRES/utils
+
+   checkData 2000: | tee listSIPAD_inventaire.txt
+   prepStat listSIPAD_inventaire.txt month | tee stats_inventaire.txt
+
+=> controler les donnees archivees (facultatif)
+
+   export DATE_EXPL=201101
+   dataCollector $HOME/WHISPER_HRES/conf/dc_whisper_hres.cfg "WHISPER HRES CHECK STAF"
+
+##= END
+#######
+
+##= WHISPER CAVEATS
+##= CAVEATS
+###################
+
+=> Notes :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Livraison
+
+   # Verifier si des donnees sont disponibles
+   dcList  "WHISPER CAVEATS SEF LIST"
+
+=> Production des donnees :
+
+   # Produire les donnees :
+      cd $HOME/WHI_CAVEATS/script
+
+      PREPARER_DONNEES_WHI_CAVEATS -d 2010
+
+   # verifier la production
+      opengf
+      stafList -k -r -n /CLUSTER/HTE_RESOL/WHISPER/CAVEATS -p 2019
+      close
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_caveats/data
+   ll *WHI_CAVEATS*.xml
+   cp *WHI_CAVEATS*.xml ${INGESTION_SIPAD_PATH}/manual/CLUSTER/whi_caveats/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/CLUSTER/whi_caveats/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_caveats/data
+   mv *WHI_CAVEATS*.xml ${APRES_ACQ_SIPAD_PATH}/CLUSTER/whi_caveats/data
+
+##= END
+#######
+
+##= WIND_RADIO
+##= RADIO
+###################
+
+=> Livraison :
+
+   # Verifier si des donnees sont disponibles
+   # Attention, on ne voit pas les CMOD avec chekcStat
+
+   export DEBLIG="^(WIN)|(wi_wa)_"
+   export CRIT2="(RAD[12])|(rad[12])|(tnr)"
+   export PATTERN="DEBLIG_CRIT2_SEP1_CRIT1_SEP1_CRITDATE_SEP1_CRITTAB_EXTENSION"
+   dcList "WIND_RADIO waves list" | checkStat -m - month
+   # ou 
+   dcList "WIND_RADIO waves list" 2016 | checkStat -m - month
+
+   # Connexion a waves (old sorbet)
+   sftp cdppcnes@WAVES-PROXY
+   cd /Volumes/WindServer/CDPP/outgoing
+   ls to_cdpp/RADIO
+
+
+=> Production des donnees :
+
+   # Produire les donnees (sans les produits CMOD) :
+   cd $HOME/WIND_RADIO/script
+
+   PREPARER_DONNEES_WIND_RADIO -d 201006 -x CMOD
+
+   # Pour une annee (sans les produits CMOD) :
+   cd $HOME/WIND_RADIO/script
+
+   year=2003
+   for month in {01..12}
+   do
+      PREPARER_DONNEES_WIND_RADIO -d ${year}${month} -x CMOD
+   done
+   
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/WIND/radio/data
+   ll *RADIO*.xml
+
+   source connectSipadCdpp cephirinsv:82b3e9c394d5d733b49e2f53dc12a1f4
+   ingestSipadXml -p WIND/radio/data *.xml
+
+ou
+
+   cp *RADIO*.xml ${INGESTION_SIPAD_PATH}/manual/WIND/radio/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/WIND/radio/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/WIND/radio/data
+   mv *RADIO*.xml ${APRES_ACQ_SIPAD_PATH}/WIND/radio/data
+
+=> Statistiques (SIPAD)
+
+   cd $HOME/WIND_RADIO/utils
+   checkSipad <period> month
+   mailx -s "[WIND_RADIO] inventSipad.txt" exploitcdpp@akka.eu < inventSipad.txt
+
+=> Commande aleatoire (SIPAD)
+
+   source connectSipadCdpp <login>:<MD5passwd>
+   cd $HOME/WIND_RADIO/utils
+   # commandData <period> [year |  month (default) | day] [number]
+   commandData <period> month 2
+
+##= END
+#######
+
+##= WIND_WAVES
+##= WAVES
+###################
+
+=> Livraison :
+
+
+=> Production des donnees :
+
+   # Produire les donnees  :
+   cd $HOME/WIND_WAVES/scripts
+ 
+  #modifier trait_batch
+   rempacer l'ancienne date par date +1 mois
+  #lancler le script 
+   nohup  trait_batch &  tail -f nohup.out
+ 
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+   
+   #data   
+   cd ${LIV_SIPAD_PATH}/manuel/WIND/waves/data
+
+   cp *.xml ${INGESTION_SIPAD_PATH}/manual/WIND/waves/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/WIND/waves/data/*.xml
+
+   #browse 
+   cd ${LIV_SIPAD_PATH}/manuel/WIND/waves/browse
+
+   cp *.xml ${INGESTION_SIPAD_PATH}/manual/WIND/waves/browse
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/WIND/waves/browse/*.xml
+  
+  #splots
+  cd ${LIV_SIPAD_PATH}/manuel/WIND/waves/browse/rep_image
+  
+  cp *.tar ${INGESTION_SIPAD_PATH}/manual/WIND/waves/browse/rep_image
+  cd ${INGESTION_SIPAD_PATH}/manual/WIND/waves/browse/rep_image
+  tar -xvf *.tar 
+  rm *.tar
+  chmod 666 *.gif
+ 
+  # effectuer l'ingestion sur le site d'ingestion
+ 
+  cd ${LIV_SIPAD_PATH}/manuel/WIND/waves/data
+  mv *.xml ${APRES_ACQ_SIPAD_PATH}/WIND/waves/data
+
+  cd ${LIV_SIPAD_PATH}/manuel/WIND/waves/browse
+  mv *.xml ${APRES_ACQ_SIPAD_PATH}/WIND/waves/browse
+
+  cd ${LIV_SIPAD_PATH}/manuel/WIND/waves/browse/rep_image
+  rm *.tar
+
+=> Statistiques (SIPAD)
+
+   cd $HOME/WIND_WAVES/utils
+   export statPeriod=201901
+   cat $HOME/WIND_WAVES/Listes/Fichiers_Transferes/OK/*$statPeriod | checkStat -f checkStatHeader.cfg -m - day |  tee wavesHeader.txt
+   cat $HOME/WIND_WAVES/Listes/Fichiers_Transferes/OK/*$statPeriod | checkStat -f checkStat.cfg -m - day | tee -a  wavesHeader.txt
+   mailx -s stat_WAVES -a wavesHeader.txt  damien.herrera@akka.eu < wavesHeader.txt
+
+=> Commande aleatoire (SIPAD)
+   source connectSipadCdpp <login>:<MD5passwd>
+   cd $HOME/WIND_WAVES/utils
+   # commandData <period> [year |  month (default) | day] [number]
+   commandData <period> month 3 
+ 
+##= END
+#######
+
+##= PHOBOS
+##########
+
+=> donnee source 
+   cdf => /home/CDPP/archcdpp/PHOBOS/cdf/
+   orbit => /home/CDPP/archcdpp/PHOBOS/NAVIGATION_PWS
+
+=> donne genere 
+   /home/CDPP/archcdpp/format_cdf/phobos
+
+=> Generation des cdf à partir des anciens cdfs
+ 
+   cd $HOME/PHOBOS/script/cdf
+   python phobosCdfGeneratorDay.py -j <jeu>
+   exemple: python phobosCdfGeneratorDay.py '/home/CDPP/archcdpp/PHOBOS/cdf/finerange_phobos1'
+
+=> Generation des images a  partir des cdfs
+   cd $HOME/PHOBOS/script/cdf
+   python phobosCdfSpectroGenerator_6h.py -s <satellite>
+
+=> Production des donnees
+
+   # Produire les donnees  :
+   cd $HOME/PHOBOS
+   PREPARER_PHOBOS.sh
+
+=> Ingestion des donnees au SIPAD-NG 
+
+   cd $HOME/PHOBOS/livraison
+   cp data*.xml ${INGESTION_SIPAD_PATH}/manual/PHOBOS/data 
+   cp browse*.xml ${INGESTION_SIPAD_PATH}/manual/PHOBOS/browse 
+   cp browse/*.png ${INGESTION_SIPAD_PATH}/manual/PHOBOS/browse/rep_image 
+   chmod 776 ${INGESTION_SIPAD_PATH}/manual/PHOBOS/data/*.xml
+   chmod 776 ${INGESTION_SIPAD_PATH}/manual/PHOBOS/browse/*.xml
+   chmod 776 ${INGESTION_SIPAD_PATH}/manual/PHOBOS/browse/rep_image/*.png
+
+   # effectuer l'ingestion sur le site d'ingestion
+   cd $HOME/PHOBOS/livraison 
+   mv *.xml ${APRES_ACQ_SIPAD_PATH}/PHOBOS/data
+   rm browse/*.png
+
+=> Statistiques (SIPAD)
+
+##= END
+
+##= GEOS
+##########
+
+=> Generation des cdf à partir des rff
+
+   cd $HOME/GEOS/script
+   python generateData.py  -j <Jeu> -s <Satellite>
+   # pour generer tous les datasets
+   python generateData.py
+
+=> Production des donnees
+
+   # Produire les donnees  :
+   cd $HOME/GEOS
+   PREPARER_GEOS.sh
+
+=> Ingestion des donnees au SIPAD-NG
+
+   cd $HOME/GEOS/livraison
+   cp data*.xml ${INGESTION_SIPAD_PATH}/manual/GEOS/data
+   chmod 776 ${INGESTION_SIPAD_PATH}/manual/GEOS/data/*.xml
+
+   # effectuer l'ingestion sur le site d'ingestion
+   cd $HOME/GEOS/livraison
+   mv *.xml ${APRES_ACQ_SIPAD_PATH}/GEOS/data
+
+=> Statistiques (SIPAD)
+##= END
+#######
+
+##= ROSETTA
+###########
+  # Attention deux chaines differentes une pour les L3 et une autre pour L5
+  # Pour les L3 la chaine PREPARER_DONNEES_ROSETTA_RPCMIP genere les pdf et fait le traitement 
+  cd ROSETTA/L3/script 
+   
+  # pour les L5
+  # generer les cdf 
+  cd $HOME/ROSETTA/L5/cdf 
+  python rosettaCdfGenerator.py 
+  
+  # à la fin de cette etape lancer la chaine d'archivage des des cdfs
+  cd $HOME/ROSETTA/L5/script 
+  nohup PREPARER_STANDARD_MISSION -p /home/CDPP/archcdpp/ROSETTA/data/CDF_DATA/ -f ../conf/stat_rosetta.cfg cdf &
+  
+  # effectuer l'ingestion des xmls 
+   
+ 
+  
+
+
+##= END
+#######
+
+
+##= VDLIB
+#########
+
+=> executer la commande sur tu-mutcalc-d01 ou tu-mutcalc-pc
+   vdlib         # Aide sur la comande
+   vdlib help    # Acces a la page d'accueil
+
+=> Sous firefox : 
+      (exploit) http://tu-mutcalc-pc:8011/vdlib_www/src/vdlib.php?vue=accueil
+                http://10.120.10.5:8011/vdlib_www/src/vdlib.php?vue=accueil
+      (recette) http://tu-mutcalc-d01:8166/vdlib_www/src/vdlib.php?vue=accueil
+                http://10.120.10.3:8166/vdlib_www/src/vdlib.php?vue=accueil
+
+   # Interroger la base :
+   http://10.120.10.5:8011/vdlib_www/src/execCmd.php?cmd=pgsql
+ou 
+   # depuis un compte ext.
+   curl -s "http://10.120.10.5:8011/vdlib_www/src/execCmd.php?cmd=pgsql"
+
+=> administration (vdlibexp@tu-mutcalc-pc)
+
+   # Arreter/demarrer le serveur
+   cd $HOME
+   start_serveurs.sh
+   stop_serveurs.sh
+
+   # Mettre a jour le serveur
+   cd $HOME/vdlib/travail
+   rm -rf VDLIB_SERVER
+   mkdir -p VDLIB_SERVER
+   cd VDLIB_SERVER
+   cp $(ls $HOME/vdlib/archives/VDLIB_SERVER* | tail -1) .
+   gztar xvf *tar.gz
+
+=> Liste des packages livres
+
+   # Liste des packages depuis une date
+   pgsql listPackagesDelivred.sql 2015-06-01
+ou
+   # Liste des packages depuis la derniere livraison au SGC
+   pgsql listPackagesDelivred.sql $(stat --format=%z $(ls -r $HOME/vdlib/archives/SGC*gz | head -1))
+
+ou 
+   # depuis un compte ext.
+   curl -s "http://10.120.10.5:8011/vdlib_www/src/pgsql.php?request=listPackagesDelivred&P1=2015-06-01&ext"
+
+=> Chemin d'acces VDLIB a integrer dans le .profile
+
+export VDLIB_PATH=/home/user3/ctpsvd/vdlibexp/vdlib
+export PATH=$PATH:$VDLIB_PATH/executables
+export PATH=$PATH:$VDLIB_PATH/scripts
+export PATH=$FPATH:$VDLIB_PATH/fonctions
+export FPATH=$FPATH:$VDLIB_PATH/fonctions
+
+# Fonctions VDLIB pour le STAF
+. $VDLIB_PATH/fonctions/lsStaf
+. $VDLIB_PATH/fonctions/duStaf
+. $VDLIB_PATH/fonctions/dirStaf
+
+=> scripts disponibles ($HOME/vdlib/outils/utils)
+
+   putPackage [-q]  : livraison d'un package avec mail (ou non (-q)) d'alerte
+   putAnnexe      : livraison d'une annexe d'un package
+   createLinks    : Publication d'un outil par la creation de liens
+   deleteLinks    : Retire la publication d'un outil
+   deployPackage  : Deploiement et publication d'un outil
+   deletePackage  : Suppression d'un outil
+   checkPackage   : Liste l'historique des deploiements / suppressions
+   prep_vdlib_SGC : Preparation d'un version pour le SGC
+   
+=> exemple de procedure de livraison/publication
+
+   putPackage utils_v1_0.tar.gz
+
+   Se connecter vdlibexp@tu-mutcalc-pc
+   deployPackage utils_v1_0.tar.gz
+
+   # Note : on peut ajouter en parametre la liste des repertoires que l'on veut deployer
+
+ou 
+   # depuis un compte ext.
+
+   curl -s "http://10.120.10.5:8011/vdlib_www/src/execCmd.php?cmd=../../vdlib/packages/utils/deployPackage"
+   curl -s "http://10.120.10.5:8011/vdlib_www/src/execCmd.php?cmd=../../vdlib/packages/utils/deployPackage&P1=utils_v1_0.tar.gz"
+   curl -s "http://10.120.10.5:8011/vdlib_www/src/execCmd.php?cmd=../../vdlib/packages/utils/deletePackage"
+
+=> Livraison au SGC (vdlibexp@tu-mutcalc-pc)
+
+    # Une fois tous les outils deployes
+    
+    cd $HOME
+
+    # Sauvegarde de la base
+    pg_dump -Fc > vdlib.dump
+    putAnnexe VDLIB_SERVER_v2_1_0 vdlib.dump
+
+    # Ne garder que la derniere version des outils dans archives
+    # Deplacer les anciennes versions dans deepArchives
+
+    # Sauvegarde du site
+    cd $HOME
+    tar cvfpz vdlib_www.tar.gz vdlib_www
+    putAnnexe VDLIB_SERVER_v2_1_0 vdlib_www.tar.gz
+
+    ll $HOME/vdlib/archives/SGC*
+    prep_vdlib_SGC v1.1 v1.0          # une version v0.0 existe pour la creation complete
+
+    # Transferer le fichier tar.gz et le md5 en local (FTP mobaxterm)
+    # Demander un ticket Crypt'n Share et transferer les fichiers avec firefox
+    # Note : https://echange.cnes.fr/modules/exchanger/cns/ticket/UploadByTicketPO.po?ticket=?????
+
+    # Repertoire de livraison au SGC
+    # /home/sgc/projet/sgds/vdlib/rec (livraison par Crypt'n Share)
+
+    # Generation du checksum
+    VERSION=v1_1
+    module load md5sum
+    md5sum SGC_vdlib_${VERSION}.tar.gz > SGC_vdlib_${VERSION}.tar.gz.md5
+
+=>  VDLIB_PROXY
+
+    # Compte archcdpp
+    cd /home/CDPP/archcdpp/.bin/VDLIB
+
+    # Commandes
+    putPackageProxy
+    synchronizeProxy
+
+    # Controler les livraisons effectives a la vdlib
+    diff -rq /home/CDPP/archcdpp/vdlib/livraison/ /home/user3/ctpsvd/vdlibexp/vdlib/livraison
+
+##= END
+#######
+
+##= VEX
+#######
+
+=> Notes :
+   # Site du PSA : ftp://psa.esac.esa.int/pub/mirror/VENUS-EXPRESS/ASPERA4/
+
+=> Livraison :
+
+   # Verifier les donnees disponibles au PSA
+   export DEBLIG="^"
+   checkStat -t -f $HOME/VEX/conf/checkStat_pds.cfg -m $HOME/VEX/conf/fileList.txt  year
+
+=> Production des donnees :
+
+   # Produire les donnees :
+   cd $HOME/VEX/script
+
+   PREPARER_DONNEES_VEX _080101
+
+   # Pour une annee :
+   cd $HOME/VEX/script
+
+   touch nohup.out; nohup PREPARER_DONNEES_VEX 2014 | tail -f nohup.out
+   
+   # Ensuite archiver les produits cdf
+   cd $HOME/STANDARD_MISSION/script
+   PREPARER_STANDARD_MISSION -f ../conf/stat_vex.cfg -s -p /home/CDPP/archcdpp/workspace/cdppexp/vex/format_cdf _2014
+   
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/STANDARD_MISSION/data
+   ll *vex*.xml
+
+   source connectSipadCdpp <login>:<MD5passwd>
+   ingestSipadXml -p VEX/data *.xml
+
+ou
+
+   cp *vex*.xml ${INGESTION_SIPAD_PATH}/manual/VEX/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/VEX/data/*.xml
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/VEX/data
+   mv *vex*.xml ${APRES_ACQ_SIPAD_PATH}/VEX/data
+
+=> Statistiques (SIPAD)
+
+   cd $HOME/VEX/utils
+   checkSipad
+   mailx -s "[VEX] inventSipad.txt" -a stat_vex_2005_2014.txt vincent.cephirins@akka.eu
+
+=> Fichiers corriges
+
+   cd $HOME/VEX/suivi
+   grep "number of errors" CR_VEX_* > $HOME/VEX/md_graphes/rep_doc/listeErr.txt
+   cd $HOME/VEX/md_graphes/rep_doc
+   vi listeErr.txt # Touch F12, voir .exrc
+   # Mettre a jour le fichier corrected_files_from_PSA.txt
+   # et Reingerer doc_desc_VEX.xml
+
+##= END
+#######
+
+##= Wrapper
+###########
+
+=> jdk1.5.0_06
+
+=> MinGW-3.2.0-rc-3.exe (make, gcc, gdb, ...)
+
+=> Configuration d'eclipse :
+   Eclipse 3.1.1
+      org.eclipse.cdt-3.0.2-win32.x86.zip
+      org.eclipse.cdt.sdk-3.0.2-win32.x86.zip
+      com.atlassw.tools.eclipse.checkstyle_4.0.1-bin.zip
+
+=> Creation d'un workspace
+   -> File -> "switch workspace..."
+      : Workspace = "D:\API_CDPP\Eclipse\workspace" => "OK"
+
+=> Importation du projet
+   -> File -> "Import..." -> "Existing projects into workspace" => Next
+
+=> Configuration du projet : "Project Propreties" -> "C/C++ Make Project"
+   -> "Make Builder" : "Build Command" = "C:\MinGW\bin\mingw32-make.exe"
+   -> "Binary Parser" : Cocher seulement "PE Windows Parser"
+
+
+=> Configuration du debugger : Run -> "Debug ..."
+   -> "C/C++ local application" => "New"
+      : Name = <nom conf.>
+      -> main
+         : "Project" = "wrapper" 
+         : "C/C++ Application" = <nom de l'exe a debugger>
+      -> Debugger
+         : Debugger = "GDB Debugger"
+         -> main : "GDB Debugger" = gdb
+
+##= END
+

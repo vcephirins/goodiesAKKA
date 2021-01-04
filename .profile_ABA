@@ -1,0 +1,23 @@
+# Fichier .profile personnalise des parties communes
+#
+stty istrip
+stty erase 
+MAIL=/var/mail/${LOGNAME:?}; export MAIL
+
+#Editeur de texte par defaut
+export EDITOR=vi
+
+#Ajout outils standards
+export OUTILS_SVA=$HOME/.bin
+export PATH=$PATH:$OUTILS_SVA
+
+alias	ll="ls -l"
+alias	lh="ls -h"
+
+export PS1=$(tput smso;echo '$LOGNAME on \c';echo "`hostname`\c";tput rmso;echo ' $PWD'"\n\r$ ")
+
+unalias vi
+TERM=xterm
+
+set -o emacs
+

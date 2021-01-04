@@ -1,0 +1,161 @@
+# Fichier .profile personnalise des parties communes
+#
+stty istrip
+stty erase '^?'
+stty erase '^H'
+
+# Rappels des commandes
+set -o emacs
+alias __A=`echo "\020"`
+alias __B=`echo "\016"`
+alias __Z=`echo "\017"` #Shift In : permet d'annuler l'effet du \016 (Shift Out)
+alias __C=`echo "\06"`
+alias __D=`echo "\02"`
+
+
+MAIL=/var/mail/${LOGNAME:?}; export MAIL
+
+#Editeur de texte par defaut
+export EDITOR="nedit"
+
+#Ajout outils standards
+export OUTILS_SVA=$HOME/.bin
+export PATH=$PATH:$OUTILS_SVA
+
+#export PS1=$(tput smso;echo '$LOGNAME on `hostname`';tput rmso;echo '$PWD\n\$ ')
+export PS1=$(echo '` hostname` \e[32m$(parseGitBranch)\e >$PWD $ ')
+#export PS1=$(tput smso;echo '$LOGNAME on \c';echo "`hostname`\c";tput rmso;echo ' $PWD'"\n\r$ ")
+#export PS1='\e[7m\u on \h\e[27m: \e[32m$(parseGitBranch)\e(B\e[m \w\n\$ '
+
+#alias STAF
+case ${USER} in
+   cdppexp ) sipadInstance=SO1
+             stafProject=plasma
+             stafPwd=psvdo123
+             alias ingestion='cd /home/sipad/${sipadInstance}/cdpp/project/ingestion'
+             ;;
+   cdppqual) sipadInstance=SP1
+	     stafProject=gf_sgds
+	     stafPwd=psvdo123
+             alias ingestion='cd /home/sipad/${sipadInstance}/cdpp/project/ingestion'
+	     ;;
+   *       ) sipadInstance=SR1
+	     stafProject=sgds
+	     stafPwd=psvdo456
+             alias ingestion='cd /home/user3/ctpsvd/${sipadInstance}/cdpp/project/ingestion'
+	     ;;
+
+esac
+
+alias livraison='cd /home/sipad/liv_cdpp/${sipadInstance}/livraison'
+alias skteditor='java -jar ${HOME}/CDFUtils/sktEditor/skteditor-1.3.1.20/spdfjavaClasses.jar'
+
+# alias open='stafcon -open -prj ${stafProject} -pw ${stafPwd}'
+# alias close='stafcon -close'
+
+alias open='stafOpen ${stafProject} ${stafPwd} '
+alias close='stafClose'
+
+
+unalias vi 2>/dev/null
+unalias ls 2>/dev/null
+alias ll="ls -al"
+alias lm="ls -al | more"
+alias psm="ps -aef | grep $USER |more"
+
+module load nedit
+
+TERM=xterm
+
+# Chemin d'acces aux autres outils de la vdlib
+VDLIB_PATH_MIG=/home/user3/ctpsvd/vdlib/vdlib/travail/make_invent_projet_v1_2/scripts
+VDLIB_PATH_MIG=$VDLIB_PATH_MIG:/home/user3/ctpsvd/vdlib/vdlib/travail/make_invent_projet_v1_2/fonctions
+#export PATH="$VDLIB_PATH_MIG:$PATH:./"
+
+
+#Using CDF Distribution
+export CDF_BASE=${HOME}/CDFUtils/CDF3-5
+
+export CDF_INC=$CDF_BASE/include
+export CDF_LIB=$CDF_BASE/lib
+export CDF_BIN=$CDF_BASE/bin
+export CDF_JAVA=$CDF_BASE/cdf35_0-dist/cdfjava
+export CDF_HELP=$CDF_BASE/lib/cdf/help
+export CDF_LEAPSECONDSTABLE=$CDF_BASE/CDFLeapSeconds.txt
+
+#Patch CDF pour IDL 6.2+/7/8
+CDFPATCH_PATH="${HOME}/CDFUtils/cdfpatch"
+CDAWLIB_PATH="${HOME}/CDFUtils/CDAWLib"
+export IDL_DLM_PATH="$CDFPATCH_PATH:<IDL_DEFAULT>"
+export CDF_LEAPSECONDTABLE="$CDFPATCH_PATH/CDFLeapSeconds.txt"
+IDL_PATH="$CDFPATCH_PATH:$CDAWLIB_PATH:$CDAWLIB_PATH/jh:$CDAWLIB_PATH/twins"
+export IDL_PATH="$IDL_PATH:$IDL_DIR:$IDL_DIR/lib:$IDL_DIR/lib/utilities"
+
+alias cdfedit=$CDF_BIN/cdfedit
+alias cdfexport=$CDF_BIN/cdfexport
+alias cdfconvert=$CDF_BIN/cdfconvert
+alias cdfinquire=$CDF_BIN/cdfinquire
+alias cdfstats=$CDF_BIN/cdfstats
+alias cdfdump=$CDF_BIN/cdfdump
+alias cdfirsdump=$CDF_BIN/cdfirsdump
+alias cdfcompare=$CDF_BIN/cdfcompare
+alias skeletontable=$CDF_BIN/skeletontable
+alias skeletoncdf=$CDF_BIN/skeletoncdf
+alias cdfdir=$CDF_BIN/cdfdir
+alias cdfmerge=$CDF_BIN/cdfmerge
+alias cdfbrowse="$CDF_BIN/cdfedit -prompt -browse"
+alias cdfvalidate=$CDF_BIN/cdfvalidate
+alias cdfleapsecondsinfo=$CDF_BIN/cdfleapsecondsinfo
+
+# Chemin d'acces aux outils CDF
+export PATH="$PATH:$CDF_BIN:."
+CLASSPATH=".:${CLASSPATH}:${CDF_JAVA}/classes/cdfjava.jar"
+CLASSPATH="${CLASSPATH}:${CDF_JAVA}/classes/cdftools/CDFToolsDriver.jar"
+export CLASSPATH="${CLASSPATH}:${CDF_JAVA}/classes/cdfml/cdfml.jar"
+
+LD_LIBRARY_PATH="/Produits/publics/x86_64.Linux.2.6.9/jdk/1.6.0/jre/lib/amd64/server"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/publics/x86_64.Linux.2.6.9/jdk/1.6.0/jre/lib/amd64"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/publics/x86_64.Linux.2.6.9/jdk/1.6.0/lib"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/publics/x86_64.Linux.2.6.9/firefox/3.6.17/lib/firefox-3.6.17"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/rsi/idl/8.1/idl/idl81/bin/bin.linux.x86/dm/lib"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/publics/x86_64.Linux.RH5/java3d/1.5.2/lib/amd64"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/publics/x86_64.Linux.RH5/jdk/1.6.0_26/jre/lib/amd64/server"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/publics/x86_64.Linux.RH5/jdk/1.6.0_26/jre/lib/amd64"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/publics/x86_64.Linux.RH5/jdk/1.6.0_26/lib"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Produits/publics/x86_64.Linux.2.6.32/lib"
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$CDF_LIB:${CDF_JAVA}/lib"
+
+# Alias de mail
+export akmail="nicolas.lormant@akka.eu"
+function mailak() {
+SUB=$2
+ATT=$1
+  if [[ ! -f $ATT ]]
+  then
+     SUB=$1
+     mailx -s "$SUB" nicolas.lormant@akka.eu
+     return
+  fi
+  if [[ $SUB == "" ]]
+  then 
+     SUB="No Subject"
+   fi
+ mailx -a $ATT -s "$SUB" nicolas.lormant@akka.eu
+}
+
+
+# Dépôt des descriptions longues du SIPAD
+case ${USER} in
+   cdppexp ) WEBNG_SERVER=tu-w3exsit-p10
+             alias description="echo 'ftp $WEBNG_SERVER (user: so1ftp1; cd /ROOT/descriptions)'"
+             ;;
+   cdppqual) WEBNG_SERVER=tu-w3exsit-p10
+             alias description="echo 'ftp $WEBNG_SERVER (user: sp1ftp1; cd /ROOT/descriptions)'"
+	     ;;
+   *       ) DESC_PATH=/produit/sipad/SR1/webUser/chrootTomcat/data/sr1cdpp/descriptions
+             alias description="cd $DESC_PATH"
+	     ;;
+
+esac
+
+

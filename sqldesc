@@ -1,0 +1,12 @@
+cd $OUTILS_SVA/SQL
+sqlplus -s $ORACLE_OWNER/$ORACLE_PWD <<EOF
+whenever sqlerror exit 2
+@init
+set linesize 80
+
+set timing on;
+
+desc $*;
+exit 0;
+EOF
+

@@ -1,0 +1,872 @@
+##= CREER UNE BASE (DBCA)
+##= ARRET DE LA BASE
+##= DEMARRAGE DE LA BASE
+##= RELANCE DE LA BASE
+############################
+
+=> sur bas-oracle-01 (oracle/psvdo123)
+
+=> Arret / relance listener
+   lsnrctl status
+   lsnrctl services
+   lsnrctl start
+   lsnrctl stop
+
+=> dbca (sur le serveur) : Creation/suppression des bases
+
+   Positionner le ORACLE_SID
+
+   emctl [start|status|stop] dbconsole
+   https://bas-oracle-01.akka.eu:1158/em/console/aboutApplication
+      -> voir l'adresse exacte avec emctl status dbconsole
+
+   Relancer la base a partir de la dbconsole
+
+=> Arret / relance Entreprise Manager (dbconsole)
+
+   export ORACLE_HOME=$(hostname)
+   export ORACLE_SID=toto
+   export ORACLE_UNQNAME=toto
+
+   emctl start dbconsole    # Recuperer l'adresse https://<hosts>:<55000>/em/console
+   emctl stop dbconsole
+
+=> Installer configurer Entreprise Manager (dbconsole)
+
+   # Soit avec dbca
+   # Soit en ligne de commande
+   emca -config dbcontrol db -repos create
+
+   # En cas de probleme si existe deja
+   emca -config dbcontrol db -repos recreate
+
+   # ou
+   emca -deconfig dbcontrol db -repos drop
+   emca -config dbcontrol db -repos create
+
+=> demarrage/arret automatique des bases
+   voir le fichier oratab
+
+=> A partir de la 10G
+
+   Positionner le ORACLE_SID
+   sqlplus / as sysdba
+
+   -- verifier les transactions en cours
+   set linesize 200
+   set pagesize 0
+select sid, serial#, process, substr(username, 1, 15) username,
+   decode(taddr, NULL, '', 'Oui ') en_cours, substr(machine, 1, 30) machine,
+   substr(program, 1, 30) program, substr(module, 1, 20) module
+from v$session
+order by username desc, en_cours;
+
+   shutdown [normal|transactional|immediate|abort]
+   startup [nomount|mount|open] [restrict]
+
+=> modifier le niveau
+   ora_sipad1
+      connectdba
+      alter database [mount | open]
+   rem : sens des etats : nomout => mount => open
+
+=> etat de la base
+   a partir de nomount
+   select * from v$instance;
+   select * from v$sga;
+   select * from v$version;
+   select substr(parameter, 1, 50), substr(value, 1, 10) from v$option;
+   a partir de mount
+   select * from v$database;
+   a partir de open
+   
+##= END
+
+##= BACKUP
+##= RESTORE
+##= RECOVER
+##= SAUVEGARDE
+##= RMAN
+##############
+
+=> DBID : (recupere avec rman target /)
+   AKKAEXP (DBID=1483846661)
+   AKKAARCH (DBID=1958147623)
+
+=> Recuperer les infos de l'instance
+   sqlplus / as sysdba
+   alter database backup controlfile to trace as '/tmp/ctl.txt' reuse;
+
+=> Configurer RMAN 
+Positionner le SID (ora_sipad1)
+rman
+connect target /
+show all;
+
+# garder seulement 2 sauvegardes
+# Sauvegarder les fichier de controles automatiquement
+# Defini le chemin des sauvegardes et la taille max des fichiers
+CONFIGURE RETENTION POLICY TO REDUNDANCY 2;
+CONFIGURE CONTROLFILE AUTOBACKUP ON;
+CONFIGURE CONTROLFILE AUTOBACKUP FORMAT FOR DEVICE TYPE DISK TO '/data/backup/oracle/flash_recovery_area/%d/%d_%I_%T_cf_%F.bkp';
+CONFIGURE CHANNEL DEVICE TYPE DISK FORMAT '/data/backup/oracle/flash_recovery_area/%d/%d_%I_%T_data_%U.bkp' MAXPIECESIZE 2G;
+
+=> Backup 
+# Positionner le SID
+rman target /
+shutdown immediate
+startup mount
+#backup validate database; # Valide la base
+#backup as compressed backupset database format='/data/backup/oracle/flash_recovery_area/%d/%d_%I_%U.bkp' tag='FULL DATABASE';
+backup as compressed backupset database tag='FULL DATABASE';
+sql 'alter database open' ;
+
+=> Restore
+Positionner le SID (ora_sipad1)
+rman
+connect target /
+shutdown immediate
+startup nomount
+set dbid 1822476447
+restore controlfile from '/orabck/03k95gp9_1_1';
+sql "alter database mount";
+
+restore database;
+
+alter database open [resetlogs|noresetlogs];
+
+ou
+
+run {
+ allocate channel t1 type disk;
+ restore tablespace data01;
+ restore datafile 1;
+ }
+
+=> Mise a jour du referentiel RMAN
+crosscheck backupset [tag 'GAIA10G'];
+voir la commmande CHANGE ...
+
+EXPIRED = fichier physique introuvable
+AVAILABLE = sauvegarde disponible
+UNVAILABLE = sauvegarde indisponible (voir CHANGE ... )
+
+=> Lister les sauvegardes
+list backupset summary;
+list expired backupset;
+list backupset [tag='GAIA10G'];
+
+=> Lister les sauvegardes obsoletes (RETENTION POLICY)
+report obsolete;
+
+=> Suppression des sauvegardes
+delete expired backup;
+delete obsolete;
+
+=> Recatalogage de fichiers de sauvegarde
+catalog backuppiece '<pathfile>';
+
+##= END
+#######
+
+##= DATABASE CONTROL
+##= DBCONSOLE
+##= CONSOLE
+####################
+
+   Positionner ORACLE_SID
+
+=> status
+   emctl status dbconsole
+   emctl status agent
+
+=> demarrage / arret
+   export ORACLE_SID=<instance>
+   emctl start dbconsole
+   emctl stop dbconsole
+
+=> lancement de la console (ou recupere l'adresser : emctl status dbconsole)
+   http://<serveur>:5500/em/console/aboutApplication
+
+=>en cas d'erreur : ERROR: NMO not setuid-root
+
+   se connecter root
+   cd $ORACLE_HOME (your OEM HOME directory)
+   chmod 6750 bin/nm?
+   chmod 700 bin/emdctl
+   chmod 700 bin/emagent
+   chown root bin/nm?
+
+   se deconnecter (revenir oracle)
+   emctl stop dbconsole (ou agent)
+   emctl start dbconsole
+
+##= END
+
+##= DDL
+#######
+
+=> Recuperation des DDL de toutes les tables d'un schema :
+
+set pagesize 0
+set long 90000
+execute DBMS_METADATA.SET_TRANSFORM_PARAM(DBMS_METADATA.SESSION_TRANSFORM,
+                                          'STORAGE',false);
+SELECT DBMS_METADATA.GET_DDL('TABLE',u.table_name)
+     FROM USER_ALL_TABLES u
+     WHERE u.nested='NO' 
+     AND (u.iot_type is null or u.iot_type='IOT');
+execute DBMS_METADATA.SET_TRANSFORM_PARAM(DBMS_METADATA.SESSION_TRANSFORM,
+                                          'DEFAULT');
+
+=> Recuperation des objets dependants (par ex. INDEX) : 
+set pagesize 0
+set long 90000
+execute DBMS_METADATA.SET_TRANSFORM_PARAM(DBMS_METADATA.SESSION_TRANSFORM,
+                                          'STORAGE',false);
+SELECT DBMS_METADATA.GET_DEPENDENT_DDL('INDEX', u.table_name)
+     FROM USER_ALL_TABLES u
+     WHERE u.nested='NO' 
+     AND (u.iot_type is null or u.iot_type='IOT');
+execute DBMS_METADATA.SET_TRANSFORM_PARAM(DBMS_METADATA.SESSION_TRANSFORM,
+                                          'DEFAULT');
+
+=> Recuperation des grants d'un schema :
+SELECT DBMS_METADATA.GET_GRANTED_DDL('SYSTEM_GRANT','SCOTT') FROM DUAL;
+
+##= END
+
+##= DIVERS
+##########
+
+# Positionner ORACLE_SID avant
+
+=> modifier le mot de passe sys
+
+   # Positionner ORACLE_SID
+   sqlplus / as sysdba
+   alter user sys identified by manager;
+   quit;
+
+=> Delocker le compte sys
+
+   # Positionner ORACLE_SID
+   sqlplus / as sysdba
+   alter user sys account unlock;
+   quit;
+
+
+=> Changer le nombre de tentatives avant le lock
+   # Le user doit etre associe au profile
+   sqlplus / as sysdba
+   [ alter | create ] profile <profile> LIMIT
+   FAILED_LOGIN_ATTEMPTS [UNLIMITED | DEFAULT | integer ];
+   
+   alter user <user> PROFILE <profile>;
+   quit;
+
+=> Versions
+
+SELECT * FROM V$VERSION;
+
+=> Retrouver les parametres d'instance
+
+   sqlplus system/manager as sysdba
+   create pfile='/tmp/initpfile.txt' from spfile;
+
+=> Re-creer le spfile
+
+   sqlplus system/manager as sysdba
+   create spfile from pfile='/tmp/initpfile.txt';
+   
+=> Fichiers importants
+
+/u001/app/oracle/admin/@/pfile/initdbudss10.ora
+/u001/app/oracle/admin/@/dump/alert_dbudss10.log
+
+=> Config tnsnames
+C:\OPT\ORACLE\CLIENT234\BIN\ORAINST.EXE /INSTALL /PRD C:\OPT\ORACLE\CLIENT234\NETWORK\CFG
+
+=> Objets invalides
+
+Liste des objets invalides :
+   select owner, object_name, object_type from all_objects where status <> 'VALID';
+recompilation des objets invalides :
+   sqlplus sys/sys @$ORACLE_HOME/rdbms/admin/utlrp.sql
+
+=> Parametres
+   svrmgrl
+      connect st10_dev/dbudst10
+      show parameters [name]
+
+=> Vues dynamiques
+
+    v$parameter        Contient des informations sur les parametres d'initialisation.
+       N.B. : la commande SHOW PARAMETER CONTROL
+       equivaut a : SELECT name,type,value FROM v$parameter WHERE name LIKE '%control%';
+    v$system_parameter Contient des informations sur les parametres d'initialisation et leurs modifications eventuelles.
+    v$sga              Contient des infos sur la SGA.
+    v$option           Contient la liste des options installees sur le serveur Oracle.
+    v$process          Contient des informations sur les process actifs courant.
+    v$session          Liste des information sur la session courante.
+    v$version          Liste le numero de version et les composants.
+    v$instance         Affiche l'etat de l'instance courante.
+    v$thread           Contient des informations thread , par exemple sur les groupes redo log.
+    v$controlfile      Liste le nom des fichiers de controle (Ne renvoie aucune valeur C  l'etat NOMOUNT).
+    v$database         Contient des informations sur la base.
+    v$databafile       Contient des informations sur les fichiers de donnees et de controle.
+    v$datafile_header  Affiche des informations fichiers de donnees des fichiers de controle.
+    v$logfile          Contient des informations sur les fichiers redo_log.
+
+##= END
+
+##= EXPORT
+##= IMPORT
+##= EXPDP
+##= IMPDP
+################
+
+=> Voir depuis la 10G : expdp et impdp
+
+=> Pour en savoir plus :
+exp help=y
+imp help=y
+
+=> Exemple :
+   
+   exp $USER/$PWD FEEDBACK=1000 FILE=expst11.dmp LOG=expst11.log TABLES=ST10_GDB_FUNCTION,ST10_MESSAGE,ST10_LOG ROWS=Y INDEXES=N GRANTS=N CONSTRAINTS=N
+
+   imp $USER/$PWD FEEDBACK=1000 FILE=expst11.dmp LOG=impst12.log TABLES=ST10_GDB_FUNCTION ROWS=Y INDEXES=N GRANTS=N IGNORE=Y
+
+=> Notes :
+   Pour importer seulement les donnees :
+      - exp ... ROWS=Y INDEXES=N GRANTS=N CONSTRAINTS=N
+      - desactiver les FK des tables dependantes
+      - imp ... ROWS=Y INDEXES=N GRANTS=N IGNORE=Y
+      - reactiver les FK
+
+=> Importer la base ST00_PRO
+
+   Se connecter sous sqlplus system/system (ORACLE_SID=dbupst00)
+   Dropper les users st00_pro, ops$st00_pro
+   Se deconnecter
+
+   imp system/system file=<file.dmp> fromuser=st00_pro touser=st00_pro
+       rows=y log=st00_pro.log ignore=y feedback=50000
+
+   Importer le user ops$st00_pro
+   Refaire de meme pour st01, st10, st30
+
+=> Exemples d'importation partielle de donnees
+
+Export :
+- exporter les rows
+  exp st00_pro/dbupst00 parfile=expst00.parfile
+
+- recuperer les sequences
+  genSeq.sh st00_pro dbupst00
+
+Import :
+- desactiver les FK (Toad - constraints - Filtre - Show referential integrity constraints - disable all)
+- desactiver les triggers (Toad)
+- truncate des tables a recharger
+  sqlplus st00_dev/dbudst00 @truncate.sql
+
+- importer les donnees
+  imp user/pwd parfile=impst00.parfile
+
+- resynchronizer les sequences
+  sqlplus st00_dev/dbudst00 @genSeq.sql
+
+- reactiver les triggers
+- reactiver les FK
+- rejouer les grants
+
+File expst00.parfile :
+FEEDBACK=10000
+FILE=expst00.dmp
+LOG=expst00.log
+ROWS=Y
+INDEXES=N
+GRANTS=N
+CONSTRAINTS=N
+TABLES= 
+ST00_ACTION , 
+ST00_BATCH ,
+--ST00_CDB_HELP_MESSAGE ,
+ST00_CONFIDENCE  ,
+ST00_ZONING_NOMENCLATURE
+
+File genSql.sh :
+sqlplus -s $1/$2 <<EOF > genSeq.sql
+set heading off
+set pagesize 0
+set linesize 200
+set feedback off
+select 'PROMPT sequence '||sequence_name||CHR(10)||
+       'DROP SEQUENCE '||sequence_name||';'||CHR(10)||
+       'CREATE SEQUENCE '||sequence_name||
+       ' INCREMENT BY '||increment_by||
+       ' MINVALUE '||min_value||
+       ' MAXVALUE '||max_value||
+       decode(cycle_flag, 'Y', ' CYCLE ', ' NOCYCLE ')||
+       decode(order_flag, 'Y', ' ORDER ', ' NOORDER ')||
+       decode(cache_size, 0, ' NOCACHE ', ' CACHE '||cache_size)||
+       ' START WITH '|| last_number ||';'||CHR(10)||
+       'GRANT SELECT ON '||sequence_name||' TO rl_CDB_application;'||CHR(10)
+from user_sequences
+/
+EOF
+
+File impst00.parfile :
+FEEDBACK=10000
+FILE=expst00.dmp
+LOG=impst00.log
+ROWS=Y
+INDEXES=N
+GRANTS=N
+IGNORE=Y
+TABLES= 
+ST00_ACTION , 
+ST00_BATCH ,
+--ST00_CDB_HELP_MESSAGE ,
+ST00_CONFIDENCE  ,
+ST00_ZONING_NOMENCLATURE
+
+##= END
+
+##= SQLPLUS
+###########
+
+sqlplus -s $UID_ACMM/$PWD_ACMM <<EOF
+whenever sqlerror exit 2
+set serveroutput on
+set linesize 2000
+set pagesize 4000
+$*;
+exit 0;
+EOF
+
+=>commande sqlplus :
+HOST [commande] ou ![commande]
+l : liste le buffer
+ln : edit la ligne n
+i : insere
+del n : supprime la ligne n
+a : Append en fin de ligne
+r : Run
+SAVE file [APPEND | CREATE | REPLACE]
+GET file NOLIST
+START file
+@file
+DEF variable=valeur
+UNDEF variable
+ACCEPT variable [PROMPT 'texte'][HIDE]
+SPOOL file : Demarre le spool
+SPOOL : Affiche le nom du spool
+SPOOL OFF : Arrete le spool
+
+=>parametres :
+sqlplus -s            => N'affiche pas les copyrights
+
+show param            => affiche les valeurs de param
+show all              => affiche tous les params
+
+set arraysize n       => Nombre de lignes lues a chaque appel au noyau
+set colsep ""         => Pas de separateurs de colonnes
+set feedback off      => N'affiche pas le nombre de lignes lues
+set heading off       => N'affiche pas l'entete des colonnes 
+set linesize n        => Longueur d'une ligne
+set long n            => Taille de lecture des champs de type LONG (defaut 80)
+set maxdata n         => Taille maximal d'une ligne de table traitee
+set null ""           => Chaine representant le null
+set numformat format  => Specifie le format des colones numeriques
+set numwidth n        => Largeur des colonnes numeriques
+set pagesize 0        => Pas de pagination
+set pause on/off      => Attente de <return> entre chaque page
+set serveroutput on   => autorise l'affichage par dbms_output.put_line();
+set space n           => Definit le nombre d'espaces entre chasue colonne
+set sqlprompt 'chaine' => Specifie un prompt
+set tab off           => Transforme les tab en spaces
+set termout off       => Supprime tout affichage sur le terminal 
+                         lors de l'execution d'un fichier
+set time on/off       => Affichage de l'heure
+set timing on/off     => Affichage du temps ecoule
+set verify on/off     => Provoque l'affichage des lignes de commande
+                         avant et apres chaque substitution de parametres
+set worksize n        => Taille de la zone memoire de tavail 
+set wrap on/off       => Tronque ou affiche sur la ligne suivante
+
+
+=>Mise en forme
+COL nom option1 [option2 ...] : Definit les options
+COL nom                       : Affiche les options   
+COL                           : Afficher les options de toutes les colonnes
+CLEAR COL                     : Supprime les options de toutes les colonnes
+
+Options :
+   FORMAT An|999 : format alpha ou numerique
+   HEADING 'chaine' : Titre de la colonne ('|' definit un saut de ligne)
+   JUSTIFY L[EFT] | C[ENTER] | R[IGHT]
+   WRA[PPED] | WOR[D_WRAPPED] | TRU[NCATED]
+   NEWLINE  :Provoque le passage a la ligne suivante avant l'affichage
+   NULL 'chaine' : Specifie une valeur representant NULL
+   PRINT | NOPRINT : Active/desactive l'impression d'une colonne
+   ALIAS nom : Definit un synonym pour une colonne
+   LIKE nom: Copie les attributs d'une autre colonne
+   TEMPORARY : Les options seront annulees apres le prochain SELECT
+   CLEAR : Supprime toutes les options
+   DEFAULT : les options non specifies sont mises a la valeur par defaut
+   ON/OFF : remet les options definies/met les valeurs par defaut
+
+TTITLE [COL n | SKIP n | TAB n | LEFT | CENTER | RIGHT | 'texte' ] : Titre
+BTITLE [COL n | SKIP n | TAB n | LEFT | CENTER | RIGHT | 'texte' ] : bas de page
+
+TTITLE ON|OFF : Active/desactive
+BTITLE ON|OFF : Active/desactive
+
+=> Definition de rupture
+BREAK ON [nom_col | ROW | PAGE | REPORT][SKIP n | PAGE] [DUP][ON...]
+CLEAR BREAK
+COMPUTE [SUM | COUNT | NUMBER | MIN | MAX | AVG | VAR | STD]
+   OF col_1 [col_2 ...]
+   ON [nom_col_break1 | ROW | PAGE | REPORT ]
+CLEAR COMPUTE
+ 
+##= END
+
+##= PLSQL
+#########
+
+=> TABLEAU
+
+   TYPE nom_type IS TABLE OF
+      (Type_col | Var%TYPE | Table.col%TYPE) [NOT NULL]
+   INDEX BY BINARY_INTERGER;
+
+   Var_tab nom_type;
+   Var_tab(index);
+
+   Attributs :
+      nom.EXISTS(index)
+      nom.COUNT           : Nb d'elements
+      nom.FIRST           : Valeur du premier element
+      nom.LAST            : Valeur du dernier element
+      nom.PRIOR           : Valeur de l'index - 1
+      nom.NEXT            : Valeur de l'index + 1
+      nom.DELETE          : Supprime tous les elements
+      nom.DELETE(n[,m])   : Supprime l'element n [ a l'element m ]
+
+=> RECORD
+
+   TYPE nom_record IS RECORD
+      (Nom1 {Type_col | Var%TYPE | Table.col%TYPE | Table%ROWTYPE} [NOT NULL],
+       Nom2 {Type_col | Var%TYPE | Table.col%TYPE | Table%ROWTYPE} [NOT NULL],
+       ...
+      );
+
+   Var_record1 nom_record;
+   Var_record2 nom_record;
+
+   Var_record1.Nom1 := 'toto';
+   Var_record2 := Var_record1;
+
+   SELECT Nom1, Nom2, ...
+   INTO   Var_record1
+   FROM   TABLE;
+
+=> Les CURSEURS
+
+   Les attributs : 
+      %NOTFOUND, %FOUND, %ROWCOUNT, %ISOPEN
+      Avec un curseur explicite : NomCurs%FOUND
+      Avec un curseur implicite : SQL%FOUND
+
+   Curseurs parametres :
+      DECLARE
+         CURSOR nomCurs(param1 TYPE_param1 [,param2 TYPE_param2 [, ...]]
+         IS SELECT ... WHERE col1 = param1;
+      BEGIN
+         OPEN nomCurs(valeur1 [,valeur2 [,...]]);
+
+   Boucle FOR :
+      La boucle FOR remplace les commandes OPEN, FETCH et CLOSE
+      La variable VarRecord est un RECORD implicite (VarRecord%ROWTYPE)
+      DECLARE
+         CURSOR Curs1 IS ...
+      BEGIN
+         FOR VarRecord IN Curs1
+            LOOP
+                ...
+            END LOOP;
+      END;
+
+   La clause CURRENT OF
+      Permet la mise a jour de la ligne courante (Fetchee)
+      DECLARE
+         CURSOR Curs1 IS ...
+         FOR UPDATE OF NomCol;
+      BEGIN
+         OPEN Curs1;
+         LOOP
+            FETCH Curs1 INTO Var;
+            EXIT WHEN Curs1%NOTFOUND;
+            UPDATE NomTable SET NomCol = Valeur
+            WHERE CURRENT OF Curs1;
+         END LOOP;
+         CLOSE Curs1;
+      END;
+##= END
+
+##= PURGE IN-DOUBT
+##################
+
+   Se connecter SYS/SYS_VAL
+
+   Pour voir la liste des transactions IN-DOUBT
+   Select * from DBA_2PC_PENDING;
+
+   Purger :
+   exec dbms_transaction.purge_lost_db_entry('&Local_tran_id');
+   commit;
+
+##= END
+
+##= RBS
+#######
+
+=> Create Rollback segment
+REM * Create a tablespace for rollback segments.
+REM * Rollback segment configuration guidelines:
+REM *   1 rollback segments for every 4 concurrent xactions.
+REM *   No more than 50 rollback segments.
+REM *   All rollback segments the same size.
+REM ---------------------------------------------------------
+create tablespace rbs datafile
+      '/u005/oradata/@/rbs/rbs_@.dbf' size 3100M REUSE
+default storage (
+        pctincrease        0
+);
+
+REM * Create rollback segments
+REM --------------------------
+
+create rollback segment rb01 tablespace rbs
+        storage (initial 1M next 1M minextents 5 optimal 8M );
+create rollback segment rb02 tablespace rbs
+        storage (initial 1M next 1M minextents 5 optimal 8M );
+create rollback segment rb03 tablespace rbs
+        storage (initial 1M next 1M minextents 5 optimal 8M );
+create rollback segment rbsbig tablespace rbs
+        storage (initial 100M next 10M minextents 5);
+
+=> Online/offline
+alter rollback segment rbs1 [online/offline];
+
+=> Reduire la place utilisee
+ALTER ROLLBACK SEGMENT rbs1 SHRINK TO 1M;
+
+=> Utiliser un rollback segment explicitement
+/* Premiere instruction de la transaction */
+SET TRANSACTION USE ROLLBACK SEGMENT large_rs1;
+
+##= END
+
+##= TRACE
+##= TKPROF
+##= ORADEBUG
+############
+
+=> Utiliser aussi : SET autotrace traceonly EXPLAIN
+
+=> Trace en cours d'execution
+
+   /* Verifier la destination du fichier de trace */
+   show parameter user_dump
+
+   /* Recherche le spid de la session */
+   SELECT spid 
+FROM v$process a, v$session b
+WHERE a.addr = b.paddr 
+AND sid = &sid;
+
+   /* Se connecter sous SYS */
+   oradebug setospid &spid
+
+   oradebug event 10046 trace name context forever, level 8
+
+   oradebug event 10046 trace name context off
+
+=> Initialisation dans le code
+
+        /* Verifer que le user a bien le privilege 'ALTER SESSION' */
+        /* EXEC SQL alter system set user_dump_dest = '/tmp' */
+        EXEC SQL alter session set max_dump_file_size = 204800;
+        EXEC SQL alter session set timed_statistics = TRUE;
+        EXEC SQL alter session set sql_trace = TRUE;
+
+   * Voir aussi catmntr.sql, DBMS_MONITOR du package dbmsmntr.sql
+
+   * Aussi : connect DBA : show parameters;
+                        alter system set timed_statistics=TRUE;
+                        
+=> Traces dans une session externe
+
+   # Rechercher l'identifiant de la session
+   SELECT spid FROM v$process a, v$session b WHERE a.addr = b.paddr AND sid = &sid;
+
+   # Se connecter SYS (level pour le niveau de trace)
+   SQL> oradebug setospid &spid
+   SQL> oradebug event 10046 trace name context forever, level 8
+
+   # Recuperer le repertoire indique par le parametre user_dump_dest
+   SQL> show parameter user_dump
+
+   # Arreter la trace
+   SQL> oradebug event 10046 trace name context off
+
+=> tkprof :  Exploitation
+
+   # Dans la majorite des cas :
+   tkprof result.trc result.res explain=$USER/$ORACLE_SID sys=no sort=execnt,fchcnt
+
+   # sort=execnt,fchcnt                         Tri les requetes par nombre d'executions et nombre de lignes ramenees.
+
+=> tkprof 8i ou 9i
+
+Recompiler, executer => un fichier trace est genere sous \\CYBELE/u001/app/oracle/admin/dbudla01/trace (voir la variable oracle "user_dump_dest" ).
+Se connecter Cybele (dbdev00), executer ora817 puis dbudla01.
+Se positionner sous /u001/app/oracle/admin/dbudla01/trace
+lancer la commande tk.sh qui genere un fichier *.res avec le resultat de l'analyse.
+
+IMPORTANT !!! Penser ` retirer les trois lignes du code apres analyse et purger les fichiers de trace sur Cybele.
+
+-- 
+-- On considere que user_dump_dest = $ORACLE_DBA/$ORACLE_SID/trace
+-- Commande a executer dans le repertoire
+
+#!/bin/ksh
+name=$(basename $(ls -rt $(print ${1:-'*'}.trc) | awk '/trc$/{print $1;exit}'))
+if [[ "$name" == "." ]]
+then
+   print pas de fichier !
+   exit 0;
+fi;
+
+sed /APPNAME/d $name > result.trc
+tkprof result.trc result.res explain=$USER/$ORACLE_SID sys=no
+rm result.trc
+rm $name >/dev/null 2>&1
+name=result_$(date +"%Y%m%d_%H%M%S").res
+mv result.res $name
+cat $name
+
+##= END
+
+##= EXCEPTION, RAISE
+####################
+=> Pour connaitre le libelle d'une erreur : oerr ora <numero d'erreur>
+
+=> Le code erreur peut etre recupere avec SQLCODE
+   Le message d'erreur peut etre recupere avec SQLERRM[(NumErr)]
+
+   sql "exec dbms_output.put_line(SQLERRM(-6511))"
+
+=> Liste des exceptions PL/SQL
+   CURSOR_ALREADY_OPEN      06511       Curseur deja ouvert
+   DUP_VAL_ON_INDEX         00001       Violation d'un index unique
+   INVALID_CURSOR           01001       Operation incorrecte sur un curseur
+   INVALID_NUMBER           01722       Conversion chaine->numerique incorrecte
+   LOGON_DENIED             01017       Connexion a la base echoue
+   NO_DATA_FOUND            01403       Pas de ligne retournee
+   NOT_LOGGED_ON            01012       Acces a la base sans etre connecte
+   PROGRAM_ERROR            06501       Probleme general
+   ROWTYPE_MISMATCH         06504       Erreur de type dans un curseur variable
+   STORAGE_ERROR            06500       Probleme de ressource memoire
+   TIMEOUT_ON_RESSOURCE     00051       Depassement du temps d'attente
+   TOO_MANY_ROWS            01422       La commande SELECT INTO ramene > 1 enr.
+   VALUE_ERROR              06502       Erreur de valeur
+   ZERO_DIVIDE              01476       Tentative de division par zero
+   OTHERS                               Exception generale
+
+=> Declaration d'exception user
+
+PROCEDURE titi() IS
+   ErrorFunc     EXCEPTION;
+
+BEGIN
+   ...
+   RAISE ErrorFunc;
+   ...
+EXCEPTION
+   WHEN ErrorFunc THEN
+      RAISE_APPLICATION_ERROR(20101, 'Message');
+END ;
+
+PROCEDURE toto() IS
+   Error_titi     EXCEPTION;
+                                              #Installation d'un handler
+   PRAGMA EXCEPTION_INIT(Error_titi, -20101); #Pour recuperer l'erreur user
+                                              #de la procedure titi
+BEGIN
+   ...
+   titi();
+   ...
+EXCEPTION
+   WHEN Error_titi THEN
+      ...
+END;
+
+=> Gestion des exceptions sur constraints
+
+CREATE TABLE ADM_EXCEPTIONS (
+  ROW_ID           ROWID        NOT NULL ,
+  OWNER            VARCHAR2(30)	NOT NULL ,
+  TABLE_NAME       VARCHAR2(30)	NOT NULL ,
+  CONSTRAINT       VARCHAR2(30) NOT NULL )
+PCTFREE  5
+PCTUSED 85
+TABLESPACE TSDATA2
+STORAGE ( INITIAL 10000K
+	  NEXT	  10000K
+	  PCTINCREASE 50 )
+;
+
+ALTER TABLE <Table> ENABLE CONSTRAINT <constraint>
+EXCEPTIONS INTO ADM_EXCEPTIONS;
+
+##= END
+
+##= REQUETES
+############
+
+=> Liste paginee et triee
+
+SELECT * FROM
+   (SELECT champs FROM table ORDER BY champ_a_trier)
+WHERE ROWNUM < 25;
+
+=> Liste des dates d'un interval
+
+select sysdate + rownum from all_objects where rownum < 10;
+
+=> "Regarde" la veille ou le lendemain
+
+select   isin, dte, clo,
+         lag(clo, 1) over(partition by isin order by dte) veille,
+         lead(clo, 2) over(partition by isin order by dte) surlendemain
+from     COTATION
+where    isin = 'FR0000130007'
+
+=> Selection des min et max sur les 6 derniers jours
+
+select   isin, dte, clo,
+         max(clo) over(partition by isin order by dte rows 5 preceding) max_5,
+         min(clo) over(partition by isin order by dte rows 5 preceding) min_5
+from     COTATION
+where    isin = 'FR0000130007'
+order by isin, dte
+
+##= END
+
+

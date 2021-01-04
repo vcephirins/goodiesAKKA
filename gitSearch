@@ -1,0 +1,50 @@
+#!/bin/bash -f
+#
+#set -x
+
+function fSyntax {
+   echo "gitsearch '<pattern>' [file]";
+   echo "pattern : Chaine à rechercher ";
+   echo "file    : Fichier ou répertoire à analyser";
+}
+
+#--- Recuperation des options
+OPTIND=1
+while getopts h SCRIPT_OPTIONS
+do
+   case ${SCRIPT_OPTIONS} in
+      h | \?) fSyntax
+         exit 0
+         ;;
+      *) fSyntax
+         exit 1
+         ;;
+   esac
+done
+
+shift $((${OPTIND} - 1))
+
+vPattern="${1}"
+vFile="${2}"
+
+if [[ "${vPattern}" == "" ]]
+then
+   # Le pattern est obligatoire
+   fSyntax
+   exit 1
+fi;
+
+git log -G${vPattern} -i --decorate --oneline --graph -- ${vFile} | while read entry
+do
+   if [[ "${entry}" =~ (^. [a-z0-9]+ ) ]] 
+   then
+      echo
+      echo ${entry}
+      entries=(${entry[@]})
+      git grep -i -n --full-name ${vPattern} ${entries[@]:1:1}
+   fi
+done
+
+echo 
+echo "Pour voir le détail d'un commit :"
+echo "   git last <commit>"

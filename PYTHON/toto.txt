@@ -1,0 +1,63 @@
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "processing": "DefaultProcessingChain",
+        "session": "cdppSession01"
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "id": "DA_TC_mms1_scm_brst_l2_scb_20151201001933_v2.2.0.cdf",
+            "ipType": "${IP_TYPE}",
+            "geometry": null,
+            "properties": {
+                "contentInformations": [
+                    {
+                        "dataObject": {
+                            "regardsDataType": "${DATA_TYPE}",
+                            "url": "${DOD_URL}",
+                            "checksum": "${CHECKSUM}",
+                            "algorithm": "${CHECKSUM_ALGO}",
+                            "filename": "mms1_scm_brst_l2_scb_20151201001933_v2.2.0.cdf",
+                            "fileSize": "5780"
+                        },
+                        "representationInformation": {
+                            "Syntax": {
+                                "mime-type": "${MIME_TYPE}"
+                            }
+                        }
+                    }
+                ],
+                "pdi": {
+                    "contextInformation": {
+                        "tags": [
+                            "URN:AIP:DATASET:CDPP:67db4ba0-0ba5-40f7-ac6d-fe2fdbf42664:V1"
+                        ]
+                    },
+                    "provenanceInformation": {
+                        "history": [
+                            {
+                                "eventDate": "2018-04-09T08:51:53",
+                                "comment": "SIP creation"
+                            }
+                        ]
+                    },
+                    "accessRightInformation": {
+                        "licence": "CNES",
+                        "data_rights": "secure"
+                    },
+                    "referenceInformation": {
+                        "doi": "102455/120.34SDSS"
+                    },
+                    "fixityInformation": {}
+                },
+                "descriptiveInformation": {
+                    "timePeriod": {
+                        "startDate": "2015-12-01T00:19:34",
+                        "stopDate": "2015-12-01T00:20:14"
+                    }
+                }
+            }
+        }
+    ]
+}

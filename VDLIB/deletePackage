@@ -1,0 +1,106 @@
+#!/bin/bash -f
+#
+#set -x
+
+#s*****************************************************************************
+#s*
+#s* SHELL FILENAME : deletePackage
+#s*
+#s* ROLE :  Suppression d'un package et de ses liens de l'espace de la VDLIB
+#s*
+#s* AUTEUR : V. Cephirins (AKKA IS)
+#s* PARAMETRES :
+#s* SYNOPSIS :
+#s*
+#s*****************************************************************************
+
+# Chargement des fonctions de base
+. utils.bash
+
+typeset LOG=/tmp/vdlib_$$.log
+typeset MAIL_DEST="v.cephirins@akka.eu"
+typeset MAIL_CC="exploitcdpp@akka.eu"
+
+function fSyntax {
+   echo "$(basename $0)  <package>";
+}
+
+#--- Recuperation des options
+#typeset -i quiet=0;
+typeset -i quiet=1; # Mode quiet par defaut
+typeset -i cptOpt=0;
+OPTIND=1
+while getopts q SCRIPT_OPTIONS
+do
+   case $SCRIPT_OPTIONS in
+      q) quiet=1;
+         cptOpt=cptOpt+1;
+         ;;
+      *) fSyntax
+         fEndProc 999;
+         ;;
+   esac
+done
+
+shift $cptOpt
+
+# Control args
+NbArgs=$#
+
+if [[ $NbArgs -ne 1 ]]
+then
+   fSyntax;
+   fEndProc 999;
+fi;
+
+typeset packagePkg=${1%.tar*}.tar.gz
+typeset package=$(basename $1)
+
+fInfoLog $0 $@ > $LOG
+
+{
+
+# Position automatique dans le repertoire des packages
+cd $HOME/vdlib/packages
+fError "ERROR : Repertoire '$HOME/vdlib/packages' inaccessible !"
+
+# Verifie l'existence du package
+if [[ ! -d $package ]]
+then
+   fEndProc 1 "ERROR : package '$package' non trouve."
+fi;
+
+# Suppression du package
+fConfirm "la suppression du package '$package' ?"
+fError "ERROR : Procedure interrompue !"
+
+# Suppression des liens vers ce package
+deleteLinks -d $package
+fError "ERROR : Suppression des liens vers le package en erreur !"
+
+echo "=> liens vers le package '$package' supprimes"
+
+# Suppression du package
+rm -rf $package 2>&1 >/dev/null
+fError "ERROR : Suppression impossible !"
+echo "=> package '$package' supprime"
+
+# Mise a jour de la base
+pgsql undeployPackage.sql ${package}
+fError "ERROR : pgsql undeployPackage ${package} Error !"
+
+} 2>&1 | tee -a $LOG
+
+if [[ $quiet -eq 1 ]]
+then
+   mailx -s "[VDLIB] deletePackage $vPackage" $MAIL_DEST < $LOG
+else
+   mailx -s "[VDLIB] deletePackage $vPackage" -c $MAIL_CC $MAIL_DEST < $LOG
+fi
+
+grep "ERROR [!:]" $LOG >/dev/null && fEndProc 1
+
+rm $LOG >/dev/null 2>&1
+
+fEndProc 0 "Suppression du package '$package' terminee"
+
