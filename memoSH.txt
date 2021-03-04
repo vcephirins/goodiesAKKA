@@ -582,7 +582,10 @@ if [ -n "$TERM" ]; then
    export DISPLAY
 fi
 
-/* copie d'un repertoire */
+# recuperer le md5 et les infos d'un fichier
+printf "%-50s; % 12s; %s %.0s\n" monFichier.txt $(stat -c %s monFichier.txt) $(md5sum monFichier.txt)
+
+# copie d'un repertoire
 cp -prt <target> <source>
 
 /* Compression/Decompression d'un repertoire */
@@ -896,6 +899,12 @@ EOF
 # ou 
    git config user.name 'dherrera'
    git config user.email 'damien.herrera@akka.eu'
+# ou 
+   git config user.name 'sphilippart'
+   git config user.email 'sylvie.philippart@akka.eu'
+# ou 
+   git config user.name 'wassila'
+   git config user.email 'wassila.dali-ali@akka.eu'
 
 => Creer un depot
    mkdir $HOME/test
@@ -1350,6 +1359,12 @@ cd /home/CDPP/archcdpp/.bin/PYTHON
 
 # configuration vim / python
 https://dev.launchpad.net/UltimateVimPythonSetup
+
+=> Environnement virtuel
+python -m venv -h
+python -m venv /nfs/SERAD_SAVE/.bin/PYTHON/<venv>
+source <venv>/bin/activate
+source <venv>/bin/deactivate
 
 => principales commandes
 # Lister le contenu de l'environnement

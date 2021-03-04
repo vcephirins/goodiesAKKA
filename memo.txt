@@ -35,7 +35,7 @@ Broches gauloises     05 61 81 79 88     Resto Escalquens
 Canard sur le grill   05 61 15 71 00     Resto Blagnac
 CAPGEMINI                                109 Avenue Eisenhower 31086 Toulouse Cedex 1
 CABROLIE Francoise    05 61 27 38 46     SIPAD Gfi
-CAILLET Claire        05 61 28 14 38     CNES
+CAILLET Claire        05 61 28 14 38     CNESth
 CAZES Pierre-Henri    05 61 17 63 79     CS SIPAD-NG
 CECCONI Baptiste      01 45 07 77 59     Meudon Cassini
 CEPHIRINS Vincent     05 36 25 15 12     511512  (14000997) AKKA CDPP VALDO
@@ -771,6 +771,7 @@ AMDA            : Automated Multi Dataset Analysis
 AMU             : Atomic Mass Unit
 ANC             : ANChor (Harpon)
 ANL             : Archive Near-Line
+AOCS            : Attitude and Orbit Control System
 AOS	        : Heure d'acquisition du signal (Acquisition Of Signal)
 APAF            : ASPERA Processing and Archiving Facility [ASPERA]
 AR              : Accuse de Reception
@@ -798,6 +799,7 @@ BSC             : Barcelona Supercomputing Centre
 BSP             : Binary Satellite and Planet kernel
 CAA             : Cluster Active Archive
 CAD             : Computer-automated Design
+CARMEN          : CARacterisation et Modelisation de l'ENvironnement
 CASSE           : Cometary Acoustic Sounding Surface Experiment
 CAST            : Chinese Academy of Space Technology
 CC              : Cycle Court
@@ -820,6 +822,7 @@ CETP            : Centre d'Etudes des Environnements Terrestre et Planetaires
 CESR            : Centre d'Etude Spatiale des Rayonnements
 CGBH            : Controleur Generateur de Blocs HDLC [CNES] 
 CGIS            : Contrats Globaux d'Informatique Spatiale
+CGSS            : CONAE Ground Stations Services
 CHEOPS          : CHaracterising ExOplanets Satellite
 CIS             : Cluster Ion Spectroscopy experiment
 CMDH            : Command History File 
@@ -828,6 +831,7 @@ CNR             : Consiglio Nazionale delle Ricerche
 CNRS            : Centre National de Recherche Scientifique
 CNSA            : Chinese National Space Agency 
 CODMAC          : COmmittee on Data Management Archiving and Computing
+CODS            : CONAE Orbit Dynamics Service
 COI             : Co-Investigator
 COPI            : Co-Principal Investigator
 COO	        : Centre d'Orbitographie Operationnelle
@@ -981,6 +985,7 @@ GATT            : Gaia Algorithm Tracking Tool [GDAAS]
 GCH             : Generateur de Code Horaire
 GDS             : Ground Data System 
 GECO            : Groupe d'Exploitation et de Coordination des Operations
+GED             : Gestion Electronique de la Documentation
 GEI             : Geocentric Equatorial Inertial [SPATIAL]
 GEO             : Geographic [SPATIAL]
 GEOS            : Geostationary Earth Orbit Satellite
@@ -1084,6 +1089,7 @@ LEID            : Low Energy Ion Detector
 LESIA           : Laboratoire d'Etudes spatiales et d'Instrumentation en Astrophysique
 LFEW            : Low Frequency Electromagnetic Wave Detector 
 LIOR            : Lander Instrument Operations Request
+LLH             : Latitude, Longitude, Height
 LOR             : Lander Operations Request
 LOS	        : Heure de perte du signal (Loss Of Signal)
 LPCE            : Voir LPC2E
@@ -1149,6 +1155,7 @@ ODL             : Object Description Language
 OMEGA           : Observatoire pour la Mineralogie, l'Eau, les Glaces et l'Activite
 ONERA           : Office National d'Etudes et de Recherche Aeroqpatiales
 OOBT            : Orbiter On Board Time
+ORBEPHEM        : Orbit Ephemeris
 OT              : Observation de la Terre
 OTS             : Orbital Test Satellite
 OWL             : Web Ontology Language
@@ -1207,6 +1214,8 @@ RC              : Response Code
 RDF             : Resource Description Format
 RDR             : Reduced Data Record
 RE              : Responsable d'Exploitation
+REGARDS         : REnouvellement des outils Generiques d'Acces et d'aRchivage pour les Donnees Spatiales
+REGINA          : REseau GNSS pour l'IGS et la NAvigation
 REST            : REpresentational State Transfer
 RFF             : Roproc File Format
 RID             : Raw Image Data
@@ -1229,6 +1238,7 @@ RTN             : Radial Tangential Normal
 RV              : Radial Velocity
 RVS             : radial Velocity Spectrometer
 SA              : Spectrum Analyzer
+SAC-D           : Satelite de Aplicaciones Cientificas-D
 SATAN           : production d'ephemerides par rapport a SATurne et TitAN
 SATT            : Spacecraft Attitude and Spin Rate 
 SC              : Satellite Code
@@ -1785,6 +1795,9 @@ EOF
    # logs : 
       /home/sipad/${INSTANCE_SIPAD}/cdpp/project/ingestion/logs/ingestion.log
 
+   # dico :
+      /home/sipad/${INSTANCE_SIPAD}/cdpp/project/ingestion/dico
+
 => Instance de Qualification / Recette (SP1) :
    commande : https://sipad-cdpp-val.cnes.fr (10.135.5.39:443)
    Ingestion : https://sipad-cdpp-adm-pp.cst.cnes.fr (10.120.3.174:443) (sipad_admin)
@@ -1834,10 +1847,11 @@ EOF
    CDPP_configDataSets.sh droits & tail -f logs/$(date "+%Y%m%d_CDPP_configDataSets.log")
 
 => Mise a jour des nouveaux jeux (SIPAD_DELTA inventaire)
+   # Repertoire des annexes : ${ARCHCDPP_PATH}/SIPAD_DELTA/history
    # Se connecter au SIPAD
    # source connectSipadCdpp <login>:<Md5Pwd>
 
-   # Lister les archives SIPAD_DELTA (annexes)
+   # Lister les archives SIPAD_DELTA (partie annexes)
    cdpplib show SIPAD_DELTA
 
    # Etablir les listes en debut de mois
@@ -2432,7 +2446,7 @@ xsi:schemaLocation="http://cnes.fr/dico_SIPAD SIPAD_Dictionary_CDPP_V2.9.xsd">
 # ou avec versions
    checkSipad -d ${vPeriod} month | tee /dev/stderr | mailx -s "[WHI_SDT] Stats SIPAD ${vPeriod}" vincent.cephirins@akka.eu
 
-# AU STAF
+# AU STAF (facultatif)
    cd $HOME/WHI_SDT/utils
    vPeriod=2010   # vPeriod=2010:201006
    checkStaf ${vPeriod} month | tee /dev/stderr | mailx -s "[WHI_SDT] Stats STAF ${vPeriod}" vincent.cephirins@akka.eu
@@ -2945,6 +2959,7 @@ awk '/^'${vPeriod}'/ {print;nextfile;}' STAT_MMS_${vPeriod}* | mailx -s "stats M
    source connectSipadCdpp <login>:<pwd>
    vPeriod=2010    # vPeriod=2010:201006
 
+   cd $HOME/MMS/utils
    checkSipad -Q ../conf/checkStat.cfg ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[MMS-QL] Stats SIPAD QL ${vPeriod}" vincent.cephirins@akka.eu
 
 
@@ -3101,7 +3116,7 @@ EOF
 
    vPeriod=2010    # vPeriod=2010:201006
    cd $HOME/THEMIS/utils
-   checkSipad ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[THEMIS] Stats SIPAD ${vPeriod}" vincent.cephirins@akka.eu
+   checkSipad ${vPeriod} month <<EOF  | tee /dev/stderr | mailx -s "[THEMIS] Stats SIPAD ${vPeriod}" damien.herrera@akka.eu
 
 
 EOF
@@ -3109,7 +3124,7 @@ EOF
 # AU STAF
    vPeriod=2010   # vPeriod=2010:201006
    cd $HOME/THEMIS/utils
-   checkStaf ${vPeriod} month <<EOF | tee /dev/stderr | mailx -s "[THEMIS] Stats STAF ${vPeriod}" vincent.cephirins@akka.eu
+   checkStaf ${vPeriod} month <<EOF | tee /dev/stderr | mailx -s "[THEMIS] Stats STAF ${vPeriod}" damien.herrera@akka.eu
 
 
 EOF
@@ -3318,6 +3333,10 @@ ou
    # Produire les donnees pour 1 mois :
       cd $HOME/WHISPER_HRES/script
       PREPARER_DONNEES_WHISPER_HRES -d yyyymm[dd]
+      
+   # Ou pour plusieurs mois :
+      cd $HOME/WHISPER_HRES/script
+      runBatch.sh yyyymm[dd]:yyyy[mm[dd]] # month (default)
 
 => Ingestion des donnees au SIPAD-NG :
 
@@ -3358,7 +3377,7 @@ ou
 => Suppression donnes au SEF (si pas automatique)
    dcList "WHISPER HRES SEF delete" [yyyy[mm[dd]]]
 
-=> Inventaire (SIPAD)
+=> Inventaire (SIPAD) (facultatif)
 
    cd $HOME/WHISPER_HRES/utils
 
@@ -3389,14 +3408,14 @@ ou
 => Production des donnees :
 
    # Produire les donnees :
-      cd $HOME/WHI_CAVEATS/script
+   cd $HOME/WHI_CAVEATS/script
 
-      PREPARER_DONNEES_WHI_CAVEATS -d 2010
+   PREPARER_DONNEES_WHI_CAVEATS -d 2010
 
    # verifier la production
-      opengf
-      stafList -k -r -n /CLUSTER/HTE_RESOL/WHISPER/CAVEATS -p 2019
-      close
+   opengf
+   stafList -k -r -n /CLUSTER/HTE_RESOL/WHISPER/CAVEATS -p 2019
+   close
 
 => Ingestion des donnees au SIPAD-NG :
 
@@ -3412,6 +3431,48 @@ ou
    # Apres acquisition
    cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_caveats/data
    mv *WHI_CAVEATS*.xml ${APRES_ACQ_SIPAD_PATH}/CLUSTER/whi_caveats/data
+
+=> Supprimer les fichiers du SEF
+
+##= END
+#######
+
+##= WHISPER DENSITY
+##= DENSITY
+###################
+
+=> Notes :
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Livraison
+
+   # Verifier si des donnees sont disponibles
+   dcList  "WHISPER DENSITY SEF LIST"
+
+=> Production des donnees :
+
+   # Produire les donnees :
+   cd $HOME/WHI_DENS_ELEC/script
+
+   PREPARER_DONNEES_DENS_ELEC -d 2010
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_dens/data
+   ll *DENS*.xml
+   cp *DENS*.xml ${INGESTION_SIPAD_PATH}/manual/CLUSTER/whi_dens/data
+   chmod 666 ${INGESTION_SIPAD_PATH}/manual/CLUSTER/whi_dens/data/*.xml
+
+   # Ingerer les deletes puis les data
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/CLUSTER/whi_dens/data
+   mv *DENS*.xml ${APRES_ACQ_SIPAD_PATH}/CLUSTER/whi_dens/data
+
+=> Supprimer les fichiers du SEF
 
 ##= END
 #######
@@ -3575,16 +3636,22 @@ ou
  
    cd $HOME/PHOBOS/script/cdf
    python phobosCdfGeneratorDay.py -j <jeu>
-   exemple: python phobosCdfGeneratorDay.py '/home/CDPP/archcdpp/PHOBOS/cdf/finerange_phobos1'
+   exemple: python phobosCdfGeneratorDay.py -j '/home/CDPP/archcdpp/PHOBOS/cdf/finerange_phobos1'
+
+=> validation des cdf generes 
+   phobosCdfValidator.py -i <inputfile> -r <reference cdf file>
+   inputfile : file containg a list of all generated cdf 
+   reference cdf fil : source cdf file used to generate daily cdfs  
 
 => Generation des images a  partir des cdfs
    cd $HOME/PHOBOS/script/cdf
-   python phobosCdfSpectroGenerator_6h.py -s <satellite>
+   python phobosCdfSpectroGenerator_6h.py -s <satellite> -p <pattern>
+   Exemple: python phobosCdfSpectroGenerator_6h.py -s phobos2 -p '19880713'
 
 => Production des donnees
 
    # Produire les donnees  :
-   cd $HOME/PHOBOS
+   cd $HOME/PHOBOS/script
    PREPARER_PHOBOS.sh
 
 => Ingestion des donnees au SIPAD-NG 
@@ -3599,8 +3666,9 @@ ou
 
    # effectuer l'ingestion sur le site d'ingestion
    cd $HOME/PHOBOS/livraison 
-   mv *.xml ${APRES_ACQ_SIPAD_PATH}/PHOBOS/data
-   rm browse/*.png
+   mv data*.xml ${APRES_ACQ_SIPAD_PATH}/PHOBOS/data
+   mv browse.xml ${APRES_ACQ_SIPAD_PATH}/PHOBOS/browse
+   mv browse/*.png ${APRES_ACQ_SIPAD_PATH}/PHOBOS/browse/rep_image
 
 => Statistiques (SIPAD)
 
