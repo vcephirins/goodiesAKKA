@@ -1,4 +1,4 @@
-##= ANNUAIRE
+P##= ANNUAIRE
 ############
 
 => intranet CNES
@@ -22,7 +22,7 @@ Air d'Ascagne         05 61 86 35 31     Resto 4 rue Hector Berlioz 31170 Tourne
 AKKA standard         05 36 .. .. ..     AKKA 7 Boulevard Henri Ziegler 31700 BLAGNAC
 AKKA CE               05 36 25 10 00     AKKA 7 Boulevard Henri Ziegler CS-70234 31705 BLAGNAC CEDEX
 Assistance56          05 61 28 19 56     assistance56@cnes.fr
-Autan des saveurs     05 61 30 42 51     Blagnac
+Autan des saveurs     05 61 30 42 51     BlagnacP
 BARTHE Alain          05 61 55 83 69     AKKA CESR IRAP
 BARTHE Alain          06 65 74 73 43     AKKA Portable
 Bistro d'Utopia       05 34 51 88 10     Resto Tournefeuille
@@ -887,6 +887,7 @@ DFT             : Direct Fourier Tranform
 DIF             : Directory Interchange Format
 DIM             : Dust Impact Monitor
 DIME            : Direct Internet Message Encapsulation
+DIO             : Direction Information de l'Observatoire de Paris
 DIODE           : Determination Immediate d'Orbite par DORIS Embarque
 DIP             : Dissemination Information Package
 DIS             : Dual Ion Spectrometers [MMS-FPI] 
@@ -1143,6 +1144,7 @@ NPD             : Neutral Particle Detector
 NPI             : Neutral Particle Imager
 NRC             : National Research Council
 NSD             : Normal Science Data 
+NSF             : Network File System
 NSPO            : National SPace Organization (Taipei)
 NSSDC           : National Space Science Data Center; Catalogue des objets spatiaux NASA
 OA              : Orbite/Attitude
@@ -1160,6 +1162,7 @@ OT              : Observation de la Terre
 OTS             : Orbital Test Satellite
 OWL             : Web Ontology Language
 PACTE           : Point d'Acces Controle pour Transaction Externes
+PADC            : Paris Astronomical Data Centre
 PAIMAS          : Producer-Archive Interface Methodology Abstract Standard
 PAIS            : Producer-Archive Interface Specifications
 PCM             : Pulse Coded Modulation
@@ -1257,7 +1260,7 @@ SEPIA	        : Systeme d'Elaboration des Previsions de pAssages
 SERAD           : SErvice de Referencement et d'Archivage des Donnees
 SFDU            : Standard Formatted Data Unit
 SFR             : Sweep Frequency Receiver
-SFU             : Solar Flus Units
+SFU             : Solar Flux Units
 SGDS            : Systeme de Gestion des Donnees Spatiales
 SGC             : Service de Gestion en Configuration
 SGIS            : Spectroscopic Global Iterative Solution
@@ -1836,10 +1839,10 @@ EOF
    # Sous vi faire <F3> ou <F4> et supprimer les lignes inadequates
 
    # Copier la liste des noeuds a mettre a jour
-   cp input/listeDatasets_<MISSION>_<EXP>.txt input/listeDatasets.txt
+   cp listeDatasets_<MISSION>_<EXP>.txt listeDatasets.txt
 
    # Positionner les droits des groupes
-   vi conf/cdpp_userGroups.txt
+   vi ../conf/cdpp_userGroups.txt
 
    # Executer la commande :
    cd /home/sipad/${INSTANCE_SIPAD}/cdpp/project/outils/CDPP_configDataSets
@@ -2650,7 +2653,8 @@ xsi:schemaLocation="http://cnes.fr/dico_SIPAD SIPAD_Dictionary_CDPP_V2.9.xsd">
 
    # Verifier les donnees disponibles
    cd ${HOME}/MMS/utils
-   eval "ssh cephirins@dedale-stm.lpp.upmc.fr 'cd scripts; ./searchUpdatedFPI -a -f -u ${PERIOD_UPD}' | tee invAll_FPI_${PERIOD_UPD}.txt"
+   # eval "ssh cephirins@dedale-stm.lpp.upmc.fr 'cd scripts; ./searchUpdatedFPI -a -f -u ${PERIOD_UPD}' | tee invAll_FPI_${PERIOD_UPD}.txt"
+   eval "ssh gu=sshcdpp%cephirins@dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr 'cd scripts; ./searchUpdatedFPI -a -f -u ${PERIOD_UPD}' | tee invAll_FPI_${PERIOD_UPD}.txt"
 
 => Production des donnees :
 
@@ -2756,7 +2760,7 @@ EOF
 
    # Verifier les donnees disponibles
    cd ${HOME}/MMS/utils
-   eval "ssh cephirins@dedale-stm.lpp.upmc.fr 'cd scripts; ./searchUpdated -a -f -j \"scb schb scsrvy cal defatt defeph bpsd\" -u ${PERIOD_UPD}' | tee invAll_${PERIOD_UPD}.txt"
+   eval "ssh gu=sshcdpp%cephirins@dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr 'cd scripts; ./searchUpdated -a -f -j \"scb schb scsrvy cal defatt defeph bpsd\" -u ${PERIOD_UPD}' | tee invAll_${PERIOD_UPD}.txt"
 
    # OU pour les commissioning
 
@@ -2905,7 +2909,7 @@ awk '/^'${vPeriod}'/ {print;nextfile;}' STAT_MMS_${vPeriod}* | mailx -s "stats M
 
    # Verifier les donnees disponibles
    cd ${HOME}/MMS/utils
-   eval "ssh cephirins@dedale-stm.lpp.upmc.fr 'cd scripts; ./searchUpdatedQL -a -j \"scsrvy scb schb\" -u ${PERIOD_UPD}' | tee invAll_QL_${PERIOD_UPD}.txt"
+   eval "ssh gu=sshcdpp%cephirins@dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr 'cd scripts; ./searchUpdatedQL -a -j \"scsrvy scb schb\" -u ${PERIOD_UPD}' | tee invAll_QL_${PERIOD_UPD}.txt"
 
 => Production des donnees :
 
@@ -3238,7 +3242,7 @@ done
 => Livraison :
 
    # Verifier les donnees disponibles
-   dcList "STEREO SWEA WGET LIST" 2018 06 | checkStat -f $HOME/STEREO_SWEA/conf/checkStat.cfg -m - month
+   dcList "STEREO SWEA WGET LIST" 20000101 2018 06 STA | checkStat -f $HOME/STEREO_SWEA/conf/checkStat.cfg -m - month
 
 => Production des donnees :
 
@@ -3720,13 +3724,227 @@ ou
   nohup PREPARER_STANDARD_MISSION -p /home/CDPP/archcdpp/ROSETTA/data/CDF_DATA/ -f ../conf/stat_rosetta.cfg cdf &
   
   # effectuer l'ingestion des xmls 
-   
- 
-  
+##= END
+#######
 
+
+
+##= PARKERSP-SCM
+##= SCM
+#################
+
+=> Livraison :
+
+   Periodicite : Trimestrielle, a quelques jours pres en fonction des releases
+
+=> Production des donnees :
+
+   # Donnees d'atittude et d'ephemerides
+   # Kernels a mettre dans les repertoires correspondants sous : 
+   # /home/CDPP/archcdpp/PARKERSP_ATTITUDE_EPHEMERIS/Kernels/
+   # Mettre a jour les META kernels 
+   cd /home/CDPP/archcdpp/PARKERSP_ATTITUDE_EPHEMERIS/Kernels/META
+   python create_META_kernels.py -d <year>
+
+   # Traitement sans les donnees d'attitude et d'ephemerides
+   cd $HOME/PARKERSP_SCM/script
+   PREPARER_DONNEES_SCM -d 201810
+   
+   # Traitement avec les donnees d'attitude et d'ephemerides
+   cd $HOME/PARKERSP_SCM/script
+   PREPARER_DONNEES_SCM -a -d 201810
+
+=> Controler la production et l'ingestion
+   Faire un compte rendu et le mettre sur VALDO
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/PARKERSP/scm/
+   # Data
+   ll data/*.xml
+   cp data/*.xml ${INGESTION_SIPAD_PATH}/manual/PARKERSP/SCM/data
+
+   # Browse
+   ll -R browse
+   cp -r browse ${INGESTION_SIPAD_PATH}/manual/PARKERSP/SCM
+
+   chmod -R 776 ${INGESTION_SIPAD_PATH}/manual/PARKERSP/SCM
+
+   # Ingerer les data et les browse
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/PARKERSP/scm
+   mv data/*.xml ${APRES_ACQ_SIPAD_PATH}/PARKERSP/SCM/data
+   mv browse/*xml ${APRES_ACQ_SIPAD_PATH}/PARKERSP/SCM/browse
+
+   rm browse/rep_image/*
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/PARKERSP_SCM/utils
+   commandData 201810 month 3
 
 ##= END
 #######
+
+
+
+##= PARKERSP-SCAM
+##= SCAM
+#################
+
+=> Livraison :
+
+   Periodicite : Donnees Octobre et Novembre 2018 seulement
+
+=> Production des donnees :
+
+   cd $HOME/PARKERSP_SCAM/script
+   PREPARER_DONNEES_SCAM -d 201810
+
+=> Controler la production et l'ingestion
+   Faire un compte rendu et le mettre sur VALDO
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/PARKERSP/scam/
+   # Data
+   ll data/*.xml
+   cp data/*.xml ${INGESTION_SIPAD_PATH}/manual/PARKERSP/SCAM/data
+
+   # Browse
+   ll -R browse
+   cp -r browse ${INGESTION_SIPAD_PATH}/manual/PARKERSP/SCAM
+
+   chmod -R 776 ${INGESTION_SIPAD_PATH}/manual/PARKERSP/SCAM
+
+   # Ingerer les data et les browse
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/PARKERSP/scam
+   mv data/*.xml ${APRES_ACQ_SIPAD_PATH}/PARKERSP/SCAM/data
+   mv browse/*xml ${APRES_ACQ_SIPAD_PATH}/PARKERSP/SCAM/browse
+
+   rm browse/rep_image/*
+
+=> Commande aleatoire (SIPAD)
+
+   Passer manuellement la commande du fichier de données sur le SIPAD
+
+##= END
+#######
+
+
+
+##= PARKERSP-MAG
+##= MAG
+#################
+
+=> Livraison :
+
+   Periodicite : Trimestrielle, a quelques jours pres en fonction des releases
+
+=> Production des donnees :
+
+   cd $HOME/PARKERSP_MAG/script
+   PREPARER_DONNEES_MAG -d 201810
+
+=> Controler la production et l'ingestion
+   Faire un compte rendu et le mettre sur VALDO
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/PARKERSP/mag/
+   # Data
+   ll data/*.xml
+   cp data/*.xml ${INGESTION_SIPAD_PATH}/manual/PARKERSP/MAG/data
+
+   # Browse
+   ll -R browse
+   cp -r browse ${INGESTION_SIPAD_PATH}/manual/PARKERSP/MAG
+
+   chmod -R 776 ${INGESTION_SIPAD_PATH}/manual/PARKERSP/MAG
+
+   # Ingerer les data et les browse
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/PARKERSP/mag
+   mv data/*.xml ${APRES_ACQ_SIPAD_PATH}/PARKERSP/MAG/data
+   mv browse/*xml ${APRES_ACQ_SIPAD_PATH}/PARKERSP/MAG/browse
+
+   rm browse/rep_image/*
+
+=> Commande aleatoire (SIPAD)
+
+   cd $HOME/PARKERSP_MAG/utils
+   commandData 201810 month 3
+
+##= END
+#######
+
+
+
+##= PARKERSP-RFS_SQTN
+##= RFS_SQTN
+#################
+
+=> Livraison :
+
+   Periodicite : Tous les 4 a 5 mois, le scientifique nous envoie directement le perihelie a traiter
+
+=> Production des donnees :
+
+   # Traitement
+   # Date correspondant au debut du perihelie a traiter
+   cd $HOME/PARKERSP_RFS_SQTN/script
+   PREPARER_DONNEES_PSP_RFS_SQTN -d 20181015
+
+=> Controler la production et l'ingestion
+   Faire un compte rendu et le mettre sur VALDO
+
+   Connexion sur tu-mutcalc-pc (cdppexp)
+
+=> Ingestion des donnees au SIPAD-NG :
+
+   Voir SIPAD-NG
+
+   cd ${LIV_SIPAD_PATH}/manuel/PARKERSP/rfs_sqtn/
+   ll data/*.xml
+   ll -R browse
+
+   cp data/*.xml ${INGESTION_SIPAD_PATH}/manual/PARKERSP/RFS_SQTN/data
+   cp -r browse ${INGESTION_SIPAD_PATH}/manual/PARKERSP/RFS_SQTN
+
+   chmod -R 776 ${INGESTION_SIPAD_PATH}/manual/PARKERSP/RFS_SQTN
+
+   # Ingerer les data et les browse
+
+   # Apres acquisition
+   cd ${LIV_SIPAD_PATH}/manuel/PARKERSP/rfs_sqtn
+   mv data/*.xml ${APRES_ACQ_SIPAD_PATH}/PARKERSP/RFS_SQTN/data
+   mv browse/*xml ${APRES_ACQ_SIPAD_PATH}/PARKERSP/RFS_SQTN/browse
+
+   rm browse/rep_image/*
+
+=> Commande aleatoire (SIPAD)
+
+   Passer manuellement la commande du fichier de données sur le SIPAD
+
+##= END
+#######
+
 
 
 ##= VDLIB

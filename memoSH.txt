@@ -918,7 +918,7 @@ EOF
    git commit -m 'Initialisation'
    
 => Cloner un depot distant (ou local avec le protocole file:///)
-   git clone [--branch <branche>][-o <remoteServer>] <url><projet.git> [repDest] 
+   git clone [--depth <n> --no-single-branch] [--branch <branche>] [-o <remoteServer>] <url><projet.git> <repDest>
    git clone [-o originCnes] git@gitlab.cnes.fr:Valdo/<projet.git> [repDest] 
    git clone -o originAkka https://gitlab.akka.eu/cdpp/<projet.git> [repDest]
    git remote [-v] show [server]                                 # Detail d'un depot
@@ -988,6 +988,11 @@ ou git remote add originCnes git@gitlab.cnes.fr:Valdo/<projet>.git     # par ssh
    git push serveur --delete branche                             # Supprimer la branche sur le serveur distant
    git push --force-with-lease                                   # Ecrase l'historique de la branche distante apres verif de l'ancetre commun
 
+   # Reinitaliser une branche
+   git checkout master
+   git branch -d <mabranche>
+   git checkout mabranche
+
 => Stash
 
    # stash permet la sauvegarde temporaire d'un dev en cours
@@ -1045,7 +1050,7 @@ ou git remote add originCnes git@gitlab.cnes.fr:Valdo/<projet>.git     # par ssh
    # Integrer la correction a la branche principale
    git checkout master
 
-   # Merge ave commit
+   # Merge avec commit
    git merge --no-ff hotfix/v1.2.1
 
    # Tagger le commit
@@ -1236,6 +1241,7 @@ netstat
 ##= PS
 ##= EXEC
 ##= REDIRECTIONS
+##= LOCK
 ################
 
 ==> variables de process
@@ -1320,6 +1326,23 @@ do
    ((count++));
 done < <(ls . 2>/dev/null);
 echo $count
+ 
+=> lock flock verrou
+   # Un descripteur par exec permet a la fin du script de liberer automatiquement le verrou
+
+   # Creer un descripteur sur un fichier
+   exec 100>/tmp/verrou.lock
+   [[ $? -ne 0 ]] && echo "Lock file '/tmp/verrou.lock' error" && exit 1
+
+   # Pose un verrou sur le descripteur avec une attente de 10 s
+   flock -w 10 100
+   [[ $? -ne 0 ]] && echo "Timeout for locking '/tmp/verrou.lock' error" && exit 1
+   
+   ...
+
+   # Libere le verrou et supprime le fichier
+   flock -u 100
+   rm -f /tmp/verrou.lock
 
 ##= END
 
@@ -1600,8 +1623,8 @@ sort -k 2,2 -k 4,4r -k5,5nr fic.test | sort -m -u -k 2,2
    ssh-keygen -t rsa -b 4096 [ -f keyfile ] [ -N newPassPhrase ]
 
    # Copier la clef publique sur le serveur
-   ssh-copy-id -i $HOME/.ssh/id_rsa.pub  <login>@<host>
    # on peut aussi copier directement avec un editeur texte la clef dans le fichier compte@serveur:$HOME/.ssh/authorized_keys
+   ssh-copy-id -i $HOME/.ssh/id_rsa.pub  <login>@<host>
 
    # Ne pas mettre de passPhrase ou la declarer dans ssh-agent (Voir aussi ssh-add)
    ssh-agent $BASH
@@ -1638,17 +1661,72 @@ sort -k 2,2 -k 4,4r -k5,5nr fic.test | sort -m -u -k 2,2
    # ou
    dig tu-mutcalc-d01.cst.cnes.fr
 
-   => relais-ssh: configuration specifique tu-mutcalc-pc
+=> relais-ssh: configuration specifique tu-mutcalc-pc
    # vHV_RG90pm;h6$UCI#Dj
    # Avec wrapper ($HOME/.ssh) contenant :
    #!/usr/bin/perl
    # exec '/usr/bin/ssh', '-A', map {$_ eq '-oFormatAgent=no' ? ( ) : $_} @ARGV
 
    ssh-agent /bin/bash
-   ssh-add
-   sftp -S $HOME/.ssh/wrapper gu=compte_SIS%compte_cible%dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr
-   scp -S $HOME/.ssh/wrapper gu=compte_SIS%compte_cible%dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr:result.txt .
+   ssh-add $HOME/.ssh/id_rsa
+
+   # Avec wrapper
+   # sftp -S $HOME/.ssh/wrapper gu=compte_SIS%compte_cible%dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr
+   # scp -S $HOME/.ssh/wrapper gu=compte_SIS%compte_cible%dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr:result.txt .
+
+   # Sans wrapper
+   sftp gu=compte_SIS%compte_cible%dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr
+   scp gu=compte_SIS%compte_cible%dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr:result.txt .
    
+   # Exemple
+   eval "ssh gu=cephirv%cephirins@dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr 'cd scripts; ls'"
+
+=> relais-ssh: configuration tu-valdo-p01
+
+   # Le compte sshcdpp est autorise sans passphrase (a renouveler tous les ans)
+   # Publier la clef ssh de sshcdpp sur l'IPA
+   # Si ipa: ERROR: did not receive Kerberos credentials, alors initialiser un nouveau token: kinit
+   ipa user-mod sshcdpp --sshpubkey="$(cat ~/.ssh/id_rsa.pub)"
+
+   # Copier dans .ssh la clef de sshcdpp sur le compte qui doit l'utiliser
+   scp -p sshcdpp@hal.sis.cnes.fr:.ssh/id_rsa  id_rsa-sshcdpp
+   scp -p sshcdpp@hal.sis.cnes.fr:.ssh/id_rsa.pub  id_rsa-sshcdpp.pub
+
+   # Ajouter dans l'agent la clef
+   ssh-add -l
+   ssh-add $HOME/.ssh/id_rsa-sshcdpp
+
+   # Exemple d'utilisation
+   eval "ssh gu=sshcdpp%cephirins@dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr 'cd scripts; ls'"
+   sftp -S $HOME/.ssh/wrapper  gu=sshcdpp%cephirins@dedale-stm.lpp.upmc.fr@relais-ssh.cnes.fr
+
+
+=> Load agent automatique a la connexion dans le .bash_profile ou dans un script loadAgent sous .ssh
+   # SSH Agent
+   env=~/.ssh/agent.env
+   
+   agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+   
+   agent_start () {
+       (umask 077; ssh-agent >| "$env")
+       . "$env" >| /dev/null ; }
+   
+   agent_load_env
+   
+   # agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+   agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+   if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+       agent_start
+       ssh-add $HOME/.ssh/id_rsa
+       ssh-add $HOME/.ssh/id_rsa-sis-cnes     # Avec passphrase
+   elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+       ssh-add $HOME/.ssh/id_rsa
+       ssh-add $HOME/.ssh/id_rsa-sis-cnes     # Avec passphrase
+   fi
+
+   unset env
+
 ##= END
 
 ##= SPLIT

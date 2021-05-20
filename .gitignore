@@ -15,3 +15,5 @@ suivi/**/*
 livraison/
 nohup.out
 
+PYTHON/bin/spacepy/
+PYTHON/python-3.5.4.exe
