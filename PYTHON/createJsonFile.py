@@ -1,43 +1,71 @@
-#! /bin/env python
+#! /bin/env python3.7
+# coding=utf-8
 """
 
-Usage: Creer un fichier json depuis un modele et un fichier catalogue
+Usage : python createJsonFile.py [-h] [-v] [-i <n>] [-n <n>] [-o <outPathFile>] <model> <catalogue> ...
+Creer un fichier json depuis un modele et un fichier catalogue.
+
+[-h] or [--help] : Cette aide.
+[-v] or [--verbose] : Mode verbeux.
+[-i] or [--indent] : indentation des lignes du fichier json en sortie.
+[-n] or [--number] : Limite du nombre de SIP. 0 (defaut) pour pas de limite.
+[-s] or [--sep] : Separateur de champ du catalogue. ';' par defaut.
+[-o] or [--outPathFile] : Nom du fichier json a generer avec le format <path>/<filename>.json. Par defaut la sortie standard.
+<model> : Fichier du modele json a generer avec le format <path>/<filename>
+<catalog> : Fichier(s) catalogue(s) des informations avec le format <path>/<patternFilename>
+            Le caractere '-' permet de lire sur l'entree standard.
 
 """
-
-# HEADER
-
 # IMPORT
 
-import sys
-import argparse
-import logging
-from datetime import datetime as dt
-from utilsCDPP import logInit
+import getopt
+import glob
+import hashlib
 import json
-from collections import OrderedDict
+import os
 import re as regex
+import sys
 from copy import deepcopy
+from datetime import datetime as dt
+from enum import Enum
+from sys import argv, exit
+from typing import List
+
+from PIL import Image
+
+from regardsError import *
 
 # Global variables
-_debug = False
-logger = logging.getLogger(__name__)
-logInit(level='debug')
+__author__ = "Vincent Cephirins"
+__date__ = "28 Janvier 2021"
+__version__ = "1.0"
 
+_debug = False
+_verbose = False
+
+_OK = 0
+_ERROR = 1
+_FATAL = 2
+
+# Pattern globales
 patternIgnore = regex.compile("^\s*$|^\s*#.*$")
 patternEndOfLine = regex.compile("(^[^#]*)(#.*)?\n$")
-patternVariable = regex.compile("(.*)\$\{([_A-Z0-9]+)\}(.*)")
+patternVariable = regex.compile("(.*)\${([_A-Z0-9]+)}(.*)", regex.IGNORECASE)
+patternFn = regex.compile("(.*)\$\${([^}]+)}(.*)", regex.IGNORECASE)
 
-class DataObject(object):
-    """ Gestionnaire de lecture et ecriture d'un objet json a partir d'un fichier modele
+
+# noinspection PyShadowingNames
+class JsonObject(object):
+    """ Gestionnaire de lecture et ecriture dans un fichier d'un objet json
     """
+
     def __init__(self, modele=None, indent=4):
         self.modele = modele
         self.indent = indent
         self.data = None
 
-        if(modele is not None):
-           self.readJson()
+        if modele is not None:
+            self.readJson()
 
     def __str__(self):
         return json.dumps(self.data, indent=self.indent)
@@ -49,277 +77,499 @@ class DataObject(object):
         """
         Lecture du fichier json
         """
-        with open(self.modele, 'r') as f:
-            self.data = json.load(f, object_pairs_hook=OrderedDict)
-            f.close()
+        try:
+            with open(self.modele, 'r') as f:
+                # self.data = json.load(f, object_pairs_hook=OrderedDict)
+                self.data = json.load(f)
+        except json.decoder.JSONDecodeError as je:
+            raise RegardsError("[ERROR] Incorrect file '%s'" % self.modele, je)
 
     def writeJson(self, data, output='stdout'):
         """
         Ecriture du fichier json
         """
-        if(data is None):
+        if data is None:
             data = self.data
 
-        if(output == 'stdout'):
+        if output == 'stdout':
             print(json.dumps(data, indent=self.indent))
         else:
             with open(output, 'w') as f:
                 json.dump(data, f, indent=self.indent)
-                f.close()
 
-class Struct(object):
-    """ Gestionnaire de lecture du fichier des structures
-    """
-    def __init__(self, struct=None):
-        self.struct = struct
-        self.tabEntetes = None
-        self.tabModeles = None
-
-        if(struct is not None):
-           self.readStruct()
-
-    def __str__(self):
-        return json.dumps(self.tabEntetes, indent=4) + "\n" + json.dumps(self.tabModeles, indent=4)
-
-    def __repr__(self):
-        return "{0} {1}".format(self.__class__, json.dumps(self.tabEntetes, indent=4)) + "\n" + \
-               "{0} {1}".format(self.__class__, json.dumps(self.tabModeles, indent=4))
-
-    def readStruct(self):
+    @staticmethod
+    def replaceTag(valeur=None):
         """
-        Lecture du fichier des structures
+        Remplace dans une string les TAGs par ses valeurs
+        Les infos sont recherches respectivement :
+           - Dans l'entete du modele (Constantes)
+           - Dans les donnees du catalogue
+        Un TAG est represente sous la forme : ${TAG}
         """
-        with open(self.struct, 'r') as input:
+        valTag = valeur
 
-            self.tabEntetes = {}
-            self.tabModeles = {}
+        if type(valeur) is str:
 
-            for line in input:
-                # Ignore les lignes vides ou les commentaires
-                if(patternIgnore.search(line)): continue
+            # Recupere la valeur reelle de la donnee
+            # et recherche d'un TAG
+            res = patternVariable.search(valeur)
+            valType = "str"
 
-                # Ligne d'entete
-                if(line.find("NODE_ID=") >= 0):
-                    entete = {}
-                    # Suppression des commentaires en fin de ligne
-                    # et decoupage en dictionnaire clef=valeur
-                    values = patternEndOfLine.search(line).group(1).split()
-                    for clef,valeur in [val.split("=") for val in values]:
-                        entete[clef] = valeur
-                    self.tabEntetes[entete.get("NODE_ID")] = entete
+            if res:
+                # Si un TAG  est trouve
+                keyTag = res.group(2)
 
-                # Ligne des modeles
-                if(line.startswith(": ", 1)):
-                    # Suppression des commentaires en fin de ligne
-                    # et decoupage en dictionnaire clef=valeur
-                    values = patternEndOfLine.search(line).group(1).split(": ")
-                    self.tabModeles[values[0]] = values[1]
+                # Recherche d'abord dans les constantes de l'entete
+                valTag = constantes.get(keyTag)
 
-            if(_debug):
-                print("[DEBUG] STRUCT")
-                print(self)
+                if valTag is None:
+                    # Recherche ensuite dans les donnees du catalogue
+                    colonne = colonnes.get(keyTag)
+                    if colonne is not None:
+                        try:
+                            # RC)cupC(re la valeur sur le champ
+                            valTag = line[colonne.get("pos")]
+
+                            # RC)cupC(re le type de la valeur
+                            valType = colonne.get("type")
+                        except IndexError:
+                            raise RegardsError("[ERROR] list index out of range for '%s'" % keyTag)
+
+                if valTag is None:
+                    # Valeur du TAG non trouvee : sortie
+                    raise RegardsNotFound("[ERROR] Tag is not defined for key '%s'" % valeur)
+
+                # Reconstruction de la valeur entiere
+                valTag = res.group(1) + valTag + res.group(3)
+
+                # Conversion de type
+                if valType == "int":
+                    valTag = int(valTag)
+                elif valType == "float":
+                    valTag = float(valTag)
+                elif valType == "boolean":
+                    valTag = bool(valTag)
+
+                # Recherche recursive des TAGs
+                valTag = JsonObject.replaceTag(valTag)
+
+        return valTag
+
+    @staticmethod
+    def replaceFn(valeur=None):
+        """
+        Calcul des fonctions
+        Une fonction est representee sous la forme : $${NAME, [PARAM1, ...]}
+        """
+        valTag = valeur
+
+        if type(valeur) is str:
+
+            # Recupere la fonction et ses parametres
+            # et recherche d'un TAG
+            res = patternFn.search(valeur)
+            if res:
+                # Si une fonction est trouvee, calcul de la fonction
+                valTag = functions.call(res.group(2))
+
+                # Reconstruction de la valeur entiere
+                if type(valTag) is str:
+                    valTag = res.group(1) + valTag + res.group(3)
+
+                # Recherche recursive des fonctions
+                valTag = JsonObject.replaceFn(valTag)
+
+        return valTag
+
+    def searchTag(self, key: str, value=None):
+        """
+        Parcours recursif d'un arbre json pour le remplacement des TAGs
+        """
+        if type(value) is str:
+            # Si la valeur est une string alors remplacement des TAGs
+            value = JsonObject.replaceTag(value)
+
+            # Appel des fonctions
+            value = JsonObject.replaceFn(value)
+
+        elif type(value) is dict:
+            # Parcours recursif du dico
+            for key, valTag in value.items():
+                value[key] = self.searchTag(key, valTag)
+
+        elif type(value) is list:
+            # Parcour recursif de la liste
+            idxVal = 0
+            for element in value:
+                value[idxVal] = self.searchTag(key, element)
+                idxVal += 1
+
+        elif value is None or type(value) is int or type(value) is float or type(value) is bool:
+            # Rien a faire
+            pass
+        else:
+            # Type not defined
+            raise RegardsError('[ERROR] unknown type "%s" for Key "%s"' % (type(value), key))
+
+        return value
+
 
 class Catalog(object):
-    """ Gestionnaire de lecture du fichier catalog
-    """
-    def __init__(self, catalog=None):
-        self.name = catalog
-        self.data = None
 
-        if(self.name is not None):
-           self.readCatalog()
-
-    def readCatalog(self):
+    def __init__(self, path, sep=";"):
         """
-        Lecture du fichier des catalogues
+
+        :param path: Pattern path and filename to search
+        :param sep: string separator. ';' by default.
         """
-        with open(self.name, 'r') as input:
+        self.path = path
+        self.sep = sep
 
-            self.data = []
+    def __str__(self):
+        return self.path
 
-            for line in input:
+    def __repr__(self):
+        return self.path
+
+    @staticmethod
+    def searchCatalogFiles(path, sep=';'):
+        """
+        Find json files with pattern path and filename.
+        Return a sorted and unique item list.
+
+        :param path: Pattern path and filename to search
+        :param sep: string separator. ';' by default.
+        :return: A list of catalog found
+        """
+        catalogs = []
+        if path == '-':
+            # EntrC)e standard
+            catalogs.append(Catalog(os.path.normpath("stdin"), sep))
+        else:
+            if not os.path.isdir(path):
+                listDir = glob.glob(path)
+                for file in listDir:
+                    # Si rC)pertoire alors appel recursif
+                    if not os.path.isdir(file):
+                        # Normalise le path
+                        catalogs.append(Catalog(os.path.normpath(file), sep))
+        return catalogs
+
+    def readCatalog(self, sep=None) -> List[str]:
+        """
+        Lecteur du fichier des catalogues
+
+        :return: Un gC)nC)rateur de lecture d'un fichier catalog.
+        """
+        # try:
+        if sep is None:
+            sep = self.sep
+
+        if self.path == "stdin":
+            for lLine in sys.stdin:
                 # Ignore les lignes vides ou les commentaires
-                if(patternIgnore.search(line)): continue
+                if patternIgnore.search(lLine): continue
 
                 # Suppression des commentaires en fin de ligne
-                # et decoupage en dictionnaire clef=valeur
-                values = patternEndOfLine.search(line).group(1).split()
-                self.data.append(values)
-
-            if(_debug):
-                print(self.data)
-
-            input.close()
-
-def replaceTag(valeur=None):
-    """
-    Remplace dans une string les TAGs par ses valeurs
-    Les infos sont recherches respectivement :
-       - Dans l'entete du modele (Constantes)
-       - Dans les donnees du catalogue
-       - Calculees (current date, md5, ...)
-    Un TAG est represente sous la forme : ${TAG}
-    """
-    valTag = valeur
-
-    if(type(valeur) is str):
-
-        # Recupere la valeur reelle de la donnee
-        # et recherche d'un TAG
-        m = patternVariable.search(valeur)
-        while(m):
-            # Si un TAG  est trouve
-            keyTag = m.group(2)
-
-            # Recherche d'abord dans les constantes de l'entete
-            valTag = modeleEntete.get(keyTag)
-
-            if(valTag is None):
-                # Recherche ensuite dans les donnees du catalogue
-                if(keyTag in modeleCatalog):
-                    valTag = line[modeleCatalog.index(keyTag) + 1]
-
-                if(valTag is None):
-                    # Traitement des cas particuliers
-                    # Ajout des informations supplementaires (date, ...)
-                    if(keyTag == "CURRENT_DATE"):
-                        valTag = dt.now().strftime("%Y-%m-%dT%H:%M:%S")
-
-            if(valTag is None):
-                # Valeur du TAG non trouvee : sortie
-                break
-
-            # Reconstruction de la valeur entiere
-            valTag = m.group(1) + valTag + m.group(3)
-
-            # Recherche iterative des TAGs
-            m = patternVariable.search(valTag)
-
-    return valTag
-
-def searchTag(clef, valeur=None):
-    """
-    Parcours recursif d'un arbre json pour le remplacement des TAGs
-    """
-    bOk = True
-    bStatus = True
-
-    if(type(valeur) is str):
-        # Si la valeur est une string alors remplacement des TAGs
-        valTag = replaceTag(valeur)
-        if(valTag is None):
-            print("[ERROR] Tag is not defined : '%s' for key '%s'" % (valeur, clef))
-            bOk = False
+                # et decoupage des champs
+                values = patternEndOfLine.search(lLine).group(1).split(sep=sep)
+                yield values
         else:
-           valeur = valTag
+            with open(self.path, 'r') as entry:
+                for lLine in entry:
+                    # Ignore les lignes vides ou les commentaires
+                    if patternIgnore.search(lLine): continue
 
-    elif(type(valeur) is OrderedDict):
-        # Parcours recursif du dico
-        for clef, valTag in valeur.items():
-            bStatus, valeur[clef] = searchTag(clef, valTag)
-            bOk &= bStatus
+                    # Suppression des commentaires en fin de ligne
+                    # et decoupage des champs
+                    values = patternEndOfLine.search(lLine).group(1).split(sep=sep)
+                    yield values
 
-    elif(type(valeur) is list):
-        # Parcour recursif de la liste
-        idxVal = 0
-        for element in valeur:
-            bStatus, valeur[idxVal] = searchTag(clef, element)
-            bOk &= bStatus
-            idxVal += 1
+        # except:
+        #     formatted_lines = traceback.format_exc().splitlines()
+        #     print(formatted_lines[-1], file=sys.stderr)
+        #     exit(1)
 
-    elif(valeur is None):
-        # Rien a faire
-        pass
-    else:
-        # Type not defined
-        bOk = False
-        print('[ERROR] unknown type "%s" for Key "%s"' % (type(valeur), clef))
 
-    return (bOk, valeur)
+class Unit(Enum):
+    O = (1, "o")
+    KIO = (1024, "Kio")
+    MIO = (1024 * 1024, "Mio")
+    GIO = (1024 * 1024 * 1024, "Gio")
+    TIO = (1024 * 1024 * 1024 * 1024, "Tio")
+
+    def __init__(self, multi, label):
+        self.multi = multi
+        self.unit = label
+
+    @property
+    def size(self):
+        return self.multi
+
+    @property
+    def label(self):
+        return self.label
+
+
+class Functions(object):
+
+    @staticmethod
+    def listFunctions():
+        return [(val[1], val[2], val[3]) for val in Functions.functions.values() if val[2] is not None]
+
+    def __str__(self):
+        return "\n".join(Functions.listFunctions())
+
+    def call(self, cmd):
+        cmdName = []
+        cmdParams = []
+        try:
+            # Decodage de la commande
+            elts = regex.split("[ ,]+", cmd)
+            cmdName = elts[0].upper()
+            cmdParams.append(self)
+            if elts[1] != '':
+                cmdParams.extend(elts[1:])
+
+            # Test si la fonction existe
+            try:
+                functions.functions[cmdName]
+            except:
+                listFn = "\n   ".join(
+                    [val[1] + ": " + val[3] + ", syntax: " + val[2] for val in Functions.functions.values() if
+                     val[2] is not None])
+                message = "[ERROR] Function not found : %s\nAvailable functions : \n   %s" % (
+                    cmdName, listFn)
+                raise RegardsError(message)
+
+            result = functions.functions[cmdName][0](*cmdParams)
+            return result
+
+        except (KeyError, TypeError, IndexError):
+            message = "[ERROR] Syntax : %s" % functions.functions[cmdName][2]
+            raise RegardsError(message)
+
+        except Exception as ex:
+            raise RegardsError("[ERROR] Function : %s" % cmdName, ex)
+
+    def basename(self, filename):
+        return os.path.basename(filename)
+
+    def basenameid(self, filename):
+        return os.path.splitext(os.path.basename(filename))[0]
+
+    def dirname(self, filename):
+        return os.path.dirname(filename)
+
+    def md5sum(self, filename):
+        # Calcul du checksum MD5
+        hash_md5 = hashlib.md5()
+        with open(filename, "rb") as f:
+            for chunk in iter(lambda: f.read(4096), b""):
+                hash_md5.update(chunk)
+        return hash_md5.hexdigest()
+
+    def now(self, format="%Y-%m-%dT%H:%M:%S"):
+        return dt.now().strftime(format)
+
+    def sizeFile(self, filename, unit="O"):
+        size = os.stat(filename).st_size / (Unit[unit]).size
+        return int(size)
+
+    def sizeImage(self, filename):
+        # Calcul de la taille de l'image
+        with Image.open(filename) as img:
+            return img.size
+
+    functions = {
+        "BASENAME": [basename, "BASENAME", "$${BASENAME, <filename>}", "Return name of file"],
+        "BASENAMEID": [basenameid, "BASENAMEID", "$${BASENAMEID, <filename>}",
+                       "Return name of file without extension"],
+        "DIRNAME": [dirname, "DIRNAME", "$${DIRNAME, <filename>}", "Return path of file"],
+        "MD5SUM": [md5sum, "MD5SUM", "$${MD5SUM, <local filename>}", "Return md5 checksum"],
+        "NOW": [now, "NOW", "$${NOW, [format date]}", "Return Date with format by default %Y-%m-%dT%H:%M:%S"],
+        "SIZE": (sizeFile, "SIZE", "$${SIZE, <local filename> [, O|KIO|MIO|GIO|TIO}]",
+                 "Return size file in unit (octet by default)"),
+        "SIZEIMAGE": [sizeImage, "SIZEIMAGE", "$${SIZEIMAGE, <local filename>}",
+                      "Return image size in pixel (width, heigh)"]
+    }
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Genere un fichier json au format REGARDS.\n\nAuthor : V. Cephirins\nDate  : 26/02/2018", 
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=__doc__)
-    groupDebug = parser.add_mutually_exclusive_group()
-    groupDebug.add_argument("-x", "--debug", dest="_debug", action="store_true", help=argparse.SUPPRESS)
-    groupDebug.add_argument("-q", "--quiet", action="store_true", help=argparse.SUPPRESS)
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.0", help=argparse.SUPPRESS)
-    parser.add_argument("-i", "--indent", type=int, help="indentation des lignes du fichier json", default=4)
-    parser.add_argument("-o", "--output", type=str, help="Nom du fichier json a generer. par defaut la sortie standard.", default="stdout")
-    parser.add_argument("model", type=str, help="Fichier du modele json a generer.")
-    parser.add_argument("struct", type=str, help="Fichier des structures des infos du catalogue.")
-    parser.add_argument("catalog", type=str, help="Fichier catalogue des informations.")
+    opts = args = None
+    indent = 4
+    nbFeaturesMax = 0
+    sep = ";"
+    outPathFile = "stdout"
+    modeleFile = None
+    patternFiles = None
 
-    args = parser.parse_args()
+    try:
+        opts, args = getopt.getopt(argv[1:], "hvi:n:s:o:",
+                                   ["help", "verbose", "indent", "number", "sep", "outPathFile"])
+    except getopt.GetoptError as err:
+        print(err)
+        print(__doc__)
+        exit(_FATAL)
 
-    if(args._debug):
-        _debug = args._debug
-        print(dir())
+    for opt, arg in opts:
+        if opt in ('-h', "--help"):
+            print(__doc__)
+            exit(_OK)
+        elif opt in ("-v", "--verbose"):
+            _verbose = True
+        elif opt in ("-i", "--indent"):
+            indent = int(arg)
+        elif opt in ("-n", "--number"):
+            nbFeaturesMax = int(arg)
+        elif opt in ("-s", "--sep"):
+            sep = int(arg)
+        elif opt in ("-o", "--outPathFile"):
+            # DC)construction du nom pour le modC(le et la numC)rotation
+            outPathFile, ext = os.path.splitext(arg)
+        else:
+            assert False, "unhandled option: %s" % (opt,)
 
-    # Lecture du fichier modele
-    dataObject = DataObject(modele=args.model, indent=args.indent)
+    if len(args) < 2:
+        print(__doc__)
+        exit(100)
 
-    # Lecture du fichier structure
-    struct = Struct(struct=args.struct)
+    modeleFile = args[0]
+    patternFiles = args[1:]
 
-    # Lecture du fichier catalogue
-    catalog = Catalog(catalog=args.catalog)
+    if _verbose:
+        # Parametres d'appel
+        print("Parameters: " + " ".join(argv[1:]))
 
-    #import pdb
-    #pdb.set_trace()
+    try:
+        # Chargement du modele
+        dataObject = JsonObject(modele=modeleFile, indent=indent)
 
-    # Chargement du modele globale
-    jsonGlobal = dataObject.data["modeles"]["modele_global"]
+        # Chargement de la structure des donnC)es
+        struct = dataObject.data["global"]
 
-    # Indicateur du bon deroulement des remplacements
-    bOkAll= True
-    bOk = True
-    bStatus = True
-    numLine = 0
+        # Ajout des constantes COMMON par modC(le
+        if struct["COMMON"].get("constantes"):
+            for modelid in struct.keys():
+                newModel = deepcopy(struct["COMMON"]["constantes"])
+                newModel.update(struct[modelid]["constantes"])
+                struct[modelid]["constantes"] = newModel
+                if _verbose: print("%s: %s" % (modelid, struct[modelid]["constantes"]))
 
-    # Mise a jour des infos
-    for line in catalog.data:
-        numLine += 1
+        # Ajout des colonnes COMMON par modC(le
+        if struct["COMMON"].get("colonnes"):
+            for modelid in struct.keys():
+                newModel = deepcopy(struct["COMMON"]["colonnes"])
+                newModel.update(struct[modelid]["colonnes"])
+                struct[modelid]["colonnes"] = newModel
+                if _verbose: print("%s: %s" % (modelid, struct[modelid]["colonnes"]))
 
-        # Recupere le modele
-        modele = line[0]
-        key = line[1]
+        # PrC)paration des rC)sultats json par modC(le
+        jsonResultGlobal = {i: {"nbFiles": 0, "nb": 0, "data": {}} for i in struct.keys()}
+        if _debug: print("=>  Available model(s): %s\n" % jsonResultGlobal)
 
-        # Recupere l'entete du modele
-        modeleEntete = struct.tabEntetes[key]
-        if(_debug): print(modeleEntete)
+        # functions
+        functions = Functions()
 
-        # Recupere le format des donnees du catalogue
-        modeleCatalog = struct.tabModeles[modele].split()
-        if(_debug): print(modeleCatalog)
+        # Indicateur du bon deroulement des remplacements
+        numLine = 0
+        jsonDataObject = None
 
-        # Chargement du modele json des donnees
-        jsonData = deepcopy(dataObject.data["modeles"]["modele_" + modele])
-        bStatus, jsonData = searchTag("root", jsonData)
-        bOk &= bStatus
+        # import pdb
+        # pdb.set_trace()
 
-        # Chargement du modele json des objets
-        jsonDataObject = deepcopy(dataObject.data["modeles"]["modele_do"])
-        bStatus, jsonDataObject = searchTag("root", jsonDataObject)
-        bOk &= bStatus
+        # Recherche des fichiers catalogues
+        listCatalogs = []
+        for pattern in patternFiles:
+            listCatalogs.extend(Catalog.searchCatalogFiles(pattern))
 
-        # Valorisation du modele
-        jsonData["properties"]["contentInformations"].append(jsonDataObject)
-        jsonGlobal["features"].append(jsonData)
+        if len(listCatalogs) == 0:
+            print("No catalog found !")
+            sys.exit(_OK)
 
-        if(bOk is False):
-            bOkAll = False
-            print("[ERROR] at line '%d' from catalog '%s'" % (numLine, catalog.name))
-            # Arret du process en cours
-            break
+        print("%d catalog(s) found: " % len(listCatalogs))
+        print("\n".join([str(name) for name in listCatalogs]))
+        print("\nJson file(s) created:")
 
-    if(bOkAll is False):
-        print("[ERROR] Json file is not generated !")
+        # Boucle sur tous les catalog
+        for catalog in listCatalogs:
+            # Lecture du fichier catalogue
+            modelid = None
+            for line in catalog.readCatalog():
+                try:
+                    numLine += 1
 
-    if(bOkAll or _debug):
-        # Creation du json dataObject
-        dataObject.writeJson(data=jsonGlobal, output=args.output);
+                    # Recupere le modele
+                    modelid = line[0]
+                    try:
+                        jsonModel = jsonResultGlobal[modelid]
 
-    sys.exit(bOkAll)
+                        # Recupere la structure du modele
+                        modelStruct = struct[modelid]
+
+                    except KeyError as ke:
+                        raise RegardsError("Model '%s' not found !" % modelid)
+
+                    modeleDesc = modelStruct.get("modele_desc")
+
+                    # Recupere les constantes
+                    constantes = modelStruct.get("constantes")
+
+                    # Recupere La dC)finition des champs du catalogue
+                    colonnes = modelStruct.get("colonnes")
+
+                    # On regarde si la limite du nombre d'objets est atteinte
+                    if nbFeaturesMax != 0 and jsonModel["nb"] >= nbFeaturesMax:
+                        # Ecriture du fichier et rC)initialisation d'un nouveau
+                        jsonModel["nbFiles"] += 1
+                        outputName = "%s_%s_%d_%d.json" % (outPathFile, modelid, jsonModel["nbFiles"], jsonModel["nb"])
+                        dataObject.writeJson(data=jsonModel["data"], output=outputName)
+                        print(outputName)
+                        jsonModel["nb"] = 0
+
+                    # Valorisation d'un nouveau header C  la premiC(re ligne
+                    if jsonModel["nb"] == 0:
+                        jsonModel["data"] = dataObject.searchTag("root",
+                                                                 deepcopy(
+                                                                     dataObject.data["modeles"][modeleDesc["header"]]))
+
+                    # Chargement et valorisation du modele json des donnees depuis la racine
+                    jsonDataObject = deepcopy(dataObject.data["modeles"][modeleDesc["body"]])
+                    jsonDataObject = dataObject.searchTag("root", jsonDataObject)
+
+                    # Sauvegarde dans le model appropriC)
+                    jointure = jsonModel["data"]
+                    for node in modeleDesc["join"]:
+                        try:
+                            jointure = jointure[node]
+                        except Exception as te:
+                            raise RegardsError("[ERROR] Check key '%s' for %s" % (node, jointure), te)
+
+                    jointure.append(jsonDataObject)
+
+                    # incrC)mente le nombre d'objets
+                    jsonModel["nb"] += 1
+
+                except KeyError as ke:
+                    raise RegardsError(
+                        "[ERROR] Key error %s at line '%d' from catalog '%s' with model '%s'" % (
+                            ke, numLine, catalog, modelid), ke)
+
+                except RegardsError as re:
+                    raise RegardsError(
+                        "[ERROR] at line '%d' from catalog '%s' with model '%s'" % (numLine, catalog, modelid), re)
+
+        # Creation des derniers fichiers json
+        for modelid in jsonResultGlobal.keys():
+            jsonModel = jsonResultGlobal[modelid]
+            if jsonModel["nb"] > 0:
+                jsonModel["nbFiles"] += 1
+                outputName = "%s_%s_%d_%d.json" % (outPathFile, modelid, jsonModel["nbFiles"], jsonModel["nb"])
+                dataObject.writeJson(data=jsonResultGlobal[modelid]["data"], output=outputName)
+                print(outputName)
+
+    except RegardsError as we:
+        print(we, file=sys.stderr)
+
+    sys.exit(0)
+

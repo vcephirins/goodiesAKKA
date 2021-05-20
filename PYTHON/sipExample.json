@@ -1,0 +1,122 @@
+{
+    "global": {
+        "COMMON": {
+            "constantes": {
+                "SESSION": "Exploit",
+                "REGARDS_DATA_TYPE": "RAWDATA",
+                "MIME_TYPE": "application/octet-stream",
+                "IP_TYPE": "DATA",
+                "STORAGE": "Local_CARMEN",
+                "ROOT_URL": "file://nfs/SERAD_SAVE/carmen",
+                "CHECKSUM_ALGO": "MD5",
+                "TOTO": "SIPs/sip_CARMEN2_Alarm_1_1.json"
+            },
+            "colonnes": {
+                "CATEGORIE": {"pos": 1, "type": "str"},
+                "DOID": {"pos": 2, "type": "str"},
+                "SIZE": {"pos": 3, "type": "int"},
+                "CHECKSUM": {"pos": 4, "type": "str"},
+                "START_DATE": {"pos": 5, "type": "str"}
+            }
+        },
+        "CARMEN1": {
+            "modele_desc": {"header": "header", "body": "carmen", "join":  ["features"]},
+            "constantes": {
+                "MISSION": "SAC-D",
+                "INSTRUMENT": "CARMEN1"
+            },
+            "colonnes": {}
+        },
+        "CARMEN2": {
+            "modele_desc": {"header": "header", "body": "carmen", "join":  ["features"]},
+            "constantes": {
+                "MISSION": "JASON-2",
+                "INSTRUMENT": "CARMEN2"
+            },
+            "colonnes": {}
+        },
+        "CARMEN1_Alarm": {
+            "modele_desc": {"header": "header", "body": "carmen", "join":  ["features"]},
+            "constantes": {
+                "MISSION": "SAC-D",
+                "INSTRUMENT": "CARMEN1"
+            },
+            "colonnes": {}
+        },
+        "CARMEN2_Alarm": {
+            "modele_desc": {"header": "header", "body": "carmen", "join":  ["features"]},
+            "constantes": {
+                "MISSION": "JASON-2",
+                "INSTRUMENT": "CARMEN2"
+            },
+            "colonnes": {}
+        }
+    },
+    "modeles": {
+        "header": {
+            "type": "FeatureCollection",
+            "metadata": {
+                "ingestChain": "DefaultProcessingChain",
+                "session": "${INSTRUMENT} ${CATEGORIE}",
+                "sessionOwner": "${SESSION}",
+                "categories": ["${CATEGORIE}"],
+                "storages": [
+                    {
+                        "pluginBusinessId": "Local",
+                        "targetTypes": ["AIP"]
+                    }
+                ]
+            },
+            "features": []
+        },
+        "carmen": {
+            "type": "Feature",
+            "id": "$${BASENAMEID, ${ROOT_URL}/${INSTRUMENT}/${DOID}.zip}",
+            "ipType": "${IP_TYPE}",
+            "geometry": null,
+            "properties": {
+                "contentInformations": [
+                    {
+                        "dataObject": {
+                            "regardsDataType": "${REGARDS_DATA_TYPE}",
+                            "locations": [
+                                {
+                                    "storage": "${STORAGE}",
+                                    "url": "${ROOT_URL}/${INSTRUMENT}/${DOID}.zip"
+                                }
+                            ],
+                            "filename": "${DOID}.zip",
+                            "checksum": "${CHECKSUM} $${MD5SUM, ${TOTO}}",
+                            "algorithm": "${CHECKSUM_ALGO}",
+                            "fileSize": "$${SIZE, ${TOTO}, O}"
+                        },
+                        "representationInformation": {
+                            "syntax": {
+                                "mimeType": "${MIME_TYPE}"
+                            }
+                        }
+                    }
+                ],
+                "pdi": {
+                    "contextInformation": {
+                        "tags": []
+                    },
+                    "referenceInformation": {},
+                    "provenanceInformation": {
+                        "history": []
+                    },
+                    "fixityInformation": {},
+                    "accessRightInformation": {}
+                },
+                "descriptiveInformation": {
+                    "mission": "${MISSION}",
+                    "instrument": "${INSTRUMENT}",
+                    "date": "${START_DATE}",
+                    "dataType": "${CATEGORIE}",
+                    "datasetName": "${INSTRUMENT} ${CATEGORIE}"
+                }
+            }
+        }
+    }
+}
+
